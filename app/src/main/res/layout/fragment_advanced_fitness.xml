@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".AdvancedFitnessFragment"
+    android:padding="@dimen/item_margin_horizontal">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_advanced_finess"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/btn_add"
+        android:paddingBottom="15dp"
+        />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_add"
+        android:background="@drawable/radius_btn"
+        android:text="Thêm"
+        style="@style/txt_title_styles"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:paddingTop="15dp"
+        />
+</RelativeLayout>

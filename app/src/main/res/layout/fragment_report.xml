@@ -1,14 +1,331 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#D0D0D0"
+    android:paddingHorizontal="@dimen/padding_parent_horizontal"
     tools:context=".ReportFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Report fragment" />
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_backdrop"
+                style="@style/done_fitness_cv"
+                android:layout_height="180dp"
+                app:cardCornerRadius="4dp">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/backdrop_done_fitness" />
+
+                    <TextView
+                        android:id="@+id/txt_content"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@string/title_font"
+                        android:text="TẬP LUYỆN \nĐÃ HOÀN THÀNH !!!"
+                        android:textColor="#353333"
+                        android:textSize="35sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_1"
+                style="@style/done_fitness_cv"
+                android:layout_below="@id/cv_backdrop">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="90dp"
+                    android:paddingVertical="@dimen/item_margin_horizontal">
+
+                    <TextView
+                        android:id="@+id/txt_exer"
+                        style="@style/txt_exer_and_calo"
+                        android:text="Bài tập" />
+
+                    <TextView
+                        android:id="@+id/txt_exer_amount"
+                        style="@style/txt_exer_and_calo_amount"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="4dp"
+                        android:text="15" />
+
+                    <TextView
+                        android:id="@+id/txt_calo"
+                        style="@style/txt_exer_and_calo"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginEnd="3dp"
+                        android:text="Calo" />
+
+                    <TextView
+                        android:id="@+id/txt_calo_amount"
+                        style="@style/txt_exer_and_calo_amount"
+                        android:layout_alignParentEnd="true"
+                        android:text="15" />
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_history"
+                style="@style/done_fitness_cv"
+                android:layout_below="@id/cv_1">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="30dp"
+                    android:paddingVertical="@dimen/item_margin_horizontal">
+
+                    <TextView
+                        android:id="@+id/txt_this_week"
+                        style="@style/txt_title_styles"
+                        android:layout_width="wrap_content"
+                        android:text="Tuần này" />
+
+                    <TextView
+                        android:id="@+id/txt_history"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/txt_this_week"
+                        android:layout_alignParentEnd="true"
+                        android:drawableEnd="@drawable/baseline_mode_edit_24"
+                        android:paddingVertical="@dimen/item_margin_vertical"
+                        android:text="Chỉnh sửa "
+                        android:textSize="16sp" />
+
+                    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+                        android:id="@+id/calendar_report"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@id/txt_this_week"
+                        app:mcv_calendarMode="week" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_fl_drink"
+                style="@style/done_fitness_cv"
+                android:layout_below="@id/cv_history">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:paddingHorizontal="30dp"
+                    android:paddingVertical="@dimen/item_margin_horizontal">
+
+                    <TextView
+                        android:id="@+id/txt_fl_drink"
+                        style="@style/txt_title_styles"
+                        android:layout_width="wrap_content"
+                        android:text="Theo dõi uống nước" />
+
+                    <TextView
+                        android:id="@+id/txt_water_drinked"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/txt_fl_drink"
+                        style="@style/txt_title_styles"
+                        android:text="6"
+                        />
+
+                    <TextView
+                        android:id="@+id/txt_water_total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_below="@id/txt_fl_drink"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_toEndOf="@id/txt_water_drinked"
+                        android:text="/6 cốc" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        >
+
+                        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                            android:id="@+id/progress_bar_day"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            app:cpb_background_progressbar_color="#b6bbd8"
+                            app:cpb_background_progressbar_width="7dp"
+                            app:cpb_progressbar_color_end="#0038FF"
+                            app:cpb_progressbar_color_start="#001561"
+                            app:cpb_progressbar_width="7dp"
+                            app:cpb_round_border="true"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/text_view_progress"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@string/detail_font"
+                            android:textSize="13dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/progress_bar_day"
+                            app:layout_constraintEnd_toEndOf="@+id/progress_bar_day"
+                            app:layout_constraintStart_toStartOf="@+id/progress_bar_day"
+                            app:layout_constraintTop_toTopOf="@+id/progress_bar_day"
+                            tools:text="6/8" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                    <com.google.android.material.button.MaterialButton
+                        android:background="@drawable/radius_btn"
+                        android:id="@+id/btn_drink"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
+                        style="@style/txt_title_styles"
+                        android:text="Uống"
+                        />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_weight"
+                style="@style/done_fitness_cv"
+                android:layout_below="@id/cv_fl_drink">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="@dimen/item_margin_horizontal_content"
+                    android:paddingVertical="@dimen/item_margin_horizontal">
+
+                    <TextView
+                        android:id="@+id/txt_weight_content"
+                        style="@style/txt_title_styles"
+                        android:text="Cân nặng" />
+
+                    <EditText
+                        android:id="@+id/edt_weight"
+                        android:layout_width="200dp"
+                        android:layout_height="40dp"
+                        android:layout_below="@id/txt_weight_content"
+                        android:layout_marginBottom="15dp" />
+
+                    <TextView
+                        style="@style/txt_title_styles"
+                        android:layout_alignBottom="@+id/edt_weight"
+                        android:layout_marginStart="0dp"
+                        android:layout_toEndOf="@id/edt_weight"
+                        android:text="KG"
+                        android:textColor="#FF0026AF" />
+
+                    <ImageView
+                        android:id="@+id/img_weight_chart"
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:layout_below="@id/edt_weight"
+                        android:background="@color/colorPrimary" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_bmi"
+                style="@style/done_fitness_cv"
+                android:layout_below="@id/cv_weight">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingHorizontal="@dimen/item_margin_horizontal_content"
+                    android:paddingVertical="@dimen/item_margin_horizontal">
+
+                    <TextView
+                        android:id="@+id/txt_bmi"
+                        style="@style/txt_title_styles"
+                        android:layout_width="wrap_content"
+                        android:text="BMI (kg/m*m)" />
+
+                    <TextView
+                        android:id="@+id/txt_option_bmi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/txt_bmi"
+                        android:layout_alignParentEnd="true"
+                        android:drawableEnd="@drawable/baseline_mode_edit_24"
+                        android:paddingVertical="@dimen/item_margin_vertical"
+                        android:text="Chỉnh sửa "
+                        android:textSize="16sp" />
+
+                    <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                        android:id="@+id/progress_circular_bmi"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_below="@id/txt_bmi"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginVertical="15dp"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginBottom="15dp"
+                        app:cpb_background_progressbar_color="#b6bbd8"
+                        app:cpb_background_progressbar_width="7dp"
+                        app:cpb_progressbar_color_end="#E82012"
+                        app:cpb_progressbar_color_start="#001561"
+                        app:cpb_progressbar_width="7dp"
+                        app:cpb_round_border="true" />
+
+                    <TextView
+                        android:layout_width="38dp"
+                        android:layout_height="26dp"
+                        android:layout_alignStart="@+id/progress_circular_bmi"
+                        android:layout_alignTop="@+id/progress_circular_bmi"
+                        android:layout_alignEnd="@+id/progress_circular_bmi"
+                        android:layout_alignBottom="@+id/progress_circular_bmi"
+                        android:layout_marginStart="41dp"
+                        android:layout_marginTop="46dp"
+                        android:layout_marginEnd="41dp"
+                        android:layout_marginBottom="48dp"
+                        android:fontFamily="sans-serif-condensed-medium"
+                        android:text="16.9"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/progress_circular_bmi"
+                        android:layout_centerHorizontal="true"
+                        android:drawableStart="@drawable/baseline_check_circle_24"
+                        android:fontFamily="sans-serif"
+                        android:text=" Đủ cân"
+                        android:textSize="20sp" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
+

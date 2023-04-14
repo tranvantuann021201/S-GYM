@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".NewFitnessFragment"
+    tools:context=".EditAdvanceFitnessFragment"
     android:padding="@dimen/item_margin_horizontal">
 
     <androidx.cardview.widget.CardView
@@ -33,7 +33,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_edit_new_fitness"
+        android:id="@+id/rv_edit_advance_fitness"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/cv_btn_add"
@@ -52,6 +52,5 @@
         android:layout_alignParentBottom="true"
         android:paddingTop="15dp"
         />
-
 
 </RelativeLayout>

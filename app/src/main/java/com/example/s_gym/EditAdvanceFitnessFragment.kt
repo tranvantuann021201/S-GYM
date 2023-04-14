@@ -1,23 +1,22 @@
 package com.example.s_gym
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ExerciseForADayFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-
-class ExerciseForADayFragment : Fragment() {
+/**
+ * A simple [Fragment] subclass.
+ * Use the [EditAdvanceFitnessFragment.newInstance] factory method to
+ * create an instance of this fragment.
+ */
+class EditAdvanceFitnessFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -25,8 +24,8 @@ class ExerciseForADayFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(com.example.s_gym.ARG_PARAM1)
-            param2 = it.getString(com.example.s_gym.ARG_PARAM2)
+            param1 = it.getString(ARG_PARAM1)
+            param2 = it.getString(ARG_PARAM2)
         }
     }
 
@@ -35,7 +34,7 @@ class ExerciseForADayFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_exercise_for_a_day, container, false)
+        return inflater.inflate(R.layout.fragment_edit_advance_fitness, container, false)
     }
 
     companion object {
@@ -45,15 +44,15 @@ class ExerciseForADayFragment : Fragment() {
          *
          * @param param1 Parameter 1.
          * @param param2 Parameter 2.
-         * @return A new instance of fragment ExerciseForADayFragment.
+         * @return A new instance of fragment EditAdvanceFitnessFragment.
          */
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            ExerciseForADayFragment().apply {
+            EditAdvanceFitnessFragment().apply {
                 arguments = Bundle().apply {
-                    putString(com.example.s_gym.ARG_PARAM1, param1)
-                    putString(com.example.s_gym.ARG_PARAM2, param2)
+                    putString(ARG_PARAM1, param1)
+                    putString(ARG_PARAM2, param2)
                 }
             }
     }

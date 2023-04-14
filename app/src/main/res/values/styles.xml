@@ -9,6 +9,14 @@
         <item name="android:paddingVertical">@dimen/item_margin_vertical</item>
     </style>
 
+    <style name="txt_name_aniamtion_styles">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@string/title_font</item>
+        <item name="android:textSize">@dimen/size_text_title</item>
+        <item name="android:paddingVertical">@dimen/item_margin_vertical</item>
+    </style>
+
     <style name="btn_next_and_previous">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -48,6 +56,13 @@
         <item name="android:layout_marginTop">10dp</item>
         <item name="android:layout_marginVertical">@dimen/item_margin_vertical</item>
         <item name="cardCornerRadius">10dp</item>
+    </style>
+
+    <style name="txt_amount_animation_style">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+        <item name="android:textSize">22sp</item>
     </style>
 
 
