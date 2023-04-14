@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FitnessFragment">
+
+    <ImageView
+        android:id="@+id/img_animation_exercise"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:background="@color/purple_500"/>
+
+    <TextView
+        android:paddingVertical="10dp"
+        android:id="@+id/txt_complete_warm_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Khởi động 1/4"
+        android:layout_below="@+id/img_animation_exercise"
+        android:layout_centerHorizontal="true"
+        style="@style/txt_title_styles"
+        android:visibility="gone"
+        />
+
+    <TextView
+        android:id="@+id/txt_exer_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_complete_warm_up"
+        style="@style/txt_title_styles"
+        android:textSize="30sp"
+        android:text="Gập bụng đạp xe"
+        android:layout_centerHorizontal="true"
+        android:paddingVertical="20dp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/txt_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="x 18"
+        style="@style/txt_title_styles"
+        android:layout_below="@id/txt_exer_name"
+        android:layout_centerHorizontal="true"
+        android:textSize="60dp"
+        android:textColor="@color/black"/>
+
+    <Button
+        android:id="@+id/btn_done"
+        style="@style/txt_title_styles"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/txt_previous"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="20dp"
+        android:layout_marginBottom="66dp"
+        android:background="@drawable/radius_btn"
+        android:drawableStart="@drawable/baseline_done_24"
+        android:enabled="false"
+        android:text="Xong" />
+
+    <TextView
+        android:id="@+id/txt_previous"
+        android:text="Trước đó"
+        style="@style/btn_next_and_previous"
+        android:drawableStart="@drawable/baseline_skip_previous_24"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"/>
+
+    <TextView
+        android:id="@+id/txt_next"
+        android:text="Trước đó"
+        android:drawableEnd="@drawable/baseline_skip_next_24"
+        style="@style/btn_next_and_previous"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

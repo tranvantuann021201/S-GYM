@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".PauseExerciseDialog"
+    style="@style/done_fitness_cv"
+    android:layout_marginHorizontal="20dp"
+    >
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_parent_horizontal"
+        tools:ignore="MissingConstraints"
+        android:layout_gravity="center"
+        >
+
+        <ImageView
+            android:id="@+id/img_present_animation"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_alignParentEnd="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="15dp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/txt_pause_animation"
+            style="@style/txt_title_styles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Tạm dừng"
+            android:textSize="30sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/img_present_animation"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/txt_present_animation_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_pause_animation"
+            android:text="Tên động tác hiện tại"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toBottomOf="@+id/img_present_animation"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_pause_animation"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/btn_cancel_dialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_present_animation"
+            android:text="Bắt đầu lại"
+            android:background="@drawable/radius_btn"
+            android:textSize="22sp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_reset_exer"
+            android:background="@drawable/radius_color_d0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_cancel_dialog"
+            app:layout_constraintStart_toStartOf="parent"
+            android:text="Hủy"
+            android:textSize="@dimen/txt_size_btn_dialog"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

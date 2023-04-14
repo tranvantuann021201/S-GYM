@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingStart="@dimen/padding_parent_horizontal"
+    android:paddingEnd="@dimen/padding_parent_horizontal"
+    tools:context=".ExerciseForADayFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:id="@+id/txt_intro"
+        style="@style/txt_title_styles"
+        android:text="Giới thiệu" />
+
+    <com.borjabravo.readmoretextview.ReadMoreTextView
+        android:id="@+id/txt_intro_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_intro"
+        android:fontFamily="@string/detail_font"
+        android:text="@string/intro_excer_every_day"
+        android:textSize="@dimen/size_text_detail"
+        app:colorClickableText="#0251ED"
+        app:trimCollapsedText="@string/read_more"
+        app:trimExpandedText="@string/read_less"
+        app:trimLength="87"
+        app:trimMode="trimModeLength" />
+
+    <TextView
+        android:id="@+id/txt_exer"
+        style="@style/txt_title_styles"
+        android:layout_width="wrap_content"
+        android:layout_below="@id/txt_intro_detail"
+        android:text="Bài tập" />
+
+    <TextView
+        android:id="@+id/txt_option_exer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_intro_detail"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="225dp"
+        android:layout_marginTop="12dp"
+        android:layout_toEndOf="@+id/txt_exer"
+        android:drawableEnd="@drawable/baseline_mode_edit_24"
+        android:fontFamily="sans-serif-condensed"
+        android:paddingVertical="@dimen/item_margin_vertical"
+        android:text="Chỉnh sửa "
+        android:textSize="@dimen/size_text_detail" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_list_exer_day"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/rl_view"
+        android:layout_below="@id/txt_exer" />
+
+    <RelativeLayout
+        android:id="@+id/rl_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_item"
+        android:layout_alignParentBottom="true">
+
+        <Button
+            android:id="@+id/btn_start_exer"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:background="@drawable/radius_btn"
+            android:fontFamily="sans-serif-condensed-medium"
+            android:text="Bắt đầu"
+            android:textSize="@dimen/size_text_title" />
+
+        <CheckBox
+            android:id="@+id/check_warm_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Bắt đầu với khởi động"
+            android:textSize="@dimen/size_text_detail" />
+
+        <TextView
+            android:id="@+id/txt_restart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/check_warm_up"
+            android:drawableStart="@drawable/baseline_replay_24"
+            android:fontFamily="sans-serif-condensed"
+            android:text="Bắt đầu lại"
+            android:textColor="@color/colorPrimary"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PlanFragment.BasicPlanFragment">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_backdrop"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_below="@id/txt_title"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="4dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/backdrop_fitness_basic"></ImageView>
+
+            <TextView
+                android:id="@+id/txt_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@string/title_font"
+                android:text="CHẾ ĐỘ LUYỆN TẬP CƠ BẢN"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txt_content_details"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_item"
+                android:layout_below="@id/txt_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:fontFamily="@string/detail_font"
+                android:text="Hãy luyện 5-10 phút mỗi ngày để giảm nguy cơ mắc các bệnh về tim mạch."
+                android:textColor="@color/white"
+                android:textSize="@dimen/size_text_detail" />
+
+            <ProgressBar
+                android:id="@+id/progress_bar_plan"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_alignParentBottom="true"
+                android:progressDrawable="@drawable/custom_progress_bg" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/progress_bar_plan"
+                android:layout_marginStart="@dimen/item_margin_horizontal"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text="31 ngày còn lại"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/size_text_detail" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@id/progress_bar_plan"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="@dimen/item_margin_horizontal"
+                android:layout_marginBottom="5dp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text="0.0%"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/size_text_detail" />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!--    <androidx.recyclerview.widget.RecyclerView-->
+    <!--        android:id="@+id/rv_basic_plan"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content" />-->
+
+    <!--      Nháp Circular Progress  -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.mikhaellopez.circularprogressbar.CircularProgressBar
+            android:id="@+id/progress_bar_day"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:cpb_background_progressbar_color="#b6bbd8"
+            app:cpb_background_progressbar_width="7dp"
+            app:cpb_progressbar_color_end="#0038FF"
+            app:cpb_progressbar_color_start="#001561"
+            app:cpb_progressbar_width="7dp"
+            app:cpb_round_border="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_view_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@string/detail_font"
+            android:textSize="40dp"
+            app:layout_constraintBottom_toBottomOf="@+id/progress_bar_day"
+            app:layout_constraintEnd_toEndOf="@+id/progress_bar_day"
+            app:layout_constraintStart_toStartOf="@+id/progress_bar_day"
+            app:layout_constraintTop_toTopOf="@+id/progress_bar_day"
+            tools:text="60%" />
+
+        <Button
+            android:id="@+id/button_decr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="44dp"
+            android:text="+ 10%"
+            app:layout_constraintStart_toStartOf="@+id/progress_bar_day"
+            app:layout_constraintTop_toBottomOf="@+id/progress_bar_day" />
+
+        <Button
+            android:id="@+id/button_incr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="120dp"
+            android:text="- 10%"
+            app:layout_constraintEnd_toEndOf="@+id/progress_bar_day"
+            app:layout_constraintTop_toBottomOf="@+id/progress_bar_day" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="txt_title_styles">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@string/title_font</item>
+        <item name="android:textSize">@dimen/size_text_title</item>
+        <item name="android:paddingVertical">@dimen/item_margin_vertical</item>
+    </style>
+
+    <style name="btn_next_and_previous">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textSize">25dp</item>
+        <item name="android:fontFamily">sans-serif-condensed-medium</item>
+        <item name="android:paddingVertical">@dimen/padding_parent_horizontal</item>
+    </style>
+
+    <style name="txt_exer_and_calo">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif</item>
+    </style>
+
+    <style name="txt_exer_and_calo_amount">
+        <item name="android:layout_below">@id/txt_exer</item>
+        <item name="android:fontFamily">sans-serif-condensed-medium</item>
+        <item name="android:textSize">35sp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColor">#FF0026AF</item>
+    </style>
+
+    <style name="done_fitness_cv">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginVertical">@dimen/item_margin_vertical</item>
+        <item name="cardCornerRadius">10dp</item>
+    </style>
+
+    <style name="cv_item">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginVertical">@dimen/item_margin_vertical</item>
+        <item name="cardCornerRadius">10dp</item>
+    </style>
+
+
+</resources>

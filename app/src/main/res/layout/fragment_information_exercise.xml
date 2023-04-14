@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".InformationExerciseFragment">
+
+    <RelativeLayout
+        android:id="@+id/rl_animation"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_alignParentTop="true"
+        >
+
+        <ImageView
+            android:id="@+id/img_animation_exercise"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/txt_icon_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/baseline_close_24" />
+
+        <TextView
+            android:id="@+id/txt_exer_amount"
+            style="@style/txt_title_styles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="00:30" />
+
+        <TextView
+            android:id="@+id/txt_minus_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="8dp"
+            android:layout_toStartOf="@+id/txt_exer_amount"
+            android:drawableStart="@drawable/baseline_remove_24" />
+
+        <TextView
+            android:id="@+id/txt_plus_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="8dp"
+            android:layout_toEndOf="@+id/txt_exer_amount"
+            android:drawableStart="@drawable/baseline_add_24" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:paddingTop="10dp"
+        android:paddingHorizontal="@dimen/item_margin_horizontal"
+        android:id="@+id/rl_infor_detail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/btn_add_animation"
+        android:layout_below="@+id/rl_animation">
+
+        <TextView
+            android:id="@+id/txt_animation_name"
+            style="@style/txt_title_styles"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tên động tác" />
+
+        <TextView
+            android:id="@+id/txt_infor_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt_animation_name"
+            android:fontFamily="sans-serif"
+            android:text="Google Dịch là một công cụ dịch thuật trực tuyến do Google phát triển. Nó cung cấp giao diện trang web, ứng dụng trên thiết bị di động cho hệ điều hành Android và iOS và giao diện lập trình ứng dụng giúp nhà phát triển xây dựng tiện ích mở rộng trình duyệt web và ứng dụng phần mềm."
+            android:textSize="13sp" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_add_animation"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:text="Thêm"
+        style="@style/txt_title_styles"
+        android:background="@drawable/radius_btn"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginVertical="15dp"
+        />
+
+</RelativeLayout>

@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">S-GYM</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_font">sans-serif-condensed-medium</string>
+    <string name="detail_font">sans-serif</string>
+    <string name="intro_excer_every_day">Những con bướm vàng, bướm trắng, đủ sắc đủ màu bay giữa vườn hoa tạo nên cảnh đẹp thơ mộng. Bướm rất thích hoa, những bông hoa càng sặc sỡ thì càng thu hút chúng. Vậy chi tiết mời các em cùng theo dõi bài viết để có thêm nhiều vốn từ, hoàn thiện bài văn của mình.</string>
+</resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/done_fitness_cv"
+    android:id="@+id/item_history"
+    android:backgroundTint="#ACA5A5">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="40dp">
+        <TextView
+            android:id="@+id/txt_exer_day"
+            style="@style/txt_title_styles"
+            android:text="2 TH4"
+            />
+
+        <TextView
+            android:id="@+id/txt_kcal_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/baseline_local_fire_department_24"
+            android:layout_alignParentEnd="true"
+            android:textSize="18sp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="65dp"
+            />
+
+        <TextView
+            android:id="@+id/txt_kcal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="39.9 kcal"
+            android:fontFamily="sans-serif-condensed"
+            android:textSize="18sp"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

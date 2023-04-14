@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/height_item"
+    android:id="@+id/item_exercise">
+
+    <ImageView
+        android:id="@+id/img_animation_exercise"
+        android:layout_width="150dp"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/txt_animation_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:layout_toEndOf="@+id/img_animation_exercise"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Tên động tác"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/txt_animation_amount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txt_animation_name"
+        android:layout_toEndOf="@+id/img_animation_exercise"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Khối lượng tập luyện" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/baseline_done_24"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginHorizontal="@dimen/item_margin_vertical"
+        android:visibility="invisible"
+        />
+</RelativeLayout>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".DoneFitnessFragment"
+    android:paddingHorizontal="@dimen/padding_parent_horizontal"
+    android:background="#D0D0D0">
+
+    <androidx.cardview.widget.CardView
+        android:layout_height="180dp"
+        android:id="@+id/cv_backdrop"
+        app:cardCornerRadius="4dp"
+        style="@style/done_fitness_cv">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/backdrop_done_fitness"/>
+
+            <TextView
+                android:id="@+id/txt_content"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@string/title_font"
+                android:text="TẬP LUYỆN \nĐÃ HOÀN THÀNH !!!"
+                android:textColor="#353333"
+                android:textSize="35sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_1"
+        style="@style/done_fitness_cv"
+        android:layout_below="@id/cv_backdrop"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingHorizontal="90dp"
+            android:paddingVertical="@dimen/item_margin_horizontal"
+            >
+            <TextView
+                android:id="@+id/txt_exer"
+                android:text="Bài tập"
+                style="@style/txt_exer_and_calo" />
+            <TextView
+                style="@style/txt_exer_and_calo_amount"
+                android:id="@+id/txt_exer_amount"
+                android:text="15"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="4dp"/>
+
+            <TextView
+                android:id="@+id/txt_calo"
+                android:text="Calo"
+                style="@style/txt_exer_and_calo"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="3dp"/>
+            <TextView
+                android:id="@+id/txt_calo_amount"
+                android:text="15"
+                style="@style/txt_exer_and_calo_amount"
+                android:layout_alignParentEnd="true"
+                />
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+    
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_weight_and_bmi"
+        style="@style/done_fitness_cv"
+        android:layout_below="@id/cv_1">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingVertical="@dimen/item_margin_horizontal"
+            android:paddingHorizontal="@dimen/item_margin_horizontal_content">
+            <TextView
+                android:id="@+id/txt_weight_content"
+                style="@style/txt_title_styles"
+                android:text="Cân nặng"/>
+
+            <EditText
+                android:id="@+id/edt_weight"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:layout_below="@id/txt_weight_content"/>
+
+            <TextView
+                style="@style/txt_title_styles"
+                android:layout_alignBottom="@+id/edt_weight"
+                android:layout_marginStart="0dp"
+                android:layout_toEndOf="@id/edt_weight"
+                android:text="KG"
+                android:textColor="#FF0026AF" />
+
+            <TextView
+                android:id="@+id/txt_bmi"
+                style="@style/txt_title_styles"
+                android:layout_width="wrap_content"
+                android:text="BMI (kg/m*m)"
+                android:layout_marginTop="30dp"
+                android:layout_below="@id/edt_weight"/>
+
+            <TextView
+                android:id="@+id/txt_option_bmi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/txt_bmi"
+                android:layout_alignParentEnd="true"
+                android:drawableEnd="@drawable/baseline_mode_edit_24"
+                android:paddingVertical="@dimen/item_margin_vertical"
+                android:text="Chỉnh sửa "
+                android:textSize="16sp" />
+
+            <com.mikhaellopez.circularprogressbar.CircularProgressBar
+                android:id="@+id/progress_circular_bmi"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_below="@id/txt_bmi"
+                android:layout_centerHorizontal="true"
+                android:layout_marginVertical="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                app:cpb_background_progressbar_color="#b6bbd8"
+                app:cpb_background_progressbar_width="7dp"
+                app:cpb_progressbar_color_end="#E82012"
+                app:cpb_progressbar_color_start="#001561"
+                app:cpb_progressbar_width="7dp"
+                app:cpb_round_border="true" />
+
+            <TextView
+                android:layout_width="38dp"
+                android:layout_height="26dp"
+                android:layout_alignStart="@+id/progress_circular_bmi"
+                android:layout_alignTop="@+id/progress_circular_bmi"
+                android:layout_alignEnd="@+id/progress_circular_bmi"
+                android:layout_alignBottom="@+id/progress_circular_bmi"
+                android:layout_marginStart="41dp"
+                android:layout_marginTop="46dp"
+                android:layout_marginEnd="41dp"
+                android:layout_marginBottom="48dp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text="16.9"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" Đủ cân"
+                android:fontFamily="sans-serif"
+                android:textSize="20sp"
+                android:layout_below="@id/progress_circular_bmi"
+                android:layout_centerHorizontal="true"
+                android:drawableStart="@drawable/baseline_check_circle_24"
+                />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <Button
+        style="@style/txt_title_styles"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@+id/cv_weight_and_bmi"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/radius_btn"
+        android:layout_marginTop="3dp"
+        android:text="Tiếp theo" />
+
+</RelativeLayout>
+
