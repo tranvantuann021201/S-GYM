@@ -1,20 +1,15 @@
-package com.example.s_gym.PlanFragment
+package com.example.s_gym.ui.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import com.example.s_gym.adapter.FragmentPlanPagerAdapter
 import com.example.s_gym.R
 import com.example.s_gym.databinding.FragmentPlanBinding
 import com.google.android.material.tabs.TabLayout
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -41,7 +36,7 @@ class PlanFragment : Fragment() {
 
         init()
 
-        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+        tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 if (tab != null) {
                     viewPager2.currentItem = tab.position

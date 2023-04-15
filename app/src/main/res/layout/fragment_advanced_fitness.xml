@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".AdvancedFitnessFragment"
+    tools:context=".ui.fragment.AdvancedFitnessFragment"
     android:padding="@dimen/item_margin_horizontal">
 
     <androidx.recyclerview.widget.RecyclerView

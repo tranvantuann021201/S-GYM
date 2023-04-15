@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#D0D0D0"
     android:paddingHorizontal="@dimen/padding_parent_horizontal"
-    tools:context=".ReportFragment">
+    tools:context=".ui.fragment.ReportFragment">
 
     <ScrollView
         android:layout_width="match_parent"

@@ -12,7 +12,7 @@
         android:theme="@style/Theme.SplashScreen"
         tools:targetApi="31">
         <activity
-            android:name=".SplashScreen"
+            android:name=".ui.fragment.SplashScreen"
             android:theme="@style/Theme.SplashScreen"
             android:exported="true">
             <intent-filter>

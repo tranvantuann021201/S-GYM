@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".DoneFitnessFragment"
+    tools:context=".ui.fragment.DoneFitnessFragment"
     android:paddingHorizontal="@dimen/padding_parent_horizontal"
     android:background="#D0D0D0">
 

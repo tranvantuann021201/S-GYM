@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditBasicFitnessFragment"
+    tools:context=".ui.fragment.EditBasicFitnessFragment"
     android:padding="@dimen/item_margin_horizontal"
     >
 

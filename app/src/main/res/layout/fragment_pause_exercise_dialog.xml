@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".PauseExerciseDialog"
+    tools:context=".ui.dialog.PauseExerciseDialog"
     style="@style/done_fitness_cv"
     android:layout_marginHorizontal="20dp"
     >

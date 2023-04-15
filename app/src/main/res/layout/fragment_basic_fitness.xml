@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:paddingStart="@dimen/padding_parent_horizontal"
     android:paddingEnd="@dimen/padding_parent_horizontal"
-    tools:context=".BasicFitnessFragment">
+    tools:context=".ui.fragment.BasicFitnessFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView

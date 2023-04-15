@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".UpdateBMIDialog"
+    tools:context=".ui.dialog.UpdateBMIDialog"
     android:layout_marginHorizontal="40dp"
     style="@style/done_fitness_cv">
 

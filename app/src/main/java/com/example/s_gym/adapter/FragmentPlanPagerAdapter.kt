@@ -1,9 +1,11 @@
-package com.example.s_gym.PlanFragment
+package com.example.s_gym.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.s_gym.ui.fragment.AdvancedPlanFragment
+import com.example.s_gym.ui.fragment.BasicPlanFragment
 
 class FragmentPlanPagerAdapter(
     fragmentManager: FragmentManager,
