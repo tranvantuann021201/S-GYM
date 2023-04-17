@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.fragment.RemindFragment"
+    android:padding="@dimen/padding_parent_horizontal"
+    >
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_gender"
+        style="@style/done_fitness_cv">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/padding_parent_horizontal"
+            android:paddingVertical="@dimen/padding_parent_horizontal">
+
+            <TextView
+                android:id="@+id/txt_drink_water_remind"
+                style="@style/txt_title_styles"
+                android:layout_width="wrap_content"
+                android:drawableStart="@drawable/baseline_notifications_active_24"
+                android:paddingHorizontal="@dimen/item_margin_horizontal"
+                android:text=" Nhắc nhở uống nước" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/sw_drink_water_remind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        style="@style/done_fitness_cv"
+        android:layout_below="@+id/cv_gender">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/padding_parent_horizontal"
+            android:paddingVertical="@dimen/padding_parent_horizontal">
+
+            <TextView
+                android:id="@+id/txt_exer_remind"
+                style="@style/txt_title_styles"
+                android:layout_width="wrap_content"
+                android:drawableStart="@drawable/baseline_notifications_active_24"
+                android:paddingHorizontal="@dimen/item_margin_horizontal"
+                android:text=" Nhắc nhở luyện tập" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/sw_exer_remind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

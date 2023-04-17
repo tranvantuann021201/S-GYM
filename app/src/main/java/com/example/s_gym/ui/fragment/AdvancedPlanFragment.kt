@@ -20,8 +20,6 @@ class AdvancedPlanFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-            param1 = it.getString(com.example.s_gym.PlanFragment.ARG_PARAM1)
-            param2 = it.getString(com.example.s_gym.PlanFragment.ARG_PARAM2)
         }
     }
 
@@ -47,8 +45,6 @@ class AdvancedPlanFragment : Fragment() {
         fun newInstance(param1: String, param2: String) =
             AdvancedPlanFragment().apply {
                 arguments = Bundle().apply {
-                    putString(com.example.s_gym.PlanFragment.ARG_PARAM1, param1)
-                    putString(com.example.s_gym.PlanFragment.ARG_PARAM2, param2)
                 }
             }
     }

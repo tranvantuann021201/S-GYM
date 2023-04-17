@@ -1,14 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.SettingFragment">
+    android:contentDescription="For more ui/ux visit www.materialuiux.com"
+    android:fillViewport="true"
+    tools:context=".ui.fragment.SettingFragment"
+    tools:ignore="HardcodedText">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Setting fragment" />
+        android:background="#000000"
+        android:contentDescription="For more ui/ux visit www.materialuiux.com"
+        tools:context=".MainActivity"
+        tools:ignore="ScrollViewSize">
 
-</FrameLayout>
+        <!-- Cover Layout -->
+        <RelativeLayout
+            android:id="@+id/id_background_RelativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:contentDescription="For more ui/ux visit www.materialuiux.com">
+
+            <!-- Cover Image -->
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:contentDescription="For more ui/ux visit www.materialuiux.com"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/setting_backdrop"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/id_background_RelativeLayout"
+            android:background="#c9c8ca"
+            android:contentDescription="For more ui/ux visit www.materialuiux.com"
+            android:paddingHorizontal="15dp"
+            android:paddingTop="140dp">
+
+            <androidx.cardview.widget.CardView style="@style/done_fitness_cv">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/txt_setting_title"
+                        android:paddingVertical="20dp"
+                        android:paddingHorizontal="30dp"
+                        style="@style/txt_title_styles"
+                        android:text=" Cài đặt"
+                        android:drawableStart="@drawable/baseline_settings_24"
+                        />
+
+
+                    <TextView
+
+                        android:id="@+id/txt_my_profile"
+                        style="@style/txt_option_setting"
+                        android:text="Hồ sơ của tôi"
+                        android:layout_below="@+id/txt_setting_title"/>
+
+                    <TextView
+                        android:id="@+id/txt_exer_setting"
+                        style="@style/txt_option_setting"
+                        android:layout_below="@id/txt_my_profile"
+                        android:text="Cài đặt luyện tập" />
+
+                    <TextView
+                        android:id="@+id/txt_remind"
+                        style="@style/txt_option_setting"
+                        android:layout_below="@id/txt_exer_setting"
+                        android:text="Nhắc nhở" />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+
+        <!-- Profile Image and full names and (flowers / flowing)
+         * you need to insert java code ro for the background * -->
+        <RelativeLayout
+            android:id="@+id/id_r1"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="120dp"
+            android:contentDescription="For more ui/ux visit www.materialuiux.com">
+
+            <RelativeLayout
+                android:id="@+id/id_profile_ImageView"
+                android:layout_width="160dp"
+                android:layout_height="160dp"
+                android:layout_centerHorizontal="true">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="151dp"
+                    android:layout_height="151dp"
+                    android:layout_centerInParent="true"
+                    android:contentDescription="For more ui/ux visit www.materialuiux.com"
+                    android:src="@drawable/default_avatar"
+                    app:civ_border_color="#314357"
+                    app:civ_border_width="2dp" />
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/id_profile_ImageView"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="13dp"
+                android:contentDescription="For more ui/ux visit www.materialuiux.com"
+                android:text="Your Setting"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+
+</ScrollView>

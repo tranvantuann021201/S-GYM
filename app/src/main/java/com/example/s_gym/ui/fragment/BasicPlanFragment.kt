@@ -56,8 +56,6 @@ class BasicPlanFragment : Fragment() {
         fun newInstance(param1: String, param2: String) =
             BasicPlanFragment().apply {
                 arguments = Bundle().apply {
-                    putString(com.example.s_gym.PlanFragment.ARG_PARAM1, param1)
-                    putString(com.example.s_gym.PlanFragment.ARG_PARAM2, param2)
                 }
             }
     }

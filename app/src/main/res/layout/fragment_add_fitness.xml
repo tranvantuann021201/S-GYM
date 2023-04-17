@@ -4,12 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.fragment.MyPlanFragment"
+    tools:context=".ui.fragment.AddFitnessFragment"
     android:paddingHorizontal="@dimen/padding_parent_horizontal"
     android:paddingVertical="@dimen/padding_parent_horizontal"
     >
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_my_plan"
+        android:id="@+id/rv_add_fitness"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="@dimen/item_margin_vertical"

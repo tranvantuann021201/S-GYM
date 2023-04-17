@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/padding_parent_horizontal"
+    tools:context=".ui.fragment.MyProfileFragment">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_gender"
+        style="@style/done_fitness_cv">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/padding_parent_horizontal"
+            android:paddingVertical="@dimen/padding_parent_horizontal">
+
+            <TextView
+                android:id="@+id/txt_gender_title_title"
+                style="@style/txt_title_styles"
+                android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
+                android:drawableStart="@drawable/baseline_transgender_24"
+                android:paddingHorizontal="@dimen/item_margin_horizontal"
+                android:text=" Giới tính" />
+
+            <com.google.android.material.button.MaterialButtonToggleGroup
+                android:id="@+id/toggleButtonGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                app:singleSelection="true">
+
+                <Button
+                    android:id="@+id/btn_male"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nam" />
+
+                <Button
+                    android:id="@+id/btn_female"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nữ" />
+
+            </com.google.android.material.button.MaterialButtonToggleGroup>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        style="@style/done_fitness_cv"
+        android:layout_below="@+id/cv_gender">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="@dimen/padding_parent_horizontal"
+            android:paddingVertical="@dimen/padding_parent_horizontal">
+
+            <TextView
+                android:id="@+id/txt_birth_day_title"
+                style="@style/txt_title_styles"
+                android:layout_width="wrap_content"
+                android:drawableStart="@drawable/baseline_calendar_month_24"
+                android:paddingHorizontal="@dimen/item_margin_horizontal"
+                android:text=" Ngày sinh" />
+
+            <TextView
+                android:id="@+id/txt_birth_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txt_birth_day_title"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="sans-serif"
+                android:text="02 Th12 2001"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/txt_modify_birth_day"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/txt_birth_day"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:drawableEnd="@drawable/baseline_mode_edit_24"
+                android:fontFamily="sans-serif"
+                android:text="Chỉnh sửa "
+                android:textSize="18sp" />
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

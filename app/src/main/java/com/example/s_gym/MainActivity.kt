@@ -3,9 +3,7 @@ package com.example.s_gym
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.example.s_gym.ui.fragment.HistoryFragment
-import com.example.s_gym.ui.fragment.PlanFragment
-import com.example.s_gym.ui.fragment.ReportFragment
+import com.example.s_gym.ui.fragment.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -27,7 +25,7 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
                 R.id.settings -> {
-                    loadFragment(HistoryFragment())
+                    loadFragment(MyProfileFragment())
                     true
                 }
                 else -> {loadFragment(PlanFragment())

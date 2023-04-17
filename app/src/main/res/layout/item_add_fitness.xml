@@ -3,7 +3,9 @@
     style="@style/done_fitness_cv"
     android:layout_width="match_parent"
     android:layout_height="@dimen/height_item"
-    android:paddingHorizontal="@dimen/item_margin_horizontal">
+    android:paddingHorizontal="@dimen/item_margin_horizontal"
+    android:id="@+id/item_add_fitness"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"

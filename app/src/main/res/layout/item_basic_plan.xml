@@ -10,7 +10,9 @@
     android:layout_marginBottom="@dimen/item_margin_vertical"
     app:cardCornerRadius="@dimen/item_cv_radius"
     android:id="@+id/item_basic_plan"
-    tools:ignore="MissingConstraints">
+    tools:ignore="MissingConstraints"
+
+    >
 
     <RelativeLayout
         android:background="#D0D0D0D0"
