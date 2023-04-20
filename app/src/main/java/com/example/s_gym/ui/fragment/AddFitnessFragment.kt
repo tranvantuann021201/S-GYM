@@ -1,51 +1,67 @@
 package com.example.s_gym.ui.fragment
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import com.example.s_gym.R
+import android.widget.LinearLayout
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import com.example.s_gym.adapter.AddFitnessAdapter
+import com.example.s_gym.api.WorkoutApiService
+import com.example.s_gym.database.Exercise
+import com.example.s_gym.databinding.FragmentAddFitnessBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-/**
- * A simple [Fragment] subclass.
- * Use the [AddFinessFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
-class AddFitnessFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+class AddFitnessFragment : AppCompatActivity() {
+    private lateinit var binding: FragmentAddFitnessBinding
+    private lateinit var exerciseList: List<Exercise>
+    private lateinit var addFitnessAdapter: AddFitnessAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
+        binding = FragmentAddFitnessBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
         }
+
+        exerciseList = getListExercise()
+        addFitnessAdapter = AddFitnessAdapter(exerciseList)
+        binding.rvAddFitness.adapter = addFitnessAdapter
+        binding.rvAddFitness.layoutManager =
+            LinearLayout(, LinearLayout.VERTICAL, false)
+
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add_fitness, container, false)
+    private fun getListExercise(): List<Exercise> {
+        val list: ArrayList<Exercise> = ArrayList()
+        list.add(Exercise(1, "abc", 1, emptyList(), 0, "string", "uudi"))
+        list.add(Exercise(2, "abc", 1, emptyList(), 0, "string", "uudi"))
+        list.add(Exercise(3, "abc", 1, emptyList(), 0, "string", "uudi"))
+        list.add(Exercise(4, "abc", 1, emptyList(), 0, "string", "uudi"))
+        list.add(Exercise(5, "abc", 1, emptyList(), 0, "string", "uudi"))
+        return list
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MyPlanFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            AddFitnessFragment().apply {
-                arguments = Bundle().apply {
-                }
-            }
-    }
+//    private fun init() {
+//
+//        WorkoutApiService.service.getExercises().enqueue(object : Callback<List<Exercise>> {
+//            override fun onResponse(call: Call<List<Exercise>>?, response: Response<List<Exercise>>?) {
+//                val exercisesList = response?.body()
+//                //Xử lý danh sách bài tập ở đây
+//                if (exercisesList != null) {
+//                    addFitnessAdapter = AddFitnessAdapter(exerciseList)
+//                    addFitnessAdapter.setData(this@AddFitnessFragment,exercisesList)
+//                    binding.rvAddFitness.adapter = addFitnessAdapter
+//                }
+//                Toast.makeText(this@AddFitnessFragment, "Call success", Toast.LENGTH_SHORT).show()
+//            }
+//
+//            override fun onFailure(call: Call<List<Exercise>>?, t: Throwable?) {
+//                // Xử lý lỗi khi không kết nối được API
+//                Toast.makeText(this@AddFitnessFragment, "Call failed", Toast.LENGTH_SHORT).show()
+//            }
+//        })
+//    }
 }

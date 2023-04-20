@@ -64,7 +64,21 @@ dependencies {
     //calendar only a week
     implementation 'com.github.prolificinteractive:material-calendarview:2.0.0'
 
+    //multiple language
+    implementation 'com.github.prongbang:localization:2.1.2'
+
+    //calendar only a week
+    implementation 'com.github.prolificinteractive:material-calendarview:2.0.0'
+
     //circle img
     implementation 'de.hdodenhof:circleimageview:3.0.0'
+
+    //retrofit & gson
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+
+    //glide
+    implementation 'com.github.bumptech.glide:glide:3.7.0'
+
 
 }

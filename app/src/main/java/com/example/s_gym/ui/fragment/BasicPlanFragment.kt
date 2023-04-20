@@ -7,11 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.s_gym.databinding.FragmentBasicPlanBinding
 
-/**
- * A simple [Fragment] subclass.
- * Use the [BasicPlanFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+
 class BasicPlanFragment : Fragment() {
 
     private lateinit var binding: FragmentBasicPlanBinding
@@ -48,15 +44,5 @@ class BasicPlanFragment : Fragment() {
     private fun updateProgressBar() {
         binding.progressBarDay.progress = progr
         binding.textViewProgress.text = "$progr%"
-    }
-
-    companion object {
-
-
-        fun newInstance(param1: String, param2: String) =
-            BasicPlanFragment().apply {
-                arguments = Bundle().apply {
-                }
-            }
     }
 }

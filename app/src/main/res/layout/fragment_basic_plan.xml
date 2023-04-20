@@ -81,11 +81,16 @@
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_margin="5dp"-->
+<!--        android:layout_height="match_parent">-->
+<!--        <androidx.recyclerview.widget.RecyclerView-->
+<!--            android:id="@+id/rv_basic_plan"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content" />-->
+<!--    </ScrollView>-->
 
-    <!--    <androidx.recyclerview.widget.RecyclerView-->
-    <!--        android:id="@+id/rv_basic_plan"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="wrap_content" />-->
 
     <!--      Nháp Circular Progress  -->
     <androidx.constraintlayout.widget.ConstraintLayout

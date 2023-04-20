@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.s_gym.adapter.FragmentPlanPagerAdapter
 import com.example.s_gym.R
@@ -40,6 +41,9 @@ class PlanFragment : Fragment() {
             override fun onTabSelected(tab: TabLayout.Tab?) {
                 if (tab != null) {
                     viewPager2.currentItem = tab.position
+
+
+
                 }
             }
 

@@ -5,14 +5,39 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragment.AddFitnessFragment"
-    android:paddingHorizontal="@dimen/padding_parent_horizontal"
-    android:paddingVertical="@dimen/padding_parent_horizontal"
+
+    android:background="#424242"
+
     >
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/back" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="36dp"
+        android:layout_marginTop="5dp"
+        android:text="DANH SÁCH BÀI TẬP"
+        android:layout_toEndOf="@id/btnBack"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textColor="@color/white"
+        />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_add_fitness"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="@dimen/item_margin_vertical"
+        android:layout_margin="5dp"
+        android:background="@color/white"
+        android:layout_below="@id/btnBack"
+
         />
 
 </RelativeLayout>

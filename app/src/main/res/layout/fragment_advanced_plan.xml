@@ -53,6 +53,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/addExerciesfiness"
         android:layout_marginTop="@dimen/item_margin_vertical"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_item"
@@ -62,6 +63,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
