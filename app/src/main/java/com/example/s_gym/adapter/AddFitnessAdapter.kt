@@ -21,7 +21,7 @@ class AddFitnessAdapter(
     private lateinit var binding: ItemAddFitnessBinding
     private lateinit var context: Context
     public fun setData(context: Context, list: List<Exercise>) {
-        this.context = context
+
         this.exerciseList = list
         notifyDataSetChanged()
     }
@@ -47,7 +47,7 @@ class AddFitnessAdapter(
         val currentItem:Exercise = exerciseList[position]
 
         holder.nameTextView.text = currentItem.name
-
+        context = context
 //        Glide.with(context)
 //            .load("https://wger.de/media/exercise-images/${currentItem.id}/thumbnail.png")
 //            .into(holder.imageView)
