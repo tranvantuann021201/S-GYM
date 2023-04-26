@@ -5,9 +5,9 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragment.AddFitnessFragment"
-
+    android:id="@+id/ac_add_fitness"
     android:background="#424242"
-
+    android:padding="@dimen/padding_parent_horizontal"
     >
 
     <ImageButton
@@ -18,6 +18,7 @@
         android:background="@android:color/transparent"
         android:src="@drawable/back" />
     <TextView
+        android:id="@+id/txt_title"
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:layout_marginTop="5dp"
@@ -34,10 +35,12 @@
         android:id="@+id/rv_add_fitness"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="5dp"
-        android:background="@color/white"
         android:layout_below="@id/btnBack"
-
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="#424242"
         />
 
 </RelativeLayout>

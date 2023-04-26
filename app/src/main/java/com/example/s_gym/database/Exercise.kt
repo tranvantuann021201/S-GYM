@@ -7,15 +7,12 @@ data class Exercise(
     val id: Int,
     @SerializedName("name")
     val name: String,
-    @SerializedName("language")
-    val language: Int,
-    @SerializedName("muscles")
-    val muscles: List<Int>,
-    @SerializedName("category")
-    val category: Int,
     @SerializedName("description")
     val description: String,
-    @SerializedName("uuid")
-    val uuid: String
-
+    @SerializedName("url_video_guide")
+    val urlVideoGuide: String,
+    @SerializedName("is_complete")
+    val isComplete: Boolean,
+    @SerializedName("kcal_calories_consumed")
+    val kcalCaloriesConsumed: Double
 )

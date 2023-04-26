@@ -1,0 +1,2204 @@
+{
+"fitness_day":[
+	{
+		"id": 1,
+		"is_rest_day": false,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id":2,
+		"is_rest_day": false,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 3,
+		"is_rest_day": false,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 4,
+		"is_rest_day": true,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 5,
+		"is_rest_day": false,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 6,
+		"is_rest_day": false,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 7,
+		"is_rest_day": false,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 8,
+		"is_rest_day": true,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 9,
+		"is_rest_day": false,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 10,
+		"is_rest_day": false,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 11,
+		"is_rest_day": false,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 12,
+		"is_rest_day": true,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 13,
+		"is_rest_day": false,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 14,
+		"is_rest_day": false,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 15,
+		"is_rest_day": false,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 16,
+		"is_rest_day": true,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 17,
+		"is_rest_day": false,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 18,
+		"is_rest_day": false,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 19,
+		"is_rest_day": false,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 20,
+		"is_rest_day": true,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 21,
+		"is_rest_day": false,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 22,
+		"is_rest_day": false,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 23,
+		"is_rest_day": false,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 24,
+		"is_rest_day": true,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 25,
+		"is_rest_day": false,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 26,
+		"is_rest_day": false,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 27,
+		"is_rest_day": false,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 28,
+		"is_rest_day": true,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 29,
+		"is_rest_day": false,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 30,
+		"is_rest_day": false,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	},
+	{
+		"id": 31,
+		"is_rest_day": false,
+		"total_exercise": 7,
+		"exercise_complete": 0,
+		"exercise": [
+			{
+				"id": 1,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-leg-raise-couch-exercise-footage-227560472_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 2,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/dip-floor-chair-exercise-fitness-footage-227560471_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 3,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/pike-push-exercise-fitness-workout-footage-227560625_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 4,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/body-exercise-fitness-workout-animation-footage-227560017_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 5,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/air-bike-crunch-fitness-exercise-footage-229458045_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 6,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bench-triceps-dip-straight-legs-footage-227560008_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{"id": 7,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/chair-triceps-dips-exercise-fitness-footage-227560364_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			},
+			{
+				"id": 8,
+				"name": "2 Handed Kettlebell Swing",
+				"description": "<p>Two Handed Russian Style Kettlebell swing</p>",
+				"url_video_guide": "https://videos.pond5.com/bodyweight-triceps-extension-exercise-fitness-footage-227560122_main_xxl.mp4",
+				"is_complete": false,
+				"kcal_calories_consumed": 12.02
+			}
+		]
+	}]
+}

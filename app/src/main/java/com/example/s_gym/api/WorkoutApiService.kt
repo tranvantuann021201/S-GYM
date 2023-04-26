@@ -9,15 +9,16 @@ import retrofit2.http.GET
 public interface WorkoutApiService {
 
     companion object{
-        val retrofit = Retrofit.Builder()
+        private val retrofit = Retrofit.Builder()
             .baseUrl("https://wger.de")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-        val service = retrofit.create(WorkoutApiService::class.java)
+        val service = retrofit.create(WorkoutApiService::class.java)!!
 
     }
 
     @GET("/api/v2/exercise/")
     fun getExercises(): Call<List<Exercise>>
+
 }

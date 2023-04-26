@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.InformationExerciseFragment">
+    tools:context=".ui.fragment.InformationExerciseFragment"
+    android:background="@color/white"
+    >
 
     <RelativeLayout
         android:id="@+id/rl_animation"
