@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="@dimen/height_item"
-    android:layout_marginStart="@dimen/item_margin_horizontal"
     android:layout_marginTop="@dimen/item_margin_vertical"
-    android:layout_marginEnd="@dimen/item_margin_horizontal"
     android:layout_marginBottom="@dimen/item_margin_vertical"
     app:cardCornerRadius="@dimen/item_cv_radius"
     android:id="@+id/item_basic_plan"
@@ -15,7 +13,7 @@
     >
 
     <RelativeLayout
-        android:background="#D0D0D0D0"
+        android:background="#FF0026AF"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -61,7 +59,9 @@
                 app:layout_constraintEnd_toEndOf="@+id/progress_bar_day"
                 app:layout_constraintStart_toStartOf="@+id/progress_bar_day"
                 app:layout_constraintTop_toTopOf="@+id/progress_bar_day"
-                tools:text="4/7" />
+                tools:text="4/7"
+                android:textColor="@color/white"
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

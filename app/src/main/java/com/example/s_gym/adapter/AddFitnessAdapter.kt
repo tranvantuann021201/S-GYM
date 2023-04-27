@@ -21,7 +21,7 @@ class AddFitnessAdapter(
     RecyclerView.Adapter<AddFitnessAdapter.ExerciseViewHolder>() {
     private lateinit var listener: AddFitnessFragment.onItemClickListener
     private lateinit var context: Context
-    fun setData( list: List<Exercise>) {
+    fun setData(list: List<Exercise>) {
         this.exerciseList = list
         notifyDataSetChanged()
     }

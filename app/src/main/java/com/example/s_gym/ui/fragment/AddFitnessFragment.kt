@@ -22,10 +22,12 @@ class AddFitnessFragment : AppCompatActivity() {
 
     private lateinit var fragmentTransaction: FragmentTransaction
     private lateinit var addFitnessAdapter: AddFitnessAdapter
-    private lateinit var  informationExerciseFragment: InformationExerciseFragment
+    private lateinit var informationExerciseFragment: InformationExerciseFragment
+
     interface onItemClickListener {
         fun onItemClick(position: Int)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FragmentAddFitnessBinding.inflate(layoutInflater)
@@ -36,23 +38,22 @@ class AddFitnessFragment : AppCompatActivity() {
         binding.rvAddFitness.adapter = addFitnessAdapter
 
         //Xử lý khi click vào item
-        addFitnessAdapter.setItemClickListener(object : onItemClickListener{
+        addFitnessAdapter.setItemClickListener(object : onItemClickListener {
 
             override fun onItemClick(position: Int) {
                 informationExerciseFragment = InformationExerciseFragment()
                 fragmentTransaction = supportFragmentManager.beginTransaction()
 
-                fragmentTransaction.replace(R.id.ac_add_fitness,informationExerciseFragment).commit()
+                fragmentTransaction.replace(R.id.ac_add_fitness, informationExerciseFragment)
+                    .commit()
             }
         })
-        addFitnessAdapter.setData(exerciseList)
         binding.rvAddFitness.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.btnBack.setOnClickListener {
             onBackPressed()
         }
     }
-
 
 
     private fun getListExercise(): List<Exercise> {
@@ -70,7 +71,10 @@ class AddFitnessFragment : AppCompatActivity() {
 
     private fun callApi() {
         WorkoutApiService.service.getExercises().enqueue(object : Callback<List<Exercise>> {
-            override fun onResponse(call: Call<List<Exercise>>?, response: Response<List<Exercise>>?) {
+            override fun onResponse(
+                call: Call<List<Exercise>>?,
+                response: Response<List<Exercise>>?
+            ) {
                 val exercisesList = response?.body()
                 //Xử lý danh sách bài tập ở đây
                 if (exercisesList != null) {
