@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/height_item"
+    android:layout_height="120dp"
     android:id="@+id/item_basic_fitness">
 
     <ImageView
@@ -13,7 +13,7 @@
         android:id="@+id/txt_animation_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="20dp"
         android:layout_toEndOf="@+id/img_animation_exercise"
         android:fontFamily="sans-serif-condensed-medium"
         android:text="Tên động tác"
@@ -26,6 +26,7 @@
         android:layout_below="@+id/txt_animation_name"
         android:layout_toEndOf="@+id/img_animation_exercise"
         android:fontFamily="sans-serif-condensed-medium"
+        android:textSize="15dp"
         android:text="Khối lượng tập luyện" />
 
     <TextView

@@ -15,7 +15,6 @@ class BasicPlanAdapter(
 ) :
     RecyclerView.Adapter<BasicPlanAdapter.BasicPlanViewHolder>() {
     private lateinit var listener: BasicPlanFragment.onBasicPlanItemClickListener
-    private lateinit var context: Context
 
     fun setItemClickListener(listeners: BasicPlanFragment.onBasicPlanItemClickListener) {
         listener = listeners

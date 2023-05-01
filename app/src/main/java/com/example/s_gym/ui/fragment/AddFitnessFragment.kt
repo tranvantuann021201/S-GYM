@@ -7,7 +7,7 @@ import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.s_gym.R
 import com.example.s_gym.adapter.AddFitnessAdapter
-import com.example.s_gym.api.WorkoutApiService
+import com.example.s_gym.api.FitnessService
 import com.example.s_gym.database.Exercise
 import com.example.s_gym.database.FitnessDay
 import com.example.s_gym.databinding.FragmentAddFitnessBinding
@@ -51,44 +51,21 @@ class AddFitnessFragment : AppCompatActivity() {
         binding.rvAddFitness.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         binding.btnBack.setOnClickListener {
-            onBackPressed()
+            finish()
         }
     }
 
 
     private fun getListExercise(): List<Exercise> {
         val list: ArrayList<Exercise> = ArrayList()
-        list.add(Exercise(1, "abc", "1", "abc", false, 12.1))
-        list.add(Exercise(1, "abc", "1", "abc", false, 12.1))
-        list.add(Exercise(1, "abc", "1", "abc", false, 12.1))
-        list.add(Exercise(1, "abc", "1", "abc", false, 12.1))
-        list.add(Exercise(1, "abc", "1", "abc", false, 12.1))
-        list.add(Exercise(1, "abc", "1", "abc", false, 12.1))
-        list.add(Exercise(1, "abc", "1", "abc", false, 12.1))
-        list.add(Exercise(1, "abc", "1", "abc", false, 12.1))
+        list.add(Exercise(1, "abc", "1", "abc", false, 12.1, 8))
+        list.add(Exercise(1, "abc", "1", "abc", false, 12.1, 8))
+        list.add(Exercise(1, "abc", "1", "abc", false, 12.1, 8))
+        list.add(Exercise(1, "abc", "1", "abc", false, 12.1, 8))
+        list.add(Exercise(1, "abc", "1", "abc", false, 12.1, 8))
+        list.add(Exercise(1, "abc", "1", "abc", false, 12.1, 8))
+        list.add(Exercise(1, "abc", "1", "abc", false, 12.1, 8))
+        list.add(Exercise(1, "abc", "1", "abc", false, 12.1, 8))
         return list
-    }
-
-    private fun callApi() {
-        WorkoutApiService.service.getExercises().enqueue(object : Callback<List<Exercise>> {
-            override fun onResponse(
-                call: Call<List<Exercise>>?,
-                response: Response<List<Exercise>>?
-            ) {
-                val exercisesList = response?.body()
-                //Xử lý danh sách bài tập ở đây
-                if (exercisesList != null) {
-                    addFitnessAdapter = AddFitnessAdapter(exerciseList)
-                    addFitnessAdapter.setData(exercisesList)
-                    binding.rvAddFitness.adapter = addFitnessAdapter
-                }
-                Toast.makeText(this@AddFitnessFragment, "Call success", Toast.LENGTH_SHORT).show()
-            }
-
-            override fun onFailure(call: Call<List<Exercise>>?, t: Throwable?) {
-                // Xử lý lỗi khi không kết nối được API
-                Toast.makeText(this@AddFitnessFragment, "Call failed", Toast.LENGTH_SHORT).show()
-            }
-        })
     }
 }

@@ -48,7 +48,7 @@ class HomeFragment : Fragment() {
     }
     private  fun loadFragment(fragment: Fragment) {
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.container, fragment)
+        transaction.replace(R.id.fragmentContainer, fragment)
         transaction.commit()
     }
 }

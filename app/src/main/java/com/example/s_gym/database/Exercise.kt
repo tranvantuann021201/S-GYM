@@ -1,7 +1,10 @@
 package com.example.s_gym.database
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Exercise(
     @SerializedName("id")
     val id: Int,
@@ -14,5 +17,7 @@ data class Exercise(
     @SerializedName("is_complete")
     val isComplete: Boolean,
     @SerializedName("kcal_calories_consumed")
-    val kcalCaloriesConsumed: Double
-)
+    val kcalCaloriesConsumed: Double,
+    @SerializedName("animation_mount")
+    val animationMount: Int
+) : Parcelable

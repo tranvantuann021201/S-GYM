@@ -8,8 +8,7 @@
     <ImageView
         android:id="@+id/img_animation_exercise"
         android:layout_width="match_parent"
-        android:layout_height="350dp"
-        android:background="@color/purple_500"/>
+        android:layout_height="350dp"/>
 
     <TextView
         android:paddingVertical="10dp"
@@ -51,7 +50,7 @@
         style="@style/txt_title_styles"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/txt_previous"
+        android:layout_above="@+id/btn_previous"
         android:layout_centerHorizontal="true"
         android:layout_marginVertical="20dp"
         android:layout_marginBottom="66dp"
@@ -61,7 +60,7 @@
         android:text="Xong" />
 
     <TextView
-        android:id="@+id/txt_previous"
+        android:id="@+id/btn_previous"
         android:text="Trước đó"
         style="@style/btn_next_and_previous"
         android:drawableStart="@drawable/baseline_skip_previous_24"
@@ -69,8 +68,8 @@
         android:layout_alignParentBottom="true"/>
 
     <TextView
-        android:id="@+id/txt_next"
-        android:text="Trước đó"
+        android:id="@+id/btn_next"
+        android:text="Tiếp theo"
         android:drawableEnd="@drawable/baseline_skip_next_24"
         style="@style/btn_next_and_previous"
         android:layout_alignParentEnd="true"

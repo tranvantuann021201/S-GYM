@@ -4,8 +4,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.example.s_gym.R
+import com.example.s_gym.databinding.FragmentFitnessBinding
 
 /**
  * A simple [Fragment] subclass.
@@ -13,39 +17,47 @@ import com.example.s_gym.R
  * create an instance of this fragment.
  */
 class FitnessFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
-    }
-
+    private lateinit var binding: FragmentFitnessBinding
+    private val args by navArgs<BasicFitnessFragmentArgs>()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fitness, container, false)
+        binding = FragmentFitnessBinding.inflate(layoutInflater)
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment FitnessFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            FitnessFragment().apply {
-                arguments = Bundle().apply {
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        var positions = 0
+        passDataToView(positions)
+
+        binding.btnNext.setOnClickListener {
+            positions++
+            if (positions >= args.argsFitnessDay.exercise.size) {
+                positions = 0
+                Toast.makeText(context, "Quay lại bài tập đầu tiên", Toast.LENGTH_SHORT).show()
             }
+            passDataToView(positions)
+
+        }
+        binding.btnPrevious.setOnClickListener {
+            positions--
+            if (positions == 0) {
+                Toast.makeText(context, "Đây là bài tập đầu tiên", Toast.LENGTH_SHORT).show()
+            }
+            passDataToView(positions)
+        }
+
+    }
+    private fun passDataToView(positions: Int) {
+        val exerciseList = args.argsFitnessDay.exercise[positions]
+        Glide.with(context).load(exerciseList.urlVideoGuide).into(binding.imgAnimationExercise)
+        binding.txtExerName.text = exerciseList.name
+        binding.txtAmount.text = "x${exerciseList.animationMount}"
+        requireActivity().supportFragmentManager.findFragmentById(R.id.fitnessFragment)
     }
 }

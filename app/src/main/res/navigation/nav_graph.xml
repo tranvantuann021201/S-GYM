@@ -6,10 +6,43 @@
     app:startDestination="@id/homeFragment">
 
 
-
-
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.s_gym.ui.fragment.HomeFragment"
-        android:label="HomeFragment" />
+        android:name="com.example.s_gym.ui.fragment.PlanFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_basicPlanFragment_to_basicFitnessFragment"
+            app:destination="@id/basicFitnessFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/basicPlanFragment"
+        android:name="com.example.s_gym.ui.fragment.BasicPlanFragment"
+        android:label="fragment_basic_plan"
+        tools:layout="@layout/fragment_basic_plan" >
+        <action
+            android:id="@+id/action_basicPlanFragment_to_basicFitnessFragment"
+            app:destination="@id/basicFitnessFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/basicFitnessFragment"
+        android:name="com.example.s_gym.ui.fragment.BasicFitnessFragment"
+        android:label="fragment_basic_fitness"
+        tools:layout="@layout/fragment_basic_fitness" >
+        <argument
+            android:name="argsFitnessDay"
+            app:argType="com.example.s_gym.database.FitnessDay" />
+        <action
+            android:id="@+id/action_basicFitnessFragment_to_fitnessFragment"
+            app:destination="@id/fitnessFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/fitnessFragment"
+        android:name="com.example.s_gym.ui.fragment.FitnessFragment"
+        android:label="fragment_fitness"
+        tools:layout="@layout/fragment_fitness" >
+        <argument
+            android:name="argsFitnessDay"
+            app:argType="com.example.s_gym.database.FitnessDay" />
+    </fragment>
 </navigation>

@@ -68,7 +68,7 @@ class PlanFragment : Fragment() {
     private fun init() {
         tabLayout = binding.tabLayout
         viewPager2 = binding.viewPager2
-        pagerAdapter = FragmentPlanPagerAdapter(parentFragmentManager, lifecycle)
+        pagerAdapter = FragmentPlanPagerAdapter(childFragmentManager, lifecycle)
 
         tabLayout.addTab(tabLayout.newTab().setText("Basic"))
         tabLayout.addTab(tabLayout.newTab().setText("Advanced"))

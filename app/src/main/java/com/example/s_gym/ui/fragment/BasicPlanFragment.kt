@@ -1,15 +1,21 @@
 package com.example.s_gym.ui.fragment
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.s_gym.R
 import com.example.s_gym.adapter.BasicPlanAdapter
+import com.example.s_gym.adapter.FragmentPlanPagerAdapter
 import com.example.s_gym.database.FitnessDay
 import com.example.s_gym.database.FitnessPlan
 import com.example.s_gym.databinding.FragmentBasicPlanBinding
@@ -70,12 +76,11 @@ class BasicPlanFragment : Fragment() {
 
         basicPlanAdapter.setItemClickListener(object : onBasicPlanItemClickListener{
             override fun onBasicPlanItemClick(fitnessDay: FitnessDay) {
-                TODO()
+                val action = BasicPlanFragmentDirections.actionBasicPlanFragmentToBasicFitnessFragment(fitnessDay)
+                findNavController().navigate(action)
             }
 
         })
-
-
     }
 
     private fun getJSONFromAssets(): String? {
@@ -83,7 +88,7 @@ class BasicPlanFragment : Fragment() {
         var json: String? = null
         val charset: Charset = Charsets.UTF_8
         try {
-            val myUsersJSONFile = requireActivity().assets.open("fitness.json")
+            val myUsersJSONFile = requireContext().assets.open("fitness.json")
             val size = myUsersJSONFile.available()
             val buffer = ByteArray(size)
             myUsersJSONFile.read(buffer)

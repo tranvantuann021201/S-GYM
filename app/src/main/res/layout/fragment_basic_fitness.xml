@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/txt_intro_detail"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="225dp"
+        android:layout_marginStart="200dp"
         android:layout_marginTop="12dp"
         android:layout_toEndOf="@+id/txt_exer"
         android:drawableEnd="@drawable/baseline_mode_edit_24"
@@ -60,29 +60,34 @@
     <RelativeLayout
         android:id="@+id/rl_view"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_item"
-        android:layout_alignParentBottom="true">
+        android:layout_height="120dp"
+        android:layout_alignParentBottom="true"
+        >
 
         <Button
             android:id="@+id/btn_start_exer"
-            android:layout_width="140dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:background="@drawable/radius_btn"
             android:fontFamily="sans-serif-condensed-medium"
             android:text="Bắt đầu"
-            android:textSize="@dimen/size_text_title" />
+            android:textSize="@dimen/size_text_title"
+            android:layout_above="@id/check_warm_up"
+            android:layout_centerHorizontal="true"
+            />
 
         <CheckBox
             android:id="@+id/check_warm_up"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
+            android:layout_alignParentBottom="true"
             android:fontFamily="sans-serif-condensed"
             android:text="Bắt đầu với khởi động"
-            android:textSize="@dimen/size_text_detail" />
+            android:buttonTint="@color/colorPrimary"
+            android:textSize="@dimen/size_text_detail"
+            />
 
         <TextView
             android:id="@+id/txt_restart"

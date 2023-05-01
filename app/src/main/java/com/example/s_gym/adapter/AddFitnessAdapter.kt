@@ -9,7 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.s_gym.R
-import com.example.s_gym.api.WorkoutApiService
+import com.example.s_gym.api.FitnessService
 import com.example.s_gym.database.Exercise
 import com.example.s_gym.database.FitnessDay
 import com.example.s_gym.databinding.ItemAddFitnessBinding
