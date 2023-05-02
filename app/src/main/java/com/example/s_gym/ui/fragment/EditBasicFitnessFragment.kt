@@ -53,7 +53,7 @@ class EditBasicFitnessFragment : Fragment(), OnStartDragListener {
             val sortedExercises = editBasicFitnessAdapter.getSortedExercises()
             // Save the sorted list of exercises
             editBasicFitnessAdapter = EditBasicFitnessAdapter(sortedExercises, this)
-            findNavController().navigate(EditBasicFitnessFragmentDirections.actionEditBasicFitnessFragment2ToBasicFitnessFragment(args.argsFitnessDay))
+            findNavController().popBackStack()
             Toast.makeText(context, "Chỉnh sửa đã được lưu", Toast.LENGTH_SHORT).show()
         }
         binding.rvEditBasicFitness.layoutManager =

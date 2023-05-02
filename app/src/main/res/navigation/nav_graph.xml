@@ -14,6 +14,13 @@
             android:id="@+id/action_basicPlanFragment_to_basicFitnessFragment"
             app:destination="@id/basicFitnessFragment"
             app:popUpToInclusive="false" />
+        <action
+            android:id="@+id/action_homeFragment_to_addFitnessFragment"
+            app:destination="@id/addFitnessFragment" />
+        <action
+            android:id="@id/action_advancedPlanFragment_to_addFitnessFragment"
+            app:destination="@id/addFitnessFragment"
+            />
     </fragment>
     <fragment
         android:id="@+id/basicPlanFragment"
@@ -60,4 +67,18 @@
             android:id="@+id/action_editBasicFitnessFragment2_to_basicFitnessFragment"
             app:destination="@id/basicFitnessFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/advancedPlanFragment"
+        android:name="com.example.s_gym.ui.fragment.AdvancedPlanFragment"
+        android:label="fragment_advanced_plan"
+        tools:layout="@layout/fragment_advanced_plan" >
+        <action
+            android:id="@+id/action_advancedPlanFragment_to_addFitnessFragment"
+            app:destination="@id/addFitnessFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addFitnessFragment"
+        android:name="com.example.s_gym.ui.fragment.AddFitnessFragment"
+        android:label="fragment_add_fitness"
+        tools:layout="@layout/fragment_add_fitness" />
 </navigation>

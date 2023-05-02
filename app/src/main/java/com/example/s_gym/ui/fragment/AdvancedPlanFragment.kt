@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.s_gym.R
 import com.example.s_gym.databinding.FragmentAdvancedPlanBinding
 
 
@@ -26,8 +28,7 @@ class AdvancedPlanFragment : Fragment() {
         val addExerciseFitness = binding.addExerciesfiness;
 
         addExerciseFitness.setOnClickListener {
-            val intent  = Intent(requireActivity(),AddFitnessFragment::class.java)
-            startActivity(intent)
+            findNavController().navigate(R.id.action_advancedPlanFragment_to_addFitnessFragment)
         }
     }
 

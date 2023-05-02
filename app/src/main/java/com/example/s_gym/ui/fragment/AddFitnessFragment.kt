@@ -1,8 +1,13 @@
 package com.example.s_gym.ui.fragment
 
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.s_gym.R
 import com.example.s_gym.ui.adapter.AddFitnessAdapter
@@ -10,7 +15,7 @@ import com.example.s_gym.database.entity.Exercise
 import com.example.s_gym.databinding.FragmentAddFitnessBinding
 
 
-class AddFitnessFragment : AppCompatActivity() {
+class AddFitnessFragment : Fragment() {
     private lateinit var binding: FragmentAddFitnessBinding
     private lateinit var exerciseList: List<Exercise>
 
@@ -22,10 +27,18 @@ class AddFitnessFragment : AppCompatActivity() {
         fun onItemClick(position: Int)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
         binding = FragmentAddFitnessBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         exerciseList = getListExercise()
         addFitnessAdapter = AddFitnessAdapter(exerciseList)
 
@@ -33,22 +46,15 @@ class AddFitnessFragment : AppCompatActivity() {
 
         //Xử lý khi click vào item
         addFitnessAdapter.setItemClickListener(object : onItemClickListener {
-
             override fun onItemClick(position: Int) {
-                informationExerciseFragment = InformationExerciseFragment()
-                fragmentTransaction = supportFragmentManager.beginTransaction()
-
-                fragmentTransaction.replace(R.id.ac_add_fitness, informationExerciseFragment)
-                    .commit()
             }
         })
         binding.rvAddFitness.layoutManager =
-            LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.btnBack.setOnClickListener {
-            finish()
+            findNavController().popBackStack()
         }
     }
-
 
     private fun getListExercise(): List<Exercise> {
         val list: ArrayList<Exercise> = ArrayList()
