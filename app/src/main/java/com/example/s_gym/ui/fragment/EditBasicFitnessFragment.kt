@@ -4,48 +4,63 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.s_gym.R
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.s_gym.ui.adapter.EditBasicFitnessAdapter
+import com.example.s_gym.databinding.FragmentEditBasicFitnessBinding
+import com.example.s_gym.ui.adapter.OnStartDragListener
+import com.example.s_gym.ui.touch.ItemTouchHelperCallback
+import java.util.*
 
 /**
  * A simple [Fragment] subclass.
  * Use the [EditBasicFitnessFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class EditBasicFitnessFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
-    }
+class EditBasicFitnessFragment : Fragment(), OnStartDragListener {
+    private lateinit var binding: FragmentEditBasicFitnessBinding
+    private lateinit var editBasicFitnessAdapter: EditBasicFitnessAdapter
+    private val args by navArgs<BasicFitnessFragmentArgs>()
+    private lateinit var touchHelper: ItemTouchHelper
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_edit_basic_fitness, container, false)
+        binding = FragmentEditBasicFitnessBinding.inflate(layoutInflater)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment EditBasicPlanFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            EditBasicFitnessFragment().apply {
-                arguments = Bundle().apply {
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val exerciseList = args.argsFitnessDay.exercise as MutableList
+        editBasicFitnessAdapter = EditBasicFitnessAdapter(exerciseList, this)
+        binding.rvEditBasicFitness.adapter = editBasicFitnessAdapter
+
+        val callback = ItemTouchHelperCallback(editBasicFitnessAdapter)
+        touchHelper = ItemTouchHelper(callback)
+        touchHelper.attachToRecyclerView(binding.rvEditBasicFitness)
+
+        // Set click listener for btnSave
+        binding.btnSave.setOnClickListener {
+            val sortedExercises = editBasicFitnessAdapter.getSortedExercises()
+            // Save the sorted list of exercises
+            editBasicFitnessAdapter = EditBasicFitnessAdapter(sortedExercises, this)
+            findNavController().navigate(EditBasicFitnessFragmentDirections.actionEditBasicFitnessFragment2ToBasicFitnessFragment(args.argsFitnessDay))
+            Toast.makeText(context, "Chỉnh sửa đã được lưu", Toast.LENGTH_SHORT).show()
+        }
+        binding.rvEditBasicFitness.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+    }
+
+    override fun onStartDrag(viewHolder: RecyclerView.ViewHolder) {
+        touchHelper.startDrag(viewHolder)
     }
 }

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
-import com.example.s_gym.adapter.FragmentPlanPagerAdapter
+import com.example.s_gym.ui.adapter.FragmentPlanPagerAdapter
 import com.example.s_gym.R
 import com.example.s_gym.databinding.FragmentPlanBinding
 import com.google.android.material.tabs.TabLayout

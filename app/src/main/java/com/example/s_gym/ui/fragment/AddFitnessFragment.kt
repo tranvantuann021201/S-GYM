@@ -1,19 +1,13 @@
 package com.example.s_gym.ui.fragment
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.s_gym.R
-import com.example.s_gym.adapter.AddFitnessAdapter
-import com.example.s_gym.api.FitnessService
-import com.example.s_gym.database.Exercise
-import com.example.s_gym.database.FitnessDay
+import com.example.s_gym.ui.adapter.AddFitnessAdapter
+import com.example.s_gym.database.entity.Exercise
 import com.example.s_gym.databinding.FragmentAddFitnessBinding
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 
 class AddFitnessFragment : AppCompatActivity() {

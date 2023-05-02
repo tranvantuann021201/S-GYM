@@ -29,12 +29,15 @@
         android:name="com.example.s_gym.ui.fragment.BasicFitnessFragment"
         android:label="fragment_basic_fitness"
         tools:layout="@layout/fragment_basic_fitness" >
-        <argument
-            android:name="argsFitnessDay"
-            app:argType="com.example.s_gym.database.FitnessDay" />
         <action
             android:id="@+id/action_basicFitnessFragment_to_fitnessFragment"
             app:destination="@id/fitnessFragment" />
+        <action
+            android:id="@+id/action_basicFitnessFragment_to_editBasicFitnessFragment2"
+            app:destination="@id/editBasicFitnessFragment2" />
+        <argument
+            android:name="argsFitnessDay"
+            app:argType="com.example.s_gym.database.entity.FitnessDay" />
     </fragment>
     <fragment
         android:id="@+id/fitnessFragment"
@@ -43,6 +46,18 @@
         tools:layout="@layout/fragment_fitness" >
         <argument
             android:name="argsFitnessDay"
-            app:argType="com.example.s_gym.database.FitnessDay" />
+            app:argType="com.example.s_gym.database.entity.FitnessDay" />
+    </fragment>
+    <fragment
+        android:id="@+id/editBasicFitnessFragment2"
+        android:name="com.example.s_gym.ui.fragment.EditBasicFitnessFragment"
+        android:label="fragment_edit_basic_fitness"
+        tools:layout="@layout/fragment_edit_basic_fitness" >
+        <argument
+            android:name="argsFitnessDay"
+            app:argType="com.example.s_gym.database.entity.FitnessDay" />
+        <action
+            android:id="@+id/action_editBasicFitnessFragment2_to_basicFitnessFragment"
+            app:destination="@id/basicFitnessFragment" />
     </fragment>
 </navigation>

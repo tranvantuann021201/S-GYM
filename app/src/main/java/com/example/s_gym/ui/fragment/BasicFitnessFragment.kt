@@ -8,8 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.s_gym.R
-import com.example.s_gym.adapter.BasicFitnessAdapter
+import com.example.s_gym.ui.adapter.BasicFitnessAdapter
 import com.example.s_gym.databinding.FragmentBasicFitnessBinding
 
 class BasicFitnessFragment : Fragment() {
@@ -33,6 +32,11 @@ class BasicFitnessFragment : Fragment() {
 
         binding.btnStartExer.setOnClickListener {
             val action = BasicFitnessFragmentDirections.actionBasicFitnessFragmentToFitnessFragment(args.argsFitnessDay)
+            findNavController().navigate(action)
+        }
+
+        binding.btnModifyExer.setOnClickListener {
+            val action = BasicFitnessFragmentDirections.actionBasicFitnessFragmentToEditBasicFitnessFragment2(args.argsFitnessDay)
             findNavController().navigate(action)
         }
     }

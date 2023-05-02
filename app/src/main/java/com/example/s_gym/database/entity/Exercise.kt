@@ -1,4 +1,4 @@
-package com.example.s_gym.database
+package com.example.s_gym.database.entity
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName

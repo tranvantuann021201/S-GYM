@@ -1,23 +1,17 @@
 package com.example.s_gym.ui.fragment
 
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.s_gym.R
-import com.example.s_gym.adapter.BasicPlanAdapter
-import com.example.s_gym.adapter.FragmentPlanPagerAdapter
-import com.example.s_gym.database.FitnessDay
-import com.example.s_gym.database.FitnessPlan
+import com.example.s_gym.ui.adapter.BasicPlanAdapter
+import com.example.s_gym.database.entity.FitnessDay
+import com.example.s_gym.database.entity.FitnessPlan
 import com.example.s_gym.databinding.FragmentBasicPlanBinding
 import com.google.gson.Gson
 import org.json.JSONException

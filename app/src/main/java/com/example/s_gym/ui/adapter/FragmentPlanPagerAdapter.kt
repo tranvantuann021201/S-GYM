@@ -1,4 +1,4 @@
-package com.example.s_gym.adapter
+package com.example.s_gym.ui.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

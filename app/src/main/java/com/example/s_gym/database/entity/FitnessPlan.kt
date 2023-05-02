@@ -1,7 +1,6 @@
-package com.example.s_gym.database
+package com.example.s_gym.database.entity
 
 import android.os.Parcelable
-import androidx.versionedparcelable.ParcelField
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 

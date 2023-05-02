@@ -1,14 +1,11 @@
-package com.example.s_gym.adapter
+package com.example.s_gym.ui.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.s_gym.database.Exercise
-import com.example.s_gym.database.FitnessDay
+import com.example.s_gym.database.entity.Exercise
 import com.example.s_gym.databinding.ItemBasicFitnessBinding
-import kotlinx.coroutines.NonDisposableHandle.parent
 
 class BasicFitnessAdapter(var exercisesList: List<Exercise>) :
     RecyclerView.Adapter<BasicFitnessAdapter.BasicFitnessViewHolder>() {

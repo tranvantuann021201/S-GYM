@@ -1,18 +1,13 @@
-package com.example.s_gym.adapter
+package com.example.s_gym.ui.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
 import com.example.s_gym.R
-import com.example.s_gym.api.FitnessService
-import com.example.s_gym.database.Exercise
-import com.example.s_gym.database.FitnessDay
-import com.example.s_gym.databinding.ItemAddFitnessBinding
+import com.example.s_gym.database.entity.Exercise
 import com.example.s_gym.ui.fragment.AddFitnessFragment
 
 class AddFitnessAdapter(

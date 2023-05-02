@@ -45,10 +45,11 @@ class FitnessFragment : Fragment() {
 
         }
         binding.btnPrevious.setOnClickListener {
-            positions--
             if (positions == 0) {
                 Toast.makeText(context, "Đây là bài tập đầu tiên", Toast.LENGTH_SHORT).show()
             }
+            else
+                positions--
             passDataToView(positions)
         }
 
