@@ -4,8 +4,10 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.s_gym.R
 import com.example.s_gym.database.entity.Exercise
 import com.example.s_gym.ui.fragment.AddFitnessFragment
@@ -16,19 +18,17 @@ class AddFitnessAdapter(
     RecyclerView.Adapter<AddFitnessAdapter.ExerciseViewHolder>() {
     private lateinit var listener: AddFitnessFragment.onItemClickListener
     private lateinit var context: Context
-    fun setData(list: List<Exercise>) {
-        this.exerciseList = list
-        notifyDataSetChanged()
-    }
 
     fun setItemClickListener(listeners: AddFitnessFragment.onItemClickListener) {
         listener = listeners
     }
     class ExerciseViewHolder(view: View,listeners: AddFitnessFragment.onItemClickListener) : RecyclerView.ViewHolder(view) {
-        var nameTextView: TextView
+        var nameExercise: TextView
+        var imgExercise: ImageView
 
         init {
-            nameTextView = view.findViewById(R.id.txt_exer_name_add_fitness)
+            nameExercise = view.findViewById(R.id.txt_exer_name_add_fitness)
+            imgExercise = view.findViewById(R.id.img_animation_my_plan)
             itemView.setOnClickListener {
                 listeners.onItemClick(adapterPosition)
             }
@@ -48,11 +48,11 @@ class AddFitnessAdapter(
     override fun onBindViewHolder(holder: ExerciseViewHolder, position: Int) {
         val currentItem: Exercise = exerciseList[position]
 
-        holder.nameTextView.text = currentItem.name
+        holder.nameExercise.text = currentItem.name
 
-//        Glide.with(context)
-//            .load("https://wger.de/media/exercise-images/${currentItem.id}/thumbnail.png")
-//            .into(holder.imageView)
+        Glide.with(context)
+            .load(currentItem.urlVideoGuide)
+            .into(holder.imgExercise)
     }
 
     override fun getItemCount() = exerciseList.size

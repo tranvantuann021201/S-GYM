@@ -6,7 +6,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragment.AddFitnessFragment"
     android:id="@+id/ac_add_fitness"
-    android:background="#424242"
     android:padding="@dimen/padding_parent_horizontal"
     >
 
@@ -14,22 +13,27 @@
         android:id="@+id/btnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
         android:background="@android:color/transparent"
         android:src="@drawable/back" />
+
     <TextView
         android:id="@+id/txt_title"
-        android:layout_width="match_parent"
-        android:layout_height="36dp"
-        android:layout_marginTop="5dp"
-        android:text="DANH SÁCH BÀI TẬP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btnBack"
+        android:layout_alignBottom="@+id/btnBack"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="3dp"
         android:layout_toEndOf="@id/btnBack"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+        android:text="DANH SÁCH BÀI TẬP"
         android:textAlignment="center"
-        android:textSize="24sp"
-        android:textColor="@color/white"
-        />
+        android:textSize="24sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_add_fitness"
@@ -40,7 +44,6 @@
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
         android:layout_marginBottom="5dp"
-        android:background="#424242"
         />
 
 </RelativeLayout>
