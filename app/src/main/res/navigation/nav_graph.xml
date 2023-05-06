@@ -8,18 +8,20 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.s_gym.ui.fragment.PlanFragment"
-        android:label="HomeFragment" >
-        <action
-            android:id="@+id/action_basicPlanFragment_to_basicFitnessFragment"
-            app:destination="@id/basicFitnessFragment"
-            app:popUpToInclusive="false" />
+        android:name="com.example.s_gym.ui.fragment.HomeFragment"
+        android:label="HomeFragment">
         <action
             android:id="@+id/action_homeFragment_to_addFitnessFragment"
             app:destination="@id/addFitnessFragment" />
         <action
             android:id="@id/action_advancedPlanFragment_to_addFitnessFragment"
-            app:destination="@id/addFitnessFragment"
+            app:destination="@id/addFitnessFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_basicPlanFragment"
+            app:destination="@id/basicPlanFragment" />
+        <action
+            android:id="@+id/action_basicPlanFragment_to_basicFitnessFragment"
+            app:destination="@id/basicFitnessFragment"
             />
     </fragment>
     <fragment
@@ -54,6 +56,12 @@
         <argument
             android:name="argsFitnessDay"
             app:argType="com.example.s_gym.database.entity.FitnessDay" />
+        <action
+            android:id="@+id/action_fitnessFragment_to_restFragment"
+            app:destination="@id/restFragment" />
+        <action
+            android:id="@+id/action_fitnessFragment_to_doneFitnessFragment"
+            app:destination="@id/doneFitnessFragment" />
     </fragment>
     <fragment
         android:id="@+id/editBasicFitnessFragment2"
@@ -81,4 +89,28 @@
         android:name="com.example.s_gym.ui.fragment.AddFitnessFragment"
         android:label="fragment_add_fitness"
         tools:layout="@layout/fragment_add_fitness" />
+    <fragment
+        android:id="@+id/restFragment"
+        android:name="com.example.s_gym.ui.fragment.RestFragment"
+        android:label="fragment_rest"
+        tools:layout="@layout/fragment_rest" />
+    <fragment
+        android:id="@+id/doneFitnessFragment"
+        android:name="com.example.s_gym.ui.fragment.DoneFitnessFragment"
+        android:label="fragment_done_fitness"
+        tools:layout="@layout/fragment_done_fitness" >
+        <action
+            android:id="@+id/action_doneFitnessFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.s_gym.ui.fragment.HistoryFragment"
+        android:label="fragment_history"
+        tools:layout="@layout/fragment_history">
+        <action
+            android:id="@+id/action_doneFitnessFragment_to_historyFragment"
+            app:destination="@id/historyFragment"
+            />
+    </fragment>
 </navigation>

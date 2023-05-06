@@ -11,22 +11,22 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeFragment : Fragment() {
 
-    private  lateinit var homebin:FragmentHomeBinding
+    private  lateinit var binding:FragmentHomeBinding
     lateinit var bottomNav : BottomNavigationView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        homebin = FragmentHomeBinding.inflate(layoutInflater)
+        binding = FragmentHomeBinding.inflate(layoutInflater)
 
-        return homebin.root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         loadFragment(PlanFragment())
-        bottomNav = homebin.bottomNav
+        bottomNav = binding.bottomNav
         bottomNav.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.home -> {
@@ -48,7 +48,7 @@ class HomeFragment : Fragment() {
     }
     private  fun loadFragment(fragment: Fragment) {
         val transaction = requireActivity().supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.fragmentContainer, fragment)
+        transaction.replace(R.id.container, fragment)
         transaction.commit()
     }
 }

@@ -1,11 +1,20 @@
 package com.example.s_gym.ui.fragment
 
+import android.graphics.Color
 import android.os.Bundle
+import android.text.style.BackgroundColorSpan
+import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.s_gym.R
+import com.example.s_gym.databinding.FragmentReportBinding
+import com.example.s_gym.databinding.FragmentRestBinding
+import com.prolificinteractive.materialcalendarview.CalendarDay
+import com.prolificinteractive.materialcalendarview.DayViewDecorator
+import com.prolificinteractive.materialcalendarview.DayViewFacade
 
 /**
  * A simple [Fragment] subclass.
@@ -13,39 +22,31 @@ import com.example.s_gym.R
  * create an instance of this fragment.
  */
 class ReportFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
-    }
+    private lateinit var binding: FragmentReportBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_report, container, false)
+        binding = FragmentReportBinding.inflate(layoutInflater)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ReportFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ReportFragment().apply {
-                arguments = Bundle().apply {
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.calendarReport.selectedDate = CalendarDay.today()
+
+//        binding.calendarReport.addDecorator(object : DayViewDecorator {
+//            override fun shouldDecorate(day: CalendarDay): Boolean {
+//                val today = CalendarDay.today()
+//                return day == today
+//            }
+//
+//            override fun decorate(view: DayViewFacade) {
+//                view.setSelectionDrawable(ContextCompat.getDrawable(
+//                    requireContext(), R.drawable.day_selector)!!)
+//            }
+//        })
     }
 }

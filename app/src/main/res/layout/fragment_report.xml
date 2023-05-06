@@ -31,12 +31,12 @@
                         android:id="@+id/txt_content"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginTop="10dp"
+                        android:layout_marginTop="15dp"
                         android:fontFamily="@string/title_font"
-                        android:text="TẬP LUYỆN \nĐÃ HOÀN THÀNH !!!"
+                        android:text="LÀM TỐT LẮM !!!"
+                        android:layout_centerHorizontal="true"
                         android:textColor="#353333"
-                        android:textSize="35sp"
+                        android:textSize="40sp"
                         android:textStyle="bold" />
 
                 </RelativeLayout>
@@ -115,7 +115,9 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_below="@id/txt_this_week"
-                        app:mcv_calendarMode="week" />
+                        app:mcv_calendarMode="week"
+                        app:mcv_selectionColor="@color/colorPrimary"
+                        />
 
                 </RelativeLayout>
 
@@ -139,7 +141,7 @@
                         android:text="Theo dõi uống nước" />
 
                     <TextView
-                        android:id="@+id/txt_water_drinked"
+                        android:id="@+id/txt_water_drunk"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@id/txt_fl_drink"
@@ -154,7 +156,7 @@
                         android:layout_below="@id/txt_fl_drink"
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="16dp"
-                        android:layout_toEndOf="@id/txt_water_drinked"
+                        android:layout_toEndOf="@id/txt_water_drunk"
                         android:text="/6 cốc" />
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -227,7 +229,7 @@
                     <EditText
                         android:id="@+id/edt_weight"
                         android:layout_width="200dp"
-                        android:layout_height="40dp"
+                        android:layout_height="wrap_content"
                         android:layout_below="@id/txt_weight_content"
                         android:layout_marginBottom="15dp" />
 

@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.example.s_gym.R
+import com.example.s_gym.databinding.FragmentDoneFitnessBinding
 
 /**
  * A simple [Fragment] subclass.
@@ -13,39 +16,31 @@ import com.example.s_gym.R
  * create an instance of this fragment.
  */
 class DoneFitnessFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
-    }
+    private lateinit var binding: FragmentDoneFitnessBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_done_fitness, container, false)
+        binding = FragmentDoneFitnessBinding.inflate(layoutInflater)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment DoneFitnessFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            DoneFitnessFragment().apply {
-                arguments = Bundle().apply {
-                }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        // Tạo một OnBackPressedCallback
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                // Chuyển hướng sang Fragment C khi nhấn nút Back button
+                findNavController().navigate(R.id.action_doneFitnessFragment_to_historyFragment)
             }
+        }
+        // Đăng ký OnBackPressedCallback
+        requireActivity().onBackPressedDispatcher.addCallback(requireActivity(), callback)
+
+        binding.btnBack.setOnClickListener {
+            findNavController().navigate(R.id.action_doneFitnessFragment_to_historyFragment)
+        }
     }
 }

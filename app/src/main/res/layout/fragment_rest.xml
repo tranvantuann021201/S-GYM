@@ -3,52 +3,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.RestFragment"
-    android:paddingHorizontal="65dp">
+    android:paddingHorizontal="65dp"
+    tools:context=".ui.fragment.RestFragment">
 
     <TextView
+        style="@style/txt_title_styles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/txt_title_styles"
-        android:text="Nghỉ ngơi"
         android:layout_above="@id/txt_rest_timer"
         android:layout_centerHorizontal="true"
-        android:textSize="35sp"
-        />
+        android:text="Nghỉ ngơi"
+        android:textSize="35sp" />
 
     <TextView
         android:id="@+id/txt_rest_timer"
+        style="@style/txt_title_styles"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/txt_title_styles"
-        android:text="00:30"
-        android:textSize="50sp"
         android:layout_centerInParent="true"
+        android:layout_marginBottom="10dp"
+        android:text="00:30"
         android:textColor="@color/black"
-        />
+        android:textSize="50sp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_20s_plus"
+        style="@style/txt_title_styles"
         android:layout_width="120dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/radius_color_d0"
-        android:text="+20s"
-        android:fontFamily="sans-serif-condensed-medium"
         android:layout_below="@id/txt_rest_timer"
-        style="@style/txt_title_styles"
-        android:textSize="22sp"
-        />
+        android:background="@drawable/radius_color_d0"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="+20s"
+        android:textSize="22sp" />
 
     <Button
-        style="@style/txt_title_styles"
-        android:textSize="22sp"
         android:id="@+id/btn_rest_skip"
-        android:layout_width="120dp"
+        style="@style/txt_title_styles"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/radius_btn"
-        android:text="Bỏ qua"
+        android:layout_below="@id/txt_rest_timer"
         android:layout_alignParentEnd="true"
+        android:background="@drawable/radius_btn"
         android:fontFamily="sans-serif-condensed-medium"
-        android:layout_below="@id/txt_rest_timer"/>
+        android:text="Bỏ qua"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/txt_completed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_20s_plus"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Đã hoàn thành"
+        android:textSize="20sp" />
 
 </RelativeLayout>
