@@ -12,7 +12,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 class HomeFragment : Fragment() {
 
     private  lateinit var binding:FragmentHomeBinding
-    lateinit var bottomNav : BottomNavigationView
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -25,30 +24,12 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        loadFragment(PlanFragment())
-        bottomNav = binding.bottomNav
-        bottomNav.setOnItemSelectedListener {
-            when (it.itemId) {
-                R.id.home -> {
-                    loadFragment(PlanFragment())
-                    true
-                }
-                R.id.message -> {
-                    loadFragment(ReportFragment())
-                    true
-                }
-                R.id.settings -> {
-                    loadFragment(SettingFragment())
-                    true
-                }
-                else -> {loadFragment(PlanFragment())
-                    true}
-            }
-        }
+//        loadFragment(PlanFragment())
+
     }
-    private  fun loadFragment(fragment: Fragment) {
-        val transaction = requireActivity().supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.container, fragment)
-        transaction.commit()
-    }
+//    private  fun loadFragment(fragment: Fragment) {
+//        val transaction = requireActivity().supportFragmentManager.beginTransaction()
+//        transaction.replace(R.id.container, fragment)
+//        transaction.commit()
+//    }
 }

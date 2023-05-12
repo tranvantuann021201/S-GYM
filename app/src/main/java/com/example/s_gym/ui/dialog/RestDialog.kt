@@ -1,10 +1,8 @@
-package com.example.s_gym.ui.fragment
+package com.example.s_gym.ui.dialog
 
-import android.app.Dialog
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
-import android.util.SizeF
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,10 +13,10 @@ import com.example.s_gym.databinding.FragmentRestBinding
 
 /**
  * A simple [Fragment] subclass.
- * Use the [RestFragment.newInstance] factory method to
+ * Use the [RestDialog.newInstance] factory method to
  * create an instance of this fragment.
  */
-class RestFragment : DialogFragment() {
+class RestDialog : DialogFragment() {
     private lateinit var binding: FragmentRestBinding
     private lateinit var timer: CountDownTimer
     var timeLeft = 6000L // Thời gian ban đầu của bộ đếm ngược
@@ -70,7 +68,7 @@ class RestFragment : DialogFragment() {
     fun createCountDownTimer(timeLeft: Long): CountDownTimer {
         return object : CountDownTimer(timeLeft, 1000) {
             override fun onTick(p0: Long) {
-                this@RestFragment.timeLeft = p0
+                this@RestDialog.timeLeft = p0
                 val minutes = (p0 / 1000) / 60
                 val seconds = (p0 / 1000) % 60
                 binding.txtRestTimer.text = String.format("%02d:%02d", minutes, seconds)

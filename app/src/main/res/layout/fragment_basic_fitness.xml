@@ -60,7 +60,7 @@
     <RelativeLayout
         android:id="@+id/rl_view"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="70dp"
         android:layout_alignParentBottom="true"
         >
 
@@ -73,33 +73,34 @@
             android:fontFamily="sans-serif-condensed-medium"
             android:text="Bắt đầu"
             android:textSize="@dimen/size_text_title"
-            android:layout_above="@id/check_warm_up"
             android:layout_centerHorizontal="true"
             />
+<!--            android:layout_above="@id/check_warm_up"-->
 
-        <CheckBox
-            android:id="@+id/check_warm_up"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            android:fontFamily="sans-serif-condensed"
-            android:text="Bắt đầu với khởi động"
-            android:buttonTint="@color/colorPrimary"
-            android:textSize="@dimen/size_text_detail"
-            />
 
-        <TextView
-            android:id="@+id/txt_restart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toStartOf="@id/check_warm_up"
-            android:drawableStart="@drawable/baseline_replay_24"
-            android:fontFamily="sans-serif-condensed"
-            android:text="Bắt đầu lại"
-            android:textColor="@color/colorPrimary"
-            android:visibility="invisible" />
+<!--        <CheckBox-->
+<!--            android:id="@+id/check_warm_up"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:fontFamily="sans-serif-condensed"-->
+<!--            android:text="Bắt đầu với khởi động"-->
+<!--            android:buttonTint="@color/colorPrimary"-->
+<!--            android:textSize="@dimen/size_text_detail"-->
+<!--            />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/txt_restart"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:layout_toStartOf="@id/check_warm_up"-->
+<!--            android:drawableStart="@drawable/baseline_replay_24"-->
+<!--            android:fontFamily="sans-serif-condensed"-->
+<!--            android:text="Bắt đầu lại"-->
+<!--            android:textColor="@color/colorPrimary"-->
+<!--            android:visibility="invisible" />-->
     </RelativeLayout>
 
 </RelativeLayout>

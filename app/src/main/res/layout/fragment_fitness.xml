@@ -57,7 +57,6 @@
         android:layout_marginVertical="20dp"
         android:layout_marginBottom="66dp"
         android:background="@drawable/radius_btn"
-        android:enabled="false"
         android:text="Xong" />
 
     <TextView

@@ -50,7 +50,7 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <Button
-            android:id="@+id/btn_cancel_dialog"
+            android:id="@+id/btn_reset_exercise"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -62,7 +62,7 @@
             android:textSize="22sp"/>
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_reset_exer"
+            android:id="@+id/btn_cancel_dialog"
             android:background="@drawable/radius_color_d0"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

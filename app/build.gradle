@@ -86,4 +86,9 @@ dependencies {
     //gson
     implementation 'com.google.code.gson:gson:2.8.6'
 
+    //RoomDB
+    implementation("androidx.room:room-runtime:2.5.0")
+    annotationProcessor("androidx.room:room-compiler:2.5.0")
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation("androidx.room:room-ktx:2.5.0")
 }

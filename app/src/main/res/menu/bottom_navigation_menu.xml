@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/home"
+        android:id="@+id/plan"
         android:icon="@drawable/baseline_assignment_24"
 
         android:title="Plan"  />
     <item
-        android:id="@+id/message"
+        android:id="@+id/report"
         android:icon="@drawable/baseline_stacked_line_chart_24"
         android:title="Report" />
     <item
