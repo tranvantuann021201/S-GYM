@@ -42,7 +42,7 @@
             app:destination="@id/editBasicFitnessFragment2" />
         <argument
             android:name="argsFitnessDay"
-            app:argType="com.example.s_gym.database.entity.FitnessDay" />
+            app:argType="com.example.s_gym.api.FitnessDay" />
     </fragment>
     <fragment
         android:id="@+id/fitnessFragment"
@@ -51,7 +51,7 @@
         tools:layout="@layout/fragment_fitness">
         <argument
             android:name="argsFitnessDay"
-            app:argType="com.example.s_gym.database.entity.FitnessDay" />
+            app:argType="com.example.s_gym.api.FitnessDay" />
         <action
             android:id="@+id/action_fitnessFragment_to_restFragment"
             app:destination="@id/restFragment" />
@@ -73,7 +73,7 @@
         tools:layout="@layout/fragment_edit_basic_fitness">
         <argument
             android:name="argsFitnessDay"
-            app:argType="com.example.s_gym.database.entity.FitnessDay" />
+            app:argType="com.example.s_gym.api.FitnessDay" />
         <action
             android:id="@+id/action_editBasicFitnessFragment2_to_basicFitnessFragment"
             app:destination="@id/basicFitnessFragment" />
@@ -91,7 +91,14 @@
         android:id="@+id/addFitnessFragment"
         android:name="com.example.s_gym.ui.fragment.AddFitnessFragment"
         android:label="fragment_add_fitness"
-        tools:layout="@layout/fragment_add_fitness" />
+        tools:layout="@layout/fragment_add_fitness" >
+        <action
+            android:id="@+id/action_addFitnessFragment_to_informationExerciseDialogFragment"
+            app:destination="@id/informationExerciseDialogFragment" />
+        <argument
+            android:name="argsExercise"
+            app:argType="com.example.s_gym.api.Exercise" />
+    </fragment>
     <fragment
         android:id="@+id/restFragment"
         android:name="com.example.s_gym.ui.dialog.RestDialog"
@@ -173,5 +180,35 @@
         <action
             android:id="@+id/action_followDrinkWaterFragment_to_reportFragment"
             app:destination="@id/reportFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/informationExerciseDialogFragment"
+        android:name="com.example.s_gym.ui.fragment.InformationExerciseDialogFragment"
+        android:label="fragment_information_exercise"
+        tools:layout="@layout/fragment_information_exercise" >
+        <action
+            android:id="@+id/action_informationExerciseDialogFragment_to_newFitnessFragment"
+            app:destination="@id/newFitnessFragment" />
+    </dialog>
+    <fragment
+        android:id="@+id/newFitnessFragment"
+        android:name="com.example.s_gym.ui.fragment.NewFitnessFragment"
+        android:label="fragment_new_fitness"
+        tools:layout="@layout/fragment_new_fitness" >
+        <action
+            android:id="@+id/action_newFitnessFragment_to_addFitnessFragment"
+            app:destination="@id/addFitnessFragment" />
+        <action
+            android:id="@+id/action_newFitnessFragment_to_nameMyExerciseDialog"
+            app:destination="@id/nameMyExerciseDialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/nameMyExerciseDialog"
+        android:name="com.example.s_gym.ui.dialog.NameMyExerciseDialog"
+        android:label="fragment_name_my_exercise_dialog"
+        tools:layout="@layout/fragment_name_my_exercise_dialog" >
+        <action
+            android:id="@+id/action_nameMyExerciseDialog_to_advancedPlanFragment"
+            app:destination="@id/advancedPlanFragment" />
     </fragment>
 </navigation>

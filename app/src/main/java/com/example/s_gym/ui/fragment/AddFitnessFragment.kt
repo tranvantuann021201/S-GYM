@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.s_gym.ui.adapter.AddFitnessAdapter
 import com.example.s_gym.databinding.FragmentAddFitnessBinding
@@ -16,6 +17,8 @@ class AddFitnessFragment : Fragment() {
     private lateinit var binding: FragmentAddFitnessBinding
     private lateinit var addFitnessAdapter: AddFitnessAdapter
     private val viewModel = AddFitnessViewModel()
+    private val args by navArgs<AddFitnessFragmentArgs>()
+
 
     interface onItemClickListener {
         fun onItemClick(position: Int)
@@ -41,6 +44,7 @@ class AddFitnessFragment : Fragment() {
         //Xử lý khi click vào item
         addFitnessAdapter.setItemClickListener(object : onItemClickListener {
             override fun onItemClick(position: Int) {
+//                val action = AddFitnessFragmentDirections.actionAddFitnessFragmentToInformationExerciseDialogFragment(viewModel.exerciseList[position])
             }
         })
         binding.rvAddFitness.layoutManager =

@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.s_gym.api.FitnessDay
 import com.example.s_gym.ui.adapter.BasicPlanAdapter
 import com.example.s_gym.databinding.FragmentBasicPlanBinding
 import com.example.s_gym.ui.viewmodel.BasicPlanViewModel

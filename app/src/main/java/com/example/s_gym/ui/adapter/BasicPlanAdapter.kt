@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.s_gym.R
+import com.example.s_gym.api.FitnessDay
 import com.example.s_gym.ui.fragment.BasicPlanFragment
 
 class BasicPlanAdapter(

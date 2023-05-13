@@ -11,10 +11,8 @@ import com.example.s_gym.database.entity.User
 
 class FitnessRepository(
     private val daysDao: DaysDao,
-    private val exercisesDao: ExercisesDao,
     private val fitnessAdvanceDao: FitnessAdvanceDao,
-    private val userDao: UserDao
-) {
+    private val userDao: UserDao) {
     // Các phương thức liên quan đến bảng days_roomdb_table
     suspend fun updateWeightAndHeight(id: Int, weight: Double, height: Double) {
         daysDao.updateWeightAndHeight(id, weight, height)
