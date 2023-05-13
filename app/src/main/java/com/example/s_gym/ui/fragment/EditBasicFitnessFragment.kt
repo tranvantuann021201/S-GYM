@@ -15,6 +15,7 @@ import com.example.s_gym.ui.adapter.EditBasicFitnessAdapter
 import com.example.s_gym.databinding.FragmentEditBasicFitnessBinding
 import com.example.s_gym.ui.adapter.OnStartDragListener
 import com.example.s_gym.ui.touch.ItemTouchHelperCallback
+import com.example.s_gym.ui.viewmodel.EditBasicFitnessViewModel
 import java.util.*
 
 /**
@@ -27,6 +28,7 @@ class EditBasicFitnessFragment : Fragment(), OnStartDragListener {
     private lateinit var editBasicFitnessAdapter: EditBasicFitnessAdapter
     private val args by navArgs<BasicFitnessFragmentArgs>()
     private lateinit var touchHelper: ItemTouchHelper
+    private val viewModel = EditBasicFitnessViewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,8 +42,8 @@ class EditBasicFitnessFragment : Fragment(), OnStartDragListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val exerciseList = args.argsFitnessDay.exercise as MutableList
-        editBasicFitnessAdapter = EditBasicFitnessAdapter(exerciseList, this)
+        viewModel.exerciseList = args.argsFitnessDay.exercise as MutableList
+        editBasicFitnessAdapter = EditBasicFitnessAdapter(viewModel.exerciseList, this)
         binding.rvEditBasicFitness.adapter = editBasicFitnessAdapter
 
         val callback = ItemTouchHelperCallback(editBasicFitnessAdapter)
@@ -50,9 +52,9 @@ class EditBasicFitnessFragment : Fragment(), OnStartDragListener {
 
         // Set click listener for btnSave
         binding.btnSave.setOnClickListener {
-            val sortedExercises = editBasicFitnessAdapter.getSortedExercises()
+            viewModel.sortedExercises = editBasicFitnessAdapter.getSortedExercises()
             // Save the sorted list of exercises
-            editBasicFitnessAdapter = EditBasicFitnessAdapter(sortedExercises, this)
+            editBasicFitnessAdapter = EditBasicFitnessAdapter(viewModel.sortedExercises, this)
             findNavController().popBackStack()
             Toast.makeText(context, "Chỉnh sửa đã được lưu", Toast.LENGTH_SHORT).show()
         }
@@ -64,3 +66,5 @@ class EditBasicFitnessFragment : Fragment(), OnStartDragListener {
         touchHelper.startDrag(viewHolder)
     }
 }
+
+

@@ -7,41 +7,28 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.s_gym.ui.adapter.BasicPlanAdapter
 import com.example.s_gym.database.entity.FitnessDay
-import com.example.s_gym.database.entity.FitnessPlan
 import com.example.s_gym.databinding.FragmentBasicPlanBinding
-import com.google.gson.Gson
-import org.json.JSONException
-import java.io.IOException
-import java.nio.charset.Charset
-import java.time.LocalDateTime
-import java.util.*
+import com.example.s_gym.ui.viewmodel.BasicPlanViewModel
 
 
 class BasicPlanFragment : Fragment() {
-
     private lateinit var binding: FragmentBasicPlanBinding
     private lateinit var basicPlanAdapter: BasicPlanAdapter
-    val calendar = Calendar.getInstance()
-    val month = calendar.get(Calendar.MONTH)
-    val year = calendar.get(Calendar.YEAR)
-    val daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+    private val viewModel: BasicPlanViewModel by viewModels()
 
-    @RequiresApi(Build.VERSION_CODES.O)
-    val daysInRange = (1..daysInMonth).map { day ->
-        LocalDateTime.of(year, month + 1, day, 0, 0, 0)
-    }
     interface onBasicPlanItemClickListener {
         fun onBasicPlanItemClick(fitnessDay: FitnessDay)
     }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding = FragmentBasicPlanBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -50,48 +37,20 @@ class BasicPlanFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        try {
-            val jsonString = getJSONFromAssets()!!
-            val fitnessPlan = Gson().fromJson(jsonString, FitnessPlan::class.java)
+        val fitnessDays = viewModel.getFitnessDays(requireContext())
+        basicPlanAdapter = BasicPlanAdapter(fitnessDays)
+        binding.rvBasicPlan.layoutManager = LinearLayoutManager(context)
+        binding.rvBasicPlan.adapter = basicPlanAdapter
 
-            val fitnessDays = fitnessPlan.fitnessPlan
-            val fitnessDayList = fitnessDays.filter { fitnessDay ->
-                daysInRange.any { day ->
-                    fitnessDay.id == day.dayOfMonth
-                }
-            }
-            basicPlanAdapter =  BasicPlanAdapter(fitnessDayList)
-            binding.rvBasicPlan.layoutManager = LinearLayoutManager(context)
-            binding.rvBasicPlan.adapter = basicPlanAdapter
-        } catch (e: JSONException) {
-            //exception
-            e.printStackTrace()
-        }
-
-        basicPlanAdapter.setItemClickListener(object : onBasicPlanItemClickListener{
+        basicPlanAdapter.setItemClickListener(object : onBasicPlanItemClickListener {
             override fun onBasicPlanItemClick(fitnessDay: FitnessDay) {
-                val action = BasicPlanFragmentDirections.actionBasicPlanFragmentToBasicFitnessFragment(fitnessDay)
+                val action =
+                    BasicPlanFragmentDirections.actionBasicPlanFragmentToBasicFitnessFragment(fitnessDay)
                 findNavController().navigate(action)
             }
-
         })
     }
-
-    private fun getJSONFromAssets(): String? {
-
-        var json: String? = null
-        val charset: Charset = Charsets.UTF_8
-        try {
-            val myUsersJSONFile = requireContext().assets.open("fitness.json")
-            val size = myUsersJSONFile.available()
-            val buffer = ByteArray(size)
-            myUsersJSONFile.read(buffer)
-            myUsersJSONFile.close()
-            json = String(buffer, charset)
-        } catch (ex: IOException) {
-            ex.printStackTrace()
-            return null
-        }
-        return json
-    }
 }
+
+
+

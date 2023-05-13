@@ -1,6 +1,7 @@
 package com.example.s_gym.database.entity
 
 import android.os.Parcelable
+import com.example.s_gym.api.Exercise
 import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 

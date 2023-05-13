@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.s_gym.database.entity.Exercise
+import com.example.s_gym.api.Exercise
 import com.example.s_gym.databinding.ItemBasicFitnessBinding
 
 class BasicFitnessAdapter(var exercisesList: List<Exercise>) :

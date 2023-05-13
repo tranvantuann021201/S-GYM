@@ -9,37 +9,39 @@
     android:padding="@dimen/padding_parent_horizontal"
     >
 
-    <ImageButton
-        android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/action_add_fitness_fragment"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
-        android:background="@android:color/transparent"
-        android:src="@drawable/back" />
+        android:paddingStart="10dp"
+        android:paddingHorizontal="5dp"
+        >
 
-    <TextView
-        android:id="@+id/txt_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/btnBack"
-        android:layout_alignBottom="@+id/btnBack"
-        android:layout_centerHorizontal="true"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="3dp"
-        android:layout_toEndOf="@id/btnBack"
-        android:text="DANH SÁCH BÀI TẬP"
-        android:textAlignment="center"
-        android:textSize="24sp" />
+        <TextView
+            android:id="@+id/btn_back"
+            android:layout_marginTop="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/back"
+            />
+
+        <TextView
+            style="@style/txt_title_styles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Danh sách bài tập"
+            android:layout_toEndOf="@id/btn_back"
+            android:layout_marginStart="15dp"
+            />
+
+    </RelativeLayout>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_add_fitness"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/btnBack"
+        android:layout_below="@id/action_add_fitness_fragment"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"

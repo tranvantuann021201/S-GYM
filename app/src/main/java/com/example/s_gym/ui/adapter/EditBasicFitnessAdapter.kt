@@ -2,12 +2,10 @@ package com.example.s_gym.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.MotionEvent
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.s_gym.database.entity.Exercise
+import com.example.s_gym.api.Exercise
 import com.example.s_gym.databinding.ItemEditBasicFitnessBinding
 import java.util.*
 
