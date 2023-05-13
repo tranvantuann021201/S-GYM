@@ -11,6 +11,7 @@ import com.example.s_gym.api.Exercise
 import com.example.s_gym.ui.adapter.AddFitnessAdapter
 import com.example.s_gym.database.entity.FitnessPlan
 import com.example.s_gym.databinding.FragmentAddFitnessBinding
+import com.example.s_gym.ui.viewmodel.AddFitnessViewModel
 import com.google.gson.Gson
 import org.json.JSONException
 import java.io.IOException
@@ -19,8 +20,8 @@ import java.nio.charset.Charset
 
 class AddFitnessFragment : Fragment() {
     private lateinit var binding: FragmentAddFitnessBinding
-    private lateinit var exerciseList: List<Exercise>
     private lateinit var addFitnessAdapter: AddFitnessAdapter
+    private val viewModel = AddFitnessViewModel()
 
     interface onItemClickListener {
         fun onItemClick(position: Int)
@@ -39,25 +40,9 @@ class AddFitnessFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        try {
-            val jsonString = getJSONFromAssets()!!
-            val fitnessPlan = Gson().fromJson(jsonString, FitnessPlan::class.java)
-
-            val exerciseSet = mutableSetOf<Exercise>()
-            for (day in fitnessPlan.fitnessPlan) {
-                for (exercise in day.exercise) {
-                    if(day.id != exercise.id) {
-                        exerciseSet.add(exercise)
-                    }
-                }
-            }
-            exerciseList = exerciseSet.toList().sortedBy { it.id }
-            addFitnessAdapter = AddFitnessAdapter(exerciseList)
-            binding.rvAddFitness.adapter = addFitnessAdapter
-        } catch (e: JSONException) {
-            //exception
-            e.printStackTrace()
-        }
+        viewModel.loadExercises(requireContext())
+        addFitnessAdapter = AddFitnessAdapter(viewModel.exerciseList)
+        binding.rvAddFitness.adapter = addFitnessAdapter
 
         //Xử lý khi click vào item
         addFitnessAdapter.setItemClickListener(object : onItemClickListener {
@@ -70,21 +55,5 @@ class AddFitnessFragment : Fragment() {
             findNavController().popBackStack()
         }
     }
-    private fun getJSONFromAssets(): String? {
-
-        var json: String? = null
-        val charset: Charset = Charsets.UTF_8
-        try {
-            val myUsersJSONFile = requireContext().assets.open("fitness.json")
-            val size = myUsersJSONFile.available()
-            val buffer = ByteArray(size)
-            myUsersJSONFile.read(buffer)
-            myUsersJSONFile.close()
-            json = String(buffer, charset)
-        } catch (ex: IOException) {
-            ex.printStackTrace()
-            return null
-        }
-        return json
-    }
 }
+
