@@ -9,7 +9,6 @@ data class FitnessAdvance(
     val id: Int,
     val name: String,
     val isRestDay: Boolean,
-    val totalExercise: Int,
-    val exerciseComplete: Int,
+    val exerciseCompleted: Int,
     val exercise: List<Exercises>
 )

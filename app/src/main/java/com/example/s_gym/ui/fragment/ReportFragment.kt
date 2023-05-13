@@ -45,17 +45,5 @@ class ReportFragment : Fragment() {
         binding.cvFlDrink.setOnClickListener {
             findNavController().navigate(R.id.action_reportFragment_to_followDrinkWaterFragment)
         }
-
-//        binding.calendarReport.addDecorator(object : DayViewDecorator {
-//            override fun shouldDecorate(day: CalendarDay): Boolean {
-//                val today = CalendarDay.today()
-//                return day == today
-//            }
-//
-//            override fun decorate(view: DayViewFacade) {
-//                view.setSelectionDrawable(ContextCompat.getDrawable(
-//                    requireContext(), R.drawable.day_selector)!!)
-//            }
-//        })
     }
 }

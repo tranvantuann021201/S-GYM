@@ -7,15 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.s_gym.api.Exercise
 import com.example.s_gym.ui.adapter.AddFitnessAdapter
-import com.example.s_gym.database.entity.FitnessPlan
 import com.example.s_gym.databinding.FragmentAddFitnessBinding
 import com.example.s_gym.ui.viewmodel.AddFitnessViewModel
-import com.google.gson.Gson
-import org.json.JSONException
-import java.io.IOException
-import java.nio.charset.Charset
 
 
 class AddFitnessFragment : Fragment() {

@@ -4,8 +4,6 @@ import android.content.Context
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
-import com.example.s_gym.database.entity.FitnessDay
-import com.example.s_gym.database.entity.FitnessPlan
 import com.google.gson.Gson
 import org.json.JSONException
 import java.io.IOException

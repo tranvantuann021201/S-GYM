@@ -11,7 +11,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.s_gym.ui.adapter.BasicPlanAdapter
-import com.example.s_gym.database.entity.FitnessDay
 import com.example.s_gym.databinding.FragmentBasicPlanBinding
 import com.example.s_gym.ui.viewmodel.BasicPlanViewModel
 
