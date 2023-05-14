@@ -45,5 +45,9 @@ class ReportFragment : Fragment() {
         binding.cvFlDrink.setOnClickListener {
             findNavController().navigate(R.id.action_reportFragment_to_followDrinkWaterFragment)
         }
+
+        binding.btnEditBmi.setOnClickListener {
+            findNavController().navigate(R.id.action_reportFragment_to_updateBMIDialog)
+        }
     }
 }

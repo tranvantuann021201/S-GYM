@@ -17,7 +17,6 @@ class AddFitnessFragment : Fragment() {
     private lateinit var binding: FragmentAddFitnessBinding
     private lateinit var addFitnessAdapter: AddFitnessAdapter
     private val viewModel = AddFitnessViewModel()
-    private val args by navArgs<AddFitnessFragmentArgs>()
 
 
     interface onItemClickListener {
@@ -44,7 +43,8 @@ class AddFitnessFragment : Fragment() {
         //Xử lý khi click vào item
         addFitnessAdapter.setItemClickListener(object : onItemClickListener {
             override fun onItemClick(position: Int) {
-//                val action = AddFitnessFragmentDirections.actionAddFitnessFragmentToInformationExerciseDialogFragment(viewModel.exerciseList[position])
+                val action = AddFitnessFragmentDirections.actionAddFitnessFragmentToInformationExerciseDialogFragment(viewModel.exerciseList[position])
+                findNavController().navigate(action)
             }
         })
         binding.rvAddFitness.layoutManager =

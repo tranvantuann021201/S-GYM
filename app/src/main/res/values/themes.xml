@@ -16,7 +16,7 @@
 
     <style name="Theme.SplashScreen" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">#1E1A8E</item>
+        <item name="colorPrimary">#0026AF</item>
         <item name="colorPrimaryVariant">#001F78</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->

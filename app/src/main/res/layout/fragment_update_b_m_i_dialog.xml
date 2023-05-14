@@ -24,7 +24,7 @@
         <EditText
             android:id="@+id/edt_weight"
             android:layout_width="160dp"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/txt_weight_content"
             android:layout_alignStart="@id/txt_weight_content"
             />
@@ -43,7 +43,7 @@
         <EditText
             android:id="@+id/edt_height"
             android:layout_width="160dp"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
             android:layout_below="@id/txt_height_content"
             android:layout_alignStart="@id/txt_weight_content"
             android:layout_marginBottom="20dp"

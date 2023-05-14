@@ -23,4 +23,7 @@ interface FitnessAdvanceDao {
 
     @Query("UPDATE fitness_advanced_roomdb_table SET exerciseComplete = exerciseComplete + 1 WHERE id = :id")
     suspend fun updateExerciseCompleted(id: Int)
+
+    @Query("SELECT * FROM fitness_advanced_roomdb_table LIMIT 1")
+    suspend fun getFitnessAdvance(): FitnessAdvance
 }

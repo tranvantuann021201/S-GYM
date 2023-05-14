@@ -1,14 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/padding_parent_horizontal"
     tools:context=".ui.fragment.RemindFragment">
 
+    <RelativeLayout
+        android:id="@+id/custom_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp">
+
+        <TextView
+            android:id="@+id/btn_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:drawableStart="@drawable/back" />
+
+        <TextView
+            style="@style/txt_title_styles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@id/btn_back"
+            android:text="Nhắc nhở" />
+
+    </RelativeLayout>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_gender"
-        style="@style/done_fitness_cv">
+        style="@style/done_fitness_cv"
+        android:layout_below="@id/custom_action_bar">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -20,16 +45,20 @@
                 android:id="@+id/txt_drink_water_remind"
                 style="@style/txt_title_styles"
                 android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
                 android:drawableStart="@drawable/baseline_notifications_active_24"
                 android:paddingHorizontal="@dimen/item_margin_horizontal"
-                android:text=" Nhắc nhở uống nước" />
+                android:text=" Nhắc nhở uống nước"
+                android:textSize="22sp" />
 
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:id="@+id/sw_drink_water_remind"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:thumbTint="@drawable/switch_thumb_color"
+                app:trackTint="@drawable/switch_track_color" />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
@@ -48,16 +77,20 @@
                 android:id="@+id/txt_exer_remind"
                 style="@style/txt_title_styles"
                 android:layout_width="wrap_content"
+                android:layout_centerVertical="true"
                 android:drawableStart="@drawable/baseline_notifications_active_24"
                 android:paddingHorizontal="@dimen/item_margin_horizontal"
-                android:text=" Nhắc nhở luyện tập" />
+                android:text=" Nhắc nhở luyện tập"
+                android:textSize="22sp" />
 
             <com.google.android.material.switchmaterial.SwitchMaterial
                 android:id="@+id/sw_exer_remind"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:thumbTint="@drawable/switch_thumb_color"
+                app:trackTint="@drawable/switch_track_color" />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

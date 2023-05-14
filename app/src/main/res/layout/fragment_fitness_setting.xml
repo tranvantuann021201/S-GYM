@@ -6,9 +6,37 @@
     android:padding="@dimen/padding_parent_horizontal"
     tools:context=".ui.fragment.FitnessSettingFragment">
 
+    <RelativeLayout
+        android:id="@+id/custom_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        >
+
+        <TextView
+            android:id="@+id/btn_back"
+            android:layout_marginTop="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/back"
+            />
+
+        <TextView
+            style="@style/txt_title_styles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cài đặt luyện tập"
+            android:layout_toEndOf="@id/btn_back"
+            android:layout_marginStart="15dp"
+            />
+
+    </RelativeLayout>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_gender"
-        style="@style/done_fitness_cv">
+        style="@style/done_fitness_cv"
+        android:layout_below="@+id/custom_action_bar"
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -19,6 +47,7 @@
             <TextView
                 android:id="@+id/txt_timer_title"
                 style="@style/txt_title_styles"
+                android:textSize="22sp"
                 android:layout_width="wrap_content"
                 android:drawableStart="@drawable/baseline_timer_24"
                 android:paddingHorizontal="@dimen/item_margin_horizontal"
@@ -72,8 +101,9 @@
             <TextView
                 android:id="@+id/txt_rest_when_exer"
                 style="@style/txt_title_styles"
+                android:textSize="22sp"
                 android:layout_width="wrap_content"
-                android:drawableStart="@drawable/baseline_timer_24"
+                android:drawableStart="@drawable/baseline_local_drink_24"
                 android:paddingHorizontal="@dimen/item_margin_horizontal"
                 android:text=" Nghỉ khi tập" />
 

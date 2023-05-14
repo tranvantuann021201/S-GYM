@@ -4,6 +4,8 @@ import android.content.Context
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
+import com.example.s_gym.api.FitnessDay
+import com.example.s_gym.api.FitnessPlan
 import com.google.gson.Gson
 import org.json.JSONException
 import java.io.IOException
@@ -24,19 +26,19 @@ class BasicPlanViewModel : ViewModel() {
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun getFitnessDays(context: Context): List<FitnessDay> {
-        try {
+        return try {
             val jsonString = getJSONFromAssets(context)!!
             val fitnessPlan = Gson().fromJson(jsonString, FitnessPlan::class.java)
 
             val fitnessDays = fitnessPlan.fitnessPlan
-            return fitnessDays.filter { fitnessDay ->
+            fitnessDays.filter { fitnessDay ->
                 daysInRange.any { day ->
                     fitnessDay.id == day.dayOfMonth
                 }
             }
         } catch (e: JSONException) {
             e.printStackTrace()
-            return emptyList()
+            emptyList()
         }
     }
 

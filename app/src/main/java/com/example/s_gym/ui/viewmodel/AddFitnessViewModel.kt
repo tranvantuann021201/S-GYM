@@ -2,6 +2,7 @@ package com.example.s_gym.ui.viewmodel
 
 import android.content.Context
 import com.example.s_gym.api.Exercise
+import com.example.s_gym.api.FitnessPlan
 import com.google.gson.Gson
 import org.json.JSONException
 import java.io.IOException

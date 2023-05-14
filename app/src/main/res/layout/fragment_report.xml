@@ -107,7 +107,7 @@
                         android:layout_alignParentEnd="true"
                         android:drawableEnd="@drawable/baseline_mode_edit_24"
                         android:paddingVertical="@dimen/item_margin_vertical"
-                        android:text="Chỉnh sửa "
+                        android:text="Lịch sử "
                         android:textSize="16sp" />
 
                     <com.prolificinteractive.materialcalendarview.MaterialCalendarView
@@ -269,7 +269,7 @@
                         android:text="BMI (kg/m*m)" />
 
                     <TextView
-                        android:id="@+id/txt_option_bmi"
+                        android:id="@+id/btn_edit_bmi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignBottom="@+id/txt_bmi"

@@ -1,16 +1,18 @@
 package com.example.s_gym.ui.fragment
 
+import android.app.DatePickerDialog
+import android.graphics.Color
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.example.s_gym.R
+import com.example.s_gym.databinding.FragmentMyProfileBinding
+import com.example.s_gym.ui.viewmodel.MyProfileViewModel
+import java.util.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -18,43 +20,48 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class MyProfileFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private lateinit var binding: FragmentMyProfileBinding
+    private val viewModel: MyProfileViewModel by viewModels()
+    private val c: Calendar = Calendar.getInstance()
+    private val year = c.get(Calendar.YEAR)
+    private val month = c.get(Calendar.MONTH)
+    private val day = c.get(Calendar.DAY_OF_MONTH)
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my_profile, container, false)
+        binding = FragmentMyProfileBinding.inflate(layoutInflater)
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment MyProfileFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            MyProfileFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+
+        viewModel.selectedDate.observe(viewLifecycleOwner) { date ->
+            // Cập nhật giao diện người dùng với ngày được chọn
+            binding.txtBirthDay.text = "$date"
+        }
+        
+        binding.btnEditBirthDay.setOnClickListener {
+            val dpd = DatePickerDialog(
+                requireContext(),
+                R.style.MyDatePickerDialogTheme,
+                { _, year, monthOfYear, dayOfMonth ->
+                    // Xử lý khi người dùng chọn một ngày
+                    val selectedDate = "$dayOfMonth Th${monthOfYear + 1} $year"
+                    viewModel.updateSelectedDate(selectedDate)
+                },
+                year,
+                month,
+                day
+            )
+            dpd.show()
+            dpd.getButton(DatePickerDialog.BUTTON_NEGATIVE).setTextColor(Color.parseColor("#0026AF"));
+            dpd.getButton(DatePickerDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#0026AF"));
+        }
     }
 }

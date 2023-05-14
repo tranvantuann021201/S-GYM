@@ -95,9 +95,6 @@
         <action
             android:id="@+id/action_addFitnessFragment_to_informationExerciseDialogFragment"
             app:destination="@id/informationExerciseDialogFragment" />
-        <argument
-            android:name="argsExercise"
-            app:argType="com.example.s_gym.api.Exercise" />
     </fragment>
     <fragment
         android:id="@+id/restFragment"
@@ -157,12 +154,25 @@
         <action
             android:id="@+id/action_reportFragment_to_followDrinkWaterFragment"
             app:destination="@id/followDrinkWaterFragment" />
+        <action
+            android:id="@+id/action_reportFragment_to_updateBMIDialog"
+            app:destination="@id/updateBMIDialog" />
     </fragment>
     <fragment
         android:id="@+id/settingFragment"
         android:name="com.example.s_gym.ui.fragment.SettingFragment"
         android:label="fragment_setting"
-        tools:layout="@layout/fragment_setting" />
+        tools:layout="@layout/fragment_setting" >
+        <action
+            android:id="@+id/action_settingFragment_to_myProfileFragment"
+            app:destination="@id/myProfileFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_fitnessSettingFragment"
+            app:destination="@id/fitnessSettingFragment" />
+        <action
+            android:id="@+id/action_settingFragment_to_remindFragment"
+            app:destination="@id/remindFragment" />
+    </fragment>
     <dialog
         android:id="@+id/pauseExerciseDialog"
         android:name="com.example.s_gym.ui.dialog.PauseExerciseDialog"
@@ -189,6 +199,9 @@
         <action
             android:id="@+id/action_informationExerciseDialogFragment_to_newFitnessFragment"
             app:destination="@id/newFitnessFragment" />
+        <argument
+            android:name="argsExercise"
+            app:argType="com.example.s_gym.api.Exercise" />
     </dialog>
     <fragment
         android:id="@+id/newFitnessFragment"
@@ -211,4 +224,24 @@
             android:id="@+id/action_nameMyExerciseDialog_to_advancedPlanFragment"
             app:destination="@id/advancedPlanFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/myProfileFragment"
+        android:name="com.example.s_gym.ui.fragment.MyProfileFragment"
+        android:label="fragment_my_profile"
+        tools:layout="@layout/fragment_my_profile" />
+    <fragment
+        android:id="@+id/fitnessSettingFragment"
+        android:name="com.example.s_gym.ui.fragment.FitnessSettingFragment"
+        android:label="fragment_fitness_setting"
+        tools:layout="@layout/fragment_fitness_setting" />
+    <fragment
+        android:id="@+id/remindFragment"
+        android:name="com.example.s_gym.ui.fragment.RemindFragment"
+        android:label="fragment_remind"
+        tools:layout="@layout/fragment_remind" />
+    <dialog
+        android:id="@+id/updateBMIDialog"
+        android:name="com.example.s_gym.ui.dialog.UpdateBMIDialog"
+        android:label="fragment_update_b_m_i_dialog"
+        tools:layout="@layout/fragment_update_b_m_i_dialog" />
 </navigation>
