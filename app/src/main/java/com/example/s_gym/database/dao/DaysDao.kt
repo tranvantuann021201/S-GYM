@@ -7,7 +7,6 @@ import com.example.s_gym.database.entity.FitnessAdvance
 
 @Dao
 interface DaysDao {
-    suspend fun addDays(days: Days)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(day: Days)

@@ -45,7 +45,7 @@ class MyProfileFragment : Fragment() {
             // Cập nhật giao diện người dùng với ngày được chọn
             binding.txtBirthDay.text = "$date"
         }
-        
+
         binding.btnEditBirthDay.setOnClickListener {
             val dpd = DatePickerDialog(
                 requireContext(),

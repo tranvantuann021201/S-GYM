@@ -6,8 +6,8 @@ import com.example.s_gym.database.entity.User
 class UserRepository(
     private val userDao: UserDao
 ) {
-    suspend fun updateUserCurrentWeightAndHeight(weight: Double, height: Double) {
-        userDao.updateUserCurrentWeightAndHeight(weight, height)
+    suspend fun updateUserCurrentWeightAndHeight(gender: Boolean,weight: Double, height: Double) {
+        userDao.updateUserCurrentWeightAndHeight(gender, weight, height)
     }
 
     suspend fun insertUser(user: User) {

@@ -4,9 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
@@ -24,11 +26,14 @@ import com.example.s_gym.ui.viewmodel.InformationExerciseViewModel
 class InformationExerciseDialogFragment : DialogFragment() {
     private lateinit var binding: FragmentInformationExerciseBinding
     private val args by navArgs<InformationExerciseDialogFragmentArgs>()
-    private val viewModel: InformationExerciseViewModel by viewModels ()
-//        InformationExerciseViewModelFactory(repository)
+    private lateinit var viewModelFactory: InformationExerciseViewModel.InformationExerciseViewModelFactory
+    private lateinit var viewModel: InformationExerciseViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(STYLE_NORMAL, R.style.FullScreenDialogStyle)
+        viewModelFactory = InformationExerciseViewModel.InformationExerciseViewModelFactory(requireActivity().application)
+        viewModel = ViewModelProvider(this, viewModelFactory)[InformationExerciseViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -60,9 +65,10 @@ class InformationExerciseDialogFragment : DialogFragment() {
         }
 
         binding.btnAddAnimation.setOnClickListener {
-//            val exercises = viewModel.convertExerciseToExercises(args.argsExercise)
-//            viewModel.addExercises(exercises)
-//            findNavController().navigate(R.id.action_informationExerciseDialogFragment_to_newFitnessFragment)
+            val exercises = viewModel.convertExerciseToExercises(args.argsExercise)
+            viewModel.addExercises(exercises)
+            findNavController().navigate(R.id.action_informationExerciseDialogFragment_to_newFitnessFragment)
+            Toast.makeText(requireContext(), exercises.id.toString(), Toast.LENGTH_SHORT).show()
         }
 
     }

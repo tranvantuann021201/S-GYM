@@ -16,8 +16,9 @@ interface UserDao {
     @Delete
     suspend fun delete(user: User)
 
-    @Query("UPDATE user_roomdb_table SET currentWeight = :weight, currentHeight = :height WHERE id = 1")
-    suspend fun updateUserCurrentWeightAndHeight(weight: Double, height: Double)
+    @Query("UPDATE user_roomdb_table SET currentWeight = :weight, currentHeight = :height WHERE gender = :gender")
+    suspend fun updateUserCurrentWeightAndHeight(gender: Boolean, weight: Double, height: Double)
+
 
     @Query("UPDATE user_roomdb_table SET currentWeight = :weight, currentHeight = :height WHERE id = 1")
     suspend fun updateUserWeightAndHeight(weight: Double, height: Double)

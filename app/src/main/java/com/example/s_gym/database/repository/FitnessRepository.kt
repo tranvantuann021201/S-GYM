@@ -1,17 +1,16 @@
 package com.example.s_gym.database.repository
 
-import com.example.s_gym.database.dao.DaysDao
-import com.example.s_gym.database.dao.ExercisesDao
+import android.app.Application
+import com.example.s_gym.database.AppDatabase
 import com.example.s_gym.database.dao.FitnessAdvanceDao
-import com.example.s_gym.database.dao.UserDao
-import com.example.s_gym.database.entity.Days
-import com.example.s_gym.database.entity.Exercises
 import com.example.s_gym.database.entity.FitnessAdvance
-import com.example.s_gym.database.entity.User
 
-class FitnessRepository(
+class FitnessRepository(application: Application) {
     private val fitnessAdvanceDao: FitnessAdvanceDao
-) {
+    init {
+        val appDatabase: AppDatabase = AppDatabase.getInstance(application)
+        fitnessAdvanceDao = appDatabase.fitnessAdvanceDao()
+    }
 
     // Các phương thức liên quan đến bảng fitness_advanced_roomdb_table
     suspend fun updateExerciseCompleted(id: Int) {
