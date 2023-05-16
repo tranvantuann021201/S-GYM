@@ -1,20 +1,18 @@
 package com.example.s_gym.ui.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.s_gym.R
-import com.example.s_gym.database.entity.FitnessAdvance
-import com.example.s_gym.database.repository.FitnessRepository
 import com.example.s_gym.databinding.FragmentInformationExerciseBinding
 import com.example.s_gym.ui.viewmodel.InformationExerciseViewModel
 
@@ -66,18 +64,18 @@ class InformationExerciseDialogFragment : DialogFragment() {
 
         binding.btnAddAnimation.setOnClickListener {
             val exercises = viewModel.convertExerciseToExercises(args.argsExercise)
-            viewModel.addExercises(exercises)
+            val animationMount = viewModel.exerciseAmount.value ?: 10
+            viewModel.addExerciseToFitnessAdvance(args.argsFitnessAdvance.id,exercises.copy(animationMount = animationMount))
             findNavController().navigate(R.id.action_informationExerciseDialogFragment_to_newFitnessFragment)
             Toast.makeText(requireContext(), exercises.id.toString(), Toast.LENGTH_SHORT).show()
         }
-
     }
 
     private fun passDataToView() {
-        val exercise = args.argsExercise
-        Glide.with(context).load(exercise.urlVideoGuide).into(binding.imgAnimationExercise)
-        binding.txtAnimationName.text = exercise.name
-        binding.txtExerAmount.text = "x${exercise.animationMount}"
+        val argsExercise = args.argsExercise
+        Glide.with(context).load(argsExercise.urlVideoGuide).into(binding.imgAnimationExercise)
+        binding.txtAnimationName.text = argsExercise.name
+        binding.txtExerAmount.text = "x${argsExercise.animationMount}"
         requireActivity().supportFragmentManager.findFragmentById(R.id.fitnessFragment)
     }
 }

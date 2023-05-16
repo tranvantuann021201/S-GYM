@@ -5,22 +5,33 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.s_gym.ui.adapter.AddFitnessAdapter
 import com.example.s_gym.databinding.FragmentAddFitnessBinding
 import com.example.s_gym.ui.viewmodel.AddFitnessViewModel
+import com.example.s_gym.ui.viewmodel.InformationExerciseViewModel
 
 
 class AddFitnessFragment : Fragment() {
     private lateinit var binding: FragmentAddFitnessBinding
     private lateinit var addFitnessAdapter: AddFitnessAdapter
-    private val viewModel = AddFitnessViewModel()
+    private val args by navArgs<AddFitnessFragmentArgs>()
+
+    private lateinit var viewModelFactory: AddFitnessViewModel.AddFitnessViewModelFactory
+    private lateinit var viewModel: AddFitnessViewModel
 
 
     interface onItemClickListener {
         fun onItemClick(position: Int)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModelFactory = AddFitnessViewModel.AddFitnessViewModelFactory(requireActivity().application)
+        viewModel = ViewModelProvider(this, viewModelFactory)[AddFitnessViewModel::class.java]
     }
 
     override fun onCreateView(
@@ -43,7 +54,7 @@ class AddFitnessFragment : Fragment() {
         //Xử lý khi click vào item
         addFitnessAdapter.setItemClickListener(object : onItemClickListener {
             override fun onItemClick(position: Int) {
-                val action = AddFitnessFragmentDirections.actionAddFitnessFragmentToInformationExerciseDialogFragment(viewModel.exerciseList[position])
+                val action = AddFitnessFragmentDirections.actionAddFitnessFragmentToInformationExerciseDialogFragment(viewModel.exerciseList[position], args.argsFitnessAdvance)
                 findNavController().navigate(action)
             }
         })

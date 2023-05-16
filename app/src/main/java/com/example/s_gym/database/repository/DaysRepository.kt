@@ -1,43 +1,28 @@
 package com.example.s_gym.database.repository
 
+import android.app.Application
+import androidx.lifecycle.LiveData
+import com.example.s_gym.database.AppDatabase
 import com.example.s_gym.database.dao.DaysDao
 import com.example.s_gym.database.entity.Days
 
-class DaysRepository(
-    private val daysDao: DaysDao,
-) {
-    // Các phương thức liên quan đến bảng days_roomdb_table
-    suspend fun updateWeightAndHeight(id: Int, weight: Double, height: Double) {
-        daysDao.updateWeightAndHeight(id, weight, height)
+class DaysRepository(application: Application) {
+    private val daysDao: DaysDao
+    private val readAllDaysData: LiveData<List<Days>>
+    init {
+        val appDatabase: AppDatabase = AppDatabase.getInstance(application)
+        daysDao = appDatabase.daysDao()
+        readAllDaysData = daysDao.readAllData()
     }
-
-    suspend fun updateCompletedExercise(id: Int) {
-        daysDao.updateCompletedExercise(id)
-    }
-
-    suspend fun updateDrunk(id: Int) {
-        daysDao.updateDrunk(id)
-    }
-
     suspend fun insertDay(day: Days) {
-        daysDao.insert(day)
+        daysDao.insertDay(day)
     }
 
     suspend fun updateDay(day: Days) {
-        daysDao.update(day)
+        daysDao.updateDay(day)
     }
 
     suspend fun deleteDay(day: Days) {
-        daysDao.delete(day)
+        daysDao.deleteDay(day)
     }
-
-    suspend fun getDayById(id: Int): Days {
-        return daysDao.getDayById(id)
-    }
-
-    suspend fun getAllDays(): List<Days> {
-        return daysDao.getAllDays()
-    }
-
-
 }

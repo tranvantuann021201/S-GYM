@@ -7,32 +7,15 @@ import com.example.s_gym.database.entity.User
 
 @Dao
 interface UserDao {
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(user: User)
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    suspend fun insertUser(user: User)
 
     @Update
-    suspend fun update(user: User)
+    suspend fun updateUser(user: User)
 
     @Delete
-    suspend fun delete(user: User)
+    suspend fun deleteUser(user: User)
 
-    @Query("UPDATE user_roomdb_table SET currentWeight = :weight, currentHeight = :height WHERE gender = :gender")
-    suspend fun updateUserCurrentWeightAndHeight(gender: Boolean, weight: Double, height: Double)
-
-
-    @Query("UPDATE user_roomdb_table SET currentWeight = :weight, currentHeight = :height WHERE id = 1")
-    suspend fun updateUserWeightAndHeight(weight: Double, height: Double)
-
-    @Query("SELECT * FROM user_roomdb_table")
-    fun readUser(): User
-
-    @Query("SELECT COUNT(*) FROM user_roomdb_table")
-    suspend fun getUserCount(): Int
-
-    @Transaction
-    suspend fun insertIfEmpty(user: User) {
-        if (getUserCount() == 0) {
-            insert(user)
-        }
-    }
+    @Query("SELECT * FROM user_roomdb_table ORDER BY id ASC")
+    fun readAllData(): LiveData<List<User>>
 }

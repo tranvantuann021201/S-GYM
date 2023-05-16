@@ -2,6 +2,7 @@ package com.example.s_gym.ui.viewmodel
 
 import android.app.Application
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -10,20 +11,17 @@ import com.example.s_gym.api.Exercise
 import com.example.s_gym.database.dao.FitnessAdvanceDao
 import com.example.s_gym.database.entity.Exercises
 import com.example.s_gym.database.entity.FitnessAdvance
-import com.example.s_gym.database.repository.FitnessRepository
+import com.example.s_gym.database.repository.FitnessAdvanceRepository
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
 class InformationExerciseViewModel(application: Application): ViewModel() {
-    private var fitnessRepository: FitnessRepository = FitnessRepository(application)
+    private var fitnessRepository: FitnessAdvanceRepository = FitnessAdvanceRepository(application)
     val exerciseAmount = MutableLiveData<Int>()
 
-    fun addExercises(exercises: Exercises) {
+    fun addExerciseToFitnessAdvance(fitnessAdvanceId: Int, exercises: Exercises) {
         viewModelScope.launch {
-            val currentFitnessAdvance = fitnessRepository.getFitnessAdvance()
-            val updatedExerciseList = currentFitnessAdvance.exercisesList.toMutableList()
-            updatedExerciseList.add(exercises)
-            val updatedFitnessAdvance = currentFitnessAdvance.copy(exercisesList = updatedExerciseList)
-            fitnessRepository.updateFitnessAdvance(updatedFitnessAdvance)
+            fitnessRepository.addExerciseToFitnessAdvance(fitnessAdvanceId, exercises)
         }
     }
 

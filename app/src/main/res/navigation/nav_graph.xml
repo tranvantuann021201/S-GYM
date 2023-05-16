@@ -95,6 +95,9 @@
         <action
             android:id="@+id/action_addFitnessFragment_to_informationExerciseDialogFragment"
             app:destination="@id/informationExerciseDialogFragment" />
+        <argument
+            android:name="argsFitnessAdvance"
+            app:argType="com.example.s_gym.database.entity.FitnessAdvance" />
     </fragment>
     <fragment
         android:id="@+id/restFragment"
@@ -202,6 +205,9 @@
         <argument
             android:name="argsExercise"
             app:argType="com.example.s_gym.api.Exercise" />
+        <argument
+            android:name="argsFitnessAdvance"
+            app:argType="com.example.s_gym.database.entity.FitnessAdvance" />
     </dialog>
     <fragment
         android:id="@+id/newFitnessFragment"
