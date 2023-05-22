@@ -31,7 +31,7 @@
             />
 
         <Button
-            android:id="@+id/btn_save_bmi_dialog"
+            android:id="@+id/btn_save_name_exercise"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/edt_weight"
@@ -43,12 +43,12 @@
             android:textSize="@dimen/txt_size_btn_dialog" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_cancel_bmi_dialog"
+            android:id="@+id/btn_cancel_dialog"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/edt_weight"
             android:layout_marginEnd="60dp"
-            android:layout_toStartOf="@+id/btn_save_bmi_dialog"
+            android:layout_toStartOf="@+id/btn_save_name_exercise"
             android:background="@drawable/radius_color_d0"
             android:text="Hủy"
             android:textSize="@dimen/txt_size_btn_dialog" />

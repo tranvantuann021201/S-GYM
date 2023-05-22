@@ -8,7 +8,7 @@
     android:padding="@dimen/item_margin_horizontal">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cv_btn_add"
+        android:id="@+id/btn_add"
         android:layout_marginTop="@dimen/item_margin_vertical"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_item"
@@ -36,7 +36,7 @@
         android:id="@+id/rv_edit_advance_fitness"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/cv_btn_add"
+        android:layout_below="@id/btn_add"
         android:layout_above="@id/btn_save"
         android:paddingBottom="15dp"
         />

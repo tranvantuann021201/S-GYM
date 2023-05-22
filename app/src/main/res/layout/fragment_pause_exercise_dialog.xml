@@ -39,15 +39,15 @@
 
         <TextView
             android:id="@+id/txt_present_animation_name"
-            android:layout_width="wrap_content"
+            android:layout_width="220dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/txt_pause_animation"
             android:text="Tên động tác hiện tại"
             android:textSize="22sp"
-            app:layout_constraintBottom_toBottomOf="@+id/img_present_animation"
+            app:layout_constraintEnd_toStartOf="@+id/img_present_animation"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txt_pause_animation"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toBottomOf="@+id/txt_pause_animation" />
 
         <Button
             android:id="@+id/btn_reset_exercise"
@@ -67,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btn_cancel_dialog"
+            app:layout_constraintEnd_toStartOf="@+id/btn_reset_exercise"
             app:layout_constraintStart_toStartOf="parent"
             android:text="Hủy"
             android:textSize="@dimen/txt_size_btn_dialog"

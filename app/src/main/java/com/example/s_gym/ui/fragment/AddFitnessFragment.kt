@@ -9,10 +9,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.s_gym.database.entity.Exercises
 import com.example.s_gym.ui.adapter.AddFitnessAdapter
 import com.example.s_gym.databinding.FragmentAddFitnessBinding
 import com.example.s_gym.ui.viewmodel.AddFitnessViewModel
-import com.example.s_gym.ui.viewmodel.InformationExerciseViewModel
 
 
 class AddFitnessFragment : Fragment() {
@@ -22,6 +22,7 @@ class AddFitnessFragment : Fragment() {
 
     private lateinit var viewModelFactory: AddFitnessViewModel.AddFitnessViewModelFactory
     private lateinit var viewModel: AddFitnessViewModel
+    private lateinit var exercisesList: MutableList<Exercises>
 
 
     interface onItemClickListener {
@@ -30,6 +31,8 @@ class AddFitnessFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        exercisesList = args.argsFitnessAdvance.exercisesList.toMutableList()
+
         viewModelFactory = AddFitnessViewModel.AddFitnessViewModelFactory(requireActivity().application)
         viewModel = ViewModelProvider(this, viewModelFactory)[AddFitnessViewModel::class.java]
     }
@@ -48,13 +51,13 @@ class AddFitnessFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel.loadExercises(requireContext())
-        addFitnessAdapter = AddFitnessAdapter(viewModel.exerciseList)
+        addFitnessAdapter = AddFitnessAdapter(viewModel.exerciseListJSON)
         binding.rvAddFitness.adapter = addFitnessAdapter
 
         //Xử lý khi click vào item
         addFitnessAdapter.setItemClickListener(object : onItemClickListener {
             override fun onItemClick(position: Int) {
-                val action = AddFitnessFragmentDirections.actionAddFitnessFragmentToInformationExerciseDialogFragment(viewModel.exerciseList[position], args.argsFitnessAdvance)
+                val action = AddFitnessFragmentDirections.actionAddFitnessFragmentToInformationExerciseDialogFragment(viewModel.exerciseListJSON[position], args.argsFitnessAdvance)
                 findNavController().navigate(action)
             }
         })

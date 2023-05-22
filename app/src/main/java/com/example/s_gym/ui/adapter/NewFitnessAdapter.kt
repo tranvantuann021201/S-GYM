@@ -1,37 +1,32 @@
 package com.example.s_gym.ui.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.s_gym.api.Exercise
+import com.example.s_gym.database.entity.Exercises
+import com.example.s_gym.database.entity.FitnessAdvance
 import com.example.s_gym.databinding.ItemEditBasicFitnessBinding
+import com.example.s_gym.databinding.ItemNewFitnessBinding
 import java.util.*
 
-
-interface ItemTouchHelperAdapter {
-    fun onItemMove(fromPosition: Int, toPosition: Int)
-    fun onItemDismiss(position: Int)
-}
-
-interface OnStartDragListener {
-    fun onStartDrag(viewHolder: RecyclerView.ViewHolder)
-}
-
-class EditBasicFitnessAdapter(
-    var exercisesList: MutableList<Exercise>, private val dragStartListener: OnStartDragListener
-) : RecyclerView.Adapter<EditBasicFitnessAdapter.EditBasicFitnessViewHolder>(),
-    ItemTouchHelperAdapter {
+class NewFitnessAdapter(
+    private var exercisesList: List<Exercises>,
+    private val dragStartListener: OnStartDragListener
+) :
+    RecyclerView.Adapter<NewFitnessAdapter.NewFitnessViewHolder>(), ItemTouchHelperAdapter {
 
     init {
         notifyDataSetChanged()
     }
 
-    inner class EditBasicFitnessViewHolder(private val itemBinding: ItemEditBasicFitnessBinding) :
+    inner class NewFitnessViewHolder(private val itemBinding: ItemNewFitnessBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
 
-        fun bindItem(exercises: Exercise) {
+        fun bindItem(exercises: Exercises) {
             itemBinding.txtAnimationName.text = exercises.name
             itemBinding.txtAnimationAmount.text = "x ${exercises.animationMount}"
             Glide.with(itemView.context).load(exercises.urlVideoGuide)
@@ -46,12 +41,9 @@ class EditBasicFitnessAdapter(
         }
     }
 
-    override fun onCreateViewHolder(
-        parent: ViewGroup,
-        viewType: Int
-    ): EditBasicFitnessViewHolder {
-        return EditBasicFitnessViewHolder(
-            ItemEditBasicFitnessBinding.inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NewFitnessViewHolder {
+        return NewFitnessViewHolder(
+            ItemNewFitnessBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -59,16 +51,13 @@ class EditBasicFitnessAdapter(
         )
     }
 
-    override fun onBindViewHolder(
-        holder: EditBasicFitnessViewHolder,
-        position: Int
-    ) {
-        val exercises = exercisesList[position]
-        holder.bindItem(exercises)
-    }
-
     override fun getItemCount(): Int {
         return exercisesList.size
+    }
+
+    override fun onBindViewHolder(holder: NewFitnessViewHolder, position: Int) {
+        val exercises = exercisesList[position]
+        holder.bindItem(exercises)
     }
 
     override fun onItemMove(fromPosition: Int, toPosition: Int) {
@@ -77,12 +66,11 @@ class EditBasicFitnessAdapter(
     }
 
     override fun onItemDismiss(position: Int) {
-        exercisesList.removeAt(position)
+        exercisesList.toMutableList().removeAt(position)
         notifyItemRemoved(position)
     }
 
-    // Add a method to get the sorted list of exercises
-    fun getSortedExercises(): MutableList<Exercise> {
-        return exercisesList
+    fun updateData(newExercisesList: List<Exercises>) {
+        exercisesList = newExercisesList
     }
 }

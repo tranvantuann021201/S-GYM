@@ -2,24 +2,22 @@ package com.example.s_gym.ui.viewmodel
 
 import android.app.Application
 import android.content.Context
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
 import com.example.s_gym.api.Exercise
 import com.example.s_gym.api.FitnessPlan
-import com.example.s_gym.database.entity.FitnessAdvance
+import com.example.s_gym.database.entity.Exercises
 import com.example.s_gym.database.repository.FitnessAdvanceRepository
 import com.google.gson.Gson
-import kotlinx.coroutines.launch
 import org.json.JSONException
 import java.io.IOException
 import java.nio.charset.Charset
 
 class AddFitnessViewModel(application: Application): ViewModel() {
     private var fitnessRepository: FitnessAdvanceRepository = FitnessAdvanceRepository(application)
+    var exercisesList: MutableList<Exercises> = mutableListOf()
 
-    var exerciseList = listOf<Exercise>()
+    var exerciseListJSON = listOf<Exercise>()
 
     fun loadExercises(context: Context) {
         try {
@@ -34,7 +32,7 @@ class AddFitnessViewModel(application: Application): ViewModel() {
                     }
                 }
             }
-            exerciseList = exerciseSet.toList().sortedBy { it.id }
+            exerciseListJSON = exerciseSet.toList().sortedBy { it.id }
         } catch (e: JSONException) {
             //exception
             e.printStackTrace()

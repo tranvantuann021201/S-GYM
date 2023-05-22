@@ -92,4 +92,18 @@
         <item name="colorAccent">@color/colorPrimary</item>
     </style>
 
+    <style name="item_title">
+        <item name="android:layout_marginTop">17dp</item>
+        <item name="android:layout_marginEnd">6dp</item>
+        <item name="android:fontFamily">sans-serif-condensed-medium</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="item_mount_exer">
+        <item name="android:textSize">15dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">sans-serif-condensed-medium</item>
+    </style>
+
 </resources>

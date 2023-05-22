@@ -220,15 +220,24 @@
         <action
             android:id="@+id/action_newFitnessFragment_to_nameMyExerciseDialog"
             app:destination="@id/nameMyExerciseDialog" />
+        <argument
+            android:name="argsFitnessAdvance"
+            app:argType="com.example.s_gym.database.entity.FitnessAdvance" />
     </fragment>
     <fragment
         android:id="@+id/nameMyExerciseDialog"
-        android:name="com.example.s_gym.ui.dialog.NameMyExerciseDialog"
+        android:name="com.example.s_gym.ui.dialog.NameMyExerciseDialogFragment"
         android:label="fragment_name_my_exercise_dialog"
         tools:layout="@layout/fragment_name_my_exercise_dialog" >
+        <argument
+            android:name="argsFitnessAdvance"
+            app:argType="com.example.s_gym.database.entity.FitnessAdvance" />
         <action
             android:id="@+id/action_nameMyExerciseDialog_to_advancedPlanFragment"
             app:destination="@id/advancedPlanFragment" />
+        <action
+            android:id="@+id/action_nameMyExerciseDialog_to_planFragment2"
+            app:destination="@id/planFragment" />
     </fragment>
     <fragment
         android:id="@+id/myProfileFragment"

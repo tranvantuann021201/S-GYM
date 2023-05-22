@@ -35,6 +35,10 @@ class FitnessAdvanceRepository(application: Application) {
         fitnessAdvanceDao.addExerciseToFitnessAdvance(fitnessAdvanceId, exercise)
     }
 
+    suspend fun updateFitnessAdvanceName(id: Int, newName: String) {
+        fitnessAdvanceDao.updateNameExercisesById(id, newName)
+    }
+
     suspend fun getRowCount(): Int {
         return fitnessAdvanceDao.getRowCount()
     }

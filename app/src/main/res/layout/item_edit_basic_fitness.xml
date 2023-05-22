@@ -22,23 +22,17 @@
             android:id="@+id/txt_animation_name"
             android:layout_width="207dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="17dp"
-            android:layout_marginEnd="6dp"
             android:layout_toStartOf="@+id/txt_icon_change_index"
             android:layout_toEndOf="@id/img_animation_exercise"
-            android:fontFamily="sans-serif-condensed-medium"
             android:text="Neu núi"
-            android:textSize="20dp" />
+            style="@style/item_title" />
 
         <TextView
             android:id="@+id/txt_animation_amount"
-            android:textSize="15dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-condensed-medium"
             android:layout_below="@id/txt_animation_name"
             android:layout_alignStart="@id/txt_animation_name"
-            android:text="X20" />
+            android:text="X20"
+            style="@style/item_mount_exer" />
 
         <ImageView
             android:id="@+id/img_animation_exercise"

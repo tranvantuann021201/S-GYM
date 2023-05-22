@@ -17,6 +17,10 @@ import com.example.s_gym.databinding.FragmentUpdateBMIDialogBinding
  */
 class UpdateBMIDialog : DialogFragment() {
     private lateinit var binding: FragmentUpdateBMIDialogBinding
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -41,7 +45,7 @@ class UpdateBMIDialog : DialogFragment() {
         super.onStart()
         val window = dialog?.window
         window?.setLayout(
-            WindowManager.LayoutParams.MATCH_PARENT,
+            WindowManager.LayoutParams.WRAP_CONTENT,
             WindowManager.LayoutParams.WRAP_CONTENT
         )
     }

@@ -33,6 +33,9 @@ interface FitnessAdvanceDao {
         }
     }
 
+    @Query("UPDATE fitness_advanced_roomdb_table SET name = :newName WHERE id = :id")
+    suspend fun updateNameExercisesById(id: Int, newName: String)
+
     @Query("SELECT * FROM fitness_advanced_roomdb_table WHERE id = :id")
     suspend fun getFitnessAdvanceById(id: Int): FitnessAdvance?
 

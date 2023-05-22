@@ -13,8 +13,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.s_gym.R
+import com.example.s_gym.database.entity.Exercises
+import com.example.s_gym.database.entity.FitnessAdvance
 import com.example.s_gym.databinding.FragmentInformationExerciseBinding
 import com.example.s_gym.ui.viewmodel.InformationExerciseViewModel
+import com.example.s_gym.ui.viewmodel.NewFitnessViewModel
 
 /**
  * A simple [Fragment] subclass.
@@ -26,12 +29,17 @@ class InformationExerciseDialogFragment : DialogFragment() {
     private val args by navArgs<InformationExerciseDialogFragmentArgs>()
     private lateinit var viewModelFactory: InformationExerciseViewModel.InformationExerciseViewModelFactory
     private lateinit var viewModel: InformationExerciseViewModel
+    private lateinit var exercisesList: MutableList<Exercises>
+    private lateinit var exercises: Exercises
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(STYLE_NORMAL, R.style.FullScreenDialogStyle)
         viewModelFactory = InformationExerciseViewModel.InformationExerciseViewModelFactory(requireActivity().application)
         viewModel = ViewModelProvider(this, viewModelFactory)[InformationExerciseViewModel::class.java]
+
+//        exercises = viewModel.convertExerciseToExercises(args.argsExercise)
+//        exercisesList = mutableListOf(exercises)
     }
 
     override fun onCreateView(
@@ -62,13 +70,22 @@ class InformationExerciseDialogFragment : DialogFragment() {
             viewModel.decreaseAmount()
         }
 
+        exercisesList = args.argsFitnessAdvance.exercisesList.toMutableList()
+
         binding.btnAddAnimation.setOnClickListener {
-            val exercises = viewModel.convertExerciseToExercises(args.argsExercise)
+
+            exercises = viewModel.convertExerciseToExercises(args.argsExercise)
             val animationMount = viewModel.exerciseAmount.value ?: 10
-            viewModel.addExerciseToFitnessAdvance(args.argsFitnessAdvance.id,exercises.copy(animationMount = animationMount))
-            findNavController().navigate(R.id.action_informationExerciseDialogFragment_to_newFitnessFragment)
-            Toast.makeText(requireContext(), exercises.id.toString(), Toast.LENGTH_SHORT).show()
+            exercises = viewModel.convertExerciseToExercises(args.argsExercise)
+            exercisesList.add(exercises)
+
+            viewModel.addExerciseToFitnessAdvance(args.argsFitnessAdvance.id, exercises.copy(animationMount = animationMount))
+            val newFitnessAdvance = args.argsFitnessAdvance.copy(exercisesList = exercisesList)
+
+            val action = InformationExerciseDialogFragmentDirections.actionInformationExerciseDialogFragmentToNewFitnessFragment(newFitnessAdvance)
+            findNavController().navigate(action)
         }
+
     }
 
     private fun passDataToView() {
