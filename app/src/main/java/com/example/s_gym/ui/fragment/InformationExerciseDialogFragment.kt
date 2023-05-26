@@ -77,7 +77,7 @@ class InformationExerciseDialogFragment : DialogFragment() {
             exercises = viewModel.convertExerciseToExercises(args.argsExercise)
             val animationMount = viewModel.exerciseAmount.value ?: 10
             exercises = viewModel.convertExerciseToExercises(args.argsExercise)
-            exercisesList.add(exercises)
+            exercisesList.add(exercises.copy(animationMount = animationMount))
             updateExerciseList()
 
             viewModel.addExerciseToFitnessAdvance(args.argsFitnessAdvance.id, exercises.copy(animationMount = animationMount))
