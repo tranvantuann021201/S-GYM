@@ -17,13 +17,13 @@ import com.example.s_gym.database.entity.Exercises
 import com.example.s_gym.database.entity.FitnessAdvance
 import com.example.s_gym.databinding.FragmentInformationExerciseBinding
 import com.example.s_gym.ui.viewmodel.InformationExerciseViewModel
-import com.example.s_gym.ui.viewmodel.NewFitnessViewModel
 
 /**
  * A simple [Fragment] subclass.
  * Use the [InformationExerciseDialogFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
+
 class InformationExerciseDialogFragment : DialogFragment() {
     private lateinit var binding: FragmentInformationExerciseBinding
     private val args by navArgs<InformationExerciseDialogFragmentArgs>()
@@ -78,8 +78,10 @@ class InformationExerciseDialogFragment : DialogFragment() {
             val animationMount = viewModel.exerciseAmount.value ?: 10
             exercises = viewModel.convertExerciseToExercises(args.argsExercise)
             exercisesList.add(exercises)
+            updateExerciseList()
 
             viewModel.addExerciseToFitnessAdvance(args.argsFitnessAdvance.id, exercises.copy(animationMount = animationMount))
+
             val newFitnessAdvance = args.argsFitnessAdvance.copy(exercisesList = exercisesList)
 
             val action = InformationExerciseDialogFragmentDirections.actionInformationExerciseDialogFragmentToNewFitnessFragment(newFitnessAdvance)
@@ -94,5 +96,12 @@ class InformationExerciseDialogFragment : DialogFragment() {
         binding.txtAnimationName.text = argsExercise.name
         binding.txtExerAmount.text = "x${argsExercise.animationMount}"
         requireActivity().supportFragmentManager.findFragmentById(R.id.fitnessFragment)
+    }
+
+    private fun updateExerciseList() {
+        args.argsFitnessAdvance.exercisesList = exercisesList
+
+        // Thông báo cho ViewModel rằng một đối tượng FitnessAdvance đã được cập nhật
+        viewModel.updateFitnessAdvance(args.argsFitnessAdvance)
     }
 }

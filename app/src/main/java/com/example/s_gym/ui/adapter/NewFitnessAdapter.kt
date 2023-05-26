@@ -1,26 +1,35 @@
 package com.example.s_gym.ui.adapter
 
-import android.content.Context
+import android.app.Application
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.ViewGroup
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.s_gym.api.Exercise
 import com.example.s_gym.database.entity.Exercises
-import com.example.s_gym.database.entity.FitnessAdvance
-import com.example.s_gym.databinding.ItemEditBasicFitnessBinding
+import com.example.s_gym.database.repository.FitnessAdvanceRepository
 import com.example.s_gym.databinding.ItemNewFitnessBinding
+import com.example.s_gym.ui.touch.ItemTouchHelperCallback
+import com.example.s_gym.ui.viewmodel.NewFitnessViewModel
 import java.util.*
 
 class NewFitnessAdapter(
-    private var exercisesList: List<Exercises>,
-    private val dragStartListener: OnStartDragListener
+    private var exercisesList: MutableList<Exercises>,
+    private val dragStartListener: OnStartDragListener,
+    private val viewModel: NewFitnessViewModel,
+    private val fitnessAdvanceId: Int
 ) :
     RecyclerView.Adapter<NewFitnessAdapter.NewFitnessViewHolder>(), ItemTouchHelperAdapter {
 
     init {
         notifyDataSetChanged()
+    }
+
+    private var onRemoveClick: ((Int) -> Unit)? = null
+
+    fun setOnRemoveClickListener(listener: (Int) -> Unit) {
+        onRemoveClick = listener
     }
 
     inner class NewFitnessViewHolder(private val itemBinding: ItemNewFitnessBinding) :
@@ -37,6 +46,10 @@ class NewFitnessAdapter(
                     dragStartListener.onStartDrag(this)
                 }
                 false
+            }
+
+            itemBinding.btnRemoveAnimation.setOnClickListener {
+                onRemoveClick?.invoke(adapterPosition)
             }
         }
     }
@@ -63,14 +76,22 @@ class NewFitnessAdapter(
     override fun onItemMove(fromPosition: Int, toPosition: Int) {
         Collections.swap(exercisesList, fromPosition, toPosition)
         notifyItemMoved(fromPosition, toPosition)
+        viewModel.reorderExercisesList(exercisesList, fitnessAdvanceId)
     }
 
     override fun onItemDismiss(position: Int) {
-        exercisesList.toMutableList().removeAt(position)
+        val exercise = exercisesList[position]
+        exercisesList.removeAt(position)
         notifyItemRemoved(position)
+        viewModel.removeExerciseFromList(exercise, fitnessAdvanceId)
     }
 
     fun updateData(newExercisesList: List<Exercises>) {
-        exercisesList = newExercisesList
+        exercisesList.clear()
+        exercisesList.addAll(newExercisesList)
+    }
+
+    fun getExercisesList(): List<Exercises> {
+        return exercisesList
     }
 }

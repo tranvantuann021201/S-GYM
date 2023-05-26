@@ -12,6 +12,7 @@ import com.example.s_gym.database.dao.FitnessAdvanceDao
 import com.example.s_gym.database.entity.Exercises
 import com.example.s_gym.database.entity.FitnessAdvance
 import com.example.s_gym.database.repository.FitnessAdvanceRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 
@@ -22,6 +23,12 @@ class InformationExerciseViewModel(application: Application): ViewModel() {
     fun addExerciseToFitnessAdvance(fitnessAdvanceId: Int, exercises: Exercises) {
         viewModelScope.launch {
             fitnessRepository.addExerciseToFitnessAdvance(fitnessAdvanceId, exercises)
+        }
+    }
+
+    fun updateFitnessAdvance(fitnessAdvance: FitnessAdvance) {
+        viewModelScope.launch(Dispatchers.IO) {
+            fitnessRepository.updateFitnessAdvance(fitnessAdvance)
         }
     }
 

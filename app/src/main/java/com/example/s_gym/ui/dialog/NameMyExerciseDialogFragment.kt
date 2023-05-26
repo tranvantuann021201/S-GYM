@@ -6,14 +6,13 @@ import android.view.*
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import com.example.s_gym.R
 import com.example.s_gym.database.entity.FitnessAdvance
 import com.example.s_gym.databinding.FragmentNameMyExerciseDialogBinding
-import com.example.s_gym.ui.fragment.NewFitnessFragmentArgs
-import com.example.s_gym.ui.viewmodel.AddFitnessViewModel
 import com.example.s_gym.ui.viewmodel.NameMyExercisesViewModel
+import kotlinx.coroutines.launch
 
 /**
  * A simple [Fragment] subclass.
@@ -48,13 +47,22 @@ class NameMyExerciseDialogFragment() : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnSaveNameExercise.setOnClickListener {
             var fitnessAdvanceName = binding.edtNameMyExer.text.toString()
-            if (fitnessAdvanceName == "") {
-                fitnessAdvanceName = "Bài tập số ${fitnessAdvance.id}"
-            }
-            viewModel.updateFitnessAdvanceName(fitnessAdvance.id, fitnessAdvanceName)
-            findNavController().navigate(R.id.action_nameMyExerciseDialog_to_planFragment2)
-            Log.d("NameMyExerciseDialog", "Cancel button clicked")
+            viewModel.getRowCountFitnessAdvanceList()
+            viewModel.rowCount.observe(viewLifecycleOwner) { count ->
+                if (fitnessAdvanceName == "") {
+                    fitnessAdvanceName = "Bài tập số $count"
+                }
+                viewModel.updateFitnessAdvanceName(fitnessAdvance.id, fitnessAdvanceName)
+                dialog?.cancel()
+                // Trong NewFitnessFragment
+                val bundle = Bundle().apply {
+                    putParcelable("updatedFitnessAdvance", fitnessAdvance)
+                }
+                findNavController().previousBackStackEntry?.savedStateHandle?.set("fitnessAdvance", bundle)
 
+                findNavController().navigate(R.id.action_nameMyExerciseDialog_to_planFragment2)
+                Log.d("NameMyExerciseDialog", "Cancel button clicked")
+            }
         }
 
         binding.btnCancelDialog.setOnClickListener {

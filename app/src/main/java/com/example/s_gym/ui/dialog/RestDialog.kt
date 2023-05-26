@@ -65,7 +65,7 @@ class RestDialog : DialogFragment() {
         timer.start()
     }
 
-    fun createCountDownTimer(timeLeft: Long): CountDownTimer {
+    private fun createCountDownTimer(timeLeft: Long): CountDownTimer {
         return object : CountDownTimer(timeLeft, 1000) {
             override fun onTick(p0: Long) {
                 this@RestDialog.timeLeft = p0
@@ -84,7 +84,7 @@ class RestDialog : DialogFragment() {
         this.size = size
     }
 
-    fun getComplete(): String {
+    private fun getComplete(): String {
         return "$position/$size"
     }
 }

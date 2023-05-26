@@ -1,28 +1,31 @@
 package com.example.s_gym.ui.viewmodel
 
 import android.app.Application
-import android.util.Log
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.s_gym.database.entity.FitnessAdvance
 import com.example.s_gym.database.repository.FitnessAdvanceRepository
-import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class AdvancedPlanViewModel(application: Application): ViewModel() {
     private var fitnessRepository: FitnessAdvanceRepository = FitnessAdvanceRepository(application)
+    val allFitness: LiveData<List<FitnessAdvance>> = fitnessRepository.readAllData()
 
     suspend fun addFitnessAdvance(fitnessAdvance: FitnessAdvance): Long {
-        return viewModelScope.async {
+        return withContext(viewModelScope.coroutineContext) {
             fitnessRepository.addFitnessAdvance(fitnessAdvance)
-        }.await()
+        }
     }
 
     fun deleteEmptyFitnessAdvance() {
         viewModelScope.launch {
             fitnessRepository.deleteEmptyFitnessAdvance()
+        }
+    }
+
+    fun deleteAllFromFitnessAdvance(){
+        viewModelScope.launch {
+            fitnessRepository.deleteAllFromFitnessAdvance()
         }
     }
 

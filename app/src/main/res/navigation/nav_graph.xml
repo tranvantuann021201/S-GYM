@@ -51,7 +51,8 @@
         tools:layout="@layout/fragment_fitness">
         <argument
             android:name="argsFitnessDay"
-            app:argType="com.example.s_gym.api.FitnessDay" />
+            app:argType="com.example.s_gym.api.FitnessDay"
+            app:nullable="true"/>
         <action
             android:id="@+id/action_fitnessFragment_to_restFragment"
             app:destination="@id/restFragment" />
@@ -65,6 +66,10 @@
             android:id="@+id/action_pauseExerciseDialog_to_basicPlanFragment2"
             app:destination="@+id/planFragment"
             />
+        <argument
+            android:name="argsFitnessAdvanced"
+            app:argType="com.example.s_gym.database.entity.FitnessAdvance"
+            app:nullable="true"/>
     </fragment>
     <fragment
         android:id="@+id/editBasicFitnessFragment2"
@@ -86,6 +91,9 @@
         <action
             android:id="@+id/action_advancedPlanFragment_to_addFitnessFragment"
             app:destination="@id/addFitnessFragment" />
+        <action
+            android:id="@+id/action_advancedPlanFragment_to_advancedFitnessFragment"
+            app:destination="@id/advancedFitnessFragment" />
     </fragment>
     <fragment
         android:id="@+id/addFitnessFragment"
@@ -145,6 +153,9 @@
         <action
             android:id="@id/action_advancedPlanFragment_to_addFitnessFragment"
             app:destination="@+id/addFitnessFragment" />
+        <action
+            android:id="@id/action_advancedPlanFragment_to_advancedFitnessFragment"
+            app:destination="@+id/advancedFitnessFragment" />
     </fragment>
     <fragment
         android:id="@+id/reportFragment"
@@ -220,6 +231,10 @@
         <action
             android:id="@+id/action_newFitnessFragment_to_nameMyExerciseDialog"
             app:destination="@id/nameMyExerciseDialog" />
+        <action
+            android:id="@+id/action_nameMyExerciseDialog_to_planFragment2"
+            app:destination="@id/planFragment"
+            />
         <argument
             android:name="argsFitnessAdvance"
             app:argType="com.example.s_gym.database.entity.FitnessAdvance" />
@@ -235,9 +250,6 @@
         <action
             android:id="@+id/action_nameMyExerciseDialog_to_advancedPlanFragment"
             app:destination="@id/advancedPlanFragment" />
-        <action
-            android:id="@+id/action_nameMyExerciseDialog_to_planFragment2"
-            app:destination="@id/planFragment" />
     </fragment>
     <fragment
         android:id="@+id/myProfileFragment"
@@ -259,4 +271,31 @@
         android:name="com.example.s_gym.ui.dialog.UpdateBMIDialog"
         android:label="fragment_update_b_m_i_dialog"
         tools:layout="@layout/fragment_update_b_m_i_dialog" />
+    <fragment
+        android:id="@+id/advancedFitnessFragment"
+        android:name="com.example.s_gym.ui.fragment.AdvancedFitnessFragment"
+        android:label="fragment_advanced_fitness"
+        tools:layout="@layout/fragment_advanced_fitness" >
+        <action
+            android:id="@+id/action_advancedFitnessFragment_to_editAdvanceFitnessFragment"
+            app:destination="@id/editAdvanceFitnessFragment" />
+        <argument
+            android:name="argsFitnessAdvance"
+            app:argType="com.example.s_gym.database.entity.FitnessAdvance" />
+        <action
+            android:id="@+id/action_advancedFitnessFragment_to_informationExerciseDialogFragment"
+            app:destination="@id/informationExerciseDialogFragment" />
+        <action
+            android:id="@+id/action_advancedFitnessFragment_to_fitnessFragment"
+            app:destination="@id/fitnessFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editAdvanceFitnessFragment"
+        android:name="com.example.s_gym.ui.fragment.EditAdvanceFitnessFragment"
+        android:label="fragment_edit_advance_fitness"
+        tools:layout="@layout/fragment_edit_advance_fitness" >
+        <action
+            android:id="@+id/action_editAdvanceFitnessFragment_to_advancedFitnessFragment"
+            app:destination="@id/advancedFitnessFragment" />
+    </fragment>
 </navigation>

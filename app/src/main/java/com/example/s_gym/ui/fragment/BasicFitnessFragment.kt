@@ -31,7 +31,7 @@ class BasicFitnessFragment : Fragment() {
         binding.rvBasicFitness.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
         binding.btnStartExer.setOnClickListener {
-            val action = BasicFitnessFragmentDirections.actionBasicFitnessFragmentToFitnessFragment(args.argsFitnessDay)
+            val action = BasicFitnessFragmentDirections.actionBasicFitnessFragmentToFitnessFragment(args.argsFitnessDay, null)
             findNavController().navigate(action)
         }
 

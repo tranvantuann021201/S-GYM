@@ -7,18 +7,58 @@
     tools:context=".ui.fragment.AdvancedFitnessFragment"
     android:padding="@dimen/item_margin_horizontal">
 
+    <RelativeLayout
+        android:id="@+id/custom_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        >
+
+        <TextView
+            android:id="@+id/btn_back"
+            android:layout_marginTop="6dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/back"
+            />
+
+        <TextView
+            style="@style/txt_title_styles"
+            android:id="@+id/txt_title_action_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bài tập một"
+            android:layout_toEndOf="@id/btn_back"
+            android:layout_marginStart="15dp"
+            />
+
+        <TextView
+            style="@style/txt_title_styles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="Chỉnh sửa "
+            android:textSize="18sp"
+            android:drawableEnd="@drawable/baseline_mode_edit_24"
+            android:layout_centerVertical="true"
+            />
+
+    </RelativeLayout>
+
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_advanced_finess"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/btn_add"
+        android:layout_above="@id/btn_start"
         android:paddingBottom="15dp"
+        android:layout_below="@id/custom_action_bar"
         />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/btn_add"
+        android:id="@+id/btn_start"
         android:background="@drawable/radius_btn"
-        android:text="Thêm"
+        android:text="Bắt đầu"
         style="@style/txt_title_styles"
         android:layout_width="180dp"
         android:layout_height="wrap_content"

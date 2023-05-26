@@ -39,6 +39,10 @@ class FitnessAdvanceRepository(application: Application) {
         fitnessAdvanceDao.updateNameExercisesById(id, newName)
     }
 
+    suspend fun deleteAllFromFitnessAdvance() {
+        fitnessAdvanceDao.deleteAllFromFitnessAdvance()
+    }
+
     suspend fun getRowCount(): Int {
         return fitnessAdvanceDao.getRowCount()
     }
@@ -49,5 +53,9 @@ class FitnessAdvanceRepository(application: Application) {
 
     suspend fun deleteEmptyFitnessAdvance() {
         return fitnessAdvanceDao.deleteFitnessAdvanceWithWhere()
+    }
+
+    suspend fun getFitnessAdvanceById(fitnessAdvanceId: Int) :FitnessAdvance {
+        return fitnessAdvanceDao.getFitnessAdvanceById(fitnessAdvanceId)!!
     }
 }

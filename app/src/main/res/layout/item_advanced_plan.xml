@@ -2,56 +2,71 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_advanced_plan"
     android:layout_width="match_parent"
     android:layout_height="@dimen/height_item"
-    android:layout_marginStart="@dimen/item_margin_horizontal"
     android:layout_marginTop="@dimen/item_margin_vertical"
-    android:layout_marginEnd="@dimen/item_margin_horizontal"
     android:layout_marginBottom="@dimen/item_margin_vertical"
     app:cardCornerRadius="@dimen/item_cv_radius"
-    tools:ignore="MissingConstraints"
-    android:id="@+id/item_advanced_plan"
-    >
+    tools:ignore="MissingConstraints">
 
     <RelativeLayout
-        android:background="#D0D0D0D0"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#FF0026AF"
+        android:paddingHorizontal="15sp">
+
+        <TextView
+            android:id="@+id/item_icon_advance_plan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:drawableStart="@drawable/baseline_fitness_center_24"
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/txt_exer_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/item_margin_horizontal_content"
+            android:layout_above="@id/align"
+            android:layout_toStartOf="@+id/more_icon"
+            android:layout_toEndOf="@+id/item_icon_advance_plan"
+            android:ellipsize="end"
             android:fontFamily="sans-serif-condensed-medium"
+            android:maxLines="1"
             android:text="Tên bài tập"
             android:textColor="@color/white"
-            android:textSize="@dimen/size_text_title"
-            android:layout_above="@id/align"/>
+            android:textSize="23sp" />
+
         <TextView
             android:id="@+id/align"
-            android:layout_centerVertical="true"
             android:layout_width="0sp"
-            android:layout_height="0sp"/>
+            android:layout_height="0sp"
+            android:layout_centerVertical="true" />
+
         <TextView
             android:id="@+id/txt_exer_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/align"
             android:layout_centerVertical="true"
-            android:layout_marginStart="30dp"
+            android:layout_marginEnd="165dp"
+            android:layout_toStartOf="@+id/more_icon"
+            android:layout_toEndOf="@+id/item_icon_advance_plan"
             android:fontFamily="sans-serif-condensed"
             android:text="Số lượng bài tập"
             android:textColor="@color/white"
-            android:textSize="23sp"
-            android:layout_below="@id/align"/>
+            android:textSize="18sp" />
 
         <TextView
+            android:id="@+id/more_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:drawableStart="@drawable/baseline_more_vert_24"
-            android:layout_marginEnd="@dimen/size_text_title"/>
+            android:drawableStart="@drawable/baseline_more_vert_24" />
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

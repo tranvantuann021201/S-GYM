@@ -16,11 +16,14 @@ interface FitnessAdvanceDao {
     @Delete
     suspend fun deleteFitnessAdvance(fitnessAdvance: FitnessAdvance)
 
-    @Query("DELETE FROM fitness_advanced_roomdb_table WHERE name='name'")
+    @Query("DELETE FROM fitness_advanced_roomdb_table WHERE exercisesList = '[]'")
     suspend fun deleteFitnessAdvanceWithWhere()
 
     @Query("SELECT * FROM fitness_advanced_roomdb_table ORDER BY id ASC")
     fun readAllData(): LiveData<List<FitnessAdvance>>
+
+    @Query("DELETE FROM fitness_advanced_roomdb_table")
+    suspend fun deleteAllFromFitnessAdvance()
 
     @Transaction
     suspend fun addExerciseToFitnessAdvance(fitnessAdvanceId: Int, exercise: Exercises) {

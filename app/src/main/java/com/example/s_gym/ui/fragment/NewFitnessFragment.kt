@@ -5,14 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.s_gym.R
 import com.example.s_gym.database.entity.Exercises
 import com.example.s_gym.database.entity.FitnessAdvance
 import com.example.s_gym.databinding.FragmentNewFitnessBinding
@@ -20,8 +18,6 @@ import com.example.s_gym.ui.adapter.NewFitnessAdapter
 import com.example.s_gym.ui.adapter.OnStartDragListener
 import com.example.s_gym.ui.dialog.NameMyExerciseDialogFragment
 import com.example.s_gym.ui.touch.ItemTouchHelperCallback
-import com.example.s_gym.ui.viewmodel.InformationExerciseViewModel
-import com.example.s_gym.ui.viewmodel.MyProfileViewModel
 import com.example.s_gym.ui.viewmodel.NewFitnessViewModel
 
 /**
@@ -46,12 +42,19 @@ class NewFitnessFragment : Fragment(), OnStartDragListener {
         viewModelFactory =
             NewFitnessViewModel.NewFitnessViewModelFactory(requireActivity().application)
         viewModel = ViewModelProvider(this, viewModelFactory)[NewFitnessViewModel::class.java]
+        viewModel.fitnessAdvanceLiveData.value = fitnessAdvance
 
-        viewModel.exercisesListLiveData.observe(this) {
+        viewModel.exercisesList.observe(this) {
             // Cập nhật dữ liệu cho Adapter và cập nhật giao diện
             newFitnessAdapter.updateData(exercisesList)
             newFitnessAdapter.notifyDataSetChanged()
         }
+
+        viewModel.fitnessAdvanceLiveData.observe(this) {
+            newFitnessAdapter.updateData(fitnessAdvance.exercisesList)
+            newFitnessAdapter.notifyDataSetChanged()
+        }
+
     }
 
     override fun onCreateView(
@@ -71,13 +74,23 @@ class NewFitnessFragment : Fragment(), OnStartDragListener {
             )
             findNavController().navigate(action)
         }
-        newFitnessAdapter = NewFitnessAdapter(exercisesList, this)
+        newFitnessAdapter = NewFitnessAdapter(exercisesList, this, viewModel, fitnessAdvance.id)
         binding.rvNewFitness.adapter = newFitnessAdapter
 
-        viewModel.exercisesListLiveData.observe(viewLifecycleOwner) { exercisesList ->
+        newFitnessAdapter.setOnRemoveClickListener { position ->
+            val exercise = exercisesList[position]
+            exercisesList.removeAt(position)
+            newFitnessAdapter.notifyItemRemoved(position)
+            // Cập nhật lưu trữ.
+            viewModel.removeExerciseFromList(exercise, fitnessAdvance.id)
+        }
+
+
+        viewModel.exercisesList.observe(viewLifecycleOwner) { exercisesList ->
             // Cập nhật dữ liệu cho Adapter
             newFitnessAdapter.updateData(exercisesList)
             // Cập nhật giao diện
+            updateFitnessAdvance(fitnessAdvance)
             newFitnessAdapter.notifyDataSetChanged()
         }
 
@@ -90,11 +103,18 @@ class NewFitnessFragment : Fragment(), OnStartDragListener {
 
         binding.btnSave.setOnClickListener {
             val dialogFragment = NameMyExerciseDialogFragment.newInstance(fitnessAdvance)
+            newFitnessAdapter.updateData(exercisesList)
+            updateFitnessAdvance(fitnessAdvance)
             dialogFragment.show(parentFragmentManager, "NameMyExerciseDialogFragment")
         }
     }
 
     override fun onStartDrag(viewHolder: RecyclerView.ViewHolder) {
         touchHelper.startDrag(viewHolder)
+    }
+
+    private fun updateFitnessAdvance(fitnessAdvance: FitnessAdvance) {
+        newFitnessAdapter.notifyDataSetChanged()
+        viewModel.updateExercisesList(fitnessAdvance.exercisesList, fitnessAdvance.id)
     }
 }
