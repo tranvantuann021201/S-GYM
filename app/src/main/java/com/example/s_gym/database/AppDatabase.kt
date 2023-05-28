@@ -5,6 +5,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.s_gym.database.dao.DaysDao
 import com.example.s_gym.database.dao.ExercisesDao
 import com.example.s_gym.database.dao.FitnessAdvanceDao
@@ -16,7 +18,7 @@ import com.example.s_gym.database.entity.User
 
 @Database(
     entities = [Exercises::class, Days::class, User::class, FitnessAdvance::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 @TypeConverters(Converters::class)
