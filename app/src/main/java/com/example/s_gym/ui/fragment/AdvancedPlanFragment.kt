@@ -54,7 +54,7 @@ class AdvancedPlanFragment : Fragment() {
             lifecycleScope.launch {
                 val newId = viewModel.addFitnessAdvance(fitnessAdvance)
                 Log.e("=================FitnessAdvanceID", newId.toString())
-                val action = AdvancedPlanFragmentDirections.actionAdvancedPlanFragmentToAddFitnessFragment(fitnessAdvance.copy(id = newId.toInt()))
+                val action = AdvancedPlanFragmentDirections.actionAdvancedPlanFragmentToAddFitnessFragment(fitnessAdvance.copy(id = newId.toInt()), "fromAdvancePlan")
                 findNavController().navigate(action)
             }
         }

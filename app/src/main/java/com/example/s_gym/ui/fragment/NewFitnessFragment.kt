@@ -70,10 +70,19 @@ class NewFitnessFragment : Fragment(), OnStartDragListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.btnAdd.setOnClickListener {
-            val action = NewFitnessFragmentDirections.actionNewFitnessFragmentToAddFitnessFragment(
-                fitnessAdvance
-            )
-            findNavController().navigate(action)
+            if(args.source == "fromAdvanceFitnessFragment") {
+                val action = NewFitnessFragmentDirections.actionNewFitnessFragmentToAddFitnessFragment(
+                    fitnessAdvance, "fromAdvanceFitnessFragment"
+                )
+                findNavController().navigate(action)
+            }
+            else {
+                val action = NewFitnessFragmentDirections.actionNewFitnessFragmentToAddFitnessFragment(
+                    fitnessAdvance, "fromAdvancePlan"
+                )
+                findNavController().navigate(action)
+            }
+
         }
         newFitnessAdapter = NewFitnessAdapter(exercisesList, this, viewModel, fitnessAdvance.id)
         binding.rvNewFitness.adapter = newFitnessAdapter

@@ -57,8 +57,22 @@ class AddFitnessFragment : Fragment() {
         //Xử lý khi click vào item
         addFitnessAdapter.setItemClickListener(object : onItemClickListener {
             override fun onItemClick(position: Int) {
-                val action = AddFitnessFragmentDirections.actionAddFitnessFragmentToInformationExerciseDialogFragment(viewModel.exerciseListJSON[position], args.argsFitnessAdvance)
-                findNavController().navigate(action)
+                if(args.source == "fromAdvanceFitnessFragment") {
+                    val action =
+                        AddFitnessFragmentDirections.actionAddFitnessFragmentToInformationExerciseDialogFragment(
+                            viewModel.exerciseListJSON[position],
+                            args.argsFitnessAdvance, "fromAdvanceFitnessFragment"
+                        )
+                    findNavController().navigate(action)
+                }
+                else {
+                    val action =
+                        AddFitnessFragmentDirections.actionAddFitnessFragmentToInformationExerciseDialogFragment(
+                            viewModel.exerciseListJSON[position],
+                            args.argsFitnessAdvance, "fromAdvancePlan"
+                        )
+                    findNavController().navigate(action)
+                }
             }
         })
         binding.rvAddFitness.layoutManager =

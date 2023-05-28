@@ -80,13 +80,29 @@ class InformationExerciseDialogFragment : DialogFragment() {
             exercisesList.add(exercises.copy(animationMount = animationMount))
             updateExerciseList()
 
-            viewModel.addExerciseToFitnessAdvance(args.argsFitnessAdvance.id, exercises.copy(animationMount = animationMount))
+            viewModel.addExerciseToFitnessAdvance(
+                args.argsFitnessAdvance.id,
+                exercises.copy(animationMount = animationMount)
+            )
 
             val newFitnessAdvance = args.argsFitnessAdvance.copy(exercisesList = exercisesList)
 
             //TODO edit fitness when click to btnModifyFitness
-            val action = InformationExerciseDialogFragmentDirections.actionInformationExerciseDialogFragmentToNewFitnessFragment(newFitnessAdvance, "InformationExerciseDialogFragment")
-            findNavController().navigate(action)
+            if (args.source == "fromAdvanceFitnessFragment") {
+                val action =
+                    InformationExerciseDialogFragmentDirections.actionInformationExerciseDialogFragmentToNewFitnessFragment(
+                        newFitnessAdvance,
+                        "fromAdvanceFitnessFragment"
+                    )
+                findNavController().navigate(action)
+            } else {
+                val action =
+                    InformationExerciseDialogFragmentDirections.actionInformationExerciseDialogFragmentToNewFitnessFragment(
+                        newFitnessAdvance,
+                        "fromAdvancePlan"
+                    )
+                findNavController().navigate(action)
+            }
         }
 
     }

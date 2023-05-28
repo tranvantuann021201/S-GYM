@@ -106,6 +106,9 @@
         <argument
             android:name="argsFitnessAdvance"
             app:argType="com.example.s_gym.database.entity.FitnessAdvance" />
+        <argument
+            android:name="source"
+            app:argType="string"/>
     </fragment>
     <fragment
         android:id="@+id/restFragment"
@@ -219,6 +222,10 @@
         <argument
             android:name="argsFitnessAdvance"
             app:argType="com.example.s_gym.database.entity.FitnessAdvance" />
+        <argument
+            android:name="source"
+            app:argType="string"/>
+
     </dialog>
     <fragment
         android:id="@+id/newFitnessFragment"
