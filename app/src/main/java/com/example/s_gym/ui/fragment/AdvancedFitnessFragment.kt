@@ -14,6 +14,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.s_gym.MainActivity
 import com.example.s_gym.R
+import com.example.s_gym.database.entity.Exercises
 import com.example.s_gym.database.entity.FitnessAdvance
 import com.example.s_gym.databinding.FragmentAdvancedFitnessBinding
 import com.example.s_gym.ui.adapter.AdvancedFitnessAdapter
@@ -29,10 +30,15 @@ class AdvancedFitnessFragment : Fragment() {
     private val args by navArgs<AdvancedFitnessFragmentArgs>()
     private lateinit var advancedFitnessAdapter: AdvancedFitnessAdapter
     private lateinit var viewModel: AdvancedFitnessViewModel
+    private lateinit var fitnessAdvance: FitnessAdvance
+    private lateinit var exercisesList: List<Exercises>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this)[AdvancedFitnessViewModel::class.java]
+        fitnessAdvance = args.argsFitnessAdvance
+        exercisesList = fitnessAdvance.exercisesList
+
     }
 
     override fun onCreateView(
@@ -45,24 +51,30 @@ class AdvancedFitnessFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.txtTitleActionBar.text = args.argsFitnessAdvance.name
+        binding.txtTitleActionBar.text = fitnessAdvance.name
 
         binding.btnBack.setOnClickListener {
             findNavController().popBackStack()
         }
 
         binding.btnStart.setOnClickListener{
-            val action = AdvancedFitnessFragmentDirections.actionAdvancedFitnessFragmentToFitnessFragment(null, args.argsFitnessAdvance)
+            val action = AdvancedFitnessFragmentDirections.actionAdvancedFitnessFragmentToFitnessFragment(null, fitnessAdvance)
             findNavController().navigate(action)
         }
 
-        advancedFitnessAdapter = AdvancedFitnessAdapter(args.argsFitnessAdvance.exercisesList)
+        advancedFitnessAdapter = AdvancedFitnessAdapter(exercisesList)
         binding.rvAdvancedFiness.adapter = advancedFitnessAdapter
         binding.rvAdvancedFiness.layoutManager = LinearLayoutManager(activity)
 
         viewModel.fitnessAdvanceLiveData.observe(viewLifecycleOwner) { updatedFitnessAdvance ->
             advancedFitnessAdapter.updateData(updatedFitnessAdvance.exercisesList)
             advancedFitnessAdapter.notifyDataSetChanged()
+        }
+
+        //TODO edit fitness when click to btnModifyFitness
+        binding.btnModifyFitness.setOnClickListener {
+            val action = AdvancedFitnessFragmentDirections.actionAdvancedFitnessFragmentToNewFitnessFragment(fitnessAdvance, "fromAdvanceFitnessFragment")
+            findNavController().navigate(action)
         }
     }
 }

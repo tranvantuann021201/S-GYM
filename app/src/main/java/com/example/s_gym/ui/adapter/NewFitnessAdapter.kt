@@ -75,8 +75,8 @@ class NewFitnessAdapter(
 
     override fun onItemMove(fromPosition: Int, toPosition: Int) {
         Collections.swap(exercisesList, fromPosition, toPosition)
-        notifyItemMoved(fromPosition, toPosition)
         viewModel.reorderExercisesList(exercisesList, fitnessAdvanceId)
+        notifyItemMoved(fromPosition, toPosition)
     }
 
     override fun onItemDismiss(position: Int) {

@@ -33,6 +33,7 @@
             />
 
         <TextView
+            android:id="@+id/btn_modify_fitness"
             style="@style/txt_title_styles"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

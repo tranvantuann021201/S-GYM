@@ -11,6 +11,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.s_gym.R
 import com.example.s_gym.database.entity.Exercises
 import com.example.s_gym.database.entity.FitnessAdvance
 import com.example.s_gym.databinding.FragmentNewFitnessBinding
@@ -102,10 +103,17 @@ class NewFitnessFragment : Fragment(), OnStartDragListener {
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
         binding.btnSave.setOnClickListener {
-            val dialogFragment = NameMyExerciseDialogFragment.newInstance(fitnessAdvance)
             newFitnessAdapter.updateData(exercisesList)
             updateFitnessAdvance(fitnessAdvance)
-            dialogFragment.show(parentFragmentManager, "NameMyExerciseDialogFragment")
+
+            //TODO edit fitness when click to btnModifyFitness
+            if (args.source == "fromAdvanceFitnessFragment") {
+                val action = NewFitnessFragmentDirections.actionNewFitnessFragmentToAdvancedFitnessFragment(fitnessAdvance)
+                findNavController().navigate(action)
+            } else {
+                val dialogFragment = NameMyExerciseDialogFragment.newInstance(fitnessAdvance)
+                dialogFragment.show(parentFragmentManager, "NameMyExerciseDialogFragment")
+            }
         }
     }
 

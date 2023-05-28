@@ -238,6 +238,12 @@
         <argument
             android:name="argsFitnessAdvance"
             app:argType="com.example.s_gym.database.entity.FitnessAdvance" />
+        <argument
+            android:name="source"
+            app:argType="string"/>
+        <action
+            android:id="@+id/action_newFitnessFragment_to_advancedFitnessFragment"
+            app:destination="@id/advancedFitnessFragment" />
     </fragment>
     <fragment
         android:id="@+id/nameMyExerciseDialog"
@@ -288,6 +294,9 @@
         <action
             android:id="@+id/action_advancedFitnessFragment_to_fitnessFragment"
             app:destination="@id/fitnessFragment" />
+        <action
+            android:id="@+id/action_advancedFitnessFragment_to_newFitnessFragment"
+            app:destination="@id/newFitnessFragment" />
     </fragment>
     <fragment
         android:id="@+id/editAdvanceFitnessFragment"

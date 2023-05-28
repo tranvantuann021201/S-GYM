@@ -84,7 +84,8 @@ class InformationExerciseDialogFragment : DialogFragment() {
 
             val newFitnessAdvance = args.argsFitnessAdvance.copy(exercisesList = exercisesList)
 
-            val action = InformationExerciseDialogFragmentDirections.actionInformationExerciseDialogFragmentToNewFitnessFragment(newFitnessAdvance)
+            //TODO edit fitness when click to btnModifyFitness
+            val action = InformationExerciseDialogFragmentDirections.actionInformationExerciseDialogFragmentToNewFitnessFragment(newFitnessAdvance, "InformationExerciseDialogFragment")
             findNavController().navigate(action)
         }
 
