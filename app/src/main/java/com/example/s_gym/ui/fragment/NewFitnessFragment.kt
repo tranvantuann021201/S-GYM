@@ -115,7 +115,6 @@ class NewFitnessFragment : Fragment(), OnStartDragListener {
             newFitnessAdapter.updateData(exercisesList)
             updateFitnessAdvance(fitnessAdvance)
 
-            //TODO edit fitness when click to btnModifyFitness
             if (args.source == "fromAdvanceFitnessFragment") {
                 val action = NewFitnessFragmentDirections.actionNewFitnessFragmentToAdvancedFitnessFragment(fitnessAdvance)
                 findNavController().navigate(action)

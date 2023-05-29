@@ -87,7 +87,6 @@ class InformationExerciseDialogFragment : DialogFragment() {
 
             val newFitnessAdvance = args.argsFitnessAdvance.copy(exercisesList = exercisesList)
 
-            //TODO edit fitness when click to btnModifyFitness
             if (args.source == "fromAdvanceFitnessFragment") {
                 val action =
                     InformationExerciseDialogFragmentDirections.actionInformationExerciseDialogFragmentToNewFitnessFragment(

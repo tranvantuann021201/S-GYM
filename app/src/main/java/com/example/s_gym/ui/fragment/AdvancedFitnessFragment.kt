@@ -71,7 +71,6 @@ class AdvancedFitnessFragment : Fragment() {
             advancedFitnessAdapter.notifyDataSetChanged()
         }
 
-        //TODO edit fitness when click to btnModifyFitness
         binding.btnModifyFitness.setOnClickListener {
             val action = AdvancedFitnessFragmentDirections.actionAdvancedFitnessFragmentToNewFitnessFragment(fitnessAdvance, "fromAdvanceFitnessFragment")
             findNavController().navigate(action)
