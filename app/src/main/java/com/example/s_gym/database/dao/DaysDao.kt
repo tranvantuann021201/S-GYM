@@ -19,6 +19,9 @@ interface DaysDao {
     @Query("SELECT * FROM days_roomdb_table ORDER BY id DESC LIMIT 1")
     suspend fun getLastDay(): Days
 
+    @Query("DELETE FROM days_roomdb_table")
+    suspend fun deleteAllFromDays()
+
     @Query("SELECT * FROM days_roomdb_table ORDER BY id ASC")
     fun readAllData(): LiveData<List<Days>>
 }

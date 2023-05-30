@@ -1,6 +1,7 @@
 package com.example.s_gym.database
 
 import android.app.Application
+import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -33,14 +34,14 @@ abstract class AppDatabase : RoomDatabase() {
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
-        fun getInstance(application: Application): AppDatabase {
+        fun getInstance(context: Context): AppDatabase {
             val tempInstance = INSTANCE
             if (tempInstance != null) {
                 return tempInstance
             }
             synchronized(this) {
                 val instance = Room.databaseBuilder(
-                    application,
+                    context,
                     AppDatabase::class.java,
                     "app_database"
                 ).build()

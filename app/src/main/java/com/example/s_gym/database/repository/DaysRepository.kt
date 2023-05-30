@@ -1,6 +1,7 @@
 package com.example.s_gym.database.repository
 
 import android.app.Application
+import android.content.Context
 import androidx.lifecycle.LiveData
 import com.example.s_gym.database.AppDatabase
 import com.example.s_gym.database.dao.DaysDao
@@ -8,11 +9,11 @@ import com.example.s_gym.database.entity.Days
 import java.text.SimpleDateFormat
 import java.util.*
 
-class DaysRepository(application: Application) {
+class DaysRepository(context: Context) {
     private val daysDao: DaysDao
     private val readAllDaysData: LiveData<List<Days>>
     init {
-        val appDatabase: AppDatabase = AppDatabase.getInstance(application)
+        val appDatabase: AppDatabase = AppDatabase.getInstance(context)
         daysDao = appDatabase.daysDao()
         readAllDaysData = daysDao.readAllData()
     }
@@ -28,7 +29,10 @@ class DaysRepository(application: Application) {
         daysDao.deleteDay(day)
     }
 
-    //TODO: auto generate new Days object with WorkManager
+    suspend fun deleteAllFromDays() {
+        daysDao.deleteAllFromDays()
+    }
+
     suspend fun addNewDay() {
         val lastDay = daysDao.getLastDay()
         val dateFormat = SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
@@ -56,6 +60,17 @@ class DaysRepository(application: Application) {
                 height = lastDay.height
             )
             daysDao.insertDay(newDay)
+        }
+    }
+
+    companion object {
+        @Volatile
+        private var INSTANCE: DaysRepository? = null
+
+        fun getInstance(context: Context): DaysRepository {
+            return INSTANCE ?: synchronized(this) {
+                INSTANCE ?: DaysRepository(context).also { INSTANCE = it }
+            }
         }
     }
 }
