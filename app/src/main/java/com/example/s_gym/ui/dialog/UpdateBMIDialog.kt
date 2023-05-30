@@ -45,7 +45,7 @@ class UpdateBMIDialog : DialogFragment() {
         super.onStart()
         val window = dialog?.window
         window?.setLayout(
-            WindowManager.LayoutParams.WRAP_CONTENT,
+            WindowManager.LayoutParams.MATCH_PARENT,
             WindowManager.LayoutParams.WRAP_CONTENT
         )
     }

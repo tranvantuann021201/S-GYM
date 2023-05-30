@@ -15,5 +15,6 @@ data class Days(
     val completedExercise: Int,
     val drunk: Int,
     val weight: Double,
-    val height: Double
+    val height: Double,
+    val kcalConsumed: Double
 ): Parcelable

@@ -1,6 +1,5 @@
 package com.example.s_gym.database
 
-import android.app.Application
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
@@ -19,7 +18,7 @@ import com.example.s_gym.database.entity.User
 
 @Database(
     entities = [Exercises::class, Days::class, User::class, FitnessAdvance::class],
-    version = 2,
+    version = 3,
     exportSchema = false
 )
 @TypeConverters(Converters::class)
@@ -40,11 +39,17 @@ abstract class AppDatabase : RoomDatabase() {
                 return tempInstance
             }
             synchronized(this) {
+                val migration2to3 = object : Migration(2, 3) {
+                    override fun migrate(database: SupportSQLiteDatabase) {
+                        database.execSQL("ALTER TABLE days_roomdb_table ADD COLUMN kcalConsumed DOUBLE NOT NULL DEFAULT 0")
+                    }
+                }
+
                 val instance = Room.databaseBuilder(
                     context,
                     AppDatabase::class.java,
                     "app_database"
-                ).build()
+                ).addMigrations(migration2to3).build()
                 INSTANCE = instance
                 return instance
             }

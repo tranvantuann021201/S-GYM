@@ -11,7 +11,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.launch
 
-//TODO: auto generate new Days object with WorkManager
 class DailyWorker(context: Context, workerParams: WorkerParameters) :
     CoroutineWorker(context, workerParams) {
     private val daysRepository by lazy { DaysRepository(context) }

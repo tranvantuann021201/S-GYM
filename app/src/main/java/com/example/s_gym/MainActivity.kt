@@ -32,7 +32,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        //TODO: auto generate new Days object with WorkManager
         scheduleDailyWorker()
 
         val navHostFragment =
@@ -81,7 +80,6 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    //TODO: auto generate new Days object with WorkManager
     private fun scheduleDailyWorker() {
         val constraints = Constraints.Builder()
             .setRequiresBatteryNotLow(false)

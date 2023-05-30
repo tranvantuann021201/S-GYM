@@ -133,7 +133,7 @@
                 android:textSize="16sp" />
 
             <com.mikhaellopez.circularprogressbar.CircularProgressBar
-                android:id="@+id/progress_circular_bmi"
+                android:id="@+id/bmi_any_chart"
                 android:layout_width="160dp"
                 android:layout_height="160dp"
                 android:layout_below="@id/txt_bmi"
@@ -153,10 +153,10 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/progress_circular_bmi"
-                android:layout_alignTop="@+id/progress_circular_bmi"
-                android:layout_alignEnd="@+id/progress_circular_bmi"
-                android:layout_alignBottom="@+id/progress_circular_bmi"
+                android:layout_alignStart="@+id/bmi_any_chart"
+                android:layout_alignTop="@+id/bmi_any_chart"
+                android:layout_alignEnd="@+id/bmi_any_chart"
+                android:layout_alignBottom="@+id/bmi_any_chart"
                 android:layout_marginStart="52dp"
                 android:layout_marginTop="60dp"
                 android:layout_marginEnd="53dp"
@@ -171,7 +171,7 @@
                 android:text=" Đủ cân"
                 android:fontFamily="sans-serif"
                 android:textSize="20sp"
-                android:layout_below="@id/progress_circular_bmi"
+                android:layout_below="@id/bmi_any_chart"
                 android:layout_centerHorizontal="true"
                 android:drawableStart="@drawable/baseline_check_circle_24"
                 />
