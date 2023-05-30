@@ -49,7 +49,7 @@ class NameMyExerciseDialogFragment() : DialogFragment() {
             var fitnessAdvanceName = binding.edtNameMyExer.text.toString()
             viewModel.getRowCountFitnessAdvanceList()
             viewModel.rowCount.observe(viewLifecycleOwner) { count ->
-                if (fitnessAdvanceName == "") {
+                    if (fitnessAdvanceName == "") {
                     fitnessAdvanceName = "Bài tập số $count"
                 }
                 viewModel.updateFitnessAdvanceName(fitnessAdvance.id, fitnessAdvanceName)
@@ -74,8 +74,6 @@ class NameMyExerciseDialogFragment() : DialogFragment() {
     override fun onStart() {
         super.onStart()
         val window = requireActivity().window
-
-        window?.setGravity(Gravity.CENTER_HORIZONTAL)
         window?.setLayout(
             ViewGroup.LayoutParams.MATCH_PARENT,
             ViewGroup.LayoutParams.WRAP_CONTENT

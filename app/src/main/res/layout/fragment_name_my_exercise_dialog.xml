@@ -16,7 +16,9 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif"
         android:text="Đặt tên cho chương trình của bạn: "
-        android:textSize="22sp" />
+        android:textSize="20sp"
+        android:textColor="#5E5E5E"
+        />
 
     <EditText
         android:id="@+id/edt_name_my_exer"
@@ -25,6 +27,8 @@
         android:layout_below="@id/txt_title_name_my_exer"
         android:layout_alignStart="@id/txt_title_name_my_exer"
         android:layout_marginBottom="15dp"
+        android:textSize="18sp"
+        android:hint = "Tên bài tập của bạn ..."
         />
 
     <Button

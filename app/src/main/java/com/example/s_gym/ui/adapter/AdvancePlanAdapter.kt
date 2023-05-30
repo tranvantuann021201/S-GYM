@@ -2,20 +2,27 @@ package com.example.s_gym.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentActivity
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.example.s_gym.R
 import com.example.s_gym.database.entity.FitnessAdvance
 import com.example.s_gym.databinding.ItemAdvancedPlanBinding
+import com.example.s_gym.ui.fragment.AdvancedPlanFragment
 import com.example.s_gym.ui.fragment.AdvancedPlanFragmentDirections
-import com.example.s_gym.ui.fragment.FitnessFragment
 
-class AdvancePlanAdapter(private var fitnessList: List<FitnessAdvance>) :
+class AdvancePlanAdapter(private var fitnessList: List<FitnessAdvance>
+) :
     RecyclerView.Adapter<AdvancePlanAdapter.AdvancePlanViewHolder>() {
+    private lateinit var listener: AdvancedPlanFragment.onMoreIconClickListener
 
-    inner class AdvancePlanViewHolder(private val itemBinding: ItemAdvancedPlanBinding) :
+
+    fun setItemClickListener(listeners: AdvancedPlanFragment.onMoreIconClickListener) {
+        listener = listeners
+    }
+
+    inner class AdvancePlanViewHolder(private val itemBinding: ItemAdvancedPlanBinding, private val listeners: AdvancedPlanFragment.onMoreIconClickListener) :
         RecyclerView.ViewHolder(itemBinding.root) {
+
+
         fun bindItem(fitnessAdvance: FitnessAdvance) {
             itemBinding.txtExerName.text = fitnessAdvance.name
             itemBinding.txtExerAmount.text = "${fitnessAdvance.exercisesList.size} động tác"
@@ -28,6 +35,10 @@ class AdvancePlanAdapter(private var fitnessList: List<FitnessAdvance>) :
                     )
                 it.findNavController().navigate(action)
             }
+
+            itemBinding.moreIcon.setOnClickListener {
+                listeners.onMoreIconClick(adapterPosition, it)
+            }
         }
     }
 
@@ -37,7 +48,7 @@ class AdvancePlanAdapter(private var fitnessList: List<FitnessAdvance>) :
                 LayoutInflater.from(parent.context),
                 parent,
                 false
-            )
+            ), listener
         )
     }
 

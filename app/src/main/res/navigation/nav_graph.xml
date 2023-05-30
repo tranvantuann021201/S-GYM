@@ -159,6 +159,9 @@
         <action
             android:id="@id/action_advancedPlanFragment_to_advancedFitnessFragment"
             app:destination="@+id/advancedFitnessFragment" />
+        <action
+            android:id="@+id/action_nameMyExerciseDialog_to_planFragment2"
+            app:destination="@+id/planFragment"/>
     </fragment>
     <fragment
         android:id="@+id/reportFragment"

@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -15,6 +16,7 @@ import com.example.s_gym.R
 import com.example.s_gym.database.entity.FitnessAdvance
 import com.example.s_gym.databinding.FragmentAdvancedPlanBinding
 import com.example.s_gym.ui.adapter.AdvancePlanAdapter
+import com.example.s_gym.ui.dialog.NameMyExerciseDialogFragment
 import com.example.s_gym.ui.viewmodel.AdvancedPlanViewModel
 import kotlinx.coroutines.launch
 
@@ -24,6 +26,10 @@ class AdvancedPlanFragment : Fragment() {
     private lateinit var viewModelFactory: AdvancedPlanViewModel.AdvancedPlanViewModelFactory
     private lateinit var viewModel: AdvancedPlanViewModel
     private lateinit var advancePlanAdapter: AdvancePlanAdapter
+
+    interface onMoreIconClickListener {
+        fun onMoreIconClick(position: Int, view: View)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,6 +73,28 @@ class AdvancedPlanFragment : Fragment() {
             advancePlanAdapter.setFitnessAdvanceList(fitnessList)
             advancePlanAdapter.notifyDataSetChanged()
         }
-    }
 
+        advancePlanAdapter.setItemClickListener(object : onMoreIconClickListener {
+            override fun onMoreIconClick(position: Int, view: View) {
+                val fitnessAdvance = viewModel.allFitness.value!![position]
+                val popupMenu = PopupMenu(view.context, view)
+                popupMenu.menuInflater.inflate(R.menu.more_in_item_advance_plan, popupMenu.menu)
+                popupMenu.setOnMenuItemClickListener { menuItem ->
+                    when (menuItem.itemId) {
+                        R.id.rename -> {
+                            val dialogFragment = NameMyExerciseDialogFragment.newInstance(fitnessAdvance)
+                            dialogFragment.show(parentFragmentManager, "NameMyExerciseDialogFragment")
+                            true
+                        }
+                        R.id.delete -> {
+                            viewModel.deleteFitnessAdvance(fitnessAdvance)
+                            true
+                        }
+                        else -> false
+                    }
+                }
+                popupMenu.show()
+            }
+        })
+    }
 }
