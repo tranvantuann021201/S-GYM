@@ -28,7 +28,7 @@ class AdvancedPlanViewModel(application: Application): ViewModel() {
     fun deleteAllFromFitnessAdvance(){
         viewModelScope.launch {
             fitnessRepository.deleteAllFromFitnessAdvance()
-            daysRepository.deleteAllFromDays()
+//            daysRepository.deleteAllFromDays()
         }
     }
 

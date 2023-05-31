@@ -24,6 +24,14 @@ interface DaysDao {
 
     @Query("SELECT * FROM days_roomdb_table ORDER BY id ASC")
     fun readAllData(): LiveData<List<Days>>
+
+    @Query("UPDATE days_roomdb_table SET weight = :newWeight WHERE id = (SELECT MAX(id) FROM days_roomdb_table)")
+    suspend fun updateWeight(newWeight: Double)
+
+    @Query("UPDATE days_roomdb_table SET weight = :newWeight, height = :newHeight WHERE id = (SELECT MAX(id) FROM days_roomdb_table)")
+    suspend fun updateBMI(newWeight: Double, newHeight: Double)
+
+
 }
 
 

@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData
 import com.example.s_gym.database.AppDatabase
 import com.example.s_gym.database.dao.DaysDao
 import com.example.s_gym.database.entity.Days
+import com.example.s_gym.database.entity.FitnessAdvance
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -17,6 +18,11 @@ class DaysRepository(context: Context) {
         daysDao = appDatabase.daysDao()
         readAllDaysData = daysDao.readAllData()
     }
+
+    fun getAllDays(): LiveData<List<Days>> {
+        return daysDao.readAllData()
+    }
+
     suspend fun insertDay(day: Days) {
         daysDao.insertDay(day)
     }
@@ -31,6 +37,18 @@ class DaysRepository(context: Context) {
 
     suspend fun deleteAllFromDays() {
         daysDao.deleteAllFromDays()
+    }
+
+    suspend fun updateWeight(newWeight: Double) {
+        daysDao.updateWeight(newWeight)
+    }
+
+    suspend fun updateBMI(newWeight: Double, newHeight: Double) {
+        daysDao.updateBMI(newWeight, newHeight)
+    }
+
+    suspend fun getLastDay(): Days {
+        return daysDao.getLastDay()
     }
 
     suspend fun addNewDay() {
@@ -53,10 +71,10 @@ class DaysRepository(context: Context) {
         else {
             val newDay = Days(
                 id = 0,
-                name = lastDay.name,
-                completedExerciseInBasicMode = lastDay.completedExerciseInBasicMode,
-                completedExercise = lastDay.completedExercise,
-                drunk = lastDay.drunk,
+                name = currentDate,
+                completedExerciseInBasicMode = 0,
+                completedExercise = 0,
+                drunk = 0,
                 weight = lastDay.weight,
                 height = lastDay.height,
                 kcalConsumed = 0.0
