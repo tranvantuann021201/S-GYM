@@ -1,5 +1,6 @@
 package com.example.s_gym.ui.fragment
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -9,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -54,24 +56,25 @@ class ReportFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.calendarReport.selectedDate = CalendarDay.today()
 
+        binding.textViewProgress.bringToFront()
+
         viewModel.latestDay.observe(viewLifecycleOwner) { days ->
             if (days != null) {
                 binding.edtWeight.setText(days.weight.toString())
+                binding.txtWaterDrunk.text = days.drunk.toString()
+                binding.drinkProgressBar.progress = days.drunk.toFloat()
+                binding.textViewProgress.text = "${days.drunk}/8"
             }
         }
 
         binding.edtWeight.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-                // Do nothing
-            }
-
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                // Do nothing
-            }
+            override fun afterTextChanged(s: Editable?) {}
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 val newWeight = s.toString().toDoubleOrNull()
@@ -89,12 +92,12 @@ class ReportFragment : Fragment() {
             findNavController().navigate(R.id.action_reportFragment_to_historyFragment)
         }
 
-        binding.cvFlDrink.setOnClickListener {
-            findNavController().navigate(R.id.action_reportFragment_to_followDrinkWaterFragment)
-        }
-
         binding.btnEditBmi.setOnClickListener {
             findNavController().navigate(R.id.action_reportFragment_to_updateBMIDialog)
+        }
+
+        binding.btnDrink.setOnClickListener {
+            viewModel.increaseDrink()
         }
 
         binding.weightChart.description.isEnabled = false
@@ -111,11 +114,8 @@ class ReportFragment : Fragment() {
                 me: MotionEvent?,
                 lastPerformedGesture: ChartTouchListener.ChartGesture?
             ) {}
-
             override fun onChartLongPressed(me: MotionEvent?) {}
-
             override fun onChartDoubleTapped(me: MotionEvent?) {}
-
             override fun onChartSingleTapped(me: MotionEvent?) {}
 
             override fun onChartFling(
@@ -130,7 +130,6 @@ class ReportFragment : Fragment() {
             override fun onChartTranslate(me: MotionEvent?, dX: Float, dY: Float) {
                 binding.weightChart.moveViewToX( binding.weightChart.lowestVisibleX + dX)
             }
-            // Các phương thức khác
         }
 
         viewModel.getAllDays.observe(viewLifecycleOwner) { daysData ->
@@ -168,7 +167,6 @@ class ReportFragment : Fragment() {
         } else {
             dataSet.fillColor = Color.BLUE
         }
-
 
         return dataSet
     }

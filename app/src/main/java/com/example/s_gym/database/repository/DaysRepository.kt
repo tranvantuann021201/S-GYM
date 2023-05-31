@@ -1,12 +1,10 @@
 package com.example.s_gym.database.repository
 
-import android.app.Application
 import android.content.Context
 import androidx.lifecycle.LiveData
 import com.example.s_gym.database.AppDatabase
 import com.example.s_gym.database.dao.DaysDao
 import com.example.s_gym.database.entity.Days
-import com.example.s_gym.database.entity.FitnessAdvance
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -47,13 +45,14 @@ class DaysRepository(context: Context) {
         daysDao.updateBMI(newWeight, newHeight)
     }
 
-    suspend fun getLastDay(): Days {
-        return daysDao.getLastDay()
+    fun getLatestDay(): LiveData<Days> {
+        return daysDao.getLatestDay()
     }
 
+
     suspend fun addNewDay() {
-        val lastDay = daysDao.getLastDay()
-        val dateFormat = SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
+        val lastDay = daysDao.getLatestDay().value
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         val currentDate = dateFormat.format(Date())
         if (lastDay == null) {
             val newDay = Days(

@@ -3,7 +3,6 @@ package com.example.s_gym.database.dao
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.s_gym.database.entity.Days
-import com.example.s_gym.database.entity.FitnessAdvance
 
 @Dao
 interface DaysDao {
@@ -17,7 +16,7 @@ interface DaysDao {
     suspend fun deleteDay(day: Days)
 
     @Query("SELECT * FROM days_roomdb_table ORDER BY id DESC LIMIT 1")
-    suspend fun getLastDay(): Days
+    fun getLatestDay(): LiveData<Days>
 
     @Query("DELETE FROM days_roomdb_table")
     suspend fun deleteAllFromDays()
@@ -30,6 +29,9 @@ interface DaysDao {
 
     @Query("UPDATE days_roomdb_table SET weight = :newWeight, height = :newHeight WHERE id = (SELECT MAX(id) FROM days_roomdb_table)")
     suspend fun updateBMI(newWeight: Double, newHeight: Double)
+
+    @Query("UPDATE days_roomdb_table SET drunk = :newDrunk WHERE id = (SELECT MAX(id) FROM days_roomdb_table)")
+    fun updateDrink(newDrunk: Int)
 
 
 }

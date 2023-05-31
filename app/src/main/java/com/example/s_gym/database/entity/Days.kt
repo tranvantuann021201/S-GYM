@@ -13,7 +13,7 @@ data class Days(
     val name: String,
     val completedExerciseInBasicMode: Int,
     val completedExercise: Int,
-    val drunk: Int,
+    var drunk: Int,
     val weight: Double,
     val height: Double,
     val kcalConsumed: Double

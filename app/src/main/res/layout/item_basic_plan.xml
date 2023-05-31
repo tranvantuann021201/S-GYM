@@ -36,7 +36,7 @@
             android:layout_centerVertical="true">
 
             <com.mikhaellopez.circularprogressbar.CircularProgressBar
-                android:id="@+id/progress_bar_day"
+                android:id="@+id/drink_progress_bar"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:layout_centerVertical="true"
@@ -55,10 +55,10 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@string/detail_font"
                 android:textSize="@dimen/size_text_detail"
-                app:layout_constraintBottom_toBottomOf="@+id/progress_bar_day"
-                app:layout_constraintEnd_toEndOf="@+id/progress_bar_day"
-                app:layout_constraintStart_toStartOf="@+id/progress_bar_day"
-                app:layout_constraintTop_toTopOf="@+id/progress_bar_day"
+                app:layout_constraintBottom_toBottomOf="@+id/drink_progress_bar"
+                app:layout_constraintEnd_toEndOf="@+id/drink_progress_bar"
+                app:layout_constraintStart_toStartOf="@+id/drink_progress_bar"
+                app:layout_constraintTop_toTopOf="@+id/drink_progress_bar"
                 tools:text="4/7"
                 android:textColor="@color/white"
                 />

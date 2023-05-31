@@ -126,7 +126,6 @@
             android:id="@+id/cv_fl_drink"
             style="@style/done_fitness_cv"
             android:layout_below="@id/cv_history">
-
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
@@ -155,7 +154,7 @@
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="16dp"
                     android:layout_toEndOf="@id/txt_water_drunk"
-                    android:text="/6 cốc" />
+                    android:text="/8 cốc" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="wrap_content"
@@ -164,33 +163,35 @@
                     android:layout_centerVertical="true">
 
                     <com.mikhaellopez.circularprogressbar.CircularProgressBar
-                        android:id="@+id/progress_bar_day"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:id="@+id/drink_progress_bar"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
                         app:cpb_background_progressbar_color="#b6bbd8"
                         app:cpb_background_progressbar_width="7dp"
                         app:cpb_progressbar_color_end="#0038FF"
-                        app:cpb_progressbar_color_start="#001561"
-                        app:cpb_progressbar_width="7dp"
+                        app:cpb_progressbar_color_start="#A5008F"
+                        app:cpb_progressbar_width="8dp"
                         app:cpb_round_border="true"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:cpb_progress_max="8"/>
+
 
                     <TextView
                         android:id="@+id/text_view_progress"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@string/detail_font"
-                        android:textSize="13dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/progress_bar_day"
-                        app:layout_constraintEnd_toEndOf="@+id/progress_bar_day"
-                        app:layout_constraintStart_toStartOf="@+id/progress_bar_day"
-                        app:layout_constraintTop_toTopOf="@+id/progress_bar_day"
-                        tools:text="6/8" />
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/drink_progress_bar"
+                        app:layout_constraintEnd_toEndOf="@+id/drink_progress_bar"
+                        app:layout_constraintStart_toStartOf="@+id/drink_progress_bar"
+                        app:layout_constraintTop_toTopOf="@+id/drink_progress_bar"
+                        android:text="6/8"
+                        />
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/btn_drink"
@@ -248,7 +249,6 @@
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
-
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_bmi"
             style="@style/done_fitness_cv"
@@ -277,43 +277,11 @@
                     android:text="Chỉnh sửa "
                     android:textSize="16sp" />
 
-                <!--                    <com.mikhaellopez.circularprogressbar.CircularProgressBar-->
-                <!--                        android:id="@+id/progress_circular_bmi"-->
-                <!--                        android:layout_width="120dp"-->
-                <!--                        android:layout_height="120dp"-->
-                <!--                        android:layout_below="@id/txt_bmi"-->
-                <!--                        android:layout_centerHorizontal="true"-->
-                <!--                        android:layout_marginVertical="15dp"-->
-                <!--                        android:layout_marginStart="15dp"-->
-                <!--                        android:layout_marginTop="15dp"-->
-                <!--                        android:layout_marginEnd="15dp"-->
-                <!--                        android:layout_marginBottom="15dp"-->
-                <!--                        app:cpb_background_progressbar_color="#b6bbd8"-->
-                <!--                        app:cpb_background_progressbar_width="7dp"-->
-                <!--                        app:cpb_progressbar_color_end="#E82012"-->
-                <!--                        app:cpb_progressbar_color_start="#001561"-->
-                <!--                        app:cpb_progressbar_width="7dp"-->
-                <!--                        app:cpb_round_border="true" />-->
                 <com.anychart.AnyChartView
                     android:id="@+id/bmi_any_chart"
                     android:layout_width="120dp"
                     android:layout_height="120dp"
                     android:layout_below="@id/txt_bmi" />
-
-                <!--                <TextView-->
-                <!--                    android:layout_width="38dp"-->
-                <!--                    android:layout_height="26dp"-->
-                <!--                    android:layout_alignStart="@+id/bmi_any_chart"-->
-                <!--                    android:layout_alignTop="@+id/bmi_any_chart"-->
-                <!--                    android:layout_alignEnd="@+id/bmi_any_chart"-->
-                <!--                    android:layout_alignBottom="@+id/bmi_any_chart"-->
-                <!--                    android:layout_marginStart="41dp"-->
-                <!--                    android:layout_marginTop="46dp"-->
-                <!--                    android:layout_marginEnd="41dp"-->
-                <!--                    android:layout_marginBottom="48dp"-->
-                <!--                    android:fontFamily="sans-serif-condensed-medium"-->
-                <!--                    android:text="16.9"-->
-                <!--                    android:textSize="20sp" />-->
 
                 <TextView
                     android:layout_width="wrap_content"

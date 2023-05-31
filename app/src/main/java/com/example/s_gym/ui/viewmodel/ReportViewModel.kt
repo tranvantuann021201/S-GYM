@@ -4,15 +4,14 @@ import android.app.Application
 import androidx.lifecycle.*
 import com.example.s_gym.database.entity.Days
 import com.example.s_gym.database.repository.DaysRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ReportViewModel(application: Application): ViewModel() {
     private var daysRepository: DaysRepository = DaysRepository(application)
     val getAllDays: LiveData<List<Days>> = daysRepository.getAllDays()
     val newWeight = MutableLiveData<Double>()
-    val latestDay = liveData {
-        emit(daysRepository.getLastDay())
-    }
+    val latestDay = daysRepository.getLatestDay()
 
     fun insertFakeDaysData() {
         viewModelScope.launch {
@@ -26,6 +25,16 @@ class ReportViewModel(application: Application): ViewModel() {
             daysRepository.insertDay(Days(0, "2022-11-11", 3, 3, 3, 56.0, 176.0, 20.4))
             daysRepository.insertDay(Days(0, "2022-11-12", 3, 3, 3, 51.0, 175.0, 20.4))
 
+        }
+    }
+
+    fun increaseDrink() {
+        val latestDay = latestDay.value
+        if (latestDay != null && latestDay.drunk < 8) {
+            latestDay.drunk += 1
+            viewModelScope.launch {
+                daysRepository.updateDay(latestDay)
+            }
         }
     }
 
