@@ -33,6 +33,12 @@ interface DaysDao {
     @Query("UPDATE days_roomdb_table SET drunk = :newDrunk WHERE id = (SELECT MAX(id) FROM days_roomdb_table)")
     fun updateDrink(newDrunk: Int)
 
+    @Query("SELECT SUM(completedExercise) FROM days_roomdb_table")
+    fun getTotalCompletedExercise(): LiveData<Int>
+
+    @Query("SELECT SUM(kcalConsumed) FROM days_roomdb_table")
+    fun getTotalKcalConsumed(): LiveData<Double>
+
 
 }
 

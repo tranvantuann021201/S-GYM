@@ -42,7 +42,7 @@ class EditBasicFitnessFragment : Fragment(), OnStartDragListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.exerciseList = args.argsFitnessDay.exercise as MutableList
+        viewModel.exerciseList = args.argsFitnessBasic.exercise as MutableList
         editBasicFitnessAdapter = EditBasicFitnessAdapter(viewModel.exerciseList, this)
         binding.rvEditBasicFitness.adapter = editBasicFitnessAdapter
 
@@ -60,6 +60,7 @@ class EditBasicFitnessFragment : Fragment(), OnStartDragListener {
         }
         binding.rvEditBasicFitness.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
     }
 
     override fun onStartDrag(viewHolder: RecyclerView.ViewHolder) {

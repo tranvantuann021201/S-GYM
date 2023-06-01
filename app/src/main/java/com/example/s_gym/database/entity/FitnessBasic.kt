@@ -14,7 +14,7 @@ data class FitnessBasic(
     val nameDay: String,
     val isRestDay: Boolean,
     val totalExercise: Int,
-    val exerciseCompleted: Int,
+    var exerciseCompleted: Int,
     val exercise: @RawValue List<Exercises>
 ): Parcelable
 

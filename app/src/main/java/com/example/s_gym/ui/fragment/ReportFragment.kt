@@ -67,15 +67,24 @@ class ReportFragment : Fragment() {
     @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        
+        viewModel.getTotalCompletedExercise().observe(viewLifecycleOwner) { totalCompletedExercise ->
+            binding.txtExerAmount.text = totalCompletedExercise.toString()
+        }
+
+        viewModel.getTotalKcalConsumed().observe(viewLifecycleOwner) { totalKcalConsumed ->
+            binding.txtCaloAmount.text = totalKcalConsumed.toString()
+        }
+
         binding.calendarReport.selectedDate = CalendarDay.today()
 
         binding.textViewProgress.bringToFront()
 
         viewModel.latestDay.observe(viewLifecycleOwner) { days ->
             if (days != null) {
-                binding.edtWeight.setText(days.weight.toString())
                 binding.txtWaterDrunk.text = days.drunk.toString()
                 binding.drinkProgressBar.progress = days.drunk.toFloat()
+                binding.edtWeight.hint = viewModel.latestDay.value?.weight.toString()
             }
         }
 
@@ -156,13 +165,13 @@ class ReportFragment : Fragment() {
 
         //BMI Chart
         binding.bmiChart.setProgressBar(binding.bmiProgressBar)
-        val linearGauge = AnyChart.linear()
 
         viewModel.getAllDays.observe(viewLifecycleOwner) { daysData ->
             val lineData = LineData(lineChart(daysData))
             binding.weightChart.data = lineData
             binding.weightChart.invalidate()
 
+            val linearGauge = AnyChart.linear()
             val bmiData = viewModel.getAllDays.value!!.map { it.currentBMI }
             setLinearGauge(linearGauge, bmiData)
             binding.bmiChart.setChart(linearGauge)

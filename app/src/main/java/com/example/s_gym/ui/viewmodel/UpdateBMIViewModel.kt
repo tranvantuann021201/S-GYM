@@ -1,4 +1,4 @@
-package com.example.s_gym.ui.dialog
+package com.example.s_gym.ui.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.ViewModel

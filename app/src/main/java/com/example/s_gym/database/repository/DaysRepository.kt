@@ -41,14 +41,19 @@ class DaysRepository(context: Context) {
         daysDao.updateWeight(newWeight)
     }
 
-    suspend fun updateBMI(newWeight: Double, newHeight: Double) {
-        daysDao.updateBMI(newWeight, newHeight)
-    }
+
 
     fun getLatestDay(): LiveData<Days> {
         return daysDao.getLatestDay()
     }
 
+    fun getTotalCompletedExercise(): LiveData<Int> {
+        return daysDao.getTotalCompletedExercise()
+    }
+
+    fun getTotalKcalConsumed(): LiveData<Double> {
+        return daysDao.getTotalKcalConsumed()
+    }
 
     suspend fun addNewDay() {
         val lastDay = daysDao.getLatestDay().value
@@ -78,7 +83,7 @@ class DaysRepository(context: Context) {
                 weight = lastDay.weight,
                 height = lastDay.height,
                 kcalConsumed = 0.0,
-                currentBMI = 0.0
+                currentBMI = lastDay.currentBMI
             )
             daysDao.insertDay(newDay)
         }

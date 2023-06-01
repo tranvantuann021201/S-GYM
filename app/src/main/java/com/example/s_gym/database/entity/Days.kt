@@ -11,11 +11,11 @@ data class Days(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val name: String,
-    val completedExerciseInBasicMode: Int,
-    val completedExercise: Int,
+    var completedExerciseInBasicMode: Int,
+    var completedExercise: Int,
     var drunk: Int,
     var weight: Double,
     var height: Double,
-    val kcalConsumed: Double,
+    var kcalConsumed: Double,
     var currentBMI: Double
 ): Parcelable

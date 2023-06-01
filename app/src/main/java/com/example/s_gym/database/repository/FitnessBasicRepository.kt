@@ -35,6 +35,10 @@ class FitnessBasicRepository(application: Application) {
         return fitnessBasicDao.getLatest()
     }
 
+    suspend fun updateFitnessBasic(fitnessBasic: FitnessBasic) {
+        fitnessBasicDao.update(fitnessBasic)
+    }
+
     suspend fun delete(fitnessBasic: FitnessBasic) {
         fitnessBasicDao.delete(fitnessBasic)
     }

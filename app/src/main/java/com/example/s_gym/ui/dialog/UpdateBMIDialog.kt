@@ -9,9 +9,8 @@ import android.widget.Toast
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.s_gym.R
 import com.example.s_gym.databinding.FragmentUpdateBMIDialogBinding
-import com.example.s_gym.ui.viewmodel.ReportViewModel
+import com.example.s_gym.ui.viewmodel.UpdateBMIViewModel
 
 /**
  * A simple [Fragment] subclass.

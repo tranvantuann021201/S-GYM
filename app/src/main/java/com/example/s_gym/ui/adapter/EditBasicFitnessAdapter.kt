@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.s_gym.api.Exercise
+import com.example.s_gym.database.entity.Exercises
 import com.example.s_gym.databinding.ItemEditBasicFitnessBinding
 import java.util.*
 
@@ -20,7 +21,7 @@ interface OnStartDragListener {
 }
 
 class EditBasicFitnessAdapter(
-    var exercisesList: MutableList<Exercise>, private val dragStartListener: OnStartDragListener
+    var exercisesList: MutableList<Exercises>, private val dragStartListener: OnStartDragListener
 ) : RecyclerView.Adapter<EditBasicFitnessAdapter.EditBasicFitnessViewHolder>(),
     ItemTouchHelperAdapter {
 
@@ -31,7 +32,7 @@ class EditBasicFitnessAdapter(
     inner class EditBasicFitnessViewHolder(private val itemBinding: ItemEditBasicFitnessBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
 
-        fun bindItem(exercises: Exercise) {
+        fun bindItem(exercises: Exercises) {
             itemBinding.txtAnimationName.text = exercises.name
             itemBinding.txtAnimationAmount.text = "x ${exercises.animationMount}"
             Glide.with(itemView.context).load(exercises.urlVideoGuide)
@@ -82,7 +83,7 @@ class EditBasicFitnessAdapter(
     }
 
     // Add a method to get the sorted list of exercises
-    fun getSortedExercises(): MutableList<Exercise> {
+    fun getSortedExercises(): MutableList<Exercises> {
         return exercisesList
     }
 }

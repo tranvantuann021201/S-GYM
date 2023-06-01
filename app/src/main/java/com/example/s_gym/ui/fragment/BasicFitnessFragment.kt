@@ -26,18 +26,21 @@ class BasicFitnessFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        basicFitnessAdapter = BasicFitnessAdapter(args.argsFitnessDay.exercise)
+        basicFitnessAdapter = BasicFitnessAdapter(args.argsFitnessBasic.exercise)
         binding.rvBasicFitness.adapter = basicFitnessAdapter
         binding.rvBasicFitness.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
         binding.btnStartExer.setOnClickListener {
-            val action = BasicFitnessFragmentDirections.actionBasicFitnessFragmentToFitnessFragment(args.argsFitnessDay, null)
+            val action = BasicFitnessFragmentDirections.actionBasicFitnessFragmentToFitnessFragment(args.argsFitnessBasic, null)
             findNavController().navigate(action)
         }
 
         binding.btnModifyExer.setOnClickListener {
-            val action = BasicFitnessFragmentDirections.actionBasicFitnessFragmentToEditBasicFitnessFragment2(args.argsFitnessDay)
+            val action = BasicFitnessFragmentDirections.actionBasicFitnessFragmentToEditBasicFitnessFragment2(args.argsFitnessBasic)
             findNavController().navigate(action)
+        }
+        binding.btnBack.setOnClickListener {
+            findNavController().popBackStack()
         }
     }
 }

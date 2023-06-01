@@ -5,13 +5,14 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.s_gym.api.Exercise
+import com.example.s_gym.database.entity.Exercises
 import com.example.s_gym.databinding.ItemBasicFitnessBinding
 
-class BasicFitnessAdapter(var exercisesList: List<Exercise>) :
+class BasicFitnessAdapter(var exercisesList: List<Exercises>) :
     RecyclerView.Adapter<BasicFitnessAdapter.BasicFitnessViewHolder>() {
     inner class BasicFitnessViewHolder(private val itemBinding: ItemBasicFitnessBinding) :
         RecyclerView.ViewHolder(itemBinding.root) {
-        fun bindItem(exercises: Exercise) {
+        fun bindItem(exercises: Exercises) {
             itemBinding.txtAnimationName.text = exercises.name
             itemBinding.txtAnimationAmount.text = "x ${exercises.animationMount}"
             Glide.with(itemView.context).load(exercises.urlVideoGuide)

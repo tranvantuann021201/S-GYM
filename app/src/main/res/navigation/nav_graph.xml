@@ -41,8 +41,8 @@
             android:id="@+id/action_basicFitnessFragment_to_editBasicFitnessFragment2"
             app:destination="@id/editBasicFitnessFragment2" />
         <argument
-            android:name="argsFitnessDay"
-            app:argType="com.example.s_gym.api.FitnessDay" />
+            android:name="argsFitnessBasic"
+            app:argType="com.example.s_gym.database.entity.FitnessBasic" />
     </fragment>
     <fragment
         android:id="@+id/fitnessFragment"
@@ -50,8 +50,8 @@
         android:label="fragment_fitness"
         tools:layout="@layout/fragment_fitness">
         <argument
-            android:name="argsFitnessDay"
-            app:argType="com.example.s_gym.api.FitnessDay"
+            android:name="argsFitnessBasic"
+            app:argType="com.example.s_gym.database.entity.FitnessBasic"
             app:nullable="true"/>
         <action
             android:id="@+id/action_fitnessFragment_to_restFragment"
@@ -77,8 +77,8 @@
         android:label="fragment_edit_basic_fitness"
         tools:layout="@layout/fragment_edit_basic_fitness">
         <argument
-            android:name="argsFitnessDay"
-            app:argType="com.example.s_gym.api.FitnessDay" />
+            android:name="argsFitnessBasic"
+            app:argType="com.example.s_gym.database.entity.FitnessBasic" />
         <action
             android:id="@+id/action_editBasicFitnessFragment2_to_basicFitnessFragment"
             app:destination="@id/basicFitnessFragment" />

@@ -6,11 +6,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.s_gym.R
-import com.example.s_gym.api.FitnessDay
+import com.example.s_gym.database.entity.FitnessBasic
 import com.example.s_gym.ui.fragment.BasicPlanFragment
 
 class BasicPlanAdapter(
-    private var fitnessDayList: List<FitnessDay>
+    private var fitnessDayList: List<FitnessBasic>
 ) :
     RecyclerView.Adapter<BasicPlanAdapter.BasicPlanViewHolder>() {
     private lateinit var listener: BasicPlanFragment.onBasicPlanItemClickListener
@@ -21,7 +21,7 @@ class BasicPlanAdapter(
     class BasicPlanViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val nameDayTextView: TextView = itemView.findViewById(R.id.txt_day_name)
 
-        fun bind(fitnessDay: FitnessDay) {
+        fun bind(fitnessDay: FitnessBasic) {
             nameDayTextView.text = fitnessDay.nameDay
         }
     }
@@ -40,4 +40,9 @@ class BasicPlanAdapter(
     }
 
     override fun getItemCount() = fitnessDayList.size
+
+    fun setFitnessBasicList(fitnessList: List<FitnessBasic>) {
+        this.fitnessDayList = fitnessList
+        notifyDataSetChanged()
+    }
 }

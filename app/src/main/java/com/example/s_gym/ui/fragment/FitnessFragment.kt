@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
@@ -15,6 +16,7 @@ import com.example.s_gym.database.entity.FitnessAdvance
 import com.example.s_gym.databinding.FragmentFitnessBinding
 import com.example.s_gym.ui.dialog.PauseExerciseDialog
 import com.example.s_gym.ui.dialog.RestDialog
+import com.example.s_gym.ui.viewmodel.FitnessViewModel
 
 /**
  * A simple [Fragment] subclass.
@@ -27,6 +29,15 @@ class FitnessFragment : Fragment() {
     private val args by navArgs<FitnessFragmentArgs>()
     private lateinit var callback: OnBackPressedCallback
     private lateinit var fitness: FitnessAdvance
+    private lateinit var viewModelFactory: FitnessViewModel.FitnessViewModelFactory
+    private lateinit var viewModel: FitnessViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModelFactory = FitnessViewModel.FitnessViewModelFactory(requireActivity().application)
+        viewModel = ViewModelProvider(this, viewModelFactory)[FitnessViewModel::class.java]
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,9 +54,13 @@ class FitnessFragment : Fragment() {
         var positions = 0
         var restDialog = RestDialog()
         var fitnessAdvance = args.argsFitnessAdvanced?.exercisesList
-        var fitnessBasic = args.argsFitnessDay?.exercise
+        var fitnessBasic = args.argsFitnessBasic?.exercise
 
         passDataToView(positions)
+
+        viewModel.latestDay.observe(viewLifecycleOwner) {}
+
+        viewModel.fitnessBasic.observe(viewLifecycleOwner) {}
 
         if (fitnessBasic != null) {
             binding.btnNext.setOnClickListener {
@@ -59,6 +74,7 @@ class FitnessFragment : Fragment() {
                     )
                     positions++
                     restDialog.show(parentFragmentManager, "RestFragment")
+                    viewModel.onBtnDoneClick(fitnessBasic[positions], args.argsFitnessBasic!!)
                     passDataToView(positions)
                 }
             }
@@ -82,6 +98,7 @@ class FitnessFragment : Fragment() {
                     )
                     positions++
                     restDialog.show(parentFragmentManager, "RestFragment")
+                    viewModel.onBtnDoneClick(fitnessBasic[positions], args.argsFitnessBasic!!)
                     passDataToView(positions)
                 }
             }
@@ -109,6 +126,7 @@ class FitnessFragment : Fragment() {
                     )
                     positions++
                     restDialog.show(parentFragmentManager, "RestFragment")
+                    viewModel.onBtnDoneClick(fitnessAdvance[positions], null)
                     passDataToView(positions)
                 }
             }
@@ -132,6 +150,7 @@ class FitnessFragment : Fragment() {
                     )
                     positions++
                     restDialog.show(parentFragmentManager, "RestFragment")
+                    viewModel.onBtnDoneClick(fitnessAdvance[positions], null)
                     passDataToView(positions)
                 }
             }
@@ -164,8 +183,8 @@ class FitnessFragment : Fragment() {
             requireActivity().supportFragmentManager.findFragmentById(R.id.fitnessFragment)
         }
 
-        else if (args.argsFitnessDay != null) {
-            val exerciseList = args.argsFitnessDay!!.exercise[positions]
+        else if (args.argsFitnessBasic != null) {
+            val exerciseList = args.argsFitnessBasic!!.exercise[positions]
             Glide.with(context).load(exerciseList.urlVideoGuide).into(binding.imgAnimationExercise)
             binding.txtExerName.text = exerciseList.name
             binding.txtAmount.text = "x${exerciseList.animationMount}"

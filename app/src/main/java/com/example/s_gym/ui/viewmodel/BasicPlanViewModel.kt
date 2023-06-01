@@ -4,12 +4,14 @@ import android.app.Application
 import android.content.Context
 import android.os.Build
 import androidx.annotation.RequiresApi
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.example.s_gym.api.FitnessDay
 import com.example.s_gym.api.FitnessPlan
 import com.example.s_gym.database.entity.Exercises
+import com.example.s_gym.database.entity.FitnessAdvance
 import com.example.s_gym.database.entity.FitnessBasic
 import com.example.s_gym.database.repository.FitnessBasicRepository
 import com.google.gson.Gson
@@ -28,10 +30,26 @@ class BasicPlanViewModel(application: Application) : ViewModel() {
     private val year = calendar.get(Calendar.YEAR)
     private val daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
     private val fitnessBasicRepository = FitnessBasicRepository(application)
+    val allBasic: LiveData<List<FitnessBasic>> = fitnessBasicRepository.allFitnessBasics
+
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private val daysInRange = (1..daysInMonth).map { day ->
+    val daysInRange = (1..daysInMonth).map { day ->
         LocalDateTime.of(year, month + 1, day, 0, 0, 0)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun getFitnessBasicFlowMonth(fitnessBasic: List<FitnessBasic>): List<FitnessBasic> {
+        return try {
+            fitnessBasic.filter { fitnessDay ->
+                daysInRange.any { day ->
+                    fitnessDay.id == day.dayOfMonth
+                }
+            }
+        } catch (e: JSONException) {
+            e.printStackTrace()
+            emptyList()
+        }
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
