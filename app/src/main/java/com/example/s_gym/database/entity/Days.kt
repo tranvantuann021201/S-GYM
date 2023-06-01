@@ -16,5 +16,6 @@ data class Days(
     var drunk: Int,
     var weight: Double,
     var height: Double,
-    val kcalConsumed: Double
+    val kcalConsumed: Double,
+    var currentBMI: Double
 ): Parcelable

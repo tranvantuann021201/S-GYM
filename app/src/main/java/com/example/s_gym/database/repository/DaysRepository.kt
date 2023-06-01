@@ -63,7 +63,8 @@ class DaysRepository(context: Context) {
                 drunk = 0,
                 weight = 50.0,
                 height = 170.0,
-                kcalConsumed = 0.0
+                kcalConsumed = 0.0,
+                currentBMI = 0.0
             )
             daysDao.insertDay(newDay)
         }
@@ -76,7 +77,8 @@ class DaysRepository(context: Context) {
                 drunk = 0,
                 weight = lastDay.weight,
                 height = lastDay.height,
-                kcalConsumed = 0.0
+                kcalConsumed = 0.0,
+                currentBMI = 0.0
             )
             daysDao.insertDay(newDay)
         }

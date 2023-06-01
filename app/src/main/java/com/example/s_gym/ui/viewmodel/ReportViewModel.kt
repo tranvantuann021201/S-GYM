@@ -20,15 +20,15 @@ class ReportViewModel(application: Application): ViewModel() {
 
     fun insertFakeDaysData() {
         viewModelScope.launch {
-            daysRepository.insertDay(Days(0, "2022-11-01", 3, 3, 3, 50.0, 175.0, 20.4))
-            daysRepository.insertDay(Days(0, "2022-11-02", 3, 3, 3, 50.0, 174.0, 20.4))
-            daysRepository.insertDay(Days(0, "2022-11-04", 3, 3, 3, 51.0, 173.0, 20.4))
-            daysRepository.insertDay(Days(0, "2022-11-06", 3, 3, 3, 51.0, 174.0, 20.4))
-            daysRepository.insertDay(Days(0, "2022-11-08", 3, 3, 3, 55.0, 175.0, 20.4))
-            daysRepository.insertDay(Days(0, "2022-11-09", 3, 3, 3, 52.0, 176.0, 20.4))
-            daysRepository.insertDay(Days(0, "2022-11-10", 3, 3, 3, 53.0, 177.0, 20.4))
-            daysRepository.insertDay(Days(0, "2022-11-11", 3, 3, 3, 56.0, 176.0, 20.4))
-            daysRepository.insertDay(Days(0, "2022-11-12", 3, 3, 3, 51.0, 175.0, 20.4))
+            daysRepository.insertDay(Days(0, "2022-11-01", 3, 3, 3, 50.0, 175.0, 20.4, 0.0))
+            daysRepository.insertDay(Days(0, "2022-11-02", 3, 3, 3, 50.0, 174.0, 20.4, 0.0))
+            daysRepository.insertDay(Days(0, "2022-11-04", 3, 3, 3, 51.0, 173.0, 20.4, 0.0))
+            daysRepository.insertDay(Days(0, "2022-11-06", 3, 3, 3, 51.0, 174.0, 20.4, 0.0))
+            daysRepository.insertDay(Days(0, "2022-11-08", 3, 3, 3, 55.0, 175.0, 20.4, 0.0))
+            daysRepository.insertDay(Days(0, "2022-11-09", 3, 3, 3, 52.0, 176.0, 20.4, 0.0))
+            daysRepository.insertDay(Days(0, "2022-11-10", 3, 3, 3, 53.0, 177.0, 20.4, 0.0))
+            daysRepository.insertDay(Days(0, "2022-11-11", 3, 3, 3, 56.0, 176.0, 20.4, 0.0))
+            daysRepository.insertDay(Days(0, "2022-11-12", 3, 3, 3, 51.0, 175.0, 20.4, 0.0))
 
         }
     }

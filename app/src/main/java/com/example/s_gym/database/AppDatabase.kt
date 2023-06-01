@@ -16,7 +16,7 @@ import com.example.s_gym.database.dao.FitnessBasicDao
 
 @Database(
     entities = [Exercises::class, Days::class, User::class, FitnessAdvance::class, FitnessBasic::class],
-    version = 4,
+    version = 5,
     exportSchema = false
 )
 
@@ -52,13 +52,17 @@ abstract class AppDatabase : RoomDatabase() {
                     }
                 }
 
-
+                val migration4to5 = object : Migration(4, 5) {
+                    override fun migrate(database: SupportSQLiteDatabase) {
+                        database.execSQL("ALTER TABLE days_roomdb_table ADD COLUMN currentBMI DOUBLE NOT NULL DEFAULT 0")
+                    }
+                }
 
                 val instance = Room.databaseBuilder(
                     context,
                     AppDatabase::class.java,
                     "app_database"
-                ).addMigrations(migration2to3, migration3to4).build()
+                ).addMigrations(migration2to3, migration3to4, migration4to5).build()
                 INSTANCE = instance
                 return instance
             }

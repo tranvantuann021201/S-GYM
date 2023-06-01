@@ -14,7 +14,13 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.map
 import androidx.navigation.fragment.findNavController
+import com.anychart.AnyChart
+import com.anychart.chart.common.dataentry.SingleValueDataSet
+import com.anychart.charts.LinearGauge
+import com.anychart.enums.*
+import com.anychart.scales.OrdinalColor
 import com.example.s_gym.R
 import com.example.s_gym.database.entity.Days
 import com.example.s_gym.databinding.FragmentReportBinding
@@ -101,14 +107,16 @@ class ReportFragment : Fragment() {
         binding.btnDrink.setOnClickListener {
             if (viewModel.latestDay.value?.drunk == 8) {
                 Toast.makeText(context, "Hôm nay, bạn đã uống đủ nước.", Toast.LENGTH_SHORT).show()
-            }
-            else {
+            } else {
                 viewModel.increaseDrink()
-                Toast.makeText(context, "Hãy thoải mái uống nước  bạn nhé.", Toast.LENGTH_LONG).show()
+                Toast.makeText(context, "Hãy thoải mái uống nước  bạn nhé.", Toast.LENGTH_LONG)
+                    .show()
                 timer.start()
             }
         }
 
+
+        //Weight Chart
         binding.weightChart.description.isEnabled = false
         binding.weightChart.xAxis.position = XAxis.XAxisPosition.BOTTOM
         binding.weightChart.xAxis.valueFormatter = DateValueFormatter()
@@ -117,12 +125,15 @@ class ReportFragment : Fragment() {
             override fun onChartGestureStart(
                 me: MotionEvent?,
                 lastPerformedGesture: ChartTouchListener.ChartGesture?
-            ) {}
+            ) {
+            }
 
             override fun onChartGestureEnd(
                 me: MotionEvent?,
                 lastPerformedGesture: ChartTouchListener.ChartGesture?
-            ) {}
+            ) {
+            }
+
             override fun onChartLongPressed(me: MotionEvent?) {}
             override fun onChartDoubleTapped(me: MotionEvent?) {}
             override fun onChartSingleTapped(me: MotionEvent?) {}
@@ -132,19 +143,29 @@ class ReportFragment : Fragment() {
                 me2: MotionEvent?,
                 velocityX: Float,
                 velocityY: Float
-            ) {}
+            ) {
+            }
 
             override fun onChartScale(me: MotionEvent?, scaleX: Float, scaleY: Float) {}
 
             override fun onChartTranslate(me: MotionEvent?, dX: Float, dY: Float) {
-                binding.weightChart.moveViewToX( binding.weightChart.lowestVisibleX + dX)
+                binding.weightChart.moveViewToX(binding.weightChart.lowestVisibleX + dX)
             }
         }
+
+
+        //BMI Chart
+        binding.bmiChart.setProgressBar(binding.bmiProgressBar)
+        val linearGauge = AnyChart.linear()
 
         viewModel.getAllDays.observe(viewLifecycleOwner) { daysData ->
             val lineData = LineData(lineChart(daysData))
             binding.weightChart.data = lineData
             binding.weightChart.invalidate()
+
+            val bmiData = viewModel.getAllDays.value!!.map { it.currentBMI }
+            setLinearGauge(linearGauge, bmiData)
+            binding.bmiChart.setChart(linearGauge)
         }
     }
 
@@ -204,4 +225,73 @@ class ReportFragment : Fragment() {
         }
     }
 
+    private fun setLinearGauge(linearGauge: LinearGauge, data: List<Double>): LinearGauge {
+        linearGauge.data(SingleValueDataSet(data))
+
+        linearGauge.layout(Layout.HORIZONTAL)
+
+        linearGauge.label(0)
+            .position(Position.LEFT_CENTER)
+            .anchor(Anchor.LEFT_CENTER)
+            .offsetY("-50px")
+            .offsetX("50px")
+            .fontColor("black")
+            .fontSize(17)
+        linearGauge.label(0).text("Total Rainfall")
+
+        linearGauge.label(1)
+            .position(Position.LEFT_CENTER)
+            .anchor(Anchor.LEFT_CENTER)
+            .offsetY("40px")
+            .offsetX("50px")
+            .fontColor("#777777")
+            .fontSize(17)
+        linearGauge.label(1).text("Drought Hazard")
+
+        linearGauge.label(2)
+            .position(Position.RIGHT_CENTER)
+            .anchor(Anchor.RIGHT_CENTER)
+            .offsetY("40px")
+            .offsetX("50px")
+            .fontColor("#777777")
+            .fontSize(17)
+        linearGauge.label(2).text("Flood Hazard")
+
+        val scaleBarColorScale = OrdinalColor.instantiate()
+        scaleBarColorScale.ranges(
+            arrayOf(
+                "{ from: 0, to: 25, color: ['red 0.5'] }",
+                "{ from: 25, to: 50, color: ['yellow 0.5'] }",
+                "{ from: 50, to: 75, color: ['green 0.5'] }",
+                "{ from: 75, to: 100, color: ['yellow 0.5'] }",
+                "{ from: 100, to: 200, color: ['red 0.5'] }"
+            )
+        )
+
+        linearGauge.scaleBar(0)
+            .width("5%")
+            .colorScale(scaleBarColorScale)
+
+        linearGauge.marker(0)
+            .type(MarkerType.TRIANGLE_DOWN)
+            .color("red")
+            .offset("-3.5%")
+            .zIndex(10)
+
+        linearGauge.scale()
+            .minimum(0)
+            .maximum(200)
+
+        linearGauge.axis(0)
+            .minorTicks(false)
+            .width("1%")
+        linearGauge.axis(0)
+            .offset("-1.5%")
+            .orientation(Orientation.TOP)
+            .labels("top")
+
+        linearGauge.padding(0, 30, 0, 30)
+
+        return linearGauge
+    }
 }

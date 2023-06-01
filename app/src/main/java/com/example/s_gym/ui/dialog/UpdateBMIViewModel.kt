@@ -1,13 +1,10 @@
 package com.example.s_gym.ui.dialog
 
 import android.app.Application
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
-import com.example.s_gym.database.entity.Days
 import com.example.s_gym.database.repository.DaysRepository
-import com.example.s_gym.ui.viewmodel.ReportViewModel
 import kotlinx.coroutines.launch
 
 class UpdateBMIViewModel(application: Application): ViewModel() {
@@ -24,12 +21,16 @@ class UpdateBMIViewModel(application: Application): ViewModel() {
                 if (height != null) {
                     latestDay.height = height
                 }
+                latestDay.currentBMI = calculateBMI(latestDay.weight, latestDay.height)
                 daysRepository.updateDay(latestDay)
             }
         }
     }
 
-
+    private fun calculateBMI(weight: Double?, height: Double?): Double {
+        val heightInMeters = height!! / 100.0
+        return weight!! / (heightInMeters * heightInMeters)
+    }
 
     class UpdateBMIViewModelFactory(private val application: Application): ViewModelProvider.Factory{
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
