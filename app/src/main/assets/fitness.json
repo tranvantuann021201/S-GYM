@@ -4,8 +4,8 @@
       "id": 1,
       "name_day": "Ngày 1",
       "is_rest_day": false,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -85,8 +85,8 @@
       "id": 2,
       "name_day": "Ngày 2",
       "is_rest_day": false,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -166,8 +166,8 @@
       "id": 3,
       "name_day": "Ngày 3",
       "is_rest_day": false,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -247,8 +247,8 @@
       "id": 4,
       "name_day": "Ngày 4",
       "is_rest_day": true,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -328,8 +328,8 @@
       "id": 5,
       "name_day": "Ngày 5",
       "is_rest_day": false,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -409,8 +409,8 @@
       "id": 6,
       "name_day": "Ngày 6",
       "is_rest_day": false,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -490,8 +490,8 @@
       "id": 7,
       "name_day": "Ngày 7",
       "is_rest_day": false,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -571,8 +571,8 @@
       "id": 8,
       "name_day": "Ngày 8",
       "is_rest_day": true,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -652,8 +652,8 @@
       "id": 9,
       "name_day": "Ngày 9",
       "is_rest_day": false,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -733,8 +733,8 @@
       "id": 10,
       "name_day": "Ngày 10",
       "is_rest_day": false,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -814,8 +814,8 @@
       "id": 11,
       "name_day": "Ngày 11",
       "is_rest_day": false,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -895,8 +895,8 @@
       "id": 12,
       "name_day": "Ngày 12",
       "is_rest_day": true,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -976,8 +976,8 @@
       "id": 13,
       "name_day": "Ngày 13",
       "is_rest_day": false,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -1057,8 +1057,8 @@
       "id": 14,
       "name_day": "Ngày 14",
       "is_rest_day": false,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -1138,8 +1138,8 @@
       "id": 15,
       "name_day": "Ngày 15",
       "is_rest_day": false,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -1219,8 +1219,8 @@
       "id": 16,
       "name_day": "Ngày 16",
       "is_rest_day": true,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -1300,8 +1300,8 @@
       "id": 17,
       "name_day": "Ngày 17",
       "is_rest_day": false,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -1381,8 +1381,8 @@
       "id": 18,
       "name_day": "Ngày 18",
       "is_rest_day": false,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -1462,8 +1462,8 @@
       "id": 19,
       "name_day": "Ngày 19",
       "is_rest_day": false,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -1543,8 +1543,8 @@
       "id": 20,
       "name_day": "Ngày 20",
       "is_rest_day": true,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -1624,8 +1624,8 @@
       "id": 21,
       "name_day": "Ngày 21",
       "is_rest_day": false,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -1705,8 +1705,8 @@
       "id": 22,
       "name_day": "Ngày 22",
       "is_rest_day": false,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -1786,8 +1786,8 @@
       "id": 23,
       "name_day": "Ngày 23",
       "is_rest_day": false,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -1867,8 +1867,8 @@
       "id": 24,
       "name_day": "Ngày 24",
       "is_rest_day": true,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -1948,8 +1948,8 @@
       "id": 25,
       "name_day": "Ngày 25",
       "is_rest_day": false,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -2029,8 +2029,8 @@
       "id": 26,
       "name_day": "Ngày 26",
       "is_rest_day": false,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -2110,8 +2110,8 @@
       "id": 27,
       "name_day": "Ngày 27",
       "is_rest_day": false,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -2191,8 +2191,8 @@
       "id": 28,
       "name_day": "Ngày 28",
       "is_rest_day": true,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -2272,8 +2272,8 @@
       "id": 29,
       "name_day": "Ngày 29",
       "is_rest_day": false,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -2353,8 +2353,8 @@
       "id": 30,
       "name_day": "Ngày 30",
       "is_rest_day": false,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,
@@ -2434,8 +2434,8 @@
       "id": 31,
       "name_day": "Ngày 31",
       "is_rest_day": false,
-      "total_exercise": 7,
-      "exercise_complete": 0,
+      "total_exercise": 8,
+      "exercise_completed": 0,
       "exercise": [
         {
           "id": 1,

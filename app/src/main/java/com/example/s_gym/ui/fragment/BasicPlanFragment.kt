@@ -8,18 +8,27 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.s_gym.api.FitnessDay
 import com.example.s_gym.ui.adapter.BasicPlanAdapter
 import com.example.s_gym.databinding.FragmentBasicPlanBinding
+import com.example.s_gym.ui.viewmodel.AddFitnessViewModel
 import com.example.s_gym.ui.viewmodel.BasicPlanViewModel
 
 
 class BasicPlanFragment : Fragment() {
     private lateinit var binding: FragmentBasicPlanBinding
     private lateinit var basicPlanAdapter: BasicPlanAdapter
-    private val viewModel: BasicPlanViewModel by viewModels()
+    private lateinit var viewModelFactory: BasicPlanViewModel.BasicPlanViewModelFactory
+    private lateinit var viewModel: BasicPlanViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModelFactory = BasicPlanViewModel.BasicPlanViewModelFactory(requireActivity().application)
+        viewModel = ViewModelProvider(this, viewModelFactory)[BasicPlanViewModel::class.java]
+    }
 
     interface onBasicPlanItemClickListener {
         fun onBasicPlanItemClick(fitnessDay: FitnessDay)
@@ -38,6 +47,11 @@ class BasicPlanFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val fitnessDays = viewModel.getFitnessDays(requireContext())
+
+//        for(day in fitnessDays) {
+//            viewModel.copyFitnessDayToBasic(day)
+//        }
+
         basicPlanAdapter = BasicPlanAdapter(fitnessDays)
         binding.rvBasicPlan.layoutManager = LinearLayoutManager(context)
         binding.rvBasicPlan.adapter = basicPlanAdapter

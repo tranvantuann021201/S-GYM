@@ -11,16 +11,15 @@ import com.example.s_gym.database.dao.DaysDao
 import com.example.s_gym.database.dao.ExercisesDao
 import com.example.s_gym.database.dao.FitnessAdvanceDao
 import com.example.s_gym.database.dao.UserDao
-import com.example.s_gym.database.entity.Days
-import com.example.s_gym.database.entity.Exercises
-import com.example.s_gym.database.entity.FitnessAdvance
-import com.example.s_gym.database.entity.User
+import com.example.s_gym.database.entity.*
+import com.example.s_gym.database.dao.FitnessBasicDao
 
 @Database(
-    entities = [Exercises::class, Days::class, User::class, FitnessAdvance::class],
-    version = 3,
+    entities = [Exercises::class, Days::class, User::class, FitnessAdvance::class, FitnessBasic::class],
+    version = 4,
     exportSchema = false
 )
+
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 
@@ -28,6 +27,8 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun daysDao(): DaysDao
     abstract fun userDao(): UserDao
     abstract fun fitnessAdvanceDao(): FitnessAdvanceDao
+    abstract fun fitnessBasicModeDao(): FitnessBasicDao
+
 
     companion object {
         @Volatile
@@ -45,11 +46,19 @@ abstract class AppDatabase : RoomDatabase() {
                     }
                 }
 
+                val migration3to4 = object : Migration(3, 4) {
+                    override fun migrate(database: SupportSQLiteDatabase) {
+                        database.execSQL("CREATE TABLE IF NOT EXISTS `fitness_basic_table` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `nameDay` TEXT NOT NULL, `isRestDay` INTEGER NOT NULL, `totalExercise` INTEGER NOT NULL, `exerciseCompleted` INTEGER NOT NULL, `exercise` TEXT NOT NULL)")
+                    }
+                }
+
+
+
                 val instance = Room.databaseBuilder(
                     context,
                     AppDatabase::class.java,
                     "app_database"
-                ).addMigrations(migration2to3).build()
+                ).addMigrations(migration2to3, migration3to4).build()
                 INSTANCE = instance
                 return instance
             }

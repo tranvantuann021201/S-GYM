@@ -15,7 +15,7 @@ data class FitnessDay(
     @SerializedName("total_exercise")
     val totalExercise: Int,
     @SerializedName("exercise_complete")
-    val exerciseComplete: Int,
+    val exerciseCompleted: Int,
     @SerializedName("exercise")
     val exercise: List<Exercise>
 ): Parcelable

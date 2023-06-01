@@ -2,8 +2,7 @@ package com.example.s_gym.ui.fragment
 
 import android.annotation.SuppressLint
 import android.graphics.Color
-import android.os.Build
-import android.os.Bundle
+import android.os.*
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.LayoutInflater
@@ -11,6 +10,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -39,6 +39,8 @@ class ReportFragment : Fragment() {
     private lateinit var binding: FragmentReportBinding
     private lateinit var viewModelFactory: ReportViewModel.ReportViewModelFactory
     private lateinit var viewModel: ReportViewModel
+    private lateinit var timer: CountDownTimer
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModelFactory = ReportViewModel.ReportViewModelFactory(requireActivity().application)
@@ -68,7 +70,6 @@ class ReportFragment : Fragment() {
                 binding.edtWeight.setText(days.weight.toString())
                 binding.txtWaterDrunk.text = days.drunk.toString()
                 binding.drinkProgressBar.progress = days.drunk.toFloat()
-                binding.textViewProgress.text = "${days.drunk}/8"
             }
         }
 
@@ -96,8 +97,16 @@ class ReportFragment : Fragment() {
             findNavController().navigate(R.id.action_reportFragment_to_updateBMIDialog)
         }
 
+        timer = createCountDownTimer()
         binding.btnDrink.setOnClickListener {
-            viewModel.increaseDrink()
+            if (viewModel.latestDay.value?.drunk == 8) {
+                Toast.makeText(context, "Hôm nay, bạn đã uống đủ nước.", Toast.LENGTH_SHORT).show()
+            }
+            else {
+                viewModel.increaseDrink()
+                Toast.makeText(context, "Hãy thoải mái uống nước  bạn nhé.", Toast.LENGTH_LONG).show()
+                timer.start()
+            }
         }
 
         binding.weightChart.description.isEnabled = false
@@ -175,6 +184,24 @@ class ReportFragment : Fragment() {
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         val date = dateFormat.parse(dateString)
         return date.time.toFloat()
+    }
+
+    private fun createCountDownTimer(): CountDownTimer {
+        var timeLeft = 6000L // Thời gian ban đầu của bộ đếm ngược
+        return object : CountDownTimer(timeLeft, 1000) {
+            override fun onTick(p0: Long) {
+                timeLeft = p0
+                val minutes = (p0 / 1000) / 60
+                val seconds = (p0 / 1000) % 60
+                binding.btnDrink.isEnabled = false
+                binding.btnDrink.text = String.format("%02d:%02d", minutes, seconds)
+            }
+
+            override fun onFinish() {
+                binding.btnDrink.isEnabled = true
+                binding.btnDrink.text = "Uống"
+            }
+        }
     }
 
 }

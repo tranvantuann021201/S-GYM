@@ -37,10 +37,6 @@ class BasicPlanAdapter(
         holder.itemView.setOnClickListener {
             listener.onBasicPlanItemClick(fitnessDayList[position])
         }
-
-//        Glide.with(context)
-//            .load("https://wger.de/media/exercise-images/${currentItem.id}/thumbnail.png")
-//            .into(holder.imageView)
     }
 
     override fun getItemCount() = fitnessDayList.size

@@ -189,7 +189,7 @@
                         app:layout_constraintEnd_toEndOf="@+id/drink_progress_bar"
                         app:layout_constraintStart_toStartOf="@+id/drink_progress_bar"
                         app:layout_constraintTop_toTopOf="@+id/drink_progress_bar"
-                        android:text="6/8"
+                        android:drawableStart="@drawable/baseline_local_drink_24"
                         />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 

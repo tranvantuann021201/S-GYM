@@ -1,23 +1,33 @@
 package com.example.s_gym.ui.viewmodel
 
+import android.app.Application
 import android.content.Context
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewModelScope
 import com.example.s_gym.api.FitnessDay
 import com.example.s_gym.api.FitnessPlan
+import com.example.s_gym.database.entity.Exercises
+import com.example.s_gym.database.entity.FitnessBasic
+import com.example.s_gym.database.repository.FitnessBasicRepository
 import com.google.gson.Gson
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import org.json.JSONException
 import java.io.IOException
 import java.nio.charset.Charset
 import java.time.LocalDateTime
 import java.util.*
 
-class BasicPlanViewModel : ViewModel() {
+class BasicPlanViewModel(application: Application) : ViewModel() {
     private val calendar = Calendar.getInstance()
     private val month = calendar.get(Calendar.MONTH)
     private val year = calendar.get(Calendar.YEAR)
     private val daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+    private val fitnessBasicRepository = FitnessBasicRepository(application)
 
     @RequiresApi(Build.VERSION_CODES.O)
     private val daysInRange = (1..daysInMonth).map { day ->
@@ -58,4 +68,49 @@ class BasicPlanViewModel : ViewModel() {
         }
         return json
     }
+
+    private fun fitnessDayToBasic(fitnessDay: FitnessDay): FitnessBasic {
+        return FitnessBasic(
+            id = fitnessDay.id,
+            nameDay = fitnessDay.nameDay,
+            isRestDay = fitnessDay.isRestDay,
+            totalExercise = fitnessDay.totalExercise,
+            exerciseCompleted = fitnessDay.exerciseCompleted,
+            exercise = fitnessDay.exercise.map { exercise ->
+                Exercises(
+                    id = exercise.id,
+                    name = exercise.name,
+                    description = exercise.description,
+                    urlVideoGuide = exercise.urlVideoGuide,
+                    isComplete = exercise.isComplete,
+                    kcalCaloriesConsumed = exercise.kcalCaloriesConsumed,
+                    animationMount = exercise.animationMount
+                )
+            }
+        )
+    }
+
+    fun deleteAll() {
+        CoroutineScope(Dispatchers.IO).launch {
+            fitnessBasicRepository.deleteAll()
+        }
+    }
+
+    fun copyFitnessDayToBasic(fitnessDay: FitnessDay) {
+        val fitnessBasicMode = fitnessDayToBasic(fitnessDay)
+        CoroutineScope(Dispatchers.IO).launch {
+            fitnessBasicRepository.insert(fitnessBasicMode)
+        }
+    }
+
+    class BasicPlanViewModelFactory(private val application: Application): ViewModelProvider.Factory{
+        override fun <T : ViewModel> create(modelClass: Class<T>): T {
+            if(modelClass.isAssignableFrom(BasicPlanViewModel::class.java)) {
+                @Suppress("UNCHECKED_CAST")
+                return BasicPlanViewModel(application) as T
+            }
+            throw IllegalAccessException("Unable construct viewModel")
+        }
+    }
+
 }

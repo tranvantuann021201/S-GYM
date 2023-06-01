@@ -2,13 +2,18 @@ package com.example.s_gym.ui.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*
+import com.example.s_gym.api.FitnessDay
 import com.example.s_gym.database.entity.Days
+import com.example.s_gym.database.entity.Exercises
+import com.example.s_gym.database.entity.FitnessBasic
 import com.example.s_gym.database.repository.DaysRepository
+import com.example.s_gym.database.repository.FitnessBasicRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ReportViewModel(application: Application): ViewModel() {
     private var daysRepository: DaysRepository = DaysRepository(application)
+
     val getAllDays: LiveData<List<Days>> = daysRepository.getAllDays()
     val newWeight = MutableLiveData<Double>()
     val latestDay = daysRepository.getLatestDay()
@@ -43,7 +48,6 @@ class ReportViewModel(application: Application): ViewModel() {
             daysRepository.updateWeight(newWeight)
         }
     }
-
 
     class ReportViewModelFactory(private val application: Application): ViewModelProvider.Factory{
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
