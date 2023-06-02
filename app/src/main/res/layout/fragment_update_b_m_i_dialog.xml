@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/txt_weight_content"
             android:layout_alignStart="@id/txt_weight_content"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             />
 
         <TextView
@@ -48,8 +48,7 @@
             android:layout_below="@id/txt_height_content"
             android:layout_alignStart="@id/txt_weight_content"
             android:layout_marginBottom="20dp"
-            android:inputType="number"
-
+            android:inputType="numberDecimal"
             />
 
         <Button

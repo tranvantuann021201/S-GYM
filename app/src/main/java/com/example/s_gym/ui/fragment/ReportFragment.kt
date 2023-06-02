@@ -67,7 +67,7 @@ class ReportFragment : Fragment() {
     @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        
+
         viewModel.getTotalCompletedExercise().observe(viewLifecycleOwner) { totalCompletedExercise ->
             binding.txtExerAmount.text = totalCompletedExercise.toString()
         }
@@ -80,11 +80,15 @@ class ReportFragment : Fragment() {
 
         binding.textViewProgress.bringToFront()
 
+        val linearGauge = AnyChart.linear()
         viewModel.latestDay.observe(viewLifecycleOwner) { days ->
             if (days != null) {
                 binding.txtWaterDrunk.text = days.drunk.toString()
                 binding.drinkProgressBar.progress = days.drunk.toFloat()
                 binding.edtWeight.hint = viewModel.latestDay.value?.weight.toString()
+
+                setLinearGauge(linearGauge, days)
+                binding.bmiChart.setChart(linearGauge)
             }
         }
 
@@ -165,16 +169,17 @@ class ReportFragment : Fragment() {
 
         //BMI Chart
         binding.bmiChart.setProgressBar(binding.bmiProgressBar)
+        var lineData = LineData()
 
         viewModel.getAllDays.observe(viewLifecycleOwner) { daysData ->
-            val lineData = LineData(lineChart(daysData))
+            lineData = LineData(lineChart(daysData))
             binding.weightChart.data = lineData
             binding.weightChart.invalidate()
 
-            val linearGauge = AnyChart.linear()
-            val bmiData = viewModel.getAllDays.value!!.map { it.currentBMI }
-            setLinearGauge(linearGauge, bmiData)
-            binding.bmiChart.setChart(linearGauge)
+        }
+
+        binding.txtSupport.setOnClickListener {
+            BMISupportDialogFragment().show(requireActivity().supportFragmentManager, "BMISupportDialogFragment")
         }
     }
 
@@ -234,51 +239,23 @@ class ReportFragment : Fragment() {
         }
     }
 
-    private fun setLinearGauge(linearGauge: LinearGauge, data: List<Double>): LinearGauge {
-        linearGauge.data(SingleValueDataSet(data))
+    private fun setLinearGauge(linearGauge: LinearGauge, days: Days): LinearGauge {
+        linearGauge.data(SingleValueDataSet(arrayOf(days.currentBMI)))
 
         linearGauge.layout(Layout.HORIZONTAL)
-
-        linearGauge.label(0)
-            .position(Position.LEFT_CENTER)
-            .anchor(Anchor.LEFT_CENTER)
-            .offsetY("-50px")
-            .offsetX("50px")
-            .fontColor("black")
-            .fontSize(17)
-        linearGauge.label(0).text("Total Rainfall")
-
-        linearGauge.label(1)
-            .position(Position.LEFT_CENTER)
-            .anchor(Anchor.LEFT_CENTER)
-            .offsetY("40px")
-            .offsetX("50px")
-            .fontColor("#777777")
-            .fontSize(17)
-        linearGauge.label(1).text("Drought Hazard")
-
-        linearGauge.label(2)
-            .position(Position.RIGHT_CENTER)
-            .anchor(Anchor.RIGHT_CENTER)
-            .offsetY("40px")
-            .offsetX("50px")
-            .fontColor("#777777")
-            .fontSize(17)
-        linearGauge.label(2).text("Flood Hazard")
-
         val scaleBarColorScale = OrdinalColor.instantiate()
         scaleBarColorScale.ranges(
             arrayOf(
-                "{ from: 0, to: 25, color: ['red 0.5'] }",
-                "{ from: 25, to: 50, color: ['yellow 0.5'] }",
-                "{ from: 50, to: 75, color: ['green 0.5'] }",
-                "{ from: 75, to: 100, color: ['yellow 0.5'] }",
-                "{ from: 100, to: 200, color: ['red 0.5'] }"
+                "{ from: 0, to: 18, color: ['red 0.5'] }",
+                "{ from: 18, to: 25, color: ['green 0.5'] }",
+                "{ from: 25, to: 30, color: ['yellow 0.5'] }",
+                "{ from: 30, to: 40, color: ['orange 0.5'] }",
+                "{ from: 40, to: 100, color: ['red 0.5'] }"
             )
         )
 
         linearGauge.scaleBar(0)
-            .width("5%")
+            .width("10%")
             .colorScale(scaleBarColorScale)
 
         linearGauge.marker(0)
@@ -286,20 +263,19 @@ class ReportFragment : Fragment() {
             .color("red")
             .offset("-3.5%")
             .zIndex(10)
+            .labels(days.currentBMI.toString())
 
         linearGauge.scale()
             .minimum(0)
-            .maximum(200)
+            .maximum(50)
 
         linearGauge.axis(0)
             .minorTicks(false)
-            .width("1%")
+            .width("-2%")
         linearGauge.axis(0)
-            .offset("-1.5%")
+            .offset("2%")
             .orientation(Orientation.TOP)
             .labels("top")
-
-        linearGauge.padding(0, 30, 0, 30)
 
         return linearGauge
     }

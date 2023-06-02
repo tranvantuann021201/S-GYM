@@ -204,9 +204,9 @@
     </dialog>
     <fragment
         android:id="@+id/followDrinkWaterFragment"
-        android:name="com.example.s_gym.ui.fragment.FollowDrinkWaterFragment"
+        android:name="com.example.s_gym.ui.fragment.BMISupportDialogFragment"
         android:label="fragment_follow_drink_water"
-        tools:layout="@layout/fragment_follow_drink_water" >
+        tools:layout="@layout/fragment_bmi_support" >
         <action
             android:id="@+id/action_followDrinkWaterFragment_to_reportFragment"
             app:destination="@id/reportFragment" />

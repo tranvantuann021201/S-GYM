@@ -47,7 +47,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/cv_1"
+        android:id="@+id/cv_total"
         style="@style/done_fitness_cv"
         android:layout_below="@id/cv_backdrop"
         >
@@ -88,7 +88,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_weight_and_bmi"
         style="@style/done_fitness_cv"
-        android:layout_below="@id/cv_1">
+        android:layout_below="@id/cv_total">
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -103,7 +103,9 @@
                 android:id="@+id/edt_weight"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/txt_weight_content"/>
+                android:layout_below="@id/txt_weight_content"
+                android:inputType="numberDecimal"
+                />
 
             <TextView
                 style="@style/txt_title_styles"

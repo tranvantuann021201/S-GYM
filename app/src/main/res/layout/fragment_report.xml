@@ -44,7 +44,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/cv_1"
+            android:id="@+id/cv_total"
             style="@style/done_fitness_cv"
             android:layout_below="@id/cv_backdrop">
             <RelativeLayout
@@ -101,7 +101,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_history"
             style="@style/done_fitness_cv"
-            android:layout_below="@id/cv_1">
+            android:layout_below="@id/cv_total">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -244,8 +244,7 @@
                     android:layout_width="160dp"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/txt_weight_content"
-
-                    android:inputType="number"
+                    android:inputType="numberDecimal"
                     android:textSize="20sp" />
 
                 <TextView
@@ -320,14 +319,15 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
+                    android:id="@+id/txt_support"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/constrain_bmi_chart"
                     android:layout_centerHorizontal="true"
-                    android:drawableStart="@drawable/baseline_check_circle_24"
-                    android:fontFamily="sans-serif"
-                    android:text=" Đủ cân"
-                    android:textSize="20sp" />
+                    android:drawableStart="@drawable/baseline_contact_support_24"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text=" Hướng dẫn"
+                    android:textSize="18sp"/>
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
     </RelativeLayout>

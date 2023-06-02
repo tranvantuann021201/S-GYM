@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".ui.fragment.BMISupportDialogFragment"
+    android:padding="@dimen/padding_parent_horizontal"
+    >
+
+    <TextView
+        android:id="@+id/red_lables"
+        android:text=" BMI &lt; 18: người gầy."
+        android:drawableStart="@drawable/baseline_red_lens_24"
+        style="@style/bmi_support_txt_styles" />
+
+    <TextView
+        android:id="@+id/green_lables"
+        android:text=" BMI &#x3D; 18,5 - 25: người bình thường."
+        android:drawableStart="@drawable/baseline_green_lens_24"
+        android:layout_below="@+id/red_lables"
+        style="@style/bmi_support_txt_styles" />
+
+    <TextView
+        android:id="@+id/yellow_lables"
+        android:text=" BMI &#x3D; 25 - 30: người béo phì độ I."
+        android:drawableStart="@drawable/baseline_yellow_lens_24"
+        android:layout_below="@id/green_lables"
+        style="@style/bmi_support_txt_styles" />
+
+    <TextView
+        android:id="@+id/orange_lables"
+        android:text=" BMI &#x3D; 30 - 40: người béo phì độ II."
+        android:drawableStart="@drawable/baseline_orange_lens_24"
+        android:layout_below="@id/yellow_lables"
+        style="@style/bmi_support_txt_styles" />
+
+    <TextView
+        android:id="@+id/red_lables_2"
+        android:text=" BMI &gt; 40: người béo phì độ III."
+        android:drawableStart="@drawable/baseline_red_lens_24"
+        android:layout_below="@id/orange_lables"
+        style="@style/bmi_support_txt_styles" />
+
+</RelativeLayout>

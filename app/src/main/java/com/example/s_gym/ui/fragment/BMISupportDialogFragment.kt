@@ -5,26 +5,34 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.fragment.findNavController
 import com.example.s_gym.R
-import com.example.s_gym.databinding.FragmentFollowDrinkWaterBinding
+import com.example.s_gym.databinding.FragmentBmiSupportBinding
 
-class FollowDrinkWaterFragment : Fragment() {
-    private lateinit var binding: FragmentFollowDrinkWaterBinding
+class BMISupportDialogFragment : DialogFragment() {
+    private lateinit var binding: FragmentBmiSupportBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentFollowDrinkWaterBinding.inflate(layoutInflater)
+        binding = FragmentBmiSupportBinding.inflate(layoutInflater)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.btnBack.setOnClickListener {
-            findNavController().navigate(R.id.action_followDrinkWaterFragment_to_reportFragment)
-        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val window = dialog?.window
+        window?.setLayout(
+            WindowManager.LayoutParams.MATCH_PARENT,
+            WindowManager.LayoutParams.WRAP_CONTENT
+        )
     }
 }
