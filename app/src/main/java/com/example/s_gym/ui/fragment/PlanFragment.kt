@@ -1,18 +1,26 @@
 package com.example.s_gym.ui.fragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
+import androidx.work.*
 import com.example.s_gym.ui.adapter.FragmentPlanPagerAdapter
 import com.example.s_gym.R
 import com.example.s_gym.databinding.FragmentPlanBinding
 import com.example.s_gym.ui.viewmodel.PlanViewModel
+import com.example.s_gym.ui.viewmodel.ReportViewModel
+import com.example.s_gym.until.DailyWorker
 import com.google.android.material.tabs.TabLayout
+import com.google.gson.Gson
+import java.util.*
+import java.util.concurrent.TimeUnit
 
 /**
  * A simple [Fragment] subclass.
@@ -21,7 +29,14 @@ import com.google.android.material.tabs.TabLayout
  */
 class PlanFragment : Fragment() {
     private lateinit var binding: FragmentPlanBinding
-    private val viewModel: PlanViewModel by viewModels()
+    private lateinit var viewModelFactory: PlanViewModel.PlanViewModelFactory
+    private lateinit var viewModel: PlanViewModel
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModelFactory = PlanViewModel.PlanViewModelFactory(requireActivity().application)
+        viewModel = ViewModelProvider(this, viewModelFactory)[PlanViewModel::class.java]
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +48,9 @@ class PlanFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        scheduleDailyWorker()
+//        viewModel.deletedDayByIDOption()
 
         val pagerAdapter = FragmentPlanPagerAdapter(childFragmentManager, lifecycle)
         viewModel.init(binding.tabLayout, binding.viewPager2, pagerAdapter)
@@ -61,5 +79,46 @@ class PlanFragment : Fragment() {
                 binding.tabLayout.selectTab(binding.tabLayout.getTabAt(position))
             }
         })
+    }
+
+    private fun scheduleDailyWorker() {
+        val constraints = Constraints.Builder()
+            .setRequiresBatteryNotLow(false)
+            .build()
+
+//        WorkManager.getInstance(requireContext()).cancelAllWork()
+
+        viewModel.latestDay.observe(viewLifecycleOwner){ latestDay ->
+            val daysData = workDataOf("days" to Gson().toJson(latestDay))
+
+            val dailyWorkRequest = PeriodicWorkRequestBuilder<DailyWorker>(1, TimeUnit.DAYS)
+                .setInitialDelay(calculateInitialDelay(), TimeUnit.MILLISECONDS)
+                .setConstraints(constraints)
+                .setInputData(daysData)
+                .build()
+
+            WorkManager.getInstance(requireContext()).enqueueUniquePeriodicWork(
+                "dailyWork",
+                ExistingPeriodicWorkPolicy.KEEP,
+                dailyWorkRequest
+            )
+        }
+    }
+
+    private fun calculateInitialDelay(): Long {
+        val now = Calendar.getInstance()
+        val next = Calendar.getInstance().apply {
+            set(Calendar.HOUR_OF_DAY, 0)
+            set(Calendar.MINUTE, 1)
+            if (before(now)) add(Calendar.DAY_OF_MONTH, 1)
+        }
+        val initialDelay = next.timeInMillis - now.timeInMillis
+        val hours = initialDelay / 1000 / 3600
+        val minutes = initialDelay / 1000 / 60 % 60
+        val seconds = initialDelay / 1000 % 60
+        val calculateInitialDelay = String.format("%02d:%02d:%02d", hours, minutes, seconds)
+        Log.e("calculateInitialDelay", "calculateInitialDelay: $calculateInitialDelay")
+        //last id = 64, has yet removed
+        return initialDelay
     }
 }

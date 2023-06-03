@@ -13,7 +13,6 @@ import kotlinx.coroutines.launch
 
 class ReportViewModel(application: Application): ViewModel() {
     private var daysRepository: DaysRepository = DaysRepository(application)
-
     val getAllDays: LiveData<List<Days>> = daysRepository.getAllDays()
     val newWeight = MutableLiveData<Double>()
     val latestDay = daysRepository.getLatestDay()

@@ -55,8 +55,12 @@ class DaysRepository(context: Context) {
         return daysDao.getTotalKcalConsumed()
     }
 
-    suspend fun addNewDay() {
-        val lastDay = daysDao.getLatestDay().value
+    suspend fun deletedDayByIDOption() {
+        daysDao.deletedDayByIDOption()
+    }
+
+    suspend fun addNewDay(lastDay: Days) {
+//        val lastDay = daysDao.getLatestDayForAddNew()
         val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
         val currentDate = dateFormat.format(Date())
         if (lastDay == null) {
