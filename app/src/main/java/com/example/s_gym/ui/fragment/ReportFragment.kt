@@ -81,6 +81,7 @@ class ReportFragment : Fragment() {
 
         binding.textViewProgress.bringToFront()
 
+        //BMI Chart
         val linearGauge = AnyChart.linear()
         viewModel.latestDay.observe(viewLifecycleOwner) { days ->
             if (days != null) {
@@ -88,8 +89,10 @@ class ReportFragment : Fragment() {
                 binding.drinkProgressBar.progress = days.drunk.toFloat()
                 binding.edtWeight.hint = viewModel.latestDay.value?.weight.toString()
 
-                binding.bmiChart.setChart(linearGauge)
+                binding.bmiChart.setProgressBar(binding.bmiProgressBar)
                 setLinearGauge(linearGauge, days)
+                binding.bmiChart.setChart(linearGauge)
+                binding.bmiChart.invalidate()
             }
         }
 
@@ -106,6 +109,7 @@ class ReportFragment : Fragment() {
         viewModel.newWeight.observe(viewLifecycleOwner) { newWeight ->
             if (newWeight != null) {
                 viewModel.updateWeight(newWeight)
+
             }
         }
 
@@ -168,15 +172,11 @@ class ReportFragment : Fragment() {
         }
 
 
-        //BMI Chart
-        binding.bmiChart.setProgressBar(binding.bmiProgressBar)
         var lineData = LineData()
-
         viewModel.getAllDays.observe(viewLifecycleOwner) { daysData ->
             lineData = LineData(lineChart(daysData))
             binding.weightChart.data = lineData
             binding.weightChart.invalidate()
-
         }
 
         binding.txtSupport.setOnClickListener {
@@ -263,8 +263,7 @@ class ReportFragment : Fragment() {
             .type(MarkerType.TRIANGLE_DOWN)
             .color("red")
             .offset("-3.5%")
-            .zIndex(10)
-            .labels(days.currentBMI.toString())
+            .zIndex(20)
 
         linearGauge.scale()
             .minimum(0)

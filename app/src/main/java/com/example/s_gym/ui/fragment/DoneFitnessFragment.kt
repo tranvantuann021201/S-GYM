@@ -78,8 +78,9 @@ class DoneFitnessFragment : Fragment() {
             if (days != null) {
                 binding.edtWeight.hint = viewModel.latestDay.value?.weight.toString()
 
-                setLinearGauge(linearGauge, days)
                 binding.bmiChart.setChart(linearGauge)
+                setLinearGauge(linearGauge, days)
+                binding.bmiChart.invalidate()
             }
         }
 
