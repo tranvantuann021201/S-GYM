@@ -24,6 +24,7 @@ import com.anychart.scales.OrdinalColor
 import com.example.s_gym.R
 import com.example.s_gym.database.entity.Days
 import com.example.s_gym.databinding.FragmentReportBinding
+import com.example.s_gym.ui.dialog.UpdateBMIDialog
 import com.example.s_gym.ui.viewmodel.ReportViewModel
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.Entry
@@ -73,7 +74,7 @@ class ReportFragment : Fragment() {
         }
 
         viewModel.getTotalKcalConsumed().observe(viewLifecycleOwner) { totalKcalConsumed ->
-            binding.txtCaloAmount.text = totalKcalConsumed.toString()
+            binding.txtCaloAmount.text = String.format("%.2f", totalKcalConsumed)
         }
 
         binding.calendarReport.selectedDate = CalendarDay.today()
@@ -87,8 +88,8 @@ class ReportFragment : Fragment() {
                 binding.drinkProgressBar.progress = days.drunk.toFloat()
                 binding.edtWeight.hint = viewModel.latestDay.value?.weight.toString()
 
-                setLinearGauge(linearGauge, days)
                 binding.bmiChart.setChart(linearGauge)
+                setLinearGauge(linearGauge, days)
             }
         }
 
@@ -113,7 +114,7 @@ class ReportFragment : Fragment() {
         }
 
         binding.btnEditBmi.setOnClickListener {
-            findNavController().navigate(R.id.action_reportFragment_to_updateBMIDialog)
+            UpdateBMIDialog().show(requireActivity().supportFragmentManager, "updateBMIDialog")
         }
 
         timer = createCountDownTimer()

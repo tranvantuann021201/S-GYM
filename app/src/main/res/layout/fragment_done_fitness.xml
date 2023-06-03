@@ -9,7 +9,7 @@
     android:background="#D0D0D0">
 
     <androidx.cardview.widget.CardView
-        android:layout_height="180dp"
+        android:layout_height="220dp"
         android:id="@+id/cv_backdrop"
         app:cardCornerRadius="4dp"
         style="@style/done_fitness_cv">
@@ -30,9 +30,9 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@string/title_font"
-                android:text="TẬP LUYỆN \nĐÃ HOÀN THÀNH !!!"
+                android:text="\tTẬP LUYỆN \nĐÃ HOÀN THÀNH !!!"
                 android:textColor="#353333"
-                android:textSize="29sp"
+                android:textSize="32sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -49,42 +49,57 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_total"
         style="@style/done_fitness_cv"
-        android:layout_below="@id/cv_backdrop"
-        >
-
+        android:layout_below="@id/cv_backdrop">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingHorizontal="90dp"
-            android:paddingVertical="@dimen/item_margin_horizontal"
-            >
-            <TextView
-                android:id="@+id/txt_exer"
-                android:text="Bài tập"
-                style="@style/txt_exer_and_calo" />
-            <TextView
-                style="@style/txt_exer_and_calo_amount"
-                android:id="@+id/txt_exer_amount"
-                android:text="15"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="4dp"/>
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="70dp"
+            android:paddingVertical="@dimen/item_margin_horizontal">
 
-            <TextView
-                android:id="@+id/txt_calo"
-                android:text="Calo"
-                style="@style/txt_exer_and_calo"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="3dp"/>
-            <TextView
-                android:id="@+id/txt_calo_amount"
-                android:text="15"
-                style="@style/txt_exer_and_calo_amount"
-                android:layout_alignParentEnd="true"
-                />
+            <RelativeLayout
+                android:id="@+id/exer_box"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/txt_exer"
+                    style="@style/txt_exer_and_calo"
+                    android:text="Bài tập"
+                    android:layout_centerHorizontal="true"/>
+
+                <TextView
+                    android:id="@+id/txt_exer_amount"
+                    style="@style/txt_exer_and_calo_amount"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="4dp"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true">
+
+                <TextView
+                    android:id="@+id/txt_calo"
+                    style="@style/txt_exer_and_calo"
+                    android:text="Calo tiêu thụ"
+                    android:layout_centerHorizontal="true"
+                    />
+
+                <TextView
+                    android:id="@+id/txt_calo_amount"
+                    style="@style/txt_exer_and_calo_amount"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="4dp"
+                    android:layout_below="@id/txt_calo"
+                    android:layout_centerHorizontal="true"/>
+            </RelativeLayout>
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
-    
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_weight_and_bmi"
         style="@style/done_fitness_cv"
@@ -120,8 +135,9 @@
                 style="@style/txt_title_styles"
                 android:layout_width="wrap_content"
                 android:text="BMI (kg/m*m)"
-                android:layout_marginTop="30dp"
-                android:layout_below="@id/edt_weight"/>
+                android:layout_below="@id/edt_weight"
+                android:layout_marginTop="20dp"
+                />
 
             <TextView
                 android:id="@+id/btn_edit_bmi"
@@ -134,59 +150,55 @@
                 android:text="Chỉnh sửa "
                 android:textSize="16sp" />
 
-            <com.mikhaellopez.circularprogressbar.CircularProgressBar
-                android:id="@+id/bmi_any_chart"
-                android:layout_width="160dp"
-                android:layout_height="160dp"
-                android:layout_below="@id/txt_bmi"
-                android:layout_centerHorizontal="true"
-                android:layout_marginVertical="15dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginBottom="15dp"
-                app:cpb_background_progressbar_color="#b6bbd8"
-                app:cpb_background_progressbar_width="10dp"
-                app:cpb_progressbar_color_end="#E82012"
-                app:cpb_progressbar_color_start="#001561"
-                app:cpb_progressbar_width="10dp"
-                app:cpb_round_border="true" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/constrain_bmi_chart"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_below="@id/txt_bmi">
 
+                <com.anychart.AnyChartView
+                    android:id="@+id/bmi_chart"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
+
+                <ProgressBar
+                    android:id="@+id/bmi_progress_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:visibility="invisible"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
             <TextView
+                android:id="@+id/txt_support"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignStart="@+id/bmi_any_chart"
-                android:layout_alignTop="@+id/bmi_any_chart"
-                android:layout_alignEnd="@+id/bmi_any_chart"
-                android:layout_alignBottom="@+id/bmi_any_chart"
-                android:layout_marginStart="52dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginEnd="53dp"
-                android:layout_marginBottom="61dp"
-                android:fontFamily="sans-serif-condensed-medium"
-                android:text="16.9"
-                android:textSize="25sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" Đủ cân"
-                android:fontFamily="sans-serif"
-                android:textSize="20sp"
-                android:layout_below="@id/bmi_any_chart"
+                android:layout_below="@id/constrain_bmi_chart"
                 android:layout_centerHorizontal="true"
-                android:drawableStart="@drawable/baseline_check_circle_24"
+                android:drawableStart="@drawable/baseline_contact_support_24"
+                android:fontFamily="sans-serif-condensed"
+                android:text=" Hướng dẫn"
+                android:textSize="18sp"
+                android:padding="10dp"
                 />
+
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
 
     <Button
+        android:id="@+id/btn_continue"
         style="@style/txt_title_styles"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/cv_weight_and_bmi"
         android:layout_centerInParent="true"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/radius_btn"
         android:text="Tiếp theo" />
 

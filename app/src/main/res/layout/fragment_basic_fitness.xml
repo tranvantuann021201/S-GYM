@@ -9,7 +9,7 @@
     tools:context=".ui.fragment.BasicFitnessFragment">
 
     <RelativeLayout
-        android:id="@+id/action_bar_basic_fitness"
+        android:id="@+id/action_bar_history"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingStart="10dp"
@@ -41,7 +41,7 @@
         android:id="@+id/txt_intro"
         style="@style/txt_title_styles"
         android:text="Giới thiệu"
-        android:layout_below="@+id/action_bar_basic_fitness"
+        android:layout_below="@+id/action_bar_history"
         />
 
     <com.borjabravo.readmoretextview.ReadMoreTextView
