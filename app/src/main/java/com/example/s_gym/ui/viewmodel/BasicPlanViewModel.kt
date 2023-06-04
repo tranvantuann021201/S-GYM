@@ -63,11 +63,10 @@ class BasicPlanViewModel(application: Application) : ViewModel() {
         return calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
     }
 
-
     fun getCompletedFitness(): Int{
         var sum = 0
         viewModelScope.launch {
-        val allBasic = allBasic.value
+            val allBasic = allBasic.value
             if(allBasic != null) {
                 for (basic in allBasic) {
                     if( (basic.exerciseCompleted/basic.totalExercise)*100.0 > 50) {

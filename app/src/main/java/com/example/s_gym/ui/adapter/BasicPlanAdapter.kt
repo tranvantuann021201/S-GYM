@@ -22,11 +22,13 @@ class BasicPlanAdapter(
         private val nameDayTextView: TextView = itemView.findViewById(R.id.txt_day_name)
         private val iconDone: TextView = itemView.findViewById(R.id.icon_fitness_done)
 
-        fun bind(fitnessDay: FitnessBasic) {
-            nameDayTextView.text = fitnessDay.nameDay
-            if (fitnessDay.exerciseCompleted > fitnessDay.exercise.size/2) {
+        fun bind(fitnessBasic: FitnessBasic) {
+            nameDayTextView.text = fitnessBasic.nameDay
+            if (fitnessBasic.exerciseCompleted != 0 && fitnessBasic.exerciseCompleted > fitnessBasic.exercise.size/2) {
                 iconDone.visibility = View.VISIBLE
             }
+            else
+                iconDone.visibility = View.INVISIBLE
         }
     }
 
