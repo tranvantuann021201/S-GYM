@@ -11,7 +11,6 @@ import androidx.lifecycle.viewModelScope
 import com.example.s_gym.api.FitnessDay
 import com.example.s_gym.api.FitnessPlan
 import com.example.s_gym.database.entity.Exercises
-import com.example.s_gym.database.entity.FitnessAdvance
 import com.example.s_gym.database.entity.FitnessBasic
 import com.example.s_gym.database.repository.FitnessBasicRepository
 import com.google.gson.Gson
@@ -51,6 +50,36 @@ class BasicPlanViewModel(application: Application) : ViewModel() {
             emptyList()
         }
     }
+
+    fun getLeftDay(): Int {
+        return getNumberOfDaysInCurrentMonth() - getCompletedFitness()
+    }
+    fun getCompletedLevel(): Double {
+        return getCompletedFitness() * 1.0 / getNumberOfDaysInCurrentMonth()
+    }
+
+    fun getNumberOfDaysInCurrentMonth(): Int {
+        val calendar = Calendar.getInstance()
+        return calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
+    }
+
+
+    fun getCompletedFitness(): Int{
+        var sum = 0
+        viewModelScope.launch {
+        val allBasic = allBasic.value
+            if(allBasic != null) {
+                for (basic in allBasic) {
+                    if( (basic.exerciseCompleted/basic.totalExercise)*100.0 > 50) {
+                        sum += 1
+                    }
+                }
+            }
+        }
+        return sum
+    }
+
+
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun getFitnessDays(context: Context): List<FitnessDay> {

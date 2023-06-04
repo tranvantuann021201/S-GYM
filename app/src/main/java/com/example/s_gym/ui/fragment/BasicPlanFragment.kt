@@ -24,7 +24,8 @@ class BasicPlanFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModelFactory = BasicPlanViewModel.BasicPlanViewModelFactory(requireActivity().application)
+        viewModelFactory =
+            BasicPlanViewModel.BasicPlanViewModelFactory(requireActivity().application)
         viewModel = ViewModelProvider(this, viewModelFactory)[BasicPlanViewModel::class.java]
     }
 
@@ -44,11 +45,12 @@ class BasicPlanFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val fitnessDays = viewModel.getFitnessDays(requireContext())
-
 //        for(day in fitnessDays) {
 //            viewModel.copyFitnessDayToBasic(day)
 //        }
+
+        binding.progressBarPlan.max = viewModel.getNumberOfDaysInCurrentMonth()
+
         var listBasicFitness = emptyList<FitnessBasic>()
         basicPlanAdapter = BasicPlanAdapter(emptyList())
         binding.rvBasicPlan.layoutManager = LinearLayoutManager(context)
@@ -57,12 +59,19 @@ class BasicPlanFragment : Fragment() {
             listBasicFitness = viewModel.getFitnessBasicFlowMonth(it)
             basicPlanAdapter.setFitnessBasicList(listBasicFitness)
             basicPlanAdapter.notifyDataSetChanged()
+
+            binding.txtLeftDate.text = "${viewModel.getLeftDay()} ngày còn lại"
+
+            binding.txtCompletedLevel.text = "${String.format("%.2f", viewModel.getCompletedLevel()*100)}%"
+            binding.progressBarPlan.progress = viewModel.getCompletedFitness()
         }
 
         basicPlanAdapter.setItemClickListener(object : onBasicPlanItemClickListener {
             override fun onBasicPlanItemClick(fitnessBasic: FitnessBasic) {
                 val action =
-                    BasicPlanFragmentDirections.actionBasicPlanFragmentToBasicFitnessFragment(fitnessBasic)
+                    BasicPlanFragmentDirections.actionBasicPlanFragmentToBasicFitnessFragment(
+                        fitnessBasic
+                    )
                 findNavController().navigate(action)
             }
         })

@@ -22,7 +22,7 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/backdrop_fitness_basic"></ImageView>
+                android:background="@drawable/backdrop_fitness_advanced"></ImageView>
 
             <TextView
                 android:id="@+id/txt_content"
@@ -57,6 +57,7 @@
                 android:progressDrawable="@drawable/custom_progress_bg" />
 
             <TextView
+                android:id="@+id/txt_left_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_above="@id/progress_bar_plan"
@@ -68,6 +69,7 @@
                 android:textSize="@dimen/size_text_detail" />
 
             <TextView
+                android:id="@+id/txt_completed_level"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_above="@id/progress_bar_plan"

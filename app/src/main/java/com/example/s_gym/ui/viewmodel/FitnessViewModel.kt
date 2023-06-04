@@ -1,6 +1,7 @@
 package com.example.s_gym.ui.viewmodel
 
 import android.app.Application
+import android.icu.text.Transliterator.Position
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
@@ -21,7 +22,6 @@ class FitnessViewModel(application: Application) : ViewModel() {
         updateKcalConsumed(exercises.kcalCaloriesConsumed)
         if (fitnessBasic != null) {
             updateExerciseCompleted(fitnessBasic)
-
         }
     }
 
