@@ -59,7 +59,7 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/txt_exer"
+                        android:id="@+id/txt_completed_exercise"
                         style="@style/txt_exer_and_calo"
                         android:text="Bài tập"
                         android:layout_centerHorizontal="true"/>

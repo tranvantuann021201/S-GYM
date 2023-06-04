@@ -10,8 +10,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.s_gym.R
 import com.example.s_gym.databinding.FragmentHistoryBinding
+import com.example.s_gym.ui.adapter.HistoryAdapter
+import com.example.s_gym.ui.viewmodel.HistoryViewModel
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.prolificinteractive.materialcalendarview.DayViewDecorator
 import com.prolificinteractive.materialcalendarview.DayViewFacade
@@ -23,7 +28,14 @@ import com.prolificinteractive.materialcalendarview.DayViewFacade
  */
 class HistoryFragment : Fragment() {
     private lateinit var binding: FragmentHistoryBinding
-
+    private lateinit var viewModelFactory: HistoryViewModel.HistoryViewModelFactory
+    private lateinit var viewModel: HistoryViewModel
+    private lateinit var historyAdapter: HistoryAdapter
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModelFactory = HistoryViewModel.HistoryViewModelFactory(requireActivity().application)
+        viewModel = ViewModelProvider(this, viewModelFactory)[HistoryViewModel::class.java]
+    }
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,5 +48,19 @@ class HistoryFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.calendar.selectedDate = CalendarDay.today()
+
+        historyAdapter = HistoryAdapter(emptyList())
+
+        viewModel.getAllDays.observe(viewLifecycleOwner) { daysList ->
+            historyAdapter = HistoryAdapter(daysList)
+            binding.rvHistoryList.adapter = historyAdapter
+            binding.rvHistoryList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
+        }
+
+
+        binding.btnBack.setOnClickListener {
+            findNavController().navigate(R.id.reportFragment)
+        }
     }
 }

@@ -1,39 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    style="@style/done_fitness_cv"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/item_history"
-    android:backgroundTint="#ACA5A5">
-    <RelativeLayout
+    style="@style/done_fitness_cv"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:paddingHorizontal="40dp"
+    android:paddingVertical="10dp">
+
+    <View
+        android:id="@+id/verticalLine"
         android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000"
+        android:layout_alignParentBottom="true"
+        />
+
+    <TextView
+        android:id="@+id/txt_exer_day"
+        style="@style/txt_amount_animation_style"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingVertical="10dp"
-        android:paddingHorizontal="40dp">
+        android:layout_centerVertical="true"
+        android:fontFamily="sans-serif-medium"
+        android:text="2 TH4" />
+
+    <RelativeLayout
+        android:id="@+id/exer_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="40dp"
+        android:layout_toEndOf="@id/txt_exer_day">
+
         <TextView
-            android:id="@+id/txt_exer_day"
-            style="@style/txt_title_styles"
-            android:text="2 TH4"
-            />
+            android:id="@+id/txt_exer_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/baseline_icon_completed_exercises"
+            android:paddingEnd="5dp"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txt_completed_exercise"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/txt_exer_icon"
+            android:fontFamily="sans-serif-condensed"
+            android:text="39.9 kcal"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/kcal_box"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true">
 
         <TextView
             android:id="@+id/txt_kcal_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:drawableStart="@drawable/baseline_local_fire_department_24"
-            android:layout_alignParentEnd="true"
             android:textSize="18sp"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="65dp"
+            android:paddingEnd="5dp"
             />
 
         <TextView
             android:id="@+id/txt_kcal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:text="39.9 kcal"
+            android:layout_toEndOf="@id/txt_kcal_icon"
             android:fontFamily="sans-serif-condensed"
-            android:textSize="18sp"
-            android:layout_centerVertical="true"
-            />
+            android:paddingEnd="5dp"
+            android:text="39.9 kcal"
+            android:textSize="18sp" />
+
     </RelativeLayout>
-</androidx.cardview.widget.CardView>
+</RelativeLayout>

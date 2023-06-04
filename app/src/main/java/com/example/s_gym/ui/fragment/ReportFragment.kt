@@ -247,11 +247,11 @@ class ReportFragment : Fragment() {
         val scaleBarColorScale = OrdinalColor.instantiate()
         scaleBarColorScale.ranges(
             arrayOf(
-                "{ from: 0, to: 18, color: ['red 0.5'] }",
-                "{ from: 18, to: 25, color: ['green 0.5'] }",
-                "{ from: 25, to: 30, color: ['yellow 0.5'] }",
-                "{ from: 30, to: 40, color: ['orange 0.5'] }",
-                "{ from: 40, to: 100, color: ['red 0.5'] }"
+                "{ from: 0, to: 18, color: ['red 1'] }",
+                "{ from: 18, to: 25, color: ['green 1'] }",
+                "{ from: 25, to: 30, color: ['yellow 1'] }",
+                "{ from: 30, to: 40, color: ['orange 1'] }",
+                "{ from: 40, to: 100, color: ['red 1'] }"
             )
         )
 

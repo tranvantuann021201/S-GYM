@@ -34,7 +34,7 @@
     </style>
 
     <style name="txt_exer_and_calo_amount">
-        <item name="android:layout_below">@id/txt_exer</item>
+        <item name="android:layout_below">@id/txt_completed_exercise</item>
         <item name="android:fontFamily">sans-serif-condensed-medium</item>
         <item name="android:textSize">35sp</item>
         <item name="android:layout_height">wrap_content</item>
