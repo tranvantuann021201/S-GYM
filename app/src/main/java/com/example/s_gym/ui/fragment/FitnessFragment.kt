@@ -65,6 +65,7 @@ class FitnessFragment : Fragment() {
         if (fitnessBasic != null) {
             binding.btnNext.setOnClickListener {
                 if (positions >= fitnessBasic.size - 1) {
+                    viewModel.onBtnDoneClick(fitnessBasic[positions], args.argsFitnessBasic!!)
                     positions = 0
                     findNavController().navigate(R.id.action_fitnessFragment_to_doneFitnessFragment)
                 } else {
@@ -89,6 +90,7 @@ class FitnessFragment : Fragment() {
 
             binding.btnDone.setOnClickListener {
                 if (positions >= fitnessBasic.size - 1) {
+                    viewModel.onBtnDoneClick(fitnessBasic[positions], args.argsFitnessBasic!!)
                     positions = 0
                     findNavController().navigate(R.id.action_fitnessFragment_to_doneFitnessFragment)
                 } else {
@@ -117,6 +119,7 @@ class FitnessFragment : Fragment() {
         else if (fitnessAdvance != null) {
             binding.btnNext.setOnClickListener {
                 if (positions >= fitnessAdvance.size - 1) {
+                    viewModel.onBtnDoneClick(fitnessAdvance[positions], null)
                     positions = 0
                     findNavController().navigate(R.id.action_fitnessFragment_to_doneFitnessFragment)
                 } else {
@@ -141,6 +144,7 @@ class FitnessFragment : Fragment() {
 
             binding.btnDone.setOnClickListener {
                 if (positions >= fitnessAdvance.size - 1) {
+                    viewModel.onBtnDoneClick(fitnessAdvance[positions], null)
                     positions = 0
                     findNavController().navigate(R.id.action_fitnessFragment_to_doneFitnessFragment)
                 } else {

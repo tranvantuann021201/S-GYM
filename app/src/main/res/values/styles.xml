@@ -31,12 +31,13 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textSize">15sp</item>
     </style>
 
     <style name="txt_exer_and_calo_amount">
         <item name="android:layout_below">@id/txt_completed_exercise</item>
         <item name="android:fontFamily">sans-serif-condensed-medium</item>
-        <item name="android:textSize">35sp</item>
+        <item name="android:textSize">30sp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:textColor">#FF0026AF</item>
