@@ -7,7 +7,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.s_gym.api.Exercise
 import com.example.s_gym.api.FitnessPlan
 import com.example.s_gym.database.entity.Exercises
+import com.example.s_gym.database.entity.FitnessBasic
 import com.example.s_gym.database.repository.FitnessAdvanceRepository
+import com.example.s_gym.database.repository.FitnessBasicRepository
 import com.google.gson.Gson
 import org.json.JSONException
 import java.io.IOException
@@ -15,9 +17,17 @@ import java.nio.charset.Charset
 
 class AddFitnessViewModel(application: Application): ViewModel() {
     private var fitnessRepository: FitnessAdvanceRepository = FitnessAdvanceRepository(application)
+    private var fitnessBasicRepository: FitnessBasicRepository = FitnessBasicRepository(application)
+    var allBasic = fitnessBasicRepository.allFitnessBasics
     var exercisesList: MutableList<Exercises> = mutableListOf()
 
     var exerciseListJSON = listOf<Exercise>()
+
+    fun getAllExercise(allBasics: List<FitnessBasic>): MutableList<Exercises> {
+        val exercises = allBasics.flatMap { it.exercise }.distinctBy { it.id }
+        exercisesList = exercises.toMutableList()
+        return exercisesList
+    }
 
     fun loadExercises(context: Context) {
         try {

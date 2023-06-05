@@ -221,7 +221,7 @@
             app:destination="@id/newFitnessFragment" />
         <argument
             android:name="argsExercise"
-            app:argType="com.example.s_gym.api.Exercise" />
+            app:argType="com.example.s_gym.database.entity.Exercises" />
         <argument
             android:name="argsFitnessAdvance"
             app:argType="com.example.s_gym.database.entity.FitnessAdvance" />

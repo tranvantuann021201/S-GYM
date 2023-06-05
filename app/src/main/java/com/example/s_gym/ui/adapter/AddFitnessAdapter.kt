@@ -10,10 +10,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.s_gym.R
 import com.example.s_gym.api.Exercise
+import com.example.s_gym.database.entity.Exercises
 import com.example.s_gym.ui.fragment.AddFitnessFragment
 
 class AddFitnessAdapter(
-    private var exerciseList: List<Exercise>
+    private var exerciseList: List<Exercises>
 ) :
     RecyclerView.Adapter<AddFitnessAdapter.ExerciseViewHolder>() {
     private lateinit var listener: AddFitnessFragment.onItemClickListener
@@ -46,7 +47,7 @@ class AddFitnessAdapter(
     }
 
     override fun onBindViewHolder(holder: ExerciseViewHolder, position: Int) {
-        val currentItem: Exercise = exerciseList[position]
+        val currentItem: Exercises = exerciseList[position]
 
         holder.nameExercise.text = currentItem.name
 

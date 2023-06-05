@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.s_gym.database.entity.Exercises
+import com.example.s_gym.database.entity.FitnessBasic
 import com.example.s_gym.ui.adapter.AddFitnessAdapter
 import com.example.s_gym.databinding.FragmentAddFitnessBinding
 import com.example.s_gym.ui.viewmodel.AddFitnessViewModel
@@ -50,33 +51,43 @@ class AddFitnessFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        var exercisesList = mutableListOf<Exercises>()
         viewModel.loadExercises(requireContext())
-        addFitnessAdapter = AddFitnessAdapter(viewModel.exerciseListJSON)
-        binding.rvAddFitness.adapter = addFitnessAdapter
+        addFitnessAdapter = AddFitnessAdapter(exercisesList)
+
+        viewModel.allBasic.observe(viewLifecycleOwner) { allBasic ->
+            exercisesList = viewModel.getAllExercise(allBasic)
+            val remainingElements = exercisesList.filterNot { it in this.exercisesList }
+            addFitnessAdapter = AddFitnessAdapter(remainingElements)
+            binding.rvAddFitness.adapter = addFitnessAdapter
+            binding.rvAddFitness.layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            addFitnessAdapter.notifyDataSetChanged()
+
+            addFitnessAdapter.setItemClickListener(object : onItemClickListener {
+                override fun onItemClick(position: Int) {
+                    if(args.source == "fromAdvanceFitnessFragment") {
+                        val action =
+                            AddFitnessFragmentDirections.actionAddFitnessFragmentToInformationExerciseDialogFragment(
+                                exercisesList[position],
+                                args.argsFitnessAdvance, "fromAdvanceFitnessFragment"
+                            )
+                        findNavController().navigate(action)
+                    }
+                    else {
+                        val action =
+                            AddFitnessFragmentDirections.actionAddFitnessFragmentToInformationExerciseDialogFragment(
+                                exercisesList[position],
+                                args.argsFitnessAdvance, "fromAdvancePlan"
+                            )
+                        findNavController().navigate(action)
+                    }
+                }
+            })
+        }
 
         //Xử lý khi click vào item
-        addFitnessAdapter.setItemClickListener(object : onItemClickListener {
-            override fun onItemClick(position: Int) {
-                if(args.source == "fromAdvanceFitnessFragment") {
-                    val action =
-                        AddFitnessFragmentDirections.actionAddFitnessFragmentToInformationExerciseDialogFragment(
-                            viewModel.exerciseListJSON[position],
-                            args.argsFitnessAdvance, "fromAdvanceFitnessFragment"
-                        )
-                    findNavController().navigate(action)
-                }
-                else {
-                    val action =
-                        AddFitnessFragmentDirections.actionAddFitnessFragmentToInformationExerciseDialogFragment(
-                            viewModel.exerciseListJSON[position],
-                            args.argsFitnessAdvance, "fromAdvancePlan"
-                        )
-                    findNavController().navigate(action)
-                }
-            }
-        })
-        binding.rvAddFitness.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
         binding.btnBack.setOnClickListener {
             findNavController().popBackStack()
         }

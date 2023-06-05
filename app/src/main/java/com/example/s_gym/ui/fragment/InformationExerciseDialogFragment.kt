@@ -74,9 +74,9 @@ class InformationExerciseDialogFragment : DialogFragment() {
 
         binding.btnAddAnimation.setOnClickListener {
 
-            exercises = viewModel.convertExerciseToExercises(args.argsExercise)
+//            exercises = viewModel.convertExerciseToExercises(args.argsExercise)
             val animationMount = viewModel.exerciseAmount.value ?: 10
-            exercises = viewModel.convertExerciseToExercises(args.argsExercise)
+            exercises = args.argsExercise
             exercisesList.add(exercises.copy(animationMount = animationMount))
             updateExerciseList()
 
