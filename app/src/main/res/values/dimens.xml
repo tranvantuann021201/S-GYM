@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="height_item">80dp</dimen>
-    <dimen name="size_text_detail">15sp</dimen>
+    <dimen name="size_text_detail">16sp</dimen>
     <dimen name="item_margin_horizontal">15dp</dimen>
     <dimen name="item_margin_vertical">5dp</dimen>
     <dimen name="item_cv_radius">10dp</dimen>

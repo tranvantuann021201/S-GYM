@@ -16,7 +16,7 @@ import com.example.s_gym.database.dao.FitnessBasicDao
 
 @Database(
     entities = [Exercises::class, Days::class, User::class, FitnessAdvance::class, FitnessBasic::class],
-    version = 5,
+    version = 7,
     exportSchema = false
 )
 
@@ -58,11 +58,32 @@ abstract class AppDatabase : RoomDatabase() {
                     }
                 }
 
+                val migration5to6 = object : Migration(5, 6) {
+                    override fun migrate(database: SupportSQLiteDatabase) {
+                        // Remove old table
+                        database.execSQL("DROP TABLE IF EXISTS user_roomdb_table")
+
+                        // Create new table with desired schema
+                        database.execSQL("CREATE TABLE user_roomdb_table_temp (id TEXT PRIMARY KEY NOT NULL, gender INTEGER NOT NULL, birthDays TEXT NOT NULL, originalWeight REAL NOT NULL, originalHeight REAL NOT NULL, currentWeight REAL NOT NULL, currentHeight REAL NOT NULL)")
+
+                        // Rename the new table to the correct name
+                        database.execSQL("ALTER TABLE user_roomdb_table_temp RENAME TO user_roomdb_table")
+                    }
+                }
+
+                val migration6to7 = object : Migration(6, 7) {
+                    override fun migrate(database: SupportSQLiteDatabase) {
+                        // Add new columns to the user table
+                        database.execSQL("ALTER TABLE user_roomdb_table ADD COLUMN name TEXT")
+                        database.execSQL("ALTER TABLE user_roomdb_table ADD COLUMN photoUrl TEXT")
+                    }
+                }
+
                 val instance = Room.databaseBuilder(
                     context,
                     AppDatabase::class.java,
                     "app_database"
-                ).addMigrations(migration2to3, migration3to4, migration4to5).build()
+                ).addMigrations(migration2to3, migration3to4, migration4to5, migration5to6, migration6to7).build()
                 INSTANCE = instance
                 return instance
             }

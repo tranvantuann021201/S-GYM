@@ -6,12 +6,14 @@ import java.sql.Date
 
 @Entity(tableName = "user_roomdb_table")
 data class User(
-    @PrimaryKey(autoGenerate = true)
-    val id: Int,
+    @PrimaryKey
+    val id: String,
     val gender: Boolean,
     val birthDays: String,
     val originalWeight: Double,
     val originalHeight: Double,
     val currentWeight: Double,
-    val currentHeight: Double
+    val currentHeight: Double,
+    val name: String?,
+    val photoUrl: String?
 )

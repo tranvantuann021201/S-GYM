@@ -1,11 +1,10 @@
-package com.example.s_gym.ui.fragment
+package com.example.s_gym
 
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
-import com.example.s_gym.MainActivity
-import com.example.s_gym.R
+import com.example.s_gym.login.LoginActivity
 
 class SplashScreen : AppCompatActivity() {
     private lateinit var handler: Handler
@@ -17,7 +16,7 @@ class SplashScreen : AppCompatActivity() {
         handler = Handler()
         handler.postDelayed({
             // Chuyển đến Activity chính của ứng dụng sau khi splash screen kết thúc.
-            val intent = Intent(this@SplashScreen, MainActivity::class.java)
+            val intent = Intent(this@SplashScreen, LoginActivity::class.java)
             startActivity(intent)
             finish()
         }, 1500) // Hiển thị splash screen trong 3 giây.

@@ -55,7 +55,7 @@
         app:colorClickableText="#0251ED"
         app:trimCollapsedText="@string/read_more"
         app:trimExpandedText="@string/read_less"
-        app:trimLength="87"
+        app:trimLength="116"
         app:trimMode="trimModeLength" />
 
     <TextView
