@@ -14,6 +14,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.s_gym.R
+import com.example.s_gym.database.entity.Days
 import com.example.s_gym.databinding.FragmentHistoryBinding
 import com.example.s_gym.ui.adapter.HistoryAdapter
 import com.example.s_gym.ui.viewmodel.HistoryViewModel
@@ -52,7 +53,13 @@ class HistoryFragment : Fragment() {
         historyAdapter = HistoryAdapter(emptyList())
 
         viewModel.getAllDays.observe(viewLifecycleOwner) { daysList ->
-            historyAdapter = HistoryAdapter(daysList)
+            val dayListShow = mutableListOf<Days>()
+            for (days in daysList) {
+                if (days.completedExercise != 0) {
+                    dayListShow.add(days)
+                }
+            }
+            historyAdapter = HistoryAdapter(dayListShow)
             binding.rvHistoryList.adapter = historyAdapter
             binding.rvHistoryList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 

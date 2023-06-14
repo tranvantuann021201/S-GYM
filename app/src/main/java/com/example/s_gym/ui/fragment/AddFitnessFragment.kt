@@ -9,18 +9,19 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.s_gym.MainActivity
 import com.example.s_gym.database.entity.Exercises
 import com.example.s_gym.database.entity.FitnessBasic
 import com.example.s_gym.ui.adapter.AddFitnessAdapter
 import com.example.s_gym.databinding.FragmentAddFitnessBinding
 import com.example.s_gym.ui.viewmodel.AddFitnessViewModel
+import com.google.firebase.database.FirebaseDatabase
 
 
 class AddFitnessFragment : Fragment() {
     private lateinit var binding: FragmentAddFitnessBinding
     private lateinit var addFitnessAdapter: AddFitnessAdapter
     private val args by navArgs<AddFitnessFragmentArgs>()
-
     private lateinit var viewModelFactory: AddFitnessViewModel.AddFitnessViewModelFactory
     private lateinit var viewModel: AddFitnessViewModel
     private lateinit var exercisesList: MutableList<Exercises>
@@ -54,9 +55,8 @@ class AddFitnessFragment : Fragment() {
         var exercisesList = mutableListOf<Exercises>()
         viewModel.loadExercises(requireContext())
         addFitnessAdapter = AddFitnessAdapter(exercisesList)
-
-        viewModel.allBasic.observe(viewLifecycleOwner) { allBasic ->
-            exercisesList = viewModel.getAllExercise(allBasic)
+        viewModel.getAllExerciseRealtime()
+        viewModel.exercisesLiveData.observe(viewLifecycleOwner){ exercisesList ->
             val remainingElements = exercisesList.filterNot { it in this.exercisesList }
             addFitnessAdapter = AddFitnessAdapter(remainingElements)
             binding.rvAddFitness.adapter = addFitnessAdapter
@@ -69,7 +69,7 @@ class AddFitnessFragment : Fragment() {
                     if(args.source == "fromAdvanceFitnessFragment") {
                         val action =
                             AddFitnessFragmentDirections.actionAddFitnessFragmentToInformationExerciseDialogFragment(
-                                exercisesList[position],
+                                remainingElements[position],
                                 args.argsFitnessAdvance, "fromAdvanceFitnessFragment"
                             )
                         findNavController().navigate(action)
@@ -77,7 +77,7 @@ class AddFitnessFragment : Fragment() {
                     else {
                         val action =
                             AddFitnessFragmentDirections.actionAddFitnessFragmentToInformationExerciseDialogFragment(
-                                exercisesList[position],
+                                remainingElements[position],
                                 args.argsFitnessAdvance, "fromAdvancePlan"
                             )
                         findNavController().navigate(action)
@@ -86,7 +86,36 @@ class AddFitnessFragment : Fragment() {
             })
         }
 
-        //Xử lý khi click vào item
+//        viewModel.allBasic.observe(viewLifecycleOwner) { allBasic ->
+//            exercisesList = viewModel.getAllExercise(allBasic)
+//            val remainingElements = exercisesList.filterNot { it in this.exercisesList }
+//            addFitnessAdapter = AddFitnessAdapter(remainingElements)
+//            binding.rvAddFitness.adapter = addFitnessAdapter
+//            binding.rvAddFitness.layoutManager =
+//                LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+//            addFitnessAdapter.notifyDataSetChanged()
+//
+//            addFitnessAdapter.setItemClickListener(object : onItemClickListener {
+//                override fun onItemClick(position: Int) {
+//                    if(args.source == "fromAdvanceFitnessFragment") {
+//                        val action =
+//                            AddFitnessFragmentDirections.actionAddFitnessFragmentToInformationExerciseDialogFragment(
+//                                exercisesList[position],
+//                                args.argsFitnessAdvance, "fromAdvanceFitnessFragment"
+//                            )
+//                        findNavController().navigate(action)
+//                    }
+//                    else {
+//                        val action =
+//                            AddFitnessFragmentDirections.actionAddFitnessFragmentToInformationExerciseDialogFragment(
+//                                exercisesList[position],
+//                                args.argsFitnessAdvance, "fromAdvancePlan"
+//                            )
+//                        findNavController().navigate(action)
+//                    }
+//                }
+//            })
+//        }
 
         binding.btnBack.setOnClickListener {
             findNavController().popBackStack()

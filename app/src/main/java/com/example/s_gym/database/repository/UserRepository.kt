@@ -25,4 +25,8 @@ class UserRepository(application: Application) {
     suspend fun deleteUser(user: User) {
         userDao.deleteUser(user)
     }
+
+    suspend fun getUserById(userId: String): User {
+        return userDao.getUserById(userId)!!
+    }
 }

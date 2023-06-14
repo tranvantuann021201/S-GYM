@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
 import com.example.s_gym.login.LoginActivity
+import com.google.firebase.auth.FirebaseAuth
 
 class SplashScreen : AppCompatActivity() {
     private lateinit var handler: Handler
@@ -16,9 +17,21 @@ class SplashScreen : AppCompatActivity() {
         handler = Handler()
         handler.postDelayed({
             // Chuyển đến Activity chính của ứng dụng sau khi splash screen kết thúc.
-            val intent = Intent(this@SplashScreen, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
+            // Kiểm tra xem người dùng đã đăng nhập hay chưa
+            val user = FirebaseAuth.getInstance().currentUser
+            if (user != null) {
+                // Người dùng đã đăng nhập
+                // Chuyển hướng đến MainActivity
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                finish()
+            } else {
+                // Người dùng chưa đăng nhập
+                // Chuyển hướng đến LoginActivity
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                finish()
+            }
         }, 1500) // Hiển thị splash screen trong 3 giây.
     }
 
@@ -30,4 +43,5 @@ class SplashScreen : AppCompatActivity() {
             handler.removeCallbacksAndMessages(null)
         }
     }
+
 }

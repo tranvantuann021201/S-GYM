@@ -79,6 +79,12 @@
                         style="@style/txt_option_setting"
                         android:layout_below="@id/txt_exer_setting"
                         android:text="Nhắc nhở" />
+
+                    <TextView
+                        android:id="@+id/txt_sign_out"
+                        style="@style/txt_option_setting"
+                        android:layout_below="@id/txt_remind"
+                        android:text="Đăng xuất" />
                 </RelativeLayout>
             </androidx.cardview.widget.CardView>
 
@@ -102,6 +108,7 @@
                 android:layout_centerHorizontal="true">
 
                 <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_user_photo"
                     android:layout_width="151dp"
                     android:layout_height="151dp"
                     android:layout_centerInParent="true"
@@ -112,6 +119,7 @@
             </RelativeLayout>
 
             <TextView
+                android:id="@+id/txt_user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/id_profile_ImageView"

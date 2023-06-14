@@ -31,6 +31,8 @@ import com.example.s_gym.ui.viewmodel.InformationExerciseViewModel
 import com.example.s_gym.until.DailyWorker
 import com.example.s_gym.until.NotifyBroadcastReceiver
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.coroutines.coroutineScope
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -137,5 +139,9 @@ class MainActivity : AppCompatActivity() {
                 getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
         }
+    }
+
+    companion object {
+        var firebaseDatabase = FirebaseDatabase.getInstance()
     }
 }

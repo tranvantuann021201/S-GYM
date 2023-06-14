@@ -16,6 +16,9 @@ interface UserDao {
     @Delete
     suspend fun deleteUser(user: User)
 
+    @Query("SELECT * FROM user_roomdb_table WHERE id = :id")
+    suspend fun getUserById(id: String): User?
+
     @Query("SELECT * FROM user_roomdb_table ORDER BY id ASC")
     fun readAllData(): LiveData<List<User>>
 }

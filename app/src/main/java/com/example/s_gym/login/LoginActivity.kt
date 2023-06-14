@@ -1,8 +1,11 @@
 package com.example.s_gym.login
 
+import android.annotation.SuppressLint
 import android.app.ProgressDialog
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.example.s_gym.MainActivity
@@ -14,18 +17,17 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
-import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthCredential
-import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GithubAuthProvider
+import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.database.FirebaseDatabase
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: FragmentLoginBinding
     private lateinit var auth: FirebaseAuth
-    private lateinit var firebase: FirebaseDatabase
+    private lateinit var firebaseDatabase: FirebaseDatabase
     private lateinit var mGoogleSignInClient: GoogleSignInClient
     private lateinit var progressDialog: ProgressDialog
     private val RC_SIGN_IN: Int = 40
@@ -35,7 +37,7 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = FragmentLoginBinding.inflate(layoutInflater)
-        setContentView(binding.root);
+        setContentView(binding.root)
         viewModelFactory = LoginViewModel.LoginViewModelFactory(application)
         viewModel = ViewModelProvider(this, viewModelFactory)[LoginViewModel::class.java]
         init()
@@ -46,9 +48,9 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun init() {
+        firebaseDatabase = FirebaseDatabase.getInstance()
+        firebaseDatabase.setPersistenceEnabled(true)
         auth = FirebaseAuth.getInstance()
-        firebase = FirebaseDatabase.getInstance()
-
         progressDialog = ProgressDialog(baseContext)
         progressDialog.setTitle("Tạo tài khoản")
         progressDialog.setMessage("Đang tạo tài khoản")
@@ -67,8 +69,9 @@ class LoginActivity : AppCompatActivity() {
         startActivityForResult(intent, RC_SIGN_IN)
     }
 
+    @SuppressLint("SuspiciousIndentation")
     private fun firebaseAuth(idToken: String) {
-        val credential: AuthCredential = GithubAuthProvider.getCredential(idToken)
+        val credential: AuthCredential = GoogleAuthProvider.getCredential(idToken, null)
 
         auth.signInWithCredential(credential)
             .addOnCompleteListener { task ->
@@ -86,12 +89,20 @@ class LoginActivity : AppCompatActivity() {
                             user.displayName,
                             user.photoUrl.toString()
                         )
-                        firebase.reference.child("User").child(user.uid).setValue(users)
+                        firebaseDatabase.reference.child("User").child(user.uid).setValue(users)
                         viewModel.insertUser(users)
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                        intent.putExtra("userId", user.uid)
                         startActivity(intent)
+                        finish()
                     }
                 }
+                else {
+                    Toast.makeText(baseContext, "Không đăng nhập đc bạn ơi", Toast.LENGTH_SHORT).show()
+                    // In ra lỗi
+                    Log.w("LoginActivity", "signInWithCredential:failure", task.exception)
+                }
+
             }
     }
 
@@ -101,7 +112,7 @@ class LoginActivity : AppCompatActivity() {
             val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
 
             try {
-                val account: GoogleSignInAccount = task.result
+                val account = task.result
                 firebaseAuth(account.idToken!!)
             } catch (e: ApiException) {
                 throw java.lang.RuntimeException(e)
