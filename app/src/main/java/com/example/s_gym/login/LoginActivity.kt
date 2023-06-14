@@ -49,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
 
     private fun init() {
         firebaseDatabase = FirebaseDatabase.getInstance()
-        firebaseDatabase.setPersistenceEnabled(true)
+//        firebaseDatabase.setPersistenceEnabled(true)
         auth = FirebaseAuth.getInstance()
         progressDialog = ProgressDialog(baseContext)
         progressDialog.setTitle("Tạo tài khoản")
