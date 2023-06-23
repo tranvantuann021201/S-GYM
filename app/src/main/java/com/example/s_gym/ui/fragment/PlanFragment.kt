@@ -6,16 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import androidx.work.*
 import com.example.s_gym.ui.adapter.FragmentPlanPagerAdapter
 import com.example.s_gym.R
 import com.example.s_gym.databinding.FragmentPlanBinding
 import com.example.s_gym.ui.viewmodel.PlanViewModel
-import com.example.s_gym.ui.viewmodel.ReportViewModel
 import com.example.s_gym.until.DailyWorker
 import com.google.android.material.tabs.TabLayout
 import com.google.gson.Gson
@@ -88,8 +85,8 @@ class PlanFragment : Fragment() {
 
 //        WorkManager.getInstance(requireContext()).cancelAllWork()
 
-        viewModel.latestDay.observe(viewLifecycleOwner){ latestDay ->
-            val daysData = workDataOf("days" to Gson().toJson(latestDay))
+        viewModel.latestDays.observe(viewLifecycleOwner){ latestDays ->
+            val daysData = workDataOf("days" to Gson().toJson(latestDays))
 
             val dailyWorkRequest = PeriodicWorkRequestBuilder<DailyWorker>(1, TimeUnit.DAYS)
                 .setInitialDelay(calculateInitialDelay(), TimeUnit.MILLISECONDS)

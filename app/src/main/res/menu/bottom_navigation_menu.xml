@@ -4,13 +4,13 @@
         android:id="@+id/plan"
         android:icon="@drawable/baseline_assignment_24"
 
-        android:title="Plan"  />
+        android:title="Luyện tập"  />
     <item
         android:id="@+id/report"
         android:icon="@drawable/baseline_stacked_line_chart_24"
-        android:title="Report" />
+        android:title="Báo cáo" />
     <item
         android:id="@+id/settings"
         android:icon="@drawable/baseline_settings_24"
-        android:title="Setting" />
+        android:title="Thiết lập" />
 </menu>

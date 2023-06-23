@@ -47,6 +47,10 @@ class DaysRepository(context: Context) {
         return daysDao.getLatestDay()
     }
 
+    fun getYesterday(): LiveData<Days> {
+        return daysDao.getYesterday()
+    }
+
     fun getTotalCompletedExercise(): LiveData<Int> {
         return daysDao.getTotalCompletedExercise()
     }

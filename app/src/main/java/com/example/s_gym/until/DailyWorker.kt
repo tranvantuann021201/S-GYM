@@ -12,11 +12,11 @@ class DailyWorker(context: Context, workerParams: WorkerParameters) :
     CoroutineWorker(context, workerParams) {
     private val daysRepository by lazy { DaysRepository(context) }
     private val daysJson = inputData.getString("days")
-    private val latestDay = Gson().fromJson(daysJson, Days::class.java)
+    private val yesterday = Gson().fromJson(daysJson, Days::class.java)
     override suspend fun doWork(): Result {
         Log.d("DailyWorker", "doWork: started")
         return try {
-            daysRepository.addNewDay(latestDay)
+            daysRepository.addNewDay(yesterday)
             Log.d("DailyWorker", "doWork: success")
             Result.success()
         } catch (e: Exception) {

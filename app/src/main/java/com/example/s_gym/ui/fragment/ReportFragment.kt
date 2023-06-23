@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.os.*
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.MotionEvent
 import android.view.View
@@ -129,6 +130,7 @@ class ReportFragment : Fragment() {
                 viewModel.increaseDrink()
                 Toast.makeText(context, "Hãy thoải mái uống nước  bạn nhé.", Toast.LENGTH_LONG)
                     .show()
+                Log.e("LatestDay", "onViewCreated: LatestDay ======== " + viewModel.latestDay.value, )
                 timer.start()
             }
         }
