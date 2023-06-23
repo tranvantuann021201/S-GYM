@@ -111,6 +111,7 @@ class InformationExerciseDialogFragment : DialogFragment() {
         Glide.with(context).load(argsExercise.urlVideoGuide).into(binding.imgAnimationExercise)
         binding.txtAnimationName.text = argsExercise.name
         binding.txtExerAmount.text = "x${argsExercise.animationMount}"
+        binding.txtInforDetail.text = argsExercise.description
         requireActivity().supportFragmentManager.findFragmentById(R.id.fitnessFragment)
     }
 

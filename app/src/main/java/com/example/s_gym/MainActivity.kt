@@ -127,7 +127,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun notifyManagerRegister() {
+    private fun notifyManagerRegister() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val name = "CHANNEL_ID_A"
             val descriptionText = "descriptionText"

@@ -15,7 +15,7 @@
         android:fontFamily="sans-serif-condensed-medium"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
-        android:text="FITNESS"
+        android:text="S-GYM"
         android:textColor="@color/black"
         android:textSize="@dimen/size_text_title"
         android:textStyle="bold" />

@@ -15,7 +15,8 @@ class PlanViewModel(application: Application) : ViewModel() {
     private lateinit var viewPager2: ViewPager2
     private lateinit var pagerAdapter: FragmentPlanPagerAdapter
     private var daysRepository: DaysRepository = DaysRepository(application)
-    val latestDay = daysRepository.getLatestDay()
+    val yesterday = daysRepository.getYesterday()
+    val latestDays = daysRepository.getLatestDay()
 
     fun deletedDayByIDOption(){
         viewModelScope.launch {
@@ -27,8 +28,8 @@ class PlanViewModel(application: Application) : ViewModel() {
         this.tabLayout = tabLayout
         this.viewPager2 = viewPager2
         this.pagerAdapter = pagerAdapter
-        tabLayout.addTab(tabLayout.newTab().setText("Basic"))
-        tabLayout.addTab(tabLayout.newTab().setText("Advanced"))
+        tabLayout.addTab(tabLayout.newTab().setText("Cơ bản"))
+        tabLayout.addTab(tabLayout.newTab().setText("Nâng cao"))
         viewPager2.adapter = pagerAdapter
     }
 
