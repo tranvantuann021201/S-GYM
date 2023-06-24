@@ -173,12 +173,15 @@ class ReportFragment : Fragment() {
             }
         }
 
-
         var lineData = LineData()
         viewModel.getAllDays.observe(viewLifecycleOwner) { daysData ->
             lineData = LineData(lineChart(daysData))
             binding.weightChart.data = lineData
             binding.weightChart.invalidate()
+//            val dataCount = lineData.entryCount
+//            val visibleCount = 5
+//            binding.weightChart.setVisibleXRangeMaximum(visibleCount.toFloat())
+//            binding.weightChart.moveViewToX((dataCount - visibleCount).toFloat())
         }
 
         binding.txtSupport.setOnClickListener {

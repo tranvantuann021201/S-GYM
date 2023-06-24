@@ -65,9 +65,8 @@ class HistoryFragment : Fragment() {
 
         }
 
-
         binding.btnBack.setOnClickListener {
-            findNavController().navigate(R.id.reportFragment)
+            findNavController().popBackStack()
         }
     }
 }

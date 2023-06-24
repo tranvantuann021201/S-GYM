@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
+import androidx.activity.OnBackPressedDispatcher
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -123,6 +125,18 @@ class NewFitnessFragment : Fragment(), OnStartDragListener {
                 dialogFragment.show(parentFragmentManager, "NameMyExerciseDialogFragment")
             }
         }
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true){
+            override fun handleOnBackPressed() {
+                if (args.source == "fromAdvanceFitnessFragment") {
+                    val action = NewFitnessFragmentDirections.actionNewFitnessFragmentToAdvancedFitnessFragment(fitnessAdvance)
+                    findNavController().navigate(action)
+                } else {
+                    val dialogFragment = NameMyExerciseDialogFragment.newInstance(fitnessAdvance)
+                    dialogFragment.show(parentFragmentManager, "NameMyExerciseDialogFragment")
+                }
+            }
+        })
     }
 
     override fun onStartDrag(viewHolder: RecyclerView.ViewHolder) {

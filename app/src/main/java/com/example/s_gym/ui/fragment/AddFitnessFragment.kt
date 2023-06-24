@@ -53,7 +53,7 @@ class AddFitnessFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         var exercisesList = mutableListOf<Exercises>()
-        viewModel.loadExercises(requireContext())
+//        viewModel.loadExercises(requireContext())
         addFitnessAdapter = AddFitnessAdapter(exercisesList)
         viewModel.getAllExerciseRealtime()
         viewModel.exercisesLiveData.observe(viewLifecycleOwner){ exercisesList ->
@@ -85,37 +85,6 @@ class AddFitnessFragment : Fragment() {
                 }
             })
         }
-
-//        viewModel.allBasic.observe(viewLifecycleOwner) { allBasic ->
-//            exercisesList = viewModel.getAllExercise(allBasic)
-//            val remainingElements = exercisesList.filterNot { it in this.exercisesList }
-//            addFitnessAdapter = AddFitnessAdapter(remainingElements)
-//            binding.rvAddFitness.adapter = addFitnessAdapter
-//            binding.rvAddFitness.layoutManager =
-//                LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-//            addFitnessAdapter.notifyDataSetChanged()
-//
-//            addFitnessAdapter.setItemClickListener(object : onItemClickListener {
-//                override fun onItemClick(position: Int) {
-//                    if(args.source == "fromAdvanceFitnessFragment") {
-//                        val action =
-//                            AddFitnessFragmentDirections.actionAddFitnessFragmentToInformationExerciseDialogFragment(
-//                                exercisesList[position],
-//                                args.argsFitnessAdvance, "fromAdvanceFitnessFragment"
-//                            )
-//                        findNavController().navigate(action)
-//                    }
-//                    else {
-//                        val action =
-//                            AddFitnessFragmentDirections.actionAddFitnessFragmentToInformationExerciseDialogFragment(
-//                                exercisesList[position],
-//                                args.argsFitnessAdvance, "fromAdvancePlan"
-//                            )
-//                        findNavController().navigate(action)
-//                    }
-//                }
-//            })
-//        }
 
         binding.btnBack.setOnClickListener {
             findNavController().popBackStack()
