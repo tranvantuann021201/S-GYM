@@ -31,6 +31,7 @@ import com.example.s_gym.ui.viewmodel.InformationExerciseViewModel
 import com.example.s_gym.until.DailyWorker
 import com.example.s_gym.until.NotifyBroadcastReceiver
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.coroutines.coroutineScope
@@ -99,16 +100,17 @@ class MainActivity : AppCompatActivity() {
         val sharedPref = getPreferences(Context.MODE_PRIVATE)
         val isNotificationScheduled = sharedPref.getBoolean("isNotificationScheduled", false)
 
-        // Nếu thông báo chưa được đặt lịch thì đặt lịch thông báo và cập nhật trạng thái thông báo trong SharedPreferences
         if (!isNotificationScheduled) {
+            // Đặt lịch thông báo mới
             val calendar: Calendar = Calendar.getInstance().apply {
                 timeInMillis = System.currentTimeMillis()
-                set(Calendar.HOUR_OF_DAY, 16)
-                set(Calendar.MINUTE, 30)
+                set(Calendar.HOUR_OF_DAY, 18)
+                set(Calendar.MINUTE, 44)
             }
 
             val intent = Intent(this, NotifyBroadcastReceiver::class.java)
-            val pendingIntent = PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_MUTABLE)
+            val pendingIntent =
+                PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_MUTABLE)
 
             val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
@@ -118,12 +120,10 @@ class MainActivity : AppCompatActivity() {
                 pendingIntent
             )
 
-            with (sharedPref.edit()) {
+            with(sharedPref.edit()) {
                 putBoolean("isNotificationScheduled", true)
                 apply()
             }
-
-//            alarmManager.cancel(pendingIntent)
         }
     }
 
@@ -143,5 +143,6 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         var firebaseDatabase = FirebaseDatabase.getInstance()
+        var currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser()
     }
 }

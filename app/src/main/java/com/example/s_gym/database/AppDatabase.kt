@@ -7,16 +7,12 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.example.s_gym.database.dao.DaysDao
-import com.example.s_gym.database.dao.ExercisesDao
-import com.example.s_gym.database.dao.FitnessAdvanceDao
-import com.example.s_gym.database.dao.UserDao
+import com.example.s_gym.database.dao.*
 import com.example.s_gym.database.entity.*
-import com.example.s_gym.database.dao.FitnessBasicDao
 
 @Database(
-    entities = [Exercises::class, Days::class, User::class, FitnessAdvance::class, FitnessBasic::class],
-    version = 7,
+    entities = [Exercises::class, Days::class, User::class, FitnessAdvance::class, FitnessBasic::class, Setting::class],
+    version = 9,
     exportSchema = false
 )
 
@@ -28,6 +24,8 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
     abstract fun fitnessAdvanceDao(): FitnessAdvanceDao
     abstract fun fitnessBasicModeDao(): FitnessBasicDao
+
+    abstract fun settingDao(): SettingDao
 
 
     companion object {
@@ -79,11 +77,31 @@ abstract class AppDatabase : RoomDatabase() {
                     }
                 }
 
+                val migration7to8 = object : Migration(7, 8) {
+                    override fun migrate(database: SupportSQLiteDatabase) {
+                        database.execSQL("CREATE TABLE IF NOT EXISTS setting_table (id INTEGER PRIMARY KEY NOT NULL, userId TEXT NOT NULL, restTime INTEGER NOT NULL, drinkMind INTEGER NOT NULL, fitnessMind INTEGER NOT NULL, fitnessMindTime TEXT NOT NULL, FOREIGN KEY(userId) REFERENCES user_roomdb_table(id) ON DELETE CASCADE)")
+                    }
+                }
+
+                val migration8to9 = object : Migration(8, 9) {
+                    override fun migrate(database: SupportSQLiteDatabase) {
+                        // Xóa bảng cũ
+                        database.execSQL("DROP TABLE setting_table")
+
+                        // Tạo một bảng mới với cấu trúc mong muốn
+                        database.execSQL("CREATE TABLE IF NOT EXISTS setting_table (id INTEGER PRIMARY KEY NOT NULL, userId TEXT NOT NULL, restTime INTEGER NOT NULL, drinkMind INTEGER NOT NULL, fitnessMind INTEGER NOT NULL, fitnessMindTime TEXT NOT NULL, FOREIGN KEY(userId) REFERENCES user_roomdb_table(id) ON DELETE CASCADE)")
+
+                        // Thêm chỉ mục mới
+                        database.execSQL("CREATE UNIQUE INDEX index_setting_table_userId ON setting_table(userId)")
+                    }
+                }
+
+
                 val instance = Room.databaseBuilder(
                     context,
                     AppDatabase::class.java,
                     "app_database"
-                ).addMigrations(migration2to3, migration3to4, migration4to5, migration5to6, migration6to7).build()
+                ).addMigrations(migration2to3, migration3to4, migration4to5, migration5to6, migration6to7, migration7to8, migration8to9).build()
                 INSTANCE = instance
                 return instance
             }

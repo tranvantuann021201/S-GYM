@@ -1,11 +1,14 @@
 package com.example.s_gym.ui.viewmodel
 
 import android.app.Application
+import android.provider.Settings
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import androidx.viewpager2.widget.ViewPager2
+import com.example.s_gym.database.entity.Setting
 import com.example.s_gym.database.repository.DaysRepository
+import com.example.s_gym.database.repository.SettingRepository
 import com.example.s_gym.ui.adapter.FragmentPlanPagerAdapter
 import com.google.android.material.tabs.TabLayout
 import kotlinx.coroutines.launch
@@ -17,6 +20,13 @@ class PlanViewModel(application: Application) : ViewModel() {
     private var daysRepository: DaysRepository = DaysRepository(application)
     val yesterday = daysRepository.getYesterday()
     val latestDays = daysRepository.getLatestDay()
+    private var settingRepository: SettingRepository = SettingRepository(application)
+
+    fun insert(setting: Setting) {
+        viewModelScope.launch {
+            settingRepository.insert(setting)
+        }
+    }
 
     fun deletedDayByIDOption(){
         viewModelScope.launch {
