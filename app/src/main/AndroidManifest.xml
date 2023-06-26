@@ -42,7 +42,13 @@
             android:name=".MainActivity">
         </activity>
 
-        <receiver android:name=".until.NotifyBroadcastReceiver"  android:exported="false">
+        <receiver android:name=".until.NotifyRemindFitnessBR"  android:exported="false">
+            <intent-filter>
+                <action android:name="com.example.myapp.ACTION_ALARM" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".until.NotifyRemindDrinkBR"  android:exported="false">
             <intent-filter>
                 <action android:name="com.example.myapp.ACTION_ALARM" />
             </intent-filter>

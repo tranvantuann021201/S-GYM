@@ -24,7 +24,7 @@ data class Setting(
     val id: Int,
     val userId: String,
     val restTime: Int,
-    val drinkMind: Boolean,
-    val fitnessMind: Boolean,
+    var drinkMind: Boolean,
+    var fitnessMind: Boolean,
     val fitnessMindTime: String
 ): Parcelable

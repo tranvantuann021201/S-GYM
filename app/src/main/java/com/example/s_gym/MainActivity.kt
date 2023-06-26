@@ -1,48 +1,27 @@
 package com.example.s_gym
 
-import android.app.AlarmManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
-import android.app.PendingIntent
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import android.os.Build
 import android.os.Bundle
-import android.provider.Settings
-import android.util.Log
 import android.view.View
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ContentInfoCompat.Flags
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
-import androidx.work.*
-import com.example.s_gym.database.AppDatabase
-import com.example.s_gym.database.entity.Days
-import com.example.s_gym.database.repository.DaysRepository
 import com.example.s_gym.databinding.ActivityMainBinding
-import com.example.s_gym.ui.fragment.PlanFragment
-import com.example.s_gym.ui.fragment.ReportFragment
-import com.example.s_gym.ui.fragment.SettingFragment
-import com.example.s_gym.ui.viewmodel.InformationExerciseViewModel
-import com.example.s_gym.until.DailyWorker
-import com.example.s_gym.until.NotifyBroadcastReceiver
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.FirebaseDatabase
-import kotlinx.coroutines.coroutineScope
-import java.util.*
-import java.util.concurrent.TimeUnit
-import kotlin.coroutines.coroutineContext
 
 class MainActivity : AppCompatActivity() {
     private lateinit var navController: NavController
     private lateinit var binding: ActivityMainBinding
     lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var authStateListener: FirebaseAuth.AuthStateListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -94,55 +73,51 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        notifyManagerRegister()
-
-        // Lấy giá trị của trạng thái thông báo từ SharedPreferences
-        val sharedPref = getPreferences(Context.MODE_PRIVATE)
-        val isNotificationScheduled = sharedPref.getBoolean("isNotificationScheduled", false)
-
-        if (!isNotificationScheduled) {
-            // Đặt lịch thông báo mới
-            val calendar: Calendar = Calendar.getInstance().apply {
-                timeInMillis = System.currentTimeMillis()
-                set(Calendar.HOUR_OF_DAY, 18)
-                set(Calendar.MINUTE, 44)
-            }
-
-            val intent = Intent(this, NotifyBroadcastReceiver::class.java)
-            val pendingIntent =
-                PendingIntent.getBroadcast(this, 0, intent, PendingIntent.FLAG_MUTABLE)
-
-            val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
-
-            alarmManager.setExact(
-                AlarmManager.RTC_WAKEUP,
-                calendar.timeInMillis,
-                pendingIntent
-            )
-
-            with(sharedPref.edit()) {
-                putBoolean("isNotificationScheduled", true)
-                apply()
+        authStateListener = FirebaseAuth.AuthStateListener { firebaseAuth ->
+            val firebaseUser = firebaseAuth.currentUser
+            if (firebaseUser != null) {
+                currentFirebaseUser = firebaseUser
+            } else {
+                // Người dùng đã đăng xuất
             }
         }
+        FirebaseAuth.getInstance().addAuthStateListener(authStateListener)
+
+        notifyManagerRegister()
     }
 
     private fun notifyManagerRegister() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val name = "CHANNEL_ID_A"
+            // Tạo kênh thông báo cho swExerRemind
+            val name = "Nhắc nhở luyện tập"
             val descriptionText = "descriptionText"
             val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val channel = NotificationChannel("CHANNEL_ID", name, importance).apply {
+            val channel = NotificationChannel("FITNESS_CHANNEL_ID", name, importance).apply {
                 description = descriptionText
             }
+
+            // Tạo kênh thông báo cho swDrinkWaterRemind
+            val waterName = "Nhắc nhở uống nước"
+            val waterDescriptionText = "waterDescriptionText"
+            val waterChannel =
+                NotificationChannel("WATER_CHANNEL_ID", waterName, importance).apply {
+                    description = waterDescriptionText
+                }
+
             val notificationManager: NotificationManager =
                 getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             notificationManager.createNotificationChannel(channel)
+            notificationManager.createNotificationChannel(waterChannel)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        FirebaseAuth.getInstance().removeAuthStateListener(authStateListener)
     }
 
     companion object {
         var firebaseDatabase = FirebaseDatabase.getInstance()
-        var currentFirebaseUser = FirebaseAuth.getInstance().getCurrentUser()
+        var currentFirebaseUser: FirebaseUser? = null
     }
 }

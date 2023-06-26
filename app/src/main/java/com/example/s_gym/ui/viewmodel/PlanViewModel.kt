@@ -2,6 +2,7 @@ package com.example.s_gym.ui.viewmodel
 
 import android.app.Application
 import android.provider.Settings
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
@@ -26,6 +27,10 @@ class PlanViewModel(application: Application) : ViewModel() {
         viewModelScope.launch {
             settingRepository.insert(setting)
         }
+    }
+
+    fun getSetting(userId: String): LiveData<Setting> {
+        return settingRepository.getSettingsByUserId(userId)
     }
 
     fun deletedDayByIDOption(){

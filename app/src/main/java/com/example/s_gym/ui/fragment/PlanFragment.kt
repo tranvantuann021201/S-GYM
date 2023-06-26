@@ -17,6 +17,8 @@ import com.example.s_gym.databinding.FragmentPlanBinding
 import com.example.s_gym.ui.viewmodel.PlanViewModel
 import com.example.s_gym.until.DailyWorker
 import com.google.android.material.tabs.TabLayout
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -35,12 +37,6 @@ class PlanFragment : Fragment() {
         super.onCreate(savedInstanceState)
         viewModelFactory = PlanViewModel.PlanViewModelFactory(requireActivity().application)
         viewModel = ViewModelProvider(this, viewModelFactory)[PlanViewModel::class.java]
-
-        viewModel.insert(Setting(0, MainActivity.currentFirebaseUser!!.uid, 0,
-            drinkMind = true,
-            fitnessMind = true,
-            fitnessMindTime = ""
-        ))
     }
 
     override fun onCreateView(
@@ -55,7 +51,6 @@ class PlanFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         scheduleDailyWorker()
-//        viewModel.deletedDayByIDOption()
 
         val pagerAdapter = FragmentPlanPagerAdapter(childFragmentManager, lifecycle)
         viewModel.init(binding.tabLayout, binding.viewPager2, pagerAdapter)
@@ -84,6 +79,20 @@ class PlanFragment : Fragment() {
                 binding.tabLayout.selectTab(binding.tabLayout.getTabAt(position))
             }
         })
+
+        viewModel.getSetting(FirebaseAuth.getInstance().currentUser!!.uid).observe(viewLifecycleOwner) { setting ->
+            if (setting == null) {
+                viewModel.insert(
+                    Setting(
+                        0, MainActivity.currentFirebaseUser!!.uid, 0,
+                        drinkMind = true,
+                        fitnessMind = true,
+                        fitnessMindTime = ""
+                    )
+                )
+            }
+        }
+
     }
 
     private fun scheduleDailyWorker() {

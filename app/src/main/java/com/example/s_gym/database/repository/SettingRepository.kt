@@ -1,6 +1,7 @@
 package com.example.s_gym.database.repository
 
 import android.content.Context
+import androidx.lifecycle.LiveData
 import com.example.s_gym.database.AppDatabase
 import com.example.s_gym.database.dao.SettingDao
 import com.example.s_gym.database.entity.Setting
@@ -24,7 +25,7 @@ class SettingRepository(context: Context) {
         settingDao.delete(setting)
     }
 
-    fun getSettingsByUserId(userId: Int): List<Setting> {
+    fun getSettingsByUserId(userId: String): LiveData<Setting> {
         return settingDao.getSettingsByUserId(userId)
     }
 

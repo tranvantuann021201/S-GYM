@@ -1,5 +1,6 @@
 package com.example.s_gym.database.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.s_gym.database.entity.Setting
 
@@ -16,7 +17,7 @@ interface SettingDao {
     suspend fun delete(setting: Setting)
 
     @Query("SELECT * FROM setting_table WHERE userId = :userId")
-    fun getSettingsByUserId(userId: Int): List<Setting>
+    fun getSettingsByUserId(userId: String): LiveData<Setting>
 
     @Query("SELECT * FROM setting_table LIMIT 1")
     fun getFirstSetting(): Setting?

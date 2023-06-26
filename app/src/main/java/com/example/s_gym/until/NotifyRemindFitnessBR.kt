@@ -12,21 +12,15 @@ import android.content.BroadcastReceiver
 import com.example.s_gym.MainActivity
 import com.example.s_gym.R
 
-class NotifyBroadcastReceiver: BroadcastReceiver() {
+class NotifyRemindFitnessBR: BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.VIBRATE)
                 == PackageManager.PERMISSION_GRANTED) {
-//            val notificationLayout = RemoteViews(context.packageName, R.layout.notification_layout)
-
-//            val notificationBuilder = NotificationCompat.Builder(context, CHANNEL_ID)
-//                .setSmallIcon(R.drawable.notification_icon)
-//                .setCustomContentView(notificationLayout)
-//                .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
             val intent = Intent(context, MainActivity::class.java)
             val pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_MUTABLE)
 
-            val notificationBuilder = NotificationCompat.Builder(context, "CHANNEL_ID")
+            val notificationBuilder = NotificationCompat.Builder(context, "FITNESS_CHANNEL_ID")
                 .setSmallIcon(R.drawable.baseline_icon_completed_exercises)
                 .setContentTitle("S-GYM")
                 .setContentText("Luyện tập hàng ngày, thân thể dẻo dai !!")
