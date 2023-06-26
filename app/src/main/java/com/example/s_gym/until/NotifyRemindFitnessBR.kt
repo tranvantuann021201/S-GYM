@@ -32,7 +32,6 @@ class NotifyRemindFitnessBR: BroadcastReceiver() {
                 notify(0, notificationBuilder.build())
             }
         }
-
     }
 }
 

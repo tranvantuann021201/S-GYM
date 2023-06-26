@@ -92,7 +92,7 @@ class MainActivity : AppCompatActivity() {
             val name = "Nhắc nhở luyện tập"
             val descriptionText = "descriptionText"
             val importance = NotificationManager.IMPORTANCE_DEFAULT
-            val channel = NotificationChannel("FITNESS_CHANNEL_ID", name, importance).apply {
+            val fitnessChannel = NotificationChannel("FITNESS_CHANNEL_ID", name, importance).apply {
                 description = descriptionText
             }
 
@@ -106,7 +106,7 @@ class MainActivity : AppCompatActivity() {
 
             val notificationManager: NotificationManager =
                 getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            notificationManager.createNotificationChannel(channel)
+            notificationManager.createNotificationChannel(fitnessChannel)
             notificationManager.createNotificationChannel(waterChannel)
         }
     }

@@ -29,7 +29,7 @@ class NotifyRemindDrinkBR: BroadcastReceiver() {
                 .setAutoCancel(true)
 
             with(NotificationManagerCompat.from(context)) {
-                notify(0, notificationBuilder.build())
+                notify(1, notificationBuilder.build())
             }
         }
     }

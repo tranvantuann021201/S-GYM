@@ -55,9 +55,9 @@ class RemindFragment : Fragment() {
 
             binding.swExerRemind.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
-                    viewModel.bookRemindFitnessNotify(requireContext())
+                    viewModel.bookRemindFitnessNotify(requireContext(), requireActivity())
                 } else {
-                    viewModel.cancelRemindFitnessNotify(requireContext())
+                    viewModel.cancelRemindFitnessNotify(requireContext(), requireActivity())
                 }
                 // Cập nhật dữ liệu trong bảng setting
                 newSetting?.let {
@@ -68,9 +68,9 @@ class RemindFragment : Fragment() {
 
             binding.swDrinkWaterRemind.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
-                    viewModel.bookRemindWaterNotify(requireContext())
+                    viewModel.bookRemindWaterNotify(requireContext(), requireActivity())
                 } else {
-                    viewModel.cancelRemindWaterNotify(requireContext())
+                    viewModel.cancelRemindWaterNotify(requireContext(), requireActivity())
                 }
                 // Cập nhật dữ liệu trong bảng setting
                 newSetting?.let {

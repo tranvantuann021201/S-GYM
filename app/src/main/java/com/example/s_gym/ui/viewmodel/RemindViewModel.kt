@@ -1,5 +1,6 @@
 package com.example.s_gym.ui.viewmodel
 
+import android.app.Activity
 import android.app.AlarmManager
 import android.app.Application
 import android.app.PendingIntent
@@ -29,7 +30,7 @@ class RemindViewModel(application: Application): ViewModel() {
         }
     }
 
-    fun bookRemindWaterNotify(context: Context) {
+    fun bookRemindWaterNotify(context: Context, activity: Activity) {
         // Đặt lịch 8 thông báo khác nhau
         val times = arrayOf(6, 8, 10, 12, 14, 16, 18, 20)
         for (hour in times) {
@@ -55,7 +56,7 @@ class RemindViewModel(application: Application): ViewModel() {
             )
 
             val alarmManager =
-                context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+                activity.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
             val interval = AlarmManager.INTERVAL_DAY
             alarmManager.setRepeating(
@@ -67,7 +68,7 @@ class RemindViewModel(application: Application): ViewModel() {
         }
     }
 
-    fun cancelRemindWaterNotify(context: Context) {
+    fun cancelRemindWaterNotify(context: Context, activity: Activity) {
         // Hủy bỏ tất cả 8 thông báo
         val times = arrayOf(6, 8, 10, 12, 14, 16, 18, 20)
         for (hour in times) {
@@ -79,17 +80,17 @@ class RemindViewModel(application: Application): ViewModel() {
                 PendingIntent.FLAG_MUTABLE
             )
             val alarmManager =
-                context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+                activity.getSystemService(Context.ALARM_SERVICE) as AlarmManager
             alarmManager.cancel(pendingIntent)
         }
     }
 
-    fun bookRemindFitnessNotify(context: Context) {
+    fun bookRemindFitnessNotify(context: Context, activity: Activity) {
         // Đặt lịch thông báo
         val calendar: Calendar = Calendar.getInstance().apply {
             timeInMillis = System.currentTimeMillis()
-            set(Calendar.HOUR_OF_DAY, 16)
-            set(Calendar.MINUTE, 30)
+            set(Calendar.HOUR_OF_DAY, 20)
+            set(Calendar.MINUTE, 52)
         }
 
         if (calendar.timeInMillis < System.currentTimeMillis()) {
@@ -107,7 +108,7 @@ class RemindViewModel(application: Application): ViewModel() {
         )
 
         val alarmManager =
-            context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            activity.getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
         // Đặt lịch thông báo lặp lại hàng ngày
         val interval = AlarmManager.INTERVAL_DAY
@@ -119,7 +120,7 @@ class RemindViewModel(application: Application): ViewModel() {
         )
     }
 
-    fun cancelRemindFitnessNotify(context: Context) {
+    fun cancelRemindFitnessNotify(context: Context, activity: Activity) {
         // Hủy bỏ thông báo
         val intent = Intent(context, NotifyRemindFitnessBR::class.java)
         val pendingIntent = PendingIntent.getBroadcast(
@@ -129,7 +130,7 @@ class RemindViewModel(application: Application): ViewModel() {
             PendingIntent.FLAG_MUTABLE
         )
         val alarmManager =
-            context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            activity.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         alarmManager.cancel(pendingIntent)
     }
 
