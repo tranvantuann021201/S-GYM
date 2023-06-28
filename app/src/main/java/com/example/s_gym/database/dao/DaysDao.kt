@@ -44,8 +44,6 @@ interface DaysDao {
 
     @Query("SELECT SUM(kcalConsumed) FROM days_roomdb_table")
     fun getTotalKcalConsumed(): LiveData<Double>
-
-
 }
 
 

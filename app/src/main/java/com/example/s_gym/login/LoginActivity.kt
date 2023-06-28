@@ -7,9 +7,14 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import com.example.s_gym.MainActivity
 import com.example.s_gym.R
+import com.example.s_gym.database.entity.FitnessBasic
+import com.example.s_gym.database.entity.Setting
 import com.example.s_gym.database.entity.User
 import com.example.s_gym.databinding.FragmentLoginBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
@@ -20,9 +25,10 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthCredential
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.GithubAuthProvider
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.FirebaseDatabase
+import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: FragmentLoginBinding
@@ -51,9 +57,6 @@ class LoginActivity : AppCompatActivity() {
         firebaseDatabase = FirebaseDatabase.getInstance()
 //        firebaseDatabase.setPersistenceEnabled(true)
         auth = FirebaseAuth.getInstance()
-        progressDialog = ProgressDialog(baseContext)
-        progressDialog.setTitle("Tạo tài khoản")
-        progressDialog.setMessage("Đang tạo tài khoản")
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(getString(R.string.default_web_client_id))
@@ -90,7 +93,54 @@ class LoginActivity : AppCompatActivity() {
                             user.photoUrl.toString()
                         )
                         firebaseDatabase.reference.child("User").child(user.uid).setValue(users)
+
                         viewModel.insertUser(users)
+                        viewModel.getSetting(user.uid).observe(this, Observer { setting ->
+                                if (setting == null) {
+                                    val settingSnapshot = firebaseDatabase.reference.child("Setting").child(user.uid).get()
+                                    if(settingSnapshot == null) {
+                                        firebaseDatabase.reference.child("Setting").child(user.uid)
+                                            .setValue(viewModel.settingDefault.copy(userId = user.uid))
+                                    }
+                                    settingSnapshot.addOnSuccessListener {
+                                        val setting = it.getValue(Setting::class.java)
+                                        viewModel.insertSetting(setting!!)
+                                    }
+                                }
+                        })
+                        lifecycleScope.launch {
+                            viewModel.allBasic(user.uid).observe(this@LoginActivity, Observer { fitnessBasics ->
+                                val fBDefaultSnapshot = firebaseDatabase.reference.child("FitnessBasic")
+                                    .child("default").get()
+                                val fBSnapshot =
+                                    firebaseDatabase.reference.child("FitnessBasic")
+                                        .child(user.uid).get()
+                                fBSnapshot.addOnSuccessListener { fBSnapShot ->
+                                    if (!fBSnapShot.exists() && fitnessBasics.isEmpty()) {
+                                        fBDefaultSnapshot.addOnSuccessListener {
+                                            for(fitnessBasicSS in it.children) {
+                                                val fitnessBasic = fitnessBasicSS.getValue(FitnessBasic::class.java)
+                                                if (fitnessBasic != null) {
+                                                    viewModel.insertFB(fitnessBasic.copy(userId = user.uid))
+                                                    firebaseDatabase.reference.child("FitnessBasic")
+                                                        .child(user.uid).child("${fitnessBasic.id}").setValue(fitnessBasic.copy(userId = user.uid))
+                                                }
+                                            }
+                                        }
+                                    }
+                                    else if (fBSnapShot.exists() && fitnessBasics.isEmpty()) {
+                                        fBDefaultSnapshot.addOnSuccessListener {
+                                            for(fitnessBasicSS in it.children) {
+                                                val fitnessBasic = fitnessBasicSS.getValue(FitnessBasic::class.java)
+                                                if (fitnessBasic != null) {
+                                                    viewModel.insertFB(fitnessBasic.copy(userId = user.uid))
+                                                 }
+                                            }
+                                        }
+                                    }
+                                }
+                            })
+                        }
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
                         intent.putExtra("userId", user.uid)
                         startActivity(intent)

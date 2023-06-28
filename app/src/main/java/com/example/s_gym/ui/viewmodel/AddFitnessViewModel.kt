@@ -25,7 +25,6 @@ import java.nio.charset.Charset
 class AddFitnessViewModel(application: Application): ViewModel() {
     private var fitnessRepository: FitnessAdvanceRepository = FitnessAdvanceRepository(application)
     private var fitnessBasicRepository: FitnessBasicRepository = FitnessBasicRepository(application)
-    var allBasic = fitnessBasicRepository.allFitnessBasics
     var exercisesList: MutableList<Exercises> = mutableListOf()
     var exerciseListJSON = listOf<Exercise>()
     val exercisesLiveData = MutableLiveData<List<Exercises>>()

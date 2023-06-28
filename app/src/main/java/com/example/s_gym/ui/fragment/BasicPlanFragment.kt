@@ -1,5 +1,6 @@
 package com.example.s_gym.ui.fragment
 
+import android.annotation.SuppressLint
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,12 +9,15 @@ import android.view.ViewGroup
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.s_gym.MainActivity
 import com.example.s_gym.database.entity.FitnessBasic
 import com.example.s_gym.ui.adapter.BasicPlanAdapter
 import com.example.s_gym.databinding.FragmentBasicPlanBinding
 import com.example.s_gym.ui.viewmodel.BasicPlanViewModel
+import kotlinx.coroutines.launch
 
 
 class BasicPlanFragment : Fragment() {
@@ -41,6 +45,7 @@ class BasicPlanFragment : Fragment() {
         return binding.root
     }
 
+    @SuppressLint("SuspiciousIndentation")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -55,15 +60,21 @@ class BasicPlanFragment : Fragment() {
         basicPlanAdapter = BasicPlanAdapter(emptyList())
         binding.rvBasicPlan.layoutManager = LinearLayoutManager(context)
         binding.rvBasicPlan.adapter = basicPlanAdapter
-        viewModel.allBasic.observe(viewLifecycleOwner) {
-            listBasicFitness = viewModel.getFitnessBasicFlowMonth(it)
-            basicPlanAdapter.setFitnessBasicList(listBasicFitness)
-            basicPlanAdapter.notifyDataSetChanged()
+        lifecycleScope.launch{
+            val user = MainActivity.currentFirebaseUser
+                viewModel.allBasic(user!!.uid).observe(viewLifecycleOwner) {
+                listBasicFitness = viewModel.getFitnessBasicFlowMonth(it)
+                basicPlanAdapter.setFitnessBasicList(listBasicFitness)
+                basicPlanAdapter.notifyDataSetChanged()
 
-            binding.txtLeftDate.text = "${viewModel.getLeftDay()} ngày còn lại"
+                binding.txtLeftDate.text = "${viewModel.getLeftDay(user!!.uid)} ngày còn lại"
 
-            binding.txtCompletedLevel.text = "${String.format("%.2f", viewModel.getCompletedLevel()*100)}%"
-            binding.progressBarPlan.progress = viewModel.getCompletedFitness()
+                binding.txtCompletedLevel.text = "${String.format("%.2f", viewModel.getCompletedLevel(user!!.uid)*100)}%"
+                binding.progressBarPlan.progress = viewModel.getCompletedFitness(user!!.uid)
+            }
+        }
+        binding.cvBackdrop.setOnClickListener {
+            viewModel.deleteAll()
         }
 
         basicPlanAdapter.setItemClickListener(object : onBasicPlanItemClickListener {

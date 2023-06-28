@@ -12,7 +12,7 @@ import com.example.s_gym.database.entity.*
 
 @Database(
     entities = [Exercises::class, Days::class, User::class, FitnessAdvance::class, FitnessBasic::class, Setting::class],
-    version = 9,
+    version = 11,
     exportSchema = false
 )
 
@@ -96,15 +96,43 @@ abstract class AppDatabase : RoomDatabase() {
                     }
                 }
 
+                val migration9to10 = object : Migration(9, 10) {
+                    override fun migrate(database: SupportSQLiteDatabase) {
+                        // Tạo bảng mới với cột userId
+                        database.execSQL(
+                            "CREATE TABLE new_fitness_basic_table (id INTEGER PRIMARY KEY NOT NULL, nameDay TEXT, isRestDay INTEGER NOT NULL, totalExercise INTEGER NOT NULL, exerciseCompleted INTEGER NOT NULL, exercise TEXT, userId TEXT NOT NULL, FOREIGN KEY(userId) REFERENCES user_roomdb_table(id) ON DELETE CASCADE)"
+                        )
+                        // Xóa bảng cũ
+                        database.execSQL("DROP TABLE fitness_basic_table")
+                        // Đổi tên bảng mới
+                        database.execSQL("ALTER TABLE new_fitness_basic_table RENAME TO fitness_basic_table")
+                    }
+                }
 
-                val instance = Room.databaseBuilder(
-                    context,
-                    AppDatabase::class.java,
-                    "app_database"
-                ).addMigrations(migration2to3, migration3to4, migration4to5, migration5to6, migration6to7, migration7to8, migration8to9).build()
-                INSTANCE = instance
-                return instance
+                val migration10to11 = object : Migration(10, 11) {
+                    override fun migrate(database: SupportSQLiteDatabase) {
+                        // Tạo bảng mới với cột userId
+                        database.execSQL(
+                            "CREATE TABLE new_fitness_basic_table (id INTEGER PRIMARY KEY NOT NULL, nameDay TEXT NOT NULL, isRestDay INTEGER NOT NULL, totalExercise INTEGER NOT NULL, exerciseCompleted INTEGER NOT NULL, exercise TEXT NOT NULL, userId TEXT NOT NULL, FOREIGN KEY(userId) REFERENCES user_roomdb_table(id) ON DELETE CASCADE)"
+                        )
+                        // Xóa bảng cũ
+                        database.execSQL("DROP TABLE fitness_basic_table")
+                        // Đổi tên bảng mới
+                        database.execSQL("ALTER TABLE new_fitness_basic_table RENAME TO fitness_basic_table")
+                    }
+                }
+
+                    val instance = Room.databaseBuilder(
+                        context,
+                        AppDatabase::class.java,
+                        "app_database"
+                    ).addMigrations(
+                        migration2to3, migration3to4, migration4to5, migration5to6,
+                        migration6to7, migration7to8, migration8to9, migration9to10, migration10to11
+                    ).build()
+                    INSTANCE = instance
+                    return instance
+                }
             }
         }
     }
-}

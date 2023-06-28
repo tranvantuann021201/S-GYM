@@ -29,7 +29,7 @@ class SettingRepository(context: Context) {
         return settingDao.getSettingsByUserId(userId)
     }
 
-    fun getFirstSetting(): Setting? {
-        return settingDao.getFirstSetting()
+    fun getAllSettings(): List<Setting> {
+        return settingDao.getAllSettings()
     }
 }

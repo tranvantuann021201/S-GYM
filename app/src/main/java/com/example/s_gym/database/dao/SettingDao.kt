@@ -19,6 +19,6 @@ interface SettingDao {
     @Query("SELECT * FROM setting_table WHERE userId = :userId")
     fun getSettingsByUserId(userId: String): LiveData<Setting>
 
-    @Query("SELECT * FROM setting_table LIMIT 1")
-    fun getFirstSetting(): Setting?
+    @Query("SELECT * FROM setting_table")
+    fun getAllSettings(): List<Setting>
 }

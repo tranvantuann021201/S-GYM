@@ -16,6 +16,9 @@ import com.example.s_gym.database.entity.Setting
 import com.example.s_gym.databinding.FragmentRemindBinding
 import com.example.s_gym.ui.viewmodel.RemindViewModel
 import com.example.s_gym.until.NotifyRemindFitnessBR
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.util.*
 
 /**

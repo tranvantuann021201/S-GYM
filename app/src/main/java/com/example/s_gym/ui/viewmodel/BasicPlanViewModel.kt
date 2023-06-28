@@ -29,8 +29,11 @@ class BasicPlanViewModel(application: Application) : ViewModel() {
     private val year = calendar.get(Calendar.YEAR)
     private val daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
     private val fitnessBasicRepository = FitnessBasicRepository(application)
-    val allBasic: LiveData<List<FitnessBasic>> = fitnessBasicRepository.allFitnessBasics
 
+
+    suspend fun allBasic(userId: String): LiveData<List<FitnessBasic>> {
+        return fitnessBasicRepository.allFitnessBasics(userId)
+    }
 
     @RequiresApi(Build.VERSION_CODES.O)
     val daysInRange = (1..daysInMonth).map { day ->
@@ -51,11 +54,11 @@ class BasicPlanViewModel(application: Application) : ViewModel() {
         }
     }
 
-    fun getLeftDay(): Int {
-        return getNumberOfDaysInCurrentMonth() - getCompletedFitness()
+    fun getLeftDay(userId: String): Int {
+        return getNumberOfDaysInCurrentMonth() - getCompletedFitness(userId)
     }
-    fun getCompletedLevel(): Double {
-        return getCompletedFitness() * 1.0 / getNumberOfDaysInCurrentMonth()
+    fun getCompletedLevel(userId: String): Double {
+        return getCompletedFitness(userId) * 1.0 / getNumberOfDaysInCurrentMonth()
     }
 
     fun getNumberOfDaysInCurrentMonth(): Int {
@@ -63,10 +66,10 @@ class BasicPlanViewModel(application: Application) : ViewModel() {
         return calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
     }
 
-    fun getCompletedFitness(): Int{
+    fun getCompletedFitness(userId: String): Int{
         var sum = 0
         viewModelScope.launch {
-            val allBasic = allBasic.value
+            val allBasic = allBasic(userId).value
             if(allBasic != null) {
                 for (basic in allBasic) {
                     if( (basic.exerciseCompleted/basic.totalExercise)*100.0 > 50) {
@@ -132,7 +135,8 @@ class BasicPlanViewModel(application: Application) : ViewModel() {
                     kcalCaloriesConsumed = exercise.kcalCaloriesConsumed,
                     animationMount = exercise.animationMount
                 )
-            }
+            },
+            userId = "default"
         )
     }
 

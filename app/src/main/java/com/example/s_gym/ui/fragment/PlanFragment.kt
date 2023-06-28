@@ -79,20 +79,6 @@ class PlanFragment : Fragment() {
                 binding.tabLayout.selectTab(binding.tabLayout.getTabAt(position))
             }
         })
-
-        viewModel.getSetting(FirebaseAuth.getInstance().currentUser!!.uid).observe(viewLifecycleOwner) { setting ->
-            if (setting == null) {
-                viewModel.insert(
-                    Setting(
-                        0, MainActivity.currentFirebaseUser!!.uid, 0,
-                        drinkMind = true,
-                        fitnessMind = true,
-                        fitnessMindTime = ""
-                    )
-                )
-            }
-        }
-
     }
 
     private fun scheduleDailyWorker() {

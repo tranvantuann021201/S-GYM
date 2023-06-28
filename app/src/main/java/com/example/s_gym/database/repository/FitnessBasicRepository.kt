@@ -13,15 +13,15 @@ import com.example.s_gym.database.entity.FitnessBasic
 
 class FitnessBasicRepository(application: Application) {
     private val fitnessBasicDao: FitnessBasicDao
-    private val readAllFitnessBasicData: LiveData<List<FitnessBasic>>
 
     init {
         val appDatabase: AppDatabase = AppDatabase.getInstance(application)
         fitnessBasicDao = appDatabase.fitnessBasicModeDao()
-        readAllFitnessBasicData = fitnessBasicDao.getAll()
     }
 
-    val allFitnessBasics: LiveData<List<FitnessBasic>> = fitnessBasicDao.getAll()
+    suspend fun allFitnessBasics(userId: String): LiveData<List<FitnessBasic>> {
+        return fitnessBasicDao.getAll(userId)
+    }
 
     suspend fun insert(fitnessBasic: FitnessBasic) {
         fitnessBasicDao.insert(fitnessBasic)

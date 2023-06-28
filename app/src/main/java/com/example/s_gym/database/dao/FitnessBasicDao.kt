@@ -13,8 +13,8 @@ interface FitnessBasicDao {
     @Update
     suspend fun update(fitnessBasic: FitnessBasic)
 
-    @Query("SELECT * FROM fitness_basic_table")
-    fun getAll(): LiveData<List<FitnessBasic>>
+    @Query("SELECT * FROM fitness_basic_table WHERE userId = :userId")
+    fun getAll(userId: String): LiveData<List<FitnessBasic>>
 
     @Query("SELECT * FROM fitness_basic_table WHERE id = :id")
     fun getById(id: Int): LiveData<FitnessBasic>

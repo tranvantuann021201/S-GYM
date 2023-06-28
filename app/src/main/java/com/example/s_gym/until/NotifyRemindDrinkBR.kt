@@ -15,7 +15,7 @@ import com.example.s_gym.R
 class NotifyRemindDrinkBR: BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         if (ContextCompat.checkSelfPermission(context, Manifest.permission.VIBRATE)
-            == PackageManager.PERMISSION_GRANTED
+            == PackageManager.PERMISSION_GRANTED && intent.action == "android.intent.action.BOOT_COMPLETED"
         ) {
             val intent = Intent(context, MainActivity::class.java)
             val pendingIntent = PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_MUTABLE)

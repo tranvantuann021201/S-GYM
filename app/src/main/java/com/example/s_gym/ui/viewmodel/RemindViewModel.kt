@@ -24,6 +24,10 @@ class RemindViewModel(application: Application): ViewModel() {
         return settingRepository.getSettingsByUserId(userId)
     }
 
+    fun getAllSettings(): List<Setting> {
+        return settingRepository.getAllSettings()
+    }
+
     fun updateSetting(setting: Setting) {
         viewModelScope.launch {
             settingRepository.update(setting)

@@ -19,19 +19,7 @@ class PlanViewModel(application: Application) : ViewModel() {
     private lateinit var viewPager2: ViewPager2
     private lateinit var pagerAdapter: FragmentPlanPagerAdapter
     private var daysRepository: DaysRepository = DaysRepository(application)
-    val yesterday = daysRepository.getYesterday()
     val latestDays = daysRepository.getLatestDay()
-    private var settingRepository: SettingRepository = SettingRepository(application)
-
-    fun insert(setting: Setting) {
-        viewModelScope.launch {
-            settingRepository.insert(setting)
-        }
-    }
-
-    fun getSetting(userId: String): LiveData<Setting> {
-        return settingRepository.getSettingsByUserId(userId)
-    }
 
     fun deletedDayByIDOption(){
         viewModelScope.launch {
