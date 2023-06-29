@@ -67,10 +67,10 @@ class BasicPlanFragment : Fragment() {
                 basicPlanAdapter.setFitnessBasicList(listBasicFitness)
                 basicPlanAdapter.notifyDataSetChanged()
 
-                binding.txtLeftDate.text = "${viewModel.getLeftDay(user!!.uid)} ngày còn lại"
+                binding.txtLeftDate.text = "${viewModel.getLeftDay(it)} ngày còn lại"
 
-                binding.txtCompletedLevel.text = "${String.format("%.2f", viewModel.getCompletedLevel(user!!.uid)*100)}%"
-                binding.progressBarPlan.progress = viewModel.getCompletedFitness(user!!.uid)
+                binding.txtCompletedLevel.text = "${String.format("%.2f", viewModel.getCompletedLevel(it)*100)}%"
+                binding.progressBarPlan.progress = viewModel.getCompletedFitness(it)
             }
         }
         binding.cvBackdrop.setOnClickListener {

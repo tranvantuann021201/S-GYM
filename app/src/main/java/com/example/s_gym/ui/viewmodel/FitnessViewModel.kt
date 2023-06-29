@@ -6,17 +6,21 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.example.s_gym.MainActivity
 import com.example.s_gym.database.entity.Exercises
 import com.example.s_gym.database.entity.FitnessBasic
 import com.example.s_gym.database.repository.DaysRepository
 import com.example.s_gym.database.repository.FitnessBasicRepository
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.launch
 
 class FitnessViewModel(application: Application) : ViewModel() {
-    val fitnessBasicRepository = FitnessBasicRepository(application)
+    private val fitnessBasicRepository = FitnessBasicRepository(application)
     var daysRepository = DaysRepository(application)
     val latestDay = daysRepository.getLatestDay()
     var fitnessBasic = MutableLiveData<FitnessBasic>()
+    var currentUser = MainActivity.currentFirebaseUser
+    var reference = MainActivity.firebaseDatabase.reference
     fun onBtnDoneClick(exercises: Exercises, fitnessBasic: FitnessBasic?) {
         updateCompletedExercise()
         updateKcalConsumed(exercises.kcalCaloriesConsumed)
@@ -29,6 +33,14 @@ class FitnessViewModel(application: Application) : ViewModel() {
         viewModelScope.launch {
             fitnessBasic.exerciseCompleted += 1
             fitnessBasicRepository.updateFitnessBasic(fitnessBasic)
+            reference.child("FitnessBasic").child(currentUser!!.uid).child(fitnessBasic.id.toString()).get()
+                .addOnSuccessListener {
+                    val updates = mapOf(
+                        "exerciseCompleted" to fitnessBasic.exerciseCompleted
+                    )
+                    reference.child("FitnessBasic").child(currentUser!!.uid)
+                        .child(fitnessBasic.id.toString()).updateChildren(updates)
+                }
         }
     }
 

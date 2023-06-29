@@ -54,11 +54,12 @@ class BasicPlanViewModel(application: Application) : ViewModel() {
         }
     }
 
-    fun getLeftDay(userId: String): Int {
-        return getNumberOfDaysInCurrentMonth() - getCompletedFitness(userId)
+    fun getLeftDay(fitnessBasicList: List<FitnessBasic>): Int {
+        return getNumberOfDaysInCurrentMonth() - getCompletedFitness(fitnessBasicList)
     }
-    fun getCompletedLevel(userId: String): Double {
-        return getCompletedFitness(userId) * 1.0 / getNumberOfDaysInCurrentMonth()
+
+    fun getCompletedLevel(fitnessBasicList: List<FitnessBasic>): Double {
+        return getCompletedFitness(fitnessBasicList) * 1.0 / getNumberOfDaysInCurrentMonth()
     }
 
     fun getNumberOfDaysInCurrentMonth(): Int {
@@ -66,16 +67,11 @@ class BasicPlanViewModel(application: Application) : ViewModel() {
         return calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
     }
 
-    fun getCompletedFitness(userId: String): Int{
+    fun getCompletedFitness(fitnessBasicList: List<FitnessBasic>): Int {
         var sum = 0
-        viewModelScope.launch {
-            val allBasic = allBasic(userId).value
-            if(allBasic != null) {
-                for (basic in allBasic) {
-                    if( (basic.exerciseCompleted/basic.totalExercise)*100.0 > 50) {
-                        sum += 1
-                    }
-                }
+        for (basic in fitnessBasicList) {
+            if ((basic.exerciseCompleted / basic.totalExercise) * 100.0 > 50) {
+                sum += 1
             }
         }
         return sum
