@@ -12,13 +12,17 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.s_gym.MainActivity
 import com.example.s_gym.R
 import com.example.s_gym.database.entity.FitnessAdvance
 import com.example.s_gym.databinding.FragmentAdvancedPlanBinding
 import com.example.s_gym.ui.adapter.AdvancePlanAdapter
 import com.example.s_gym.ui.dialog.NameMyExerciseDialogFragment
 import com.example.s_gym.ui.viewmodel.AdvancedPlanViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class AdvancedPlanFragment : Fragment() {
@@ -56,27 +60,34 @@ class AdvancedPlanFragment : Fragment() {
         }
 
         binding.addNewFitness.setOnClickListener {
-            val fitnessAdvance = FitnessAdvance(0, "name", false, 0, listOf())
+            val fitnessAdvance = FitnessAdvance(0, "name", listOf(), MainActivity.currentFirebaseUser!!.uid)
             lifecycleScope.launch {
                 val newId = viewModel.addFitnessAdvance(fitnessAdvance)
+                viewModel.addFitnessAdvanceToCloud(newId)
                 Log.e("=================FitnessAdvanceID", newId.toString())
                 val action = AdvancedPlanFragmentDirections.actionAdvancedPlanFragmentToAddFitnessFragment(fitnessAdvance.copy(id = newId.toInt()), "fromAdvancePlan")
                 findNavController().navigate(action)
             }
         }
-
-        advancePlanAdapter = AdvancePlanAdapter(emptyList())
+        var fitnessAdvanceList = emptyList<FitnessAdvance>()
+        advancePlanAdapter = AdvancePlanAdapter(fitnessAdvanceList)
         binding.rvAdvancedPlan.adapter = advancePlanAdapter
         binding.rvAdvancedPlan.layoutManager = LinearLayoutManager(requireContext())
 
-        viewModel.allFitness.observe(viewLifecycleOwner) { fitnessList ->
-            advancePlanAdapter.setFitnessAdvanceList(fitnessList)
-            advancePlanAdapter.notifyDataSetChanged()
+        CoroutineScope(Dispatchers.IO).launch {
+            val fitnessList = viewModel.readAllData(viewModel.currentUser!!.uid)
+            withContext(Dispatchers.Main) {
+                fitnessList.observe(viewLifecycleOwner) { fitnessList ->
+                    fitnessAdvanceList = fitnessList
+                    advancePlanAdapter.setFitnessAdvanceList(fitnessAdvanceList)
+                    advancePlanAdapter.notifyDataSetChanged()
+                }
+            }
         }
 
         advancePlanAdapter.setItemClickListener(object : onMoreIconClickListener {
             override fun onMoreIconClick(position: Int, view: View) {
-                val fitnessAdvance = viewModel.allFitness.value!![position]
+                val fitnessAdvance = fitnessAdvanceList[position]
                 val popupMenu = PopupMenu(view.context, view)
                 popupMenu.menuInflater.inflate(R.menu.more_in_item_advance_plan, popupMenu.menu)
                 popupMenu.setOnMenuItemClickListener { menuItem ->
@@ -88,6 +99,7 @@ class AdvancedPlanFragment : Fragment() {
                         }
                         R.id.delete -> {
                             viewModel.deleteFitnessAdvance(fitnessAdvance)
+
                             true
                         }
                         else -> false

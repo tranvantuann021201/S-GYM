@@ -2,25 +2,29 @@ package com.example.s_gym.ui.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*
+import com.example.s_gym.MainActivity
+import com.example.s_gym.database.entity.FitnessAdvance
 import com.example.s_gym.database.repository.FitnessAdvanceRepository
 import kotlinx.coroutines.launch
 
 class NameMyExercisesViewModel(application: Application): ViewModel() {
     private val _fitnessAdvanceName: MutableLiveData<String> = MutableLiveData()
-    val fitnessAdvanceName: MutableLiveData<String> = _fitnessAdvanceName
     private var fitnessRepository: FitnessAdvanceRepository = FitnessAdvanceRepository(application)
-    private val _rowCount = MutableLiveData<Int>()
-    val rowCount: LiveData<Int> = _rowCount
+    var currentUser = MainActivity.currentFirebaseUser
+    var reference = MainActivity.firebaseDatabase.reference
+    val fitnessAdvanceList: LiveData<List<FitnessAdvance>> = fitnessRepository.readAllData(currentUser!!.uid)
 
-    fun getRowCountFitnessAdvanceList() {
-        viewModelScope.launch {
-            val count = fitnessRepository.getRowCount()
-            _rowCount.value = count
-        }
-    }
     fun updateFitnessAdvanceName(id: Int, newName: String) {
         viewModelScope.launch {
             fitnessRepository.updateFitnessAdvanceName(id, newName)
+            reference.child("FitnessAdvance").child(currentUser!!.uid).child(id.toString()).get()
+                .addOnSuccessListener{
+                    val updates = mapOf(
+                        "name" to newName
+                    )
+                    reference.child("FitnessAdvance").child(currentUser!!.uid).
+                    child(id.toString()).updateChildren(updates)
+                }
             _fitnessAdvanceName.value = newName
         }
     }

@@ -129,12 +129,10 @@ class LoginActivity : AppCompatActivity() {
                                         }
                                     }
                                     else if (fBSnapShot.exists() && fitnessBasics.isEmpty()) {
-                                        fBDefaultSnapshot.addOnSuccessListener {
-                                            for(fitnessBasicSS in it.children) {
-                                                val fitnessBasic = fitnessBasicSS.getValue(FitnessBasic::class.java)
-                                                if (fitnessBasic != null) {
-                                                    viewModel.insertFB(fitnessBasic.copy(userId = user.uid))
-                                                 }
+                                        for(fitnessBasicSS in fBSnapShot.children) {
+                                            val fitnessBasic = fitnessBasicSS.getValue(FitnessBasic::class.java)
+                                            if (fitnessBasic != null) {
+                                                viewModel.insertFB(fitnessBasic.copy(userId = user.uid))
                                             }
                                         }
                                     }

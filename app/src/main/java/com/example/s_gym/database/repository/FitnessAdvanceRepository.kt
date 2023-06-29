@@ -10,12 +10,10 @@ import com.example.s_gym.database.entity.FitnessAdvance
 class FitnessAdvanceRepository(application: Application) {
 
     private val fitnessAdvanceDao: FitnessAdvanceDao
-    private val readAllFitnessAdvanceData: LiveData<List<FitnessAdvance>>
 
     init {
         val appDatabase: AppDatabase = AppDatabase.getInstance(application)
         fitnessAdvanceDao = appDatabase.fitnessAdvanceDao()
-        readAllFitnessAdvanceData = fitnessAdvanceDao.readAllData()
     }
 
     suspend fun addFitnessAdvance(fitnessAdvance: FitnessAdvance): Long {
@@ -47,8 +45,8 @@ class FitnessAdvanceRepository(application: Application) {
         return fitnessAdvanceDao.getRowCount()
     }
 
-    fun readAllData(): LiveData<List<FitnessAdvance>> {
-        return fitnessAdvanceDao.readAllData()
+    fun readAllData(useId: String): LiveData<List<FitnessAdvance>> {
+        return fitnessAdvanceDao.readAllData(useId)
     }
 
     suspend fun deleteEmptyFitnessAdvance() {

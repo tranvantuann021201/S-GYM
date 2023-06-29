@@ -46,4 +46,8 @@ class FitnessBasicRepository(application: Application) {
     suspend fun deleteAll() {
         fitnessBasicDao.deleteAllFromFitnessBasic()
     }
+
+    suspend fun fitnessBasicTrim() {
+        fitnessBasicDao.fitnessBasicTrim()
+    }
 }

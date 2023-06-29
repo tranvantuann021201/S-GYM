@@ -47,10 +47,9 @@ class NameMyExerciseDialogFragment() : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.btnSaveNameExercise.setOnClickListener {
             var fitnessAdvanceName = binding.edtNameMyExer.text.toString()
-            viewModel.getRowCountFitnessAdvanceList()
-            viewModel.rowCount.observe(viewLifecycleOwner) { count ->
+            viewModel.fitnessAdvanceList.observe(viewLifecycleOwner) { count ->
                     if (fitnessAdvanceName == "") {
-                    fitnessAdvanceName = "Bài tập số $count"
+                    fitnessAdvanceName = "Bài tập số ${count.size}"
                 }
                 viewModel.updateFitnessAdvanceName(fitnessAdvance.id, fitnessAdvanceName)
                 dialog?.cancel()

@@ -30,7 +30,6 @@ class BasicPlanViewModel(application: Application) : ViewModel() {
     private val daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH)
     private val fitnessBasicRepository = FitnessBasicRepository(application)
 
-
     suspend fun allBasic(userId: String): LiveData<List<FitnessBasic>> {
         return fitnessBasicRepository.allFitnessBasics(userId)
     }
@@ -70,14 +69,12 @@ class BasicPlanViewModel(application: Application) : ViewModel() {
     fun getCompletedFitness(fitnessBasicList: List<FitnessBasic>): Int {
         var sum = 0
         for (basic in fitnessBasicList) {
-            if ((basic.exerciseCompleted / basic.totalExercise) * 100.0 > 50) {
+            if ((basic.exerciseCompleted / basic.exercise.size) * 100.0 > 50) {
                 sum += 1
             }
         }
         return sum
     }
-
-
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun getFitnessDays(context: Context): List<FitnessDay> {
@@ -139,6 +136,12 @@ class BasicPlanViewModel(application: Application) : ViewModel() {
     fun deleteAll() {
         CoroutineScope(Dispatchers.IO).launch {
             fitnessBasicRepository.deleteAll()
+        }
+    }
+
+    fun fitnessBasicTrim() {
+        CoroutineScope(Dispatchers.IO).launch {
+            fitnessBasicRepository.fitnessBasicTrim()
         }
     }
 

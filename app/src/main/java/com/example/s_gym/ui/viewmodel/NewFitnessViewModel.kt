@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.ContentValues.TAG
 import android.util.Log
 import androidx.lifecycle.*
+import com.example.s_gym.MainActivity
 import com.example.s_gym.database.entity.Exercises
 import com.example.s_gym.database.entity.FitnessAdvance
 import com.example.s_gym.database.repository.FitnessAdvanceRepository
@@ -14,6 +15,8 @@ class NewFitnessViewModel(application: Application) : ViewModel() {
     val exercisesList = MutableLiveData<List<Exercises>>()
     val fitnessAdvanceLiveData = MutableLiveData<FitnessAdvance>()
     private var fitnessRepository: FitnessAdvanceRepository = FitnessAdvanceRepository(application)
+    var currentUser = MainActivity.currentFirebaseUser
+    var reference = MainActivity.firebaseDatabase.reference
 
     fun updateExercisesList(newExercisesList: List<Exercises>, fitnessAdvanceId: Int) {
         val fitnessAdvance = fitnessAdvanceLiveData.value ?: return
@@ -25,6 +28,7 @@ class NewFitnessViewModel(application: Application) : ViewModel() {
                 Log.e("=========", "updateExercisesList: ${fitnessAdvance.exercisesList.size}")
                 fitnessRepository.updateFitnessAdvance(fitnessAdvance)
             }
+            updateExerciseListOnCloud(newExercisesList, fitnessAdvanceId)
         }
     }
 
@@ -36,9 +40,9 @@ class NewFitnessViewModel(application: Application) : ViewModel() {
             viewModelScope.launch {
                 fitnessRepository.updateFitnessAdvance(fitnessAdvance)
             }
+            updateExerciseListOnCloud(newExercisesList, fitnessAdvanceId)
         }
     }
-
 
     fun removeExerciseFromList(exercise: Exercises, fitnessAdvanceId: Int) {
         val fitnessAdvance = fitnessAdvanceLiveData.value ?: return
@@ -50,10 +54,21 @@ class NewFitnessViewModel(application: Application) : ViewModel() {
             viewModelScope.launch {
                 fitnessRepository.updateFitnessAdvance(fitnessAdvance)
             }
+            updateExerciseListOnCloud(mutableList, fitnessAdvanceId)
         }
     }
 
-
+    private fun updateExerciseListOnCloud(newExercisesList: List<Exercises>, fitnessAdvanceId: Int) {
+        reference.child("FitnessAdvance").child(currentUser!!.uid)
+            .child(fitnessAdvanceId.toString()).get()
+            .addOnSuccessListener{
+                val updates = mapOf(
+                    "exerciseList" to newExercisesList
+                )
+                reference.child("FitnessAdvance").child(currentUser!!.uid).
+                child(fitnessAdvanceId.toString()).updateChildren(updates)
+            }
+    }
     class NewFitnessViewModelFactory(private val application: Application) :
         ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {

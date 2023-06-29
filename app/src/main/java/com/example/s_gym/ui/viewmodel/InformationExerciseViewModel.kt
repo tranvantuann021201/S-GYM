@@ -7,11 +7,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.example.s_gym.MainActivity
 import com.example.s_gym.api.Exercise
 import com.example.s_gym.database.dao.FitnessAdvanceDao
 import com.example.s_gym.database.entity.Exercises
 import com.example.s_gym.database.entity.FitnessAdvance
 import com.example.s_gym.database.repository.FitnessAdvanceRepository
+import com.google.firebase.database.GenericTypeIndicator
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
@@ -19,10 +22,21 @@ import kotlinx.coroutines.launch
 class InformationExerciseViewModel(application: Application): ViewModel() {
     private var fitnessRepository: FitnessAdvanceRepository = FitnessAdvanceRepository(application)
     val exerciseAmount = MutableLiveData<Int>()
+    var currentUser = MainActivity.currentFirebaseUser
+    var reference = MainActivity.firebaseDatabase.reference
 
-    fun addExerciseToFitnessAdvance(fitnessAdvanceId: Int, exercises: Exercises) {
-        viewModelScope.launch {
+    fun addExerciseToFitnessAdvance(fitnessAdvanceId: Int, exercises: Exercises, exerciseList: List<Exercises>) {
+        CoroutineScope(Dispatchers.IO).launch {
             fitnessRepository.addExerciseToFitnessAdvance(fitnessAdvanceId, exercises)
+            reference.child("FitnessAdvance").child(currentUser!!.uid).
+            child(fitnessAdvanceId.toString()).child("exercisesList").get()
+                .addOnSuccessListener {
+                    val updates = mapOf(
+                        "exerciseList" to exerciseList
+                    )
+                    reference.child("FitnessAdvance").child(currentUser!!.uid).
+                    child(fitnessAdvanceId.toString()).updateChildren(updates)
+                }
         }
     }
 

@@ -25,6 +25,8 @@ interface FitnessBasicDao {
     @Query("DELETE FROM fitness_basic_table")
     suspend fun deleteAllFromFitnessBasic()
 
+    @Query("DELETE FROM fitness_basic_table WHERE id > 31")
+    suspend fun fitnessBasicTrim()
     @Delete
     suspend fun delete(fitnessBasicMode: FitnessBasic)
 }

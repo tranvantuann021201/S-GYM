@@ -19,8 +19,8 @@ interface FitnessAdvanceDao {
     @Query("DELETE FROM fitness_advanced_roomdb_table WHERE exercisesList = '[]'")
     suspend fun deleteFitnessAdvanceWithWhere()
 
-    @Query("SELECT * FROM fitness_advanced_roomdb_table ORDER BY id ASC")
-    fun readAllData(): LiveData<List<FitnessAdvance>>
+    @Query("SELECT * FROM fitness_advanced_roomdb_table WHERE userId = :userId ORDER BY id ASC")
+    fun readAllData(userId: String): LiveData<List<FitnessAdvance>>
 
     @Query("DELETE FROM fitness_advanced_roomdb_table")
     suspend fun deleteAllFromFitnessAdvance()

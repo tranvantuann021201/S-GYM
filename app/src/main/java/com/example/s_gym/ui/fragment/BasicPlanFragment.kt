@@ -49,11 +49,11 @@ class BasicPlanFragment : Fragment() {
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.fitnessBasicTrim()
 
 //        for(day in fitnessDays) {
 //            viewModel.copyFitnessDayToBasic(day)
 //        }
-
         binding.progressBarPlan.max = viewModel.getNumberOfDaysInCurrentMonth()
 
         var listBasicFitness = emptyList<FitnessBasic>()

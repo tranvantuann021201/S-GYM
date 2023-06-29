@@ -82,7 +82,7 @@ class InformationExerciseDialogFragment : DialogFragment() {
 
             viewModel.addExerciseToFitnessAdvance(
                 args.argsFitnessAdvance.id,
-                exercises.copy(animationMount = animationMount)
+                exercises.copy(animationMount = animationMount), exercisesList
             )
 
             val newFitnessAdvance = args.argsFitnessAdvance.copy(exercisesList = exercisesList)
