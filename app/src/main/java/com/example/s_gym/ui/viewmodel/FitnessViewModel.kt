@@ -17,10 +17,11 @@ import kotlinx.coroutines.launch
 class FitnessViewModel(application: Application) : ViewModel() {
     private val fitnessBasicRepository = FitnessBasicRepository(application)
     var daysRepository = DaysRepository(application)
-    val latestDay = daysRepository.getLatestDay()
     var fitnessBasic = MutableLiveData<FitnessBasic>()
     var currentUser = MainActivity.currentFirebaseUser
     var reference = MainActivity.firebaseDatabase.reference
+    val latestDay = daysRepository.getLatestDay(currentUser!!.uid)
+
     fun onBtnDoneClick(exercises: Exercises, fitnessBasic: FitnessBasic?) {
         updateCompletedExercise()
         updateKcalConsumed(exercises.kcalCaloriesConsumed)
@@ -33,7 +34,8 @@ class FitnessViewModel(application: Application) : ViewModel() {
         viewModelScope.launch {
             fitnessBasic.exerciseCompleted += 1
             fitnessBasicRepository.updateFitnessBasic(fitnessBasic)
-            reference.child("FitnessBasic").child(currentUser!!.uid).child(fitnessBasic.id.toString()).get()
+            reference.child("FitnessBasic").child(currentUser!!.uid)
+                .child(fitnessBasic.id.toString()).get()
                 .addOnSuccessListener {
                     val updates = mapOf(
                         "exerciseCompleted" to fitnessBasic.exerciseCompleted
@@ -46,21 +48,23 @@ class FitnessViewModel(application: Application) : ViewModel() {
 
     private fun updateCompletedExercise() {
         val latestDay = latestDay.value
-        viewModelScope.launch {
-            latestDay?.let {
-                it.completedExercise += 1
-                daysRepository.updateDay(it)
+        if (latestDay != null) {
+            viewModelScope.launch {
+                latestDay.completedExercise += 1
+                daysRepository.updateDay(latestDay)
             }
+            reference.child("Days").child(currentUser!!.uid).child(latestDay.name).setValue(latestDay)
         }
     }
 
-
     private fun updateKcalConsumed(kcalCaloriesConsumed: Double) {
         val latestDay = latestDay.value
-        viewModelScope.launch {
-            latestDay?.let {
-                it.kcalConsumed += kcalCaloriesConsumed
-                daysRepository.updateDay(it)
+        if (latestDay != null) {
+            viewModelScope.launch {
+                latestDay.kcalConsumed += kcalCaloriesConsumed
+                daysRepository.updateDay(latestDay)
+                }
+            reference.child("Days").child(currentUser!!.uid).child(latestDay.name).setValue(latestDay)
             }
         }
     }
@@ -76,5 +80,3 @@ class FitnessViewModel(application: Application) : ViewModel() {
             throw IllegalAccessException("Unable construct viewModel")
         }
     }
-
-}

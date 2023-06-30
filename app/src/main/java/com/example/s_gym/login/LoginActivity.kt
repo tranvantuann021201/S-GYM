@@ -96,15 +96,17 @@ class LoginActivity : AppCompatActivity() {
 
                         viewModel.insertUser(users)
                         viewModel.getSetting(user.uid).observe(this, Observer { setting ->
-                                if (setting == null) {
-                                    val settingSnapshot = firebaseDatabase.reference.child("Setting").child(user.uid).get()
-                                    if(settingSnapshot == null) {
-                                        firebaseDatabase.reference.child("Setting").child(user.uid)
-                                            .setValue(viewModel.settingDefault.copy(userId = user.uid))
-                                    }
+                            val settingSnapshot = firebaseDatabase.reference.child("Setting").child(user.uid).get()
+                            if (setting == null) {
                                     settingSnapshot.addOnSuccessListener {
-                                        val setting = it.getValue(Setting::class.java)
-                                        viewModel.insertSetting(setting!!)
+                                        if (!it.exists()) {
+                                            firebaseDatabase.reference.child("Setting").child(user.uid)
+                                                .setValue(viewModel.settingDefault.copy(userId = user.uid))
+                                        }
+                                        else {
+                                            val setting = it.getValue(Setting::class.java)
+                                            viewModel.insertSetting(setting!!)
+                                        }
                                     }
                                 }
                         })
@@ -139,6 +141,19 @@ class LoginActivity : AppCompatActivity() {
                                 }
                             })
                         }
+
+                        viewModel.getListDay(user.uid).observe(this, Observer {
+                            val listDayCloud = firebaseDatabase.reference.child("Days").child(user.uid).get()
+                            listDayCloud.addOnSuccessListener { listDaySS ->
+                                if (!listDaySS.exists() && it.isEmpty()) {
+                                    viewModel.insertDefaultDay(user,firebaseDatabase.reference)
+                                }
+                                else if (listDaySS.exists() && it.isEmpty()) {
+                                    viewModel.insertListDay(user,firebaseDatabase.reference, listDaySS)
+                                }
+                            }
+                        })
+
                         val intent = Intent(this@LoginActivity, MainActivity::class.java)
                         intent.putExtra("userId", user.uid)
                         startActivity(intent)

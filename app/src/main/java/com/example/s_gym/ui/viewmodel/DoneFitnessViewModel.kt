@@ -2,16 +2,17 @@ package com.example.s_gym.ui.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*
+import com.example.s_gym.MainActivity
 import com.example.s_gym.database.entity.Days
 import com.example.s_gym.database.repository.DaysRepository
 import kotlinx.coroutines.launch
 
 class DoneFitnessViewModel(application: Application): ViewModel() {
     private var daysRepository: DaysRepository = DaysRepository(application)
-    val getAllDays: LiveData<List<Days>> = daysRepository.getAllDays()
     val newWeight = MutableLiveData<Double>()
-    val latestDay = daysRepository.getLatestDay()
-
+    val currentUser = MainActivity.currentFirebaseUser
+    val latestDay = daysRepository.getLatestDay(currentUser!!.uid)
+    val getAllDays: LiveData<List<Days>> = daysRepository.getAllDays(currentUser!!.uid)
 
     fun updateWeight(newWeight: Double) {
         viewModelScope.launch {

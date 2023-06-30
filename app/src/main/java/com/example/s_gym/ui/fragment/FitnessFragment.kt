@@ -37,7 +37,6 @@ class FitnessFragment : Fragment() {
         super.onCreate(savedInstanceState)
         viewModelFactory = FitnessViewModel.FitnessViewModelFactory(requireActivity().application)
         viewModel = ViewModelProvider(this, viewModelFactory)[FitnessViewModel::class.java]
-
     }
 
     override fun onCreateView(

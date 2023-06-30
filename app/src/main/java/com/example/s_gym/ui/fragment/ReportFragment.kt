@@ -110,7 +110,6 @@ class ReportFragment : Fragment() {
         viewModel.newWeight.observe(viewLifecycleOwner) { newWeight ->
             if (newWeight != null) {
                 viewModel.updateWeight(newWeight)
-
             }
         }
 

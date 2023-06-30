@@ -4,12 +4,14 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.s_gym.MainActivity
 import com.example.s_gym.database.entity.Days
 import com.example.s_gym.database.repository.DaysRepository
 
 class HistoryViewModel(application: Application): ViewModel() {
     private var daysRepository: DaysRepository = DaysRepository(application)
-    val getAllDays: LiveData<List<Days>> = daysRepository.getAllDays()
+    val currentUser = MainActivity.currentFirebaseUser
+    val getAllDays: LiveData<List<Days>> = daysRepository.getAllDays(currentUser!!.uid)
 
     class HistoryViewModelFactory(private val application: Application): ViewModelProvider.Factory{
         override fun <T : ViewModel> create(modelClass: Class<T>): T {

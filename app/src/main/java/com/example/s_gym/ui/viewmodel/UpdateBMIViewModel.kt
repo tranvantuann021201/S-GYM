@@ -4,12 +4,16 @@ import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
+import com.example.s_gym.MainActivity
+import com.example.s_gym.database.entity.Days
 import com.example.s_gym.database.repository.DaysRepository
 import kotlinx.coroutines.launch
 
 class UpdateBMIViewModel(application: Application): ViewModel() {
     private var daysRepository: DaysRepository = DaysRepository(application)
-    val latestDay = daysRepository.getLatestDay()
+    val currentUser = MainActivity.currentFirebaseUser
+    val latestDay = daysRepository.getLatestDay(currentUser!!.uid)
+    val reference = MainActivity.firebaseDatabase.reference
 
     fun updateLatestDay(weight: Double?, height: Double?) {
         viewModelScope.launch {
@@ -23,9 +27,11 @@ class UpdateBMIViewModel(application: Application): ViewModel() {
                 }
                 latestDay.currentBMI = calculateBMI(latestDay.weight, latestDay.height)
                 daysRepository.updateDay(latestDay)
+                reference.child("Days").child(currentUser!!.uid).child(latestDay.name).setValue(latestDay)
             }
         }
     }
+
 
     private fun calculateBMI(weight: Double?, height: Double?): Double {
         val heightInMeters = height!! / 100.0

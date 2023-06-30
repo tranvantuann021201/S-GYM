@@ -2,15 +2,18 @@ package com.example.s_gym.ui.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.*
+import com.example.s_gym.MainActivity
 import com.example.s_gym.database.entity.Days
 import com.example.s_gym.database.repository.DaysRepository
 import kotlinx.coroutines.launch
 
 class ReportViewModel(application: Application): ViewModel() {
     private var daysRepository: DaysRepository = DaysRepository(application)
-    val getAllDays: LiveData<List<Days>> = daysRepository.getAllDays()
     val newWeight = MutableLiveData<Double>()
-    val latestDay = daysRepository.getLatestDay()
+    var currentUser = MainActivity.currentFirebaseUser
+    val reference = MainActivity.firebaseDatabase.reference
+    val getAllDays: LiveData<List<Days>> = daysRepository.getAllDays(currentUser!!.uid)
+    val latestDay = daysRepository.getLatestDay(currentUser!!.uid)
 
     fun increaseDrink() {
         val latestDay = latestDay.value
@@ -19,7 +22,12 @@ class ReportViewModel(application: Application): ViewModel() {
             viewModelScope.launch {
                 daysRepository.updateDay(latestDay)
             }
+            updateLatestDayCloud(latestDay)
         }
+    }
+
+    private fun updateLatestDayCloud(day: Days) {
+        reference.child("Days").child(currentUser!!.uid).child(day.name).setValue(day)
     }
 
     fun updateWeight(newWeight: Double) {
@@ -29,6 +37,7 @@ class ReportViewModel(application: Application): ViewModel() {
                 latestDay.weight = newWeight
                 latestDay.currentBMI = calculateBMI(latestDay.weight, latestDay.height)
                 daysRepository.updateDay(latestDay)
+                updateLatestDayCloud(latestDay)
             }
         }
     }

@@ -15,8 +15,8 @@ interface DaysDao {
     @Delete
     suspend fun deleteDay(day: Days)
 
-    @Query("SELECT * FROM days_roomdb_table ORDER BY id DESC LIMIT 1")
-    fun getLatestDay(): LiveData<Days>
+    @Query("SELECT * FROM days_roomdb_table WHERE userId = :userId ORDER BY id DESC LIMIT 1")
+    fun getLatestDay(userId: String): LiveData<Days>
 
     @Query("SELECT * FROM days_roomdb_table ORDER BY id DESC LIMIT 1 OFFSET 1")
     fun getYesterday(): LiveData<Days>
@@ -24,8 +24,8 @@ interface DaysDao {
     @Query("DELETE FROM days_roomdb_table")
     suspend fun deleteAllFromDays()
 
-    @Query("SELECT * FROM days_roomdb_table ORDER BY id ASC")
-    fun readAllData(): LiveData<List<Days>>
+    @Query("SELECT * FROM days_roomdb_table WHERE userId = :userId ORDER BY id ASC")
+    fun readAllData(userId: String): LiveData<List<Days>>
 
     @Query("UPDATE days_roomdb_table SET weight = :newWeight WHERE id = (SELECT MAX(id) FROM days_roomdb_table)")
     suspend fun updateWeight(newWeight: Double)

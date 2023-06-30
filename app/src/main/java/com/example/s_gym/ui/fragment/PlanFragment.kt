@@ -49,7 +49,7 @@ class PlanFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+//        viewModel.getDayListDefault()
         scheduleDailyWorker()
 
         val pagerAdapter = FragmentPlanPagerAdapter(childFragmentManager, lifecycle)
@@ -88,7 +88,7 @@ class PlanFragment : Fragment() {
 
 //        WorkManager.getInstance(requireContext()).cancelAllWork()
 
-        viewModel.latestDays.observe(viewLifecycleOwner){ latestDays ->
+        viewModel.latestDays().observe(viewLifecycleOwner){ latestDays ->
             val daysData = workDataOf("days" to Gson().toJson(latestDays))
 
             val dailyWorkRequest = PeriodicWorkRequestBuilder<DailyWorker>(1, TimeUnit.DAYS)
