@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.example.s_gym.R
 import com.example.s_gym.databinding.FragmentMyProfileBinding
 import com.example.s_gym.ui.viewmodel.MyProfileViewModel
@@ -39,7 +40,9 @@ class MyProfileFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
+        binding.btnBack.setOnClickListener {
+            findNavController().popBackStack()
+        }
 
         viewModel.selectedDate.observe(viewLifecycleOwner) { date ->
             // Cập nhật giao diện người dùng với ngày được chọn

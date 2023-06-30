@@ -43,7 +43,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.plan -> {
                     navController.popBackStack(R.id.planFragment, false)
                     navController.navigate(R.id.planFragment)
-                    Toast.makeText(this, "PlanFragment", Toast.LENGTH_SHORT).show()
                     true
                 }
                 R.id.report -> {

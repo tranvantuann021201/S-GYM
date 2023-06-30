@@ -66,7 +66,7 @@ class HistoryFragment : Fragment() {
         }
 
         binding.btnBack.setOnClickListener {
-            findNavController().popBackStack()
+            findNavController().navigate(R.id.action_historyFragment_to_reportFragment)
         }
     }
 }
