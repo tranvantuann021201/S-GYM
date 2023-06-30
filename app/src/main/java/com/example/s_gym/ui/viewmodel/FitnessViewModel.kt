@@ -65,11 +65,8 @@ class FitnessViewModel(application: Application) : ViewModel() {
                 daysRepository.updateDay(latestDay)
                 }
             reference.child("Days").child(currentUser!!.uid).child(latestDay.name).setValue(latestDay)
-            }
         }
     }
-
-
     class FitnessViewModelFactory(private val application: Application) :
         ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -80,3 +77,4 @@ class FitnessViewModel(application: Application) : ViewModel() {
             throw IllegalAccessException("Unable construct viewModel")
         }
     }
+}
