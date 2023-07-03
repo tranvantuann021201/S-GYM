@@ -88,7 +88,7 @@ class ReportFragment : Fragment() {
             if (days != null) {
                 binding.txtWaterDrunk.text = days.drunk.toString()
                 binding.drinkProgressBar.progress = days.drunk.toFloat()
-                binding.edtWeight.hint = viewModel.latestDay.value?.weight.toString()
+                binding.edtWeight.hint = days.weight.toString()
 
                 binding.bmiChart.setProgressBar(binding.bmiProgressBar)
                 setLinearGauge(linearGauge, days)
@@ -177,10 +177,6 @@ class ReportFragment : Fragment() {
             lineData = LineData(lineChart(daysData))
             binding.weightChart.data = lineData
             binding.weightChart.invalidate()
-//            val dataCount = lineData.entryCount
-//            val visibleCount = 5
-//            binding.weightChart.setVisibleXRangeMaximum(visibleCount.toFloat())
-//            binding.weightChart.moveViewToX((dataCount - visibleCount).toFloat())
         }
 
         binding.txtSupport.setOnClickListener {

@@ -2,12 +2,10 @@ package com.example.s_gym.database.repository
 
 import android.content.Context
 import androidx.lifecycle.LiveData
-import com.example.s_gym.MainActivity
 import com.example.s_gym.database.AppDatabase
 import com.example.s_gym.database.dao.DaysDao
 import com.example.s_gym.database.entity.Days
 import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -60,13 +58,13 @@ class DaysRepository(context: Context) {
         return daysDao.getTotalKcalConsumed()
     }
 
-    suspend fun deletedDayByIDOption() {
-        daysDao.deletedDayByIDOption()
+    suspend fun deletedDayWhereId(id: Int) {
+        daysDao.deletedDayWhereId(id)
     }
 
     suspend fun addNewDay(lastDay: Days, reference: DatabaseReference, userId: String) {
 //        val lastDay = daysDao.getLatestDayForAddNew()
-        val dateFormat = SimpleDateFormat("MM-dd-yyyy", Locale.getDefault())
+        val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
         val currentDate = dateFormat.format(Date())
         if (lastDay == null) {
             val newDay = Days(
