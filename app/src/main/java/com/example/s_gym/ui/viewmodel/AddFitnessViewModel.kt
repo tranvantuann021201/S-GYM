@@ -37,9 +37,7 @@ class AddFitnessViewModel(application: Application): ViewModel() {
                     Log.e("MyViewModel", "dataSnapshot size: ${dataSnapshot.childrenCount}")
                     val exercises = mutableListOf<Exercises>()
                     for (exerciseSnapshot in dataSnapshot.children) {
-                        Log.e("MyViewModel", "exerciseSnapshot: ${exerciseSnapshot.toString()}")
                         val exercise = exerciseSnapshot.getValue(Exercises::class.java)
-                        Log.e("MyViewModel", "exercise: ${exercise.toString()}")
                         exercise?.let { exercises.add(it) }
                     }
                     Log.e("MyViewModel", "exercises size: ${exercises.size}")

@@ -66,7 +66,7 @@ class DaysRepository(context: Context) {
 
     suspend fun addNewDay(lastDay: Days, reference: DatabaseReference, userId: String) {
 //        val lastDay = daysDao.getLatestDayForAddNew()
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val dateFormat = SimpleDateFormat("MM-dd-yyyy", Locale.getDefault())
         val currentDate = dateFormat.format(Date())
         if (lastDay == null) {
             val newDay = Days(
@@ -82,6 +82,7 @@ class DaysRepository(context: Context) {
                 userId = "default"
             )
             daysDao.insertDay(newDay)
+            reference.child("Days").child(userId).child(newDay.name).setValue(newDay)
         }
         else {
             val newDay = Days(
@@ -98,7 +99,6 @@ class DaysRepository(context: Context) {
             )
             daysDao.insertDay(newDay)
             reference.child("Days").child(userId).child(newDay.name).setValue(newDay)
-
         }
     }
 

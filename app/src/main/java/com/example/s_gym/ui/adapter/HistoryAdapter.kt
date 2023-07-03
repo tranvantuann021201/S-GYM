@@ -13,7 +13,7 @@ class HistoryAdapter(var daysList: List<Days>) :
         RecyclerView.ViewHolder(itemBinding.root) {
         fun bindItem(days: Days) {
             val dateString = days.name
-            val dateFormat = SimpleDateFormat("yyyy-MM-dd")
+            val dateFormat = SimpleDateFormat("dd-MM-yyyy")
             val date = dateFormat.parse(dateString)
             val newFormat = SimpleDateFormat("dd MMM")
             val newDateString = newFormat.format(date)

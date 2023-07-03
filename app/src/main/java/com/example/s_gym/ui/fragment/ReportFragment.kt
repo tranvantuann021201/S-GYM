@@ -221,7 +221,7 @@ class ReportFragment : Fragment() {
     }
 
     private fun convertDateToFloat(dateString: String): Float {
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        val dateFormat = SimpleDateFormat("dd-MM-yyyy", Locale.getDefault())
         val date = dateFormat.parse(dateString)
         return date.time.toFloat()
     }
