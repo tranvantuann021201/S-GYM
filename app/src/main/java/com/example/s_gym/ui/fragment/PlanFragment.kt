@@ -12,12 +12,14 @@ import androidx.work.*
 import com.example.s_gym.MainActivity
 import com.example.s_gym.ui.adapter.FragmentPlanPagerAdapter
 import com.example.s_gym.R
+import com.example.s_gym.database.entity.Days
 import com.example.s_gym.database.entity.Setting
 import com.example.s_gym.databinding.FragmentPlanBinding
 import com.example.s_gym.ui.viewmodel.PlanViewModel
 import com.example.s_gym.until.DailyWorker
 import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.ktx.Firebase
 import com.google.gson.Gson
 import java.util.*
@@ -32,9 +34,10 @@ class PlanFragment : Fragment() {
     private lateinit var binding: FragmentPlanBinding
     private lateinit var viewModelFactory: PlanViewModel.PlanViewModelFactory
     private lateinit var viewModel: PlanViewModel
-
+    private lateinit var currentUser: FirebaseUser
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        initCurrentUser()
         viewModelFactory = PlanViewModel.PlanViewModelFactory(requireActivity().application)
         viewModel = ViewModelProvider(this, viewModelFactory)[PlanViewModel::class.java]
     }
@@ -49,8 +52,10 @@ class PlanFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        viewModel.getDayListDefault()
-        scheduleDailyWorker()
+//        viewModel.deletedDayWhereId(11)
+        viewModel.latestDays().observe(viewLifecycleOwner) {
+            scheduleDailyWorker(it)
+        }
 
         val pagerAdapter = FragmentPlanPagerAdapter(childFragmentManager, lifecycle)
         viewModel.init(binding.tabLayout, binding.viewPager2, pagerAdapter)
@@ -81,28 +86,26 @@ class PlanFragment : Fragment() {
         })
     }
 
-    private fun scheduleDailyWorker() {
+    private fun scheduleDailyWorker(latestDays: Days) {
         val constraints = Constraints.Builder()
             .setRequiresBatteryNotLow(false)
             .build()
 
 //        WorkManager.getInstance(requireContext()).cancelAllWork()
 
-        viewModel.latestDays().observe(viewLifecycleOwner){ latestDays ->
-            val daysData = workDataOf("days" to Gson().toJson(latestDays))
+        val daysData = workDataOf("days" to Gson().toJson(latestDays))
 
-            val dailyWorkRequest = PeriodicWorkRequestBuilder<DailyWorker>(1, TimeUnit.DAYS)
-                .setInitialDelay(calculateInitialDelay(), TimeUnit.MILLISECONDS)
-                .setConstraints(constraints)
-                .setInputData(daysData)
-                .build()
+        val dailyWorkRequest = PeriodicWorkRequestBuilder<DailyWorker>(1, TimeUnit.DAYS)
+            .setInitialDelay(calculateInitialDelay(), TimeUnit.MILLISECONDS)
+            .setConstraints(constraints)
+            .setInputData(daysData)
+            .build()
 
-            WorkManager.getInstance(requireContext()).enqueueUniquePeriodicWork(
-                "dailyWork",
+        WorkManager.getInstance(requireContext()).enqueueUniquePeriodicWork(
+            "dailyWork",
                 ExistingPeriodicWorkPolicy.KEEP,
                 dailyWorkRequest
             )
-        }
     }
 
     private fun calculateInitialDelay(): Long {
@@ -120,5 +123,8 @@ class PlanFragment : Fragment() {
         Log.e("calculateInitialDelay", "calculateInitialDelay: $calculateInitialDelay")
         //last id = 64, has yet removed
         return initialDelay
+    }
+    private fun initCurrentUser() {
+        MainActivity.currentFirebaseUser = FirebaseAuth.getInstance().currentUser
     }
 }

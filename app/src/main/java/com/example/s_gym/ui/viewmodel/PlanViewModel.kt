@@ -16,6 +16,7 @@ import com.example.s_gym.database.repository.DaysRepository
 import com.example.s_gym.database.repository.SettingRepository
 import com.example.s_gym.ui.adapter.FragmentPlanPagerAdapter
 import com.google.android.material.tabs.TabLayout
+import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -32,11 +33,17 @@ class PlanViewModel(application: Application) : ViewModel() {
     var reference = MainActivity.firebaseDatabase.reference
 
     fun latestDays(): LiveData<Days> {
-        return if(currentUser != null) {
+        return if (currentUser != null) {
             daysRepository.getLatestDay(currentUser!!.uid)
-        }
-        else
+        } else {
             daysRepository.getLatestDay("default")
+        }
+    }
+
+    fun deletedDayWhereId(id: Int) {
+        CoroutineScope(Dispatchers.IO).launch {
+            daysRepository.deletedDayWhereId(id)
+        }
     }
 
     fun deleteAllDays() {
@@ -94,4 +101,8 @@ class PlanViewModel(application: Application) : ViewModel() {
             throw IllegalAccessException("Unable construct viewModel")
         }
     }
+    interface OnCurrentUserChangedListener {
+        fun onCurrentUserChanged(user: FirebaseUser?)
+    }
+
 }
