@@ -26,7 +26,7 @@ data class Setting(
     val restTime: Int,
     var drinkMind: Boolean,
     var fitnessMind: Boolean,
-    val fitnessMindTime: String
+    var fitnessMindTime: String
 ): Parcelable{
     constructor(): this(0,"default",0,false,false,"")
 }

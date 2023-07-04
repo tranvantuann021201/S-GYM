@@ -30,7 +30,7 @@ interface DaysDao {
     @Query("UPDATE days_roomdb_table SET weight = :newWeight WHERE id = (SELECT MAX(id) FROM days_roomdb_table)")
     suspend fun updateWeight(newWeight: Double)
 
-    @Query("DELETE FROM days_roomdb_table WHERE id = :id")
+    @Query("DELETE FROM days_roomdb_table WHERE id > :id")
     suspend fun deletedDayWhereId(id: Int)
 
     @Query("UPDATE days_roomdb_table SET weight = :newWeight, height = :newHeight WHERE id = (SELECT MAX(id) FROM days_roomdb_table)")

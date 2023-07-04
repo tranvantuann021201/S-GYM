@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.s_gym.database.entity.Setting
 import com.example.s_gym.database.repository.SettingRepository
 import androidx.lifecycle.viewModelScope
+import com.example.s_gym.MainActivity
 import com.example.s_gym.until.NotifyRemindDrinkBR
 import com.example.s_gym.until.NotifyRemindFitnessBR
 import kotlinx.coroutines.launch
@@ -19,6 +20,8 @@ import java.util.*
 
 class RemindViewModel(application: Application): ViewModel() {
     private var settingRepository: SettingRepository = SettingRepository(application)
+    val currentUser = MainActivity.currentFirebaseUser
+    val reference = MainActivity.firebaseDatabase.reference
 
     fun getSetting(userId: String): LiveData<Setting> {
         return settingRepository.getSettingsByUserId(userId)
@@ -31,6 +34,7 @@ class RemindViewModel(application: Application): ViewModel() {
     fun updateSetting(setting: Setting) {
         viewModelScope.launch {
             settingRepository.update(setting)
+            reference.child("Setting").child(currentUser!!.uid).setValue(setting)
         }
     }
 
@@ -56,7 +60,7 @@ class RemindViewModel(application: Application): ViewModel() {
                 context,
                 hour,
                 intent,
-                PendingIntent.FLAG_MUTABLE
+                PendingIntent.FLAG_IMMUTABLE
             )
 
             val alarmManager =
@@ -81,7 +85,7 @@ class RemindViewModel(application: Application): ViewModel() {
                 context,
                 hour,
                 intent,
-                PendingIntent.FLAG_MUTABLE
+                PendingIntent.FLAG_IMMUTABLE
             )
             val alarmManager =
                 activity.getSystemService(Context.ALARM_SERVICE) as AlarmManager
@@ -93,8 +97,8 @@ class RemindViewModel(application: Application): ViewModel() {
         // Đặt lịch thông báo
         val calendar: Calendar = Calendar.getInstance().apply {
             timeInMillis = System.currentTimeMillis()
-            set(Calendar.HOUR_OF_DAY, 20)
-            set(Calendar.MINUTE, 52)
+            set(Calendar.HOUR_OF_DAY, 22)
+            set(Calendar.MINUTE, 16)
         }
 
         if (calendar.timeInMillis < System.currentTimeMillis()) {
@@ -108,7 +112,7 @@ class RemindViewModel(application: Application): ViewModel() {
             context,
             0,
             intent,
-            PendingIntent.FLAG_MUTABLE
+            PendingIntent.FLAG_IMMUTABLE
         )
 
         val alarmManager =
@@ -131,7 +135,7 @@ class RemindViewModel(application: Application): ViewModel() {
             context,
             0,
             intent,
-            PendingIntent.FLAG_MUTABLE
+            PendingIntent.FLAG_IMMUTABLE
         )
         val alarmManager =
             activity.getSystemService(Context.ALARM_SERVICE) as AlarmManager

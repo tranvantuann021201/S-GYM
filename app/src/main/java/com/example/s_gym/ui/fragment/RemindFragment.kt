@@ -1,10 +1,7 @@
 package com.example.s_gym.ui.fragment
 
-import android.app.AlarmManager
-import android.app.PendingIntent
-import android.content.Context
-import android.content.Intent
 import android.os.Bundle
+import android.text.format.DateFormat.is24HourFormat
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,10 +12,10 @@ import com.example.s_gym.MainActivity
 import com.example.s_gym.database.entity.Setting
 import com.example.s_gym.databinding.FragmentRemindBinding
 import com.example.s_gym.ui.viewmodel.RemindViewModel
-import com.example.s_gym.until.NotifyRemindFitnessBR
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import com.google.android.material.timepicker.MaterialTimePicker
+import com.google.android.material.timepicker.MaterialTimePicker.INPUT_MODE_KEYBOARD
+import com.google.android.material.timepicker.TimeFormat
+import java.text.SimpleDateFormat
 import java.util.*
 
 /**
@@ -54,6 +51,13 @@ class RemindFragment : Fragment() {
                 newSetting = it
                 binding.swExerRemind.isChecked = it.fitnessMind
                 binding.swDrinkWaterRemind.isChecked = it.drinkMind
+                binding.txtCurrentTime.text = it.fitnessMindTime + " hàng ngày"
+            }
+
+            binding.btnEdit.setOnClickListener {
+                newSetting?.let {
+                    updateFitnessMindTime(openTimePicker(),it)
+                }
             }
 
             binding.swExerRemind.setOnCheckedChangeListener { _, isChecked ->
@@ -85,6 +89,38 @@ class RemindFragment : Fragment() {
 
         binding.btnBack.setOnClickListener {
             findNavController().popBackStack()
+        }
+    }
+
+    private fun openTimePicker(): MaterialTimePicker {
+        val isSystem24h = is24HourFormat(requireContext())
+        val clockFormat = if(isSystem24h) TimeFormat.CLOCK_24H else TimeFormat.CLOCK_12H
+        return MaterialTimePicker.Builder()
+            .setTimeFormat(clockFormat)
+            .setHour(12)
+            .setMinute(0)
+            .setTitleText("Đặt lịch")
+            .setInputMode(INPUT_MODE_KEYBOARD)
+            .build()
+    }
+
+    private fun updateFitnessMindTime(picker: MaterialTimePicker ,setting: Setting) {
+        picker.show(childFragmentManager, "TAG")
+        var formattedTime = "16:30"
+        picker.addOnPositiveButtonClickListener {
+            // Lấy giờ và phút mà người dùng đã chọn
+            val hour = picker.hour
+            val minute = picker.minute
+
+            // Định dạng thời gian theo định dạng mong muốn
+            val calendar = Calendar.getInstance().apply {
+                set(Calendar.HOUR_OF_DAY, hour)
+                set(Calendar.MINUTE, minute)
+            }
+            val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
+            formattedTime = timeFormat.format(calendar.time)
+            viewModel.updateSetting(setting.copy(fitnessMindTime = formattedTime))
+            picker.dismiss()
         }
     }
 }
