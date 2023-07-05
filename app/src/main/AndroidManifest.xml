@@ -46,12 +46,14 @@
         <receiver android:name=".until.NotifyRemindFitnessBR"  android:exported="false">
             <intent-filter>
                 <action android:name="com.example.myapp.ACTION_ALARM" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 
         <receiver android:name=".until.NotifyRemindDrinkBR"  android:exported="false">
             <intent-filter>
                 <action android:name="com.example.myapp.ACTION_ALARM" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
 

@@ -14,24 +14,22 @@ import com.example.s_gym.R
 
 class NotifyRemindFitnessBR : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
-        if (ContextCompat.checkSelfPermission(context, Manifest.permission.VIBRATE)
-            == PackageManager.PERMISSION_GRANTED && intent.action == "android.intent.action.BOOT_COMPLETED"
+        if (ContextCompat.checkSelfPermission(context, Manifest.permission.VIBRATE) == PackageManager.PERMISSION_GRANTED
         ) {
             val intent = Intent(context, MainActivity::class.java)
             val pendingIntent =
                 PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_MUTABLE)
 
             val notificationBuilder = NotificationCompat.Builder(context, "FITNESS_CHANNEL_ID")
-                .setSmallIcon(R.drawable.baseline_icon_completed_exercises)
-                .setContentTitle("S-GYM")
-                .setContentText("Luyện tập hàng ngày, thân thể dẻo dai !!")
+                .setSmallIcon(R.drawable.baseline_timer_24)
+                .setContentTitle("Nhắc nhở luyện tập")
+                .setContentText("Đừng quên luyện tập hàng ngày bạn nhé!")
                 .setPriority(NotificationCompat.PRIORITY_DEFAULT)
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true)
 
-            with(NotificationManagerCompat.from(context)) {
-                notify(0, notificationBuilder.build())
-            }
+            val notificationManagerCompat = NotificationManagerCompat.from(context)
+            notificationManagerCompat.notify(0, notificationBuilder.build())
         }
     }
 }

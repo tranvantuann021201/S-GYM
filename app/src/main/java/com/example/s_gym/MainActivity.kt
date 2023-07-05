@@ -104,7 +104,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
             val notificationManager: NotificationManager =
-                getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+                getSystemService(NotificationManager::class.java)
             notificationManager.createNotificationChannel(fitnessChannel)
             notificationManager.createNotificationChannel(waterChannel)
         }

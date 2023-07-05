@@ -40,7 +40,7 @@ class RemindViewModel(application: Application): ViewModel() {
 
     fun bookRemindWaterNotify(context: Context, activity: Activity) {
         // Đặt lịch 8 thông báo khác nhau
-        val times = arrayOf(6, 8, 10, 12, 14, 16, 18, 20)
+        val times = arrayOf(7, 9, 11, 13, 15, 17, 19, 21)
         for (hour in times) {
             val calendar: Calendar = Calendar.getInstance().apply {
                 timeInMillis = System.currentTimeMillis()
@@ -78,7 +78,7 @@ class RemindViewModel(application: Application): ViewModel() {
 
     fun cancelRemindWaterNotify(context: Context, activity: Activity) {
         // Hủy bỏ tất cả 8 thông báo
-        val times = arrayOf(6, 8, 10, 12, 14, 16, 18, 20)
+        val times = arrayOf(7, 9, 11, 13, 15, 17, 19, 21)
         for (hour in times) {
             val intent = Intent(context, NotifyRemindDrinkBR::class.java)
             val pendingIntent = PendingIntent.getBroadcast(
@@ -93,12 +93,16 @@ class RemindViewModel(application: Application): ViewModel() {
         }
     }
 
-    fun bookRemindFitnessNotify(context: Context, activity: Activity) {
+    fun bookRemindFitnessNotify(context: Context, activity: Activity, notifyTime: String) {
+        val timeParts = notifyTime.split(":")
+        val hour = timeParts[0].toInt()
+        val minute = timeParts[1].toInt()
+
         // Đặt lịch thông báo
         val calendar: Calendar = Calendar.getInstance().apply {
             timeInMillis = System.currentTimeMillis()
-            set(Calendar.HOUR_OF_DAY, 22)
-            set(Calendar.MINUTE, 16)
+            set(Calendar.HOUR_OF_DAY, hour)
+            set(Calendar.MINUTE, minute)
         }
 
         if (calendar.timeInMillis < System.currentTimeMillis()) {

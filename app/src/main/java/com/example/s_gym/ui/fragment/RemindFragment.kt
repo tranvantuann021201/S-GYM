@@ -62,11 +62,14 @@ class RemindFragment : Fragment() {
 
             binding.swExerRemind.setOnCheckedChangeListener { _, isChecked ->
                 if (isChecked) {
-                    viewModel.bookRemindFitnessNotify(requireContext(), requireActivity())
+                    // Lấy thời điểm hiển thị thông báo từ TimePicker hoặc EditText
+                    viewModel.getSetting(currentUser!!.uid).observe(viewLifecycleOwner) {
+                        viewModel.cancelRemindFitnessNotify(requireContext(), requireActivity())
+                        viewModel.bookRemindFitnessNotify(requireContext(), requireActivity(), it.fitnessMindTime)
+                    }
                 } else {
                     viewModel.cancelRemindFitnessNotify(requireContext(), requireActivity())
                 }
-                // Cập nhật dữ liệu trong bảng setting
                 newSetting?.let {
                     it.fitnessMind = isChecked
                     viewModel.updateSetting(it)
@@ -119,7 +122,7 @@ class RemindFragment : Fragment() {
             }
             val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
             formattedTime = timeFormat.format(calendar.time)
-            viewModel.updateSetting(setting.copy(fitnessMindTime = formattedTime))
+            viewModel.updateSetting(setting.copy(fitnessMindTime = formattedTime, fitnessMind = true))
             picker.dismiss()
         }
     }

@@ -1,10 +1,13 @@
 package com.example.s_gym.until
 
+import android.app.NotificationManager
 import android.content.Context
 import android.util.Log
+import androidx.core.app.NotificationCompat
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.example.s_gym.MainActivity
+import com.example.s_gym.R
 import com.example.s_gym.database.entity.Days
 import com.example.s_gym.database.repository.DaysRepository
 import com.google.gson.Gson
